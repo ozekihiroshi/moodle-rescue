@@ -1,4 +1,5 @@
-FROM moodle-rescue-local-moodle
+ARG MOODLE_BASE_IMAGE=moodle-rescue-local-moodle
+FROM ${MOODLE_BASE_IMAGE}
 
 COPY release/tool_secure_s3_storage.zip /tmp/tool_secure_s3_storage.zip
 

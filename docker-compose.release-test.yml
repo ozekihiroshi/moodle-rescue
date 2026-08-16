@@ -1,8 +1,10 @@
-name: moodle-rescue-release-test
+name: ${RELEASE_COMPOSE_PROJECT_NAME:-moodle-rescue-release-test}
 
 x-release-build: &release-build
   context: .
   dockerfile: moodle/Dockerfile.release-test
+  args:
+    MOODLE_BASE_IMAGE: ${MOODLE_BASE_IMAGE:-moodle-rescue-local-moodle}
 
 x-release-environment: &release-environment
   MOODLE_DB_HOST: moodle-release-db
@@ -19,7 +21,7 @@ x-release-environment: &release-environment
   TOOL_SECURE_S3_STORAGE_S3_ENDPOINT: http://minio:9000
 
 x-release-service: &release-service
-  image: moodle-rescue-release-test-moodle
+  image: ${RELEASE_MOODLE_IMAGE:-moodle-rescue-release-test-moodle}
   environment: *release-environment
   volumes:
     - release_moodle_data:/var/moodledata
@@ -33,7 +35,7 @@ services:
   moodle-release-install:
     <<: *release-service
     build: *release-build
-    container_name: moodle-rescue-release-install
+    container_name: ${RELEASE_CONTAINER_PREFIX:-moodle-rescue-release}-install
     restart: "no"
     command: ["moodle-release-test-install"]
     environment:
@@ -46,10 +48,10 @@ services:
   moodle-release:
     <<: *release-service
     build: *release-build
-    container_name: moodle-rescue-release
+    container_name: ${RELEASE_CONTAINER_PREFIX:-moodle-rescue-release}
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8084:80"
+      - "127.0.0.1:${RELEASE_MOODLE_PORT:-8084}:80"
     depends_on:
       moodle-release-install:
         condition: service_completed_successfully
@@ -57,7 +59,7 @@ services:
   moodle-release-cron:
     <<: *release-service
     build: *release-build
-    container_name: moodle-rescue-release-cron
+    container_name: ${RELEASE_CONTAINER_PREFIX:-moodle-rescue-release}-cron
     restart: unless-stopped
     command: ["moodle-cron-loop"]
     environment:
@@ -69,7 +71,7 @@ services:
 
   moodle-release-db:
     image: mariadb:11.8
-    container_name: moodle-rescue-release-db
+    container_name: ${RELEASE_CONTAINER_PREFIX:-moodle-rescue-release}-db
     restart: unless-stopped
     environment:
       MARIADB_DATABASE: ${RELEASE_TEST_DB_NAME:-moodle_release_test}
@@ -117,7 +119,7 @@ services:
   release-restore:
     <<: *release-service
     profiles: ["tools"]
-    container_name: moodle-rescue-release-restore
+    container_name: ${RELEASE_CONTAINER_PREFIX:-moodle-rescue-release}-restore
     restart: "no"
     command: ["moodle-release-test-restore"]
     environment:
@@ -139,4 +141,4 @@ networks:
   release_access:
   source_minio:
     external: true
-    name: moodle-rescue-local_internal
+    name: ${SOURCE_MINIO_NETWORK:-moodle-rescue-local_internal}

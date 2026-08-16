@@ -34,6 +34,27 @@ command. It does not target the local development volumes:
 docker compose -f docker-compose.release-test.yml down --volumes
 ```
 
+## Automated CI
+
+Workflows in both repositories call the complete gate for pushes to `main`,
+pull requests, and manual dispatches. Each workflow checks out the other
+repository alongside the exact commit under test and runs:
+
+```sh
+PLUGIN_REPOSITORY=/path/to/plugin scripts/run-release-gate-ci.sh
+```
+
+The script creates random credentials in a mode-0600 temporary environment
+file, uses unique source and release Compose projects, and always removes their
+containers and volumes. It does not read the developer `.env`, reuse the local
+8083/8084 environments, or require repository secrets.
+
+The automated path creates a course and real Moodle backup, verifies the
+Moodle-to-MinIO transfer, builds a clean-HEAD ZIP, installs it into an empty
+Moodle database, fetches and restores the object, repeats the restore to prove
+idempotency, checks the disabled and re-enabled transfer states, runs the
+Moodle upgrade no-op, rejects bind mounts, and verifies the final HTTP response.
+
 ## Result on 2026-08-16
 
 - Plugin source commit:

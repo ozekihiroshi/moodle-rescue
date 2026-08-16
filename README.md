@@ -77,3 +77,8 @@ The release environment reuses only the running local MinIO service and its
 least-privilege identity through the existing internal Docker network. Build
 and test commands plus the latest result are documented in
 [`docs/release-gate.md`](docs/release-gate.md).
+
+`scripts/run-release-gate-ci.sh` automates the complete source-backup-transfer
+and empty-environment restore path. It creates random ephemeral credentials and
+unique Compose projects, then removes only its CI-specific containers and
+volumes. Existing 8083 and 8084 development environments are not reused.
