@@ -12,17 +12,24 @@ same dedicated least-privilege S3 identity.
 
 ## Run
 
-Populate the `RELEASE_TEST_*` values in the ignored `.env`, including the
-object key of a verified Moodle-generated backup, then run:
+Keep the local MinIO settings in the ignored `.env`. Copy the release-specific
+template, populate every `CHANGE_ME` value including the object key of a
+verified Moodle-generated backup, then load both files in order:
 
 ```sh
+cp .env.release-test.example .env.release-test
 scripts/build-plugin-zip.sh
-docker compose -f docker-compose.release-test.yml config
-docker compose -f docker-compose.release-test.yml build moodle-release
-docker compose -f docker-compose.release-test.yml up -d --no-build
-docker compose -f docker-compose.release-test.yml --profile tools \
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml config
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml build moodle-release
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml up -d --no-build
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml --profile tools \
   run --rm --no-deps release-fetch
-docker compose -f docker-compose.release-test.yml --profile tools \
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml --profile tools \
   run --rm --no-deps release-restore
 ```
 
@@ -31,7 +38,8 @@ test from empty release-only volumes, first run the following destructive
 command. It does not target the local development volumes:
 
 ```sh
-docker compose -f docker-compose.release-test.yml down --volumes
+docker compose --env-file .env --env-file .env.release-test \
+  -f docker-compose.release-test.yml down --volumes
 ```
 
 ## Automated CI

@@ -14,6 +14,22 @@ Moodle.
   bind.
 - Every environment has its own Compose project, container names, and volumes.
 
+## Environment templates
+
+Choose the template for the environment being started. The generated files
+contain secrets and remain ignored by Git.
+
+| Purpose | Template | Runtime file |
+| --- | --- | --- |
+| Local Moodle and MinIO development | `.env.example` | `.env` |
+| ZIP installation and restore gate | `.env.release-test.example` | `.env.release-test` |
+| EC2, Traefik, and AWS S3 | `.env.production.example` | `.env` |
+
+The release-test file contains only release-specific overrides and is loaded
+after the local `.env`. The production template deliberately contains no
+MinIO or static AWS credential variables. The AWS SDK uses the EC2 instance
+role credential provider instead.
+
 ## Local prerequisites
 
 Copy `.env.example` to `.env` and replace every `CHANGE_ME` value. Keep `.env`
@@ -80,6 +96,22 @@ The release environment reuses only the running local MinIO service and its
 least-privilege identity through the existing internal Docker network. Build
 and test commands plus the latest result are documented in
 [`docs/release-gate.md`](docs/release-gate.md).
+
+## EC2 production-shaped environment
+
+Copy the production template, replace every `CHANGE_ME` value, and set
+`MOODLE_HOST` to the public hostname and `TRAEFIK_NETWORK` to the existing
+external Traefik Docker network:
+
+```sh
+cp .env.production.example .env
+chmod 600 .env
+docker compose config --quiet
+```
+
+Do not add AWS access keys to this file or to Moodle settings. Attach the
+least-privilege S3 policy to the EC2 instance role. The production Compose
+configuration derives Moodle's canonical HTTPS URL from `MOODLE_HOST`.
 
 `scripts/run-release-gate-ci.sh` automates the complete source-backup-transfer
 and empty-environment restore path. It creates random ephemeral credentials and
