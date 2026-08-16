@@ -100,15 +100,57 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 
 set_plugin_config() {
-    source_compose exec -T --user www-data moodle \
-        php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    source_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
         --name="$1" --set="$2" >/dev/null
+}
+
+source_moodle_php() {
+    source_compose exec -T moodle \
+        runuser -u www-data -- php "$@"
+}
+
+release_moodle_php() {
+    release_compose exec -T moodle-release \
+        runuser -u www-data -- php "$@"
+}
+
+wait_for_source_moodle() {
+    attempt=0
+    until source_compose exec -T moodle \
+        runuser -u www-data -- php -r \
+        'exit(is_readable("/var/www/html/config.php") ? 0 : 1);' \
+        >/dev/null 2>&1; do
+        attempt=$((attempt + 1))
+        if [ "$attempt" -ge 30 ]; then
+            echo "Source Moodle entrypoint did not become ready." >&2
+            exit 1
+        fi
+        sleep 2
+    done
+}
+
+wait_for_release_moodle() {
+    attempt=0
+    until release_compose exec -T moodle-release \
+        runuser -u www-data -- php -r \
+        'exit(is_readable("/var/www/html/config.php") ? 0 : 1);' \
+        >/dev/null 2>&1; do
+        attempt=$((attempt + 1))
+        if [ "$attempt" -ge 30 ]; then
+            echo "Release Moodle entrypoint did not become ready." >&2
+            exit 1
+        fi
+        sleep 2
+    done
 }
 
 echo "Building and installing the source-bound integration environment."
 source_compose config --quiet
 source_compose up -d --build
-source_compose exec -T --user www-data moodle php admin/cli/install_database.php \
+echo "Waiting for the source Moodle entrypoint."
+wait_for_source_moodle
+echo "Installing the source Moodle database."
+source_moodle_php admin/cli/install_database.php \
     --lang=en \
     --adminuser=admin \
     --adminpass="$adminpassword" \
@@ -118,11 +160,12 @@ source_compose exec -T --user www-data moodle php admin/cli/install_database.php
     --agree-license
 
 coursejson="$(
-    source_compose exec -T --user www-data \
+    source_compose exec -T \
         -e S3_TEST_COURSE_SHORTNAME=S3INT-CI \
         -e 'S3_TEST_COURSE_FULLNAME=Secure S3 Integration Test (CI)' \
         -e S3_TEST_CONTENT_MARKER=secure-s3-integration-marker-v1 \
-        moodle php /dev/stdin < scripts/create-integration-course.php
+        moodle runuser -u www-data -- php \
+        < scripts/create-integration-course.php
 )"
 courseid="$(
     printf '%s\n' "$coursejson" |
@@ -137,7 +180,7 @@ case "$courseid" in
     ''|*[!0-9]*) echo "Unable to determine the fixture course ID." >&2; exit 1 ;;
 esac
 
-source_compose exec -T --user www-data moodle php admin/cli/backup.php \
+source_moodle_php admin/cli/backup.php \
     --courseid="$courseid" --destination=/var/moodlebackups
 
 set_plugin_config region ap-northeast-1
@@ -147,10 +190,10 @@ set_plugin_config sourcedirectory /var/moodlebackups
 set_plugin_config stabilityseconds 1
 set_plugin_config transferenabled 1
 
-source_compose exec -T --user www-data moodle php admin/cli/scheduled_task.php \
+source_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_course_backups'
 sleep 2
-source_compose exec -T --user www-data moodle php admin/cli/scheduled_task.php \
+source_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_course_backups'
 
 backuphash="$(
@@ -170,10 +213,11 @@ PLUGIN_REPOSITORY="$pluginrepo" scripts/build-plugin-zip.sh
 release_compose config --quiet
 release_compose build --no-cache moodle-release
 release_compose up -d --no-build
+echo "Waiting for the release Moodle entrypoint."
+wait_for_release_moodle
 
 echo "Verifying initial disabled state, MinIO retrieval, and restoration."
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/scheduled_task.php \
+release_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_course_backups'
 release_compose --profile tools run --rm --no-deps release-fetch
 
@@ -199,30 +243,22 @@ if [ -n "$toparchive" ]; then
     exit 1
 fi
 
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=region --set=ap-northeast-1 >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=bucket --set=moodle-backups >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=prefix --set=moodle/ >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=sourcedirectory --set=/var/moodlebackups >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=stabilityseconds --set=1 >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/cfg.php --component=tool_secure_s3_storage \
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=transferenabled --set=1 >/dev/null
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/scheduled_task.php \
+release_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_course_backups'
 
-release_compose exec -T --user www-data moodle-release \
-    php admin/cli/upgrade.php --non-interactive
+release_moodle_php admin/cli/upgrade.php --non-interactive
 
 sourceversionhash="$(sha256sum "$pluginrepo/version.php" | awk '{ print $1 }')"
 installedversionhash="$(
