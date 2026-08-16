@@ -209,7 +209,7 @@ objectkey="moodle/v1/$(printf '%.2s' "$backuphash")/$backuphash.mbz"
 sed -i "s|^RELEASE_TEST_OBJECT_KEY=.*|RELEASE_TEST_OBJECT_KEY=$objectkey|" "$envfile"
 
 echo "Building the clean plugin ZIP and isolated release image."
-PLUGIN_REPOSITORY="$pluginrepo" scripts/build-plugin-zip.sh
+PLUGIN_REPOSITORY="$pluginrepo" sh scripts/build-plugin-zip.sh
 release_compose config --quiet
 release_compose build --no-cache moodle-release
 release_compose up -d --no-build
