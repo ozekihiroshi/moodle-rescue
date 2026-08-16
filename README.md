@@ -45,3 +45,21 @@ only at container runtime; they are not Moodle plugin settings.
 The integration path verifies streamed upload, remote read-back, SHA-256 and
 size equality, transfer history, and duplicate suppression. A successful
 transfer deliberately leaves the source `.mbz` in `/var/moodlebackups`.
+
+## Reproducible course fixture
+
+The CLI fixture creates a minimal course and Page activity through Moodle APIs.
+Run it from the repository root while the local environment is running:
+
+```sh
+docker compose -f docker-compose.local.yml exec -T \
+  -e S3_TEST_COURSE_SHORTNAME=S3INT-CLI \
+  -e 'S3_TEST_COURSE_FULLNAME=Secure S3 Integration Test (CLI)' \
+  -e S3_TEST_CONTENT_MARKER=secure-s3-integration-marker-v1 \
+  moodle php /dev/stdin < scripts/create-integration-course.php
+```
+
+The corresponding verification script locates a restored course containing
+the marker while excluding the source course. The complete tested workflow and
+latest local result are documented in
+[`docs/integration-test.md`](docs/integration-test.md).
