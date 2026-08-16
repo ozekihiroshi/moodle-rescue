@@ -25,7 +25,7 @@ RUN set -eux; \
         libsodium-dev \
         libxml2-dev \
         libzip-dev \
-        unip; \
+        unzip; \
     docker-php-ext-configure gd --with-freetype --with-jpeg; \
     docker-php-ext-install -j"$(nproc)" \
         curl \

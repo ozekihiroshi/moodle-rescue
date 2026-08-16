@@ -1,0 +1,21 @@
+FROM moodle-rescue-local-moodle
+
+COPY release/tool_secure_s3_storage.zip /tmp/tool_secure_s3_storage.zip
+
+RUN set -eux; \
+    test ! -e /var/www/html/public/admin/tool/secure_s3_storage; \
+    unzip -q /tmp/tool_secure_s3_storage.zip -d /var/www/html/public/admin/tool; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/version.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/settings.php; \
+    rm /tmp/tool_secure_s3_storage.zip; \
+    chown -R root:www-data /var/www/html/public/admin/tool/secure_s3_storage; \
+    find /var/www/html/public/admin/tool/secure_s3_storage -type d -exec chmod 0755 {} +; \
+    find /var/www/html/public/admin/tool/secure_s3_storage -type f -exec chmod 0644 {} +
+
+COPY moodle/release-test-install.sh /usr/local/bin/moodle-release-test-install
+COPY moodle/release-test-restore.sh /usr/local/bin/moodle-release-test-restore
+COPY scripts/verify-integration-course.php /usr/local/share/moodle-rescue/verify-integration-course.php
+
+RUN chmod 0755 \
+    /usr/local/bin/moodle-release-test-install \
+    /usr/local/bin/moodle-release-test-restore

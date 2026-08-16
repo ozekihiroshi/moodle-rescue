@@ -1,0 +1,9 @@
+**
+!release/
+!release/tool_secure_s3_storage.zip
+!moodle/
+!moodle/Dockerfile.release-test
+!moodle/release-test-install.sh
+!moodle/release-test-restore.sh
+!scripts/
+!scripts/verify-integration-course.php

@@ -9,8 +9,9 @@ Moodle.
   MinIO, and read-only bind mounts the plugin source.
 - `docker-compose.yml` is the production-shaped Traefik configuration. It
   never bind mounts plugin source and never contains static AWS credentials.
-- A release-ZIP-only environment will be added separately. It must not inherit
-  the local source bind.
+- `docker-compose.release-test.yml` installs only a generated plugin ZIP. It
+  has independent containers and volumes and never inherits the local source
+  bind.
 - Every environment has its own Compose project, container names, and volumes.
 
 ## Local prerequisites
@@ -63,3 +64,16 @@ The corresponding verification script locates a restored course containing
 the marker while excluding the source course. The complete tested workflow and
 latest local result are documented in
 [`docs/integration-test.md`](docs/integration-test.md).
+
+## ZIP release gate
+
+`docker-compose.release-test.yml` builds a plugin ZIP from the clean plugin
+repository `HEAD`, installs it into an image, and initializes an independent
+Moodle environment on <http://localhost:8084>. It never bind mounts the plugin
+source. The Docker build context is allowlisted so ignored secrets such as
+`.env` are not sent to the builder.
+
+The release environment reuses only the running local MinIO service and its
+least-privilege identity through the existing internal Docker network. Build
+and test commands plus the latest result are documented in
+[`docs/release-gate.md`](docs/release-gate.md).
