@@ -70,8 +70,11 @@ latest local result are documented in
 `docker-compose.release-test.yml` builds a plugin ZIP from the clean plugin
 repository `HEAD`, installs it into an image, and initializes an independent
 Moodle environment on <http://localhost:8084>. It never bind mounts the plugin
-source. The Docker build context is allowlisted so ignored secrets such as
-`.env` are not sent to the builder.
+source. The plugin-owned release builder installs the dependencies pinned by its
+`composer.lock` and includes them in the ZIP. The release image requires the
+bundled `vendor/autoload.php` and does not receive the source environment's
+external AWS SDK override. The Docker build context is allowlisted so ignored
+secrets such as `.env` are not sent to the builder.
 
 The release environment reuses only the running local MinIO service and its
 least-privilege identity through the existing internal Docker network. Build

@@ -58,20 +58,21 @@ Moodle upgrade no-op, rejects bind mounts, and verifies the final HTTP response.
 ## Result on 2026-08-16
 
 - Plugin source commit:
-  `8f7cc6a2ca6e10e7c9b696c4ad2a70217c57f836`
+  `f62a4547f5de1579d32554a427a2494408a28776`
 - Release ZIP SHA-256:
-  `691f5f6287311a21624500fef43d798d835d2e869e52d8b4d73be89202892691`
-- Installed plugin version: `2026081601`
+  `ca6f7b93843dc4113119dcbbce79dd6c9df0ef249b22a2fa18c1679e4708b040`
+- Installed plugin version: `2026081602`
 - Installed `version.php`: identical to the committed source
+- Bundled AWS SDK: loaded from the release ZIP without the image SDK override
 - Moodle installation: fresh database and named volumes
 - Web container bind mounts: none
 - Moodle URL: `http://localhost:8084`
 - Initial plugin state: disabled
 - Re-enabled scan: completed with no eligible top-level archives
 - MinIO object SHA-256:
-  `0d32f1b45e35cb67d362b65f7cd29b12c6ee08fc915e1d9e3cc79d5b525f8549`
+  `71d373e97f501e2ddc228dac3831fda817ce6244640622b61680fc40ddb652ce`
 - Restored course ID: `2`
-- Restored course shortname: `S3INT-CLI`
+- Restored course shortname: `S3INT-CI`
 - Restored Page: `Secure S3 verification page`
 - Verification marker: present
 - Repeated restore: detected the existing verified course and made no duplicate

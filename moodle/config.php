@@ -47,8 +47,12 @@ $CFG->sslproxy = $enabled('MOODLE_SSL_PROXY');
 $CFG->cookiehttponly = true;
 $CFG->preventexecpath = true;
 
-// The SDK is built into the image; credentials remain runtime-only.
-$CFG->tool_secure_s3_storage_awssdkautoload = '/opt/moodle-aws-sdk/vendor/autoload.php';
+// Source-bound development may use an image-provided SDK. Release ZIP tests
+// leave this unset and must load the SDK bundled with the plugin.
+$awssdkautoload = getenv('TOOL_SECURE_S3_STORAGE_AWS_SDK_AUTOLOAD');
+if ($awssdkautoload !== false && $awssdkautoload !== '') {
+    $CFG->tool_secure_s3_storage_awssdkautoload = $awssdkautoload;
+}
 
 // Development-only S3 endpoint override. The plugin must not expose this as a
 // Moodle setting. Production leaves this environment variable unset.

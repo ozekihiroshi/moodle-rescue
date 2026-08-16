@@ -8,6 +8,8 @@ RUN set -eux; \
     unzip -q /tmp/tool_secure_s3_storage.zip -d /var/www/html/public/admin/tool; \
     test -f /var/www/html/public/admin/tool/secure_s3_storage/version.php; \
     test -f /var/www/html/public/admin/tool/secure_s3_storage/settings.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/vendor/autoload.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/thirdpartylibs.xml; \
     rm /tmp/tool_secure_s3_storage.zip; \
     chown -R root:www-data /var/www/html/public/admin/tool/secure_s3_storage; \
     find /var/www/html/public/admin/tool/secure_s3_storage -type d -exec chmod 0755 {} +; \
