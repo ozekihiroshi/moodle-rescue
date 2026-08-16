@@ -1,0 +1,47 @@
+# Moodle Rescue
+
+Docker environments for developing and validating Secure S3 Storage for
+Moodle.
+
+## Separation rules
+
+- `docker-compose.local.yml` exposes Moodle on `127.0.0.1:8083`, includes
+  MinIO, and read-only bind mounts the plugin source.
+- `docker-compose.yml` is the production-shaped Traefik configuration. It
+  never bind mounts plugin source and never contains static AWS credentials.
+- A release-ZIP-only environment will be added separately. It must not inherit
+  the local source bind.
+- Every environment has its own Compose project, container names, and volumes.
+
+## Local prerequisites
+
+Copy `.env.example` to `.env` and replace every `CHANGE_ME` value. Keep `.env`
+out of version control. The MinIO credentials are local test credentials only;
+do not reuse real AWS credentials.
+
+```sh
+cp .env.example .env
+docker compose -f docker-compose.local.yml config
+docker compose -f docker-compose.local.yml up -d --build
+```
+
+Open Moodle at <http://localhost:8083> and MinIO at
+<http://localhost:9003>. Moodle uses its standard installation flow against
+the preconfigured MariaDB connection.
+
+Moodle 5.2 stores web-exposed plugin code below `public/`. The local source is
+therefore mounted at:
+
+```text
+/var/www/html/public/admin/tool/secure_s3_storage
+```
+
+The local environment builds the AWS SDK into the Moodle image, provisions a
+dedicated MinIO bucket and least-privilege writer identity, shares
+`/var/moodlebackups` between the web and Cron containers, and connects the
+plugin scheduled task to MinIO. Credentials and the MinIO endpoint are supplied
+only at container runtime; they are not Moodle plugin settings.
+
+The integration path verifies streamed upload, remote read-back, SHA-256 and
+size equality, transfer history, and duplicate suppression. A successful
+transfer deliberately leaves the source `.mbz` in `/var/moodlebackups`.

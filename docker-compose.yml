@@ -1,0 +1,98 @@
+name: moodle-rescue
+
+services:
+  moodle:
+    build:
+      context: ./moodle
+      args:
+        MOODLE_VERSION: 5.2.2
+        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    container_name: moodle-rescue
+    restart: unless-stopped
+    environment: &moodle-environment
+      MOODLE_DB_HOST: moodle-db
+      MOODLE_DB_NAME: ${MOODLE_DB_NAME}
+      MOODLE_DB_USER: ${MOODLE_DB_USER}
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      MOODLE_WWWROOT: https://${MOODLE_HOST}
+      MOODLE_REVERSE_PROXY: "true"
+      MOODLE_SSL_PROXY: "true"
+      AWS_REGION: ap-northeast-1
+      AWS_EC2_METADATA_DISABLED: "false"
+    volumes:
+      - moodle_data:/var/moodledata
+      - moodle_backups:/var/moodlebackups
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=${TRAEFIK_NETWORK}"
+      - "traefik.http.routers.moodle-rescue.rule=Host(`${MOODLE_HOST}`)"
+      - "traefik.http.routers.moodle-rescue.entrypoints=websecure"
+      - "traefik.http.routers.moodle-rescue.tls.certresolver=myresolver"
+      - "traefik.http.services.moodle-rescue.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.moodle-rescue-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.moodle-rescue-http.rule=Host(`${MOODLE_HOST}`)"
+      - "traefik.http.routers.moodle-rescue-http.entrypoints=web"
+      - "traefik.http.routers.moodle-rescue-http.middlewares=moodle-rescue-https-redirect"
+    networks:
+      - internal
+      - proxy
+
+  moodle-cron:
+    build:
+      context: ./moodle
+      args:
+        MOODLE_VERSION: 5.2.2
+        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    container_name: moodle-rescue-cron
+    restart: unless-stopped
+    command: ["moodle-cron-loop"]
+    environment:
+      <<: *moodle-environment
+      MOODLE_CRON_INTERVAL_SECONDS: "60"
+    volumes:
+      - moodle_data:/var/moodledata
+      - moodle_backups:/var/moodlebackups
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+    networks:
+      - internal
+
+  moodle-db:
+    image: mariadb:11.8
+    container_name: moodle-rescue-db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${MOODLE_DB_NAME}
+      MARIADB_USER: ${MOODLE_DB_USER}
+      MARIADB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MOODLE_DB_ROOT_PASSWORD}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - moodle_db:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - healthcheck.sh --connect --innodb_initialized
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - internal
+
+volumes:
+  moodle_data:
+  moodle_db:
+  moodle_backups:
+
+networks:
+  internal:
+    internal: true
+  proxy:
+    external: true
+    name: ${TRAEFIK_NETWORK}

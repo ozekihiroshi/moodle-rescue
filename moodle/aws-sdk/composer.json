@@ -1,0 +1,15 @@
+{
+    "name": "moodle-rescue/aws-sdk-runtime",
+    "description": "Pinned AWS SDK runtime for Secure S3 Storage",
+    "license": "GPL-3.0-or-later",
+    "type": "project",
+    "config": {
+        "platform": {
+            "php": "8.3.33"
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "aws/aws-sdk-php": "^3.0"
+    }
+}
