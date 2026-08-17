@@ -1,12 +1,16 @@
 name: ${LOCAL_COMPOSE_PROJECT_NAME:-moodle-rescue-local}
 
+x-moodle-build: &moodle-build
+  context: .
+  dockerfile: moodle/Dockerfile
+  target: moodle-runtime
+  args:
+    MOODLE_VERSION: 5.2.2
+    MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+
 services:
   moodle:
-    build:
-      context: ./moodle
-      args:
-        MOODLE_VERSION: 5.2.2
-        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    build: *moodle-build
     container_name: ${LOCAL_CONTAINER_PREFIX:-moodle-rescue}-local
     restart: unless-stopped
     environment: &moodle-environment
@@ -39,11 +43,7 @@ services:
       - local_access
 
   moodle-cron:
-    build:
-      context: ./moodle
-      args:
-        MOODLE_VERSION: 5.2.2
-        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    build: *moodle-build
     container_name: ${LOCAL_CONTAINER_PREFIX:-moodle-rescue}-cron-local
     restart: unless-stopped
     command: ["moodle-cron-loop"]

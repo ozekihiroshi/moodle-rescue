@@ -101,17 +101,37 @@ and test commands plus the latest result are documented in
 
 Copy the production template, replace every `CHANGE_ME` value, and set
 `MOODLE_HOST` to the public hostname and `TRAEFIK_NETWORK` to the existing
-external Traefik Docker network:
+external Traefik Docker network. Keep the plugin repository beside this
+repository so the release builder can package a clean plugin `HEAD`:
 
 ```sh
 cp .env.production.example .env
 chmod 600 .env
+PLUGIN_REPOSITORY=../secure-s3-storage-for-moodle \
+  sh scripts/build-plugin-zip.sh
+sha256sum release/tool_secure_s3_storage.zip
 docker compose config --quiet
+docker compose build --pull moodle
+docker compose up -d --no-build
 ```
 
 Do not add AWS access keys to this file or to Moodle settings. Attach the
 least-privilege S3 policy to the EC2 instance role. The production Compose
 configuration derives Moodle's canonical HTTPS URL from `MOODLE_HOST`.
+
+The production image validates and installs the generated plugin ZIP during
+the Docker build. The web and Cron services use that same immutable image, so
+the plugin survives container replacement and is available to scheduled
+tasks. Do not make Moodle's plugin directory writable or use the web installer
+for this deployment. After updating an already-installed Moodle database, run:
+
+```sh
+docker compose exec -T moodle \
+  runuser -u www-data -- php admin/cli/upgrade.php --non-interactive
+```
+
+For a fresh database, complete Moodle's normal installation first; plugin
+installation is included in that flow.
 
 `scripts/run-release-gate-ci.sh` automates the complete source-backup-transfer
 and empty-environment restore path. It creates random ephemeral credentials and

@@ -1,10 +1,10 @@
 FROM composer:2.8.12 AS aws-sdk-builder
 
 WORKDIR /app
-COPY aws-sdk/composer.json aws-sdk/composer.lock ./
+COPY moodle/aws-sdk/composer.json moodle/aws-sdk/composer.lock ./
 RUN composer install --no-dev --classmap-authoritative --no-interaction --no-progress --no-scripts
 
-FROM php:8.3-apache-bookworm
+FROM php:8.3-apache-bookworm AS moodle-runtime
 
 ARG MOODLE_VERSION=5.2.2
 ARG MOODLE_SHA256=72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
@@ -56,10 +56,10 @@ RUN set -eux; \
     find /var/www/html -type f -exec chmod 0644 {} +; \
     rm -rf /var/lib/apt/lists/*
 
-COPY php.ini /usr/local/etc/php/conf.d/zz-moodle.ini
-COPY config.php /usr/local/share/moodle/config.php
-COPY entrypoint.sh /usr/local/bin/moodle-entrypoint
-COPY cron-loop.sh /usr/local/bin/moodle-cron-loop
+COPY moodle/php.ini /usr/local/etc/php/conf.d/zz-moodle.ini
+COPY moodle/config.php /usr/local/share/moodle/config.php
+COPY moodle/entrypoint.sh /usr/local/bin/moodle-entrypoint
+COPY moodle/cron-loop.sh /usr/local/bin/moodle-cron-loop
 
 RUN chmod 0755 \
     /usr/local/bin/moodle-entrypoint \
@@ -69,3 +69,19 @@ WORKDIR /var/www/html
 
 ENTRYPOINT ["moodle-entrypoint"]
 CMD ["apache2-foreground"]
+
+FROM moodle-runtime AS moodle-production
+
+COPY release/tool_secure_s3_storage.zip /tmp/tool_secure_s3_storage.zip
+
+RUN set -eux; \
+    test ! -e /var/www/html/public/admin/tool/secure_s3_storage; \
+    unzip -q /tmp/tool_secure_s3_storage.zip -d /var/www/html/public/admin/tool; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/version.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/settings.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/vendor/autoload.php; \
+    test -f /var/www/html/public/admin/tool/secure_s3_storage/thirdpartylibs.xml; \
+    rm /tmp/tool_secure_s3_storage.zip; \
+    chown -R root:www-data /var/www/html/public/admin/tool/secure_s3_storage; \
+    find /var/www/html/public/admin/tool/secure_s3_storage -type d -exec chmod 0755 {} +; \
+    find /var/www/html/public/admin/tool/secure_s3_storage -type f -exec chmod 0644 {} +

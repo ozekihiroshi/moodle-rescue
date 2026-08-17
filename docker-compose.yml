@@ -1,12 +1,17 @@
 name: moodle-rescue
 
+x-moodle-build: &moodle-build
+  context: .
+  dockerfile: moodle/Dockerfile
+  target: moodle-production
+  args:
+    MOODLE_VERSION: 5.2.2
+    MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+
 services:
   moodle:
-    build:
-      context: ./moodle
-      args:
-        MOODLE_VERSION: 5.2.2
-        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    image: ${MOODLE_IMAGE:-moodle-rescue-moodle}
+    build: *moodle-build
     container_name: moodle-rescue
     restart: unless-stopped
     environment: &moodle-environment
@@ -41,11 +46,8 @@ services:
       - proxy
 
   moodle-cron:
-    build:
-      context: ./moodle
-      args:
-        MOODLE_VERSION: 5.2.2
-        MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+    image: ${MOODLE_IMAGE:-moodle-rescue-moodle}
+    build: *moodle-build
     container_name: moodle-rescue-cron
     restart: unless-stopped
     command: ["moodle-cron-loop"]
