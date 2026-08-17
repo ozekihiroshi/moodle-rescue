@@ -99,31 +99,35 @@ and test commands plus the latest result are documented in
 
 ## EC2 production-shaped environment
 
-The EC2 host requires Docker, Git, `tar`, `zip`, `unzip`, and `sha256sum` to
-build and validate the self-contained plugin archive. On Ubuntu, install the
-archive tools with `sudo apt-get install zip unzip`.
+The EC2 host requires Docker, `curl`, `unzip`, and `sha256sum` to fetch and
+validate the self-contained plugin archive. On Ubuntu, `sha256sum` is supplied
+by `coreutils`; install any missing fetch tools with
+`sudo apt-get install curl unzip`.
 
 Copy the production template, replace every `CHANGE_ME` value, and set
 `MOODLE_HOST` to the public hostname and `TRAEFIK_NETWORK` to the existing
-external Traefik Docker network. Keep the plugin repository beside this
-repository so the release builder can package a clean plugin `HEAD`:
+external Traefik Docker network. Fetch the version and SHA-256 pinned in the
+tracked production script before building the immutable image:
 
 ```sh
 cp .env.production.example .env
 chmod 600 .env
-PLUGIN_REPOSITORY=../secure-s3-storage-for-moodle \
-  sh scripts/build-plugin-zip.sh
+sh scripts/fetch-plugin-release.sh
 sha256sum release/tool_secure_s3_storage.zip
 docker compose config --quiet
 docker compose build --pull moodle
 docker compose up -d --no-build
 ```
 
+`scripts/build-plugin-zip.sh` remains available for local development and CI
+against a clean plugin source checkout. Production deployment uses the
+published, checksum-pinned release artifact instead.
+
 Do not add AWS access keys to this file or to Moodle settings. Attach the
 least-privilege S3 policy to the EC2 instance role. The production Compose
 configuration derives Moodle's canonical HTTPS URL from `MOODLE_HOST`.
 
-The production image validates and installs the generated plugin ZIP during
+The production image validates and installs the verified plugin ZIP during
 the Docker build. The web and Cron services use that same immutable image, so
 the plugin survives container replacement and is available to scheduled
 tasks. Cron uses a dedicated outbound network for EC2 instance metadata and S3
