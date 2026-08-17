@@ -139,6 +139,10 @@ docker compose exec -T moodle \
 For a fresh database, complete Moodle's normal installation first; plugin
 installation is included in that flow.
 
+The validated EC2 instance-role policy, Docker network boundary, Amazon S3
+round-trip result, and evidence-retention policy are recorded in
+[`docs/aws-ec2-validation.md`](docs/aws-ec2-validation.md).
+
 `scripts/run-release-gate-ci.sh` automates the complete source-backup-transfer
 and empty-environment restore path. It creates random ephemeral credentials and
 unique Compose projects, then removes only its CI-specific containers and

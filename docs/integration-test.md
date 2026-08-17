@@ -45,12 +45,12 @@ The downloaded copy was removed from `/var/moodlebackups` after restoration.
 Recovery downloads should use a directory outside the monitored source so they
 are not observed as new transfer candidates.
 
-## Remaining release gates
+## Follow-up release gates
 
 This result proves the local Moodle-to-MinIO round trip and restoration into a
-new course in the existing local Moodle instance. It does not yet prove:
+new course. The isolated empty-Moodle ZIP gate is automated in GitHub Actions,
+and the EC2 instance-role Amazon S3 round trip is recorded in
+[`aws-ec2-validation.md`](aws-ec2-validation.md).
 
-- restoration into a completely empty Moodle environment;
-- operation against real Amazon S3 with workload credentials;
-- all automated source-boundary, partial-I/O, concurrency, retention, upgrade,
-  disable/re-enable, and uninstall cases.
+Remaining work includes broader automated source-boundary, partial-I/O,
+concurrency, retention, upgrade, disable/re-enable, and uninstall cases.
