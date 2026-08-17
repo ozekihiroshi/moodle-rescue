@@ -73,7 +73,7 @@ docker compose -f docker-compose.local.yml exec -T \
   -e S3_TEST_COURSE_SHORTNAME=S3INT-CLI \
   -e 'S3_TEST_COURSE_FULLNAME=Secure S3 Integration Test (CLI)' \
   -e S3_TEST_CONTENT_MARKER=secure-s3-integration-marker-v1 \
-  moodle php /dev/stdin < scripts/create-integration-course.php
+  moodle runuser -u www-data -- php < scripts/create-integration-course.php
 ```
 
 The corresponding verification script locates a restored course containing
@@ -98,6 +98,10 @@ and test commands plus the latest result are documented in
 [`docs/release-gate.md`](docs/release-gate.md).
 
 ## EC2 production-shaped environment
+
+The EC2 host requires Docker, Git, `tar`, `zip`, `unzip`, and `sha256sum` to
+build and validate the self-contained plugin archive. On Ubuntu, install the
+archive tools with `sudo apt-get install zip unzip`.
 
 Copy the production template, replace every `CHANGE_ME` value, and set
 `MOODLE_HOST` to the public hostname and `TRAEFIK_NETWORK` to the existing
