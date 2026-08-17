@@ -3,6 +3,15 @@
 Docker environments for developing and validating Secure S3 Storage for
 Moodle.
 
+The development order and the reason for each step are maintained in the
+[`Secure S3 Storage roadmap`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/roadmap.md).
+This repository's Docker responsibilities are documented in
+[`docs/backup-architecture.md`](docs/backup-architecture.md), with the detailed
+product boundary in the
+[`Secure S3 Storage architecture`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/backup-architecture.md).
+Database, content backup, and native S3 primary storage remain design targets;
+the current Compose services implement only the course-archive path.
+
 ## Separation rules
 
 - `docker-compose.local.yml` exposes Moodle on `127.0.0.1:8083`, includes
