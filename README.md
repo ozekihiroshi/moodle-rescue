@@ -126,8 +126,10 @@ configuration derives Moodle's canonical HTTPS URL from `MOODLE_HOST`.
 The production image validates and installs the generated plugin ZIP during
 the Docker build. The web and Cron services use that same immutable image, so
 the plugin survives container replacement and is available to scheduled
-tasks. Do not make Moodle's plugin directory writable or use the web installer
-for this deployment. After updating an already-installed Moodle database, run:
+tasks. Cron uses a dedicated outbound network for EC2 instance metadata and S3
+access; it does not join the shared Traefik network. Do not make Moodle's plugin
+directory writable or use the web installer for this deployment. After
+updating an already-installed Moodle database, run:
 
 ```sh
 docker compose exec -T moodle \
