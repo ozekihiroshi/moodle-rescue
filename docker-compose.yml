@@ -15,7 +15,7 @@ services:
       MOODLE_DB_USER: ${MOODLE_DB_USER}
       MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
       MOODLE_WWWROOT: https://${MOODLE_HOST}
-      MOODLE_REVERSE_PROXY: "true"
+      MOODLE_REVERSE_PROXY: "false"
       MOODLE_SSL_PROXY: "true"
       AWS_REGION: ap-northeast-1
       AWS_EC2_METADATA_DISABLED: "false"
