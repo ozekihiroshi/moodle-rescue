@@ -58,10 +58,21 @@ containers and volumes. It does not read the developer `.env`, reuse the local
 8083/8084 environments, or require repository secrets.
 
 The automated path creates a course and real Moodle backup, verifies the
-Moodle-to-MinIO transfer, builds a clean-HEAD ZIP, installs it into an empty
-Moodle database, fetches and restores the object, repeats the restore to prove
-idempotency, checks the disabled and re-enabled transfer states, runs the
-Moodle upgrade no-op, rejects bind mounts, and verifies the final HTTP response.
+Moodle-to-MinIO transfer, builds a clean-HEAD ZIP, and installs it into an empty
+Moodle database. Before the database happy path, it presents an unknown-field
+manifest and a checksum-corrupt payload from an isolated volume. The gate
+requires explicit rejection, preservation of both local artifacts, and absence
+of a remotely published completion manifest.
+
+It then generates a real MariaDB dump from the source environment, exposes the
+artifact volume read-only to the ZIP-installed release Cron container, performs
+the two-pass observation and S3 transfer, downloads the completed payload and
+manifest into a separate volume, restores them to another empty MariaDB
+instance, and reads the restored database through a fresh release image. The
+course restore is also repeated to prove idempotency. Finally, the gate checks
+disabled and re-enabled transfer states, runs the Moodle upgrade no-op, rejects
+bind mounts on both release Moodle runtime containers, verifies the database
+hand-off is a read-only named volume, and verifies the final HTTP response.
 
 ## Result on 2026-08-16
 

@@ -62,6 +62,7 @@ RELEASE_MOODLE_PORT=$releaseport
 RELEASE_MOODLE_IMAGE=$releaseimage
 MOODLE_BASE_IMAGE=$sourceimage
 SOURCE_MINIO_NETWORK=${sourceproject}_internal
+RELEASE_TEST_DATABASE_ARTIFACT_VOLUME=${sourceproject}_moodle_database_artifacts
 RELEASE_TEST_DB_NAME=moodle_release_ci
 RELEASE_TEST_DB_USER=moodle_release_ci
 RELEASE_TEST_DB_PASSWORD=$releasedbpassword
@@ -92,8 +93,8 @@ cleanup() {
         source_compose logs --no-color --tail=120 >&2 || true
     fi
 
-    release_compose down --volumes --remove-orphans >/dev/null 2>&1 || true
-    source_compose down --volumes --remove-orphans >/dev/null 2>&1 || true
+    release_compose --profile tools down --volumes --remove-orphans >/dev/null 2>&1 || true
+    source_compose --profile tools down --volumes --remove-orphans >/dev/null 2>&1 || true
     rm -f "$envfile"
     exit "$status"
 }
@@ -219,6 +220,112 @@ wait_for_release_moodle
 echo "Verifying initial disabled state, MinIO retrieval, and restoration."
 release_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_course_backups'
+
+release_compose stop moodle-release-cron >/dev/null
+
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=region --set=ap-northeast-1 >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=bucket --set=moodle-backups >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=prefix --set=moodle/ >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databaseartifactdirectory --set=/database-artifacts >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databasetransferenabled --set=1 >/dev/null
+
+echo "Verifying fail-closed handling for malformed manifests and corrupt payloads."
+release_compose --profile tools run --rm --no-deps \
+    release-db-negative-fixtures
+
+negativefirst="$(
+    release_compose --profile tools run --rm --no-deps \
+        moodle-release-negative-db-test \
+        runuser -u www-data -- php admin/cli/scheduled_task.php \
+        --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
+)"
+printf '%s\n' "$negativefirst"
+if ! printf '%s\n' "$negativefirst" |
+        grep -F 'Rejected invalid database artifact manifest' >/dev/null; then
+    echo "Malformed database manifest was not explicitly rejected." >&2
+    exit 1
+fi
+if ! printf '%s\n' "$negativefirst" |
+        grep -F 'database artifact(s) were observed and will be retried.' >/dev/null; then
+    echo "Checksum-corrupt database payload was not safely observed before transfer." >&2
+    exit 1
+fi
+
+negativesecond="$(
+    release_compose --profile tools run --rm --no-deps \
+        moodle-release-negative-db-test \
+        runuser -u www-data -- php admin/cli/scheduled_task.php \
+        --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
+)"
+printf '%s\n' "$negativesecond"
+if ! printf '%s\n' "$negativesecond" |
+        grep -F 'Database artifact transfer failed for' >/dev/null; then
+    echo "Checksum-corrupt database payload did not produce the expected failure." >&2
+    exit 1
+fi
+if ! printf '%s\n' "$negativesecond" |
+        grep -F 'local artifacts were preserved' >/dev/null; then
+    echo "Checksum rejection did not confirm local artifact preservation." >&2
+    exit 1
+fi
+
+negativeaudit="$(
+    release_moodle_php -r '
+define("CLI_SCRIPT", true);
+require "/var/www/html/config.php";
+
+$malformed = $DB->count_records(
+    "tool_secure_s3_storage_xfer",
+    ["filename" => "moodle-db-20000101T000001Z-1111111111111111.sql.gz.manifest.json"]
+);
+$corrupt = $DB->get_record(
+    "tool_secure_s3_storage_xfer",
+    ["filename" => "moodle-db-20000101T000002Z-2222222222222222.sql.gz.manifest.json"],
+    "status, errormessage",
+    IGNORE_MISSING
+);
+echo $malformed, ":",
+    ($corrupt->status ?? ""), ":",
+    ($corrupt->errormessage ?? ""), PHP_EOL;
+' | tr -d '\r\n'
+)"
+if [ "$negativeaudit" != "0:failed:RuntimeException" ]; then
+    echo "Database rejection audit state is invalid: $negativeaudit" >&2
+    exit 1
+fi
+
+release_compose --profile tools run --rm --no-deps \
+    --entrypoint /bin/sh moodle-release-negative-db-test \
+    -c 'test -f /database-artifacts/moodle-db-20000101T000001Z-1111111111111111.sql.gz.manifest.json &&
+        test -f /database-artifacts/moodle-db-20000101T000002Z-2222222222222222.sql.gz'
+if release_compose --profile tools run --rm --no-deps release-db-fetch; then
+    echo "A rejected database artifact unexpectedly published a completion manifest." >&2
+    exit 1
+fi
+
+echo "Producing a real source database artifact for the ZIP-install release gate."
+source_compose --profile tools run --rm moodle-db-backup
+
+release_compose --profile tools run --rm --no-deps \
+    moodle-release-cron \
+    runuser -u www-data -- php admin/cli/scheduled_task.php \
+    --execute='\tool_secure_s3_storage\task\transfer_database_backups'
+release_compose --profile tools run --rm --no-deps \
+    moodle-release-cron \
+    runuser -u www-data -- php admin/cli/scheduled_task.php \
+    --execute='\tool_secure_s3_storage\task\transfer_database_backups'
+
+echo "Fetching and restoring the database artifact into a separate empty database."
+release_compose --profile tools run --rm --no-deps release-db-fetch
+DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_downloads" \
+MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
+    sh scripts/run-database-restore-test.sh
+
 release_compose --profile tools run --rm --no-deps release-fetch
 
 downloadhash="$(
@@ -277,6 +384,23 @@ bindmounts="$(
 )"
 if [ -n "$bindmounts" ]; then
     echo "Release Moodle unexpectedly contains a bind mount: $bindmounts" >&2
+    exit 1
+fi
+
+cronbindmounts="$(
+    docker inspect "$releaseprefix-cron" --format \
+        '{{range .Mounts}}{{if eq .Type "bind"}}{{println .Source}}{{end}}{{end}}'
+)"
+if [ -n "$cronbindmounts" ]; then
+    echo "Release Cron unexpectedly contains a bind mount: $cronbindmounts" >&2
+    exit 1
+fi
+databaseartifactmount="$(
+    docker inspect "$releaseprefix-cron" --format \
+        '{{range .Mounts}}{{if eq .Destination "/database-artifacts"}}{{.Type}}:{{.RW}}{{end}}{{end}}'
+)"
+if [ "$databaseartifactmount" != "volume:false" ]; then
+    echo "Release Cron database artifact hand-off is not a read-only volume." >&2
     exit 1
 fi
 
