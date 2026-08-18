@@ -70,6 +70,15 @@ WORKDIR /var/www/html
 ENTRYPOINT ["moodle-entrypoint"]
 CMD ["apache2-foreground"]
 
+FROM moodle-runtime AS moodle-ui-test
+
+COPY moodle/ui-test-install.sh /usr/local/bin/moodle-ui-test-install
+
+RUN set -eux; \
+    chown www-data:www-data /var/www/html/public/admin/tool; \
+    chmod 0755 /var/www/html/public/admin/tool; \
+    chmod 0755 /usr/local/bin/moodle-ui-test-install
+
 FROM moodle-runtime AS moodle-production
 
 COPY release/tool_secure_s3_storage.zip /tmp/tool_secure_s3_storage.zip

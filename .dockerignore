@@ -5,5 +5,6 @@
 !moodle/Dockerfile.release-test
 !moodle/release-test-install.sh
 !moodle/release-test-restore.sh
+!moodle/ui-test-install.sh
 !scripts/
 !scripts/verify-integration-course.php

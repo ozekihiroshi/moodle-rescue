@@ -21,6 +21,8 @@ the current Compose services implement only the course-archive path.
 - `docker-compose.release-test.yml` installs only a generated plugin ZIP. It
   has independent containers and volumes and never inherits the local source
   bind.
+- `docker-compose.ui-test.yml` exposes an empty conventional Moodle on
+  `127.0.0.1:8085` for web ZIP installation and uninstall lifecycle testing.
 - Every environment has its own Compose project, container names, and volumes.
 
 ## Environment templates
@@ -32,6 +34,7 @@ contain secrets and remain ignored by Git.
 | --- | --- | --- |
 | Local Moodle and MinIO development | `.env.example` | `.env` |
 | ZIP installation and restore gate | `.env.release-test.example` | `.env.release-test` |
+| Web ZIP install and uninstall test | `.env.ui-test.example` | `.env.ui-test` |
 | EC2, Traefik, and AWS S3 | `.env.production.example` | `.env` |
 
 The release-test file contains only release-specific overrides and is loaded
@@ -106,6 +109,18 @@ least-privilege identity through the existing internal Docker network. Build
 and test commands plus the latest result are documented in
 [`docs/release-gate.md`](docs/release-gate.md).
 
+## Web installer lifecycle test
+
+`docker-compose.ui-test.yml` provides a third, independent local Moodle on
+<http://localhost:8085>. It contains no plugin source bind mount and no
+preinstalled Secure S3 Storage ZIP. Unlike the immutable release and production
+images, its administration-tool directory is writable by the web process so a
+Moodle administrator can test the conventional ZIP upload, installation, and
+uninstall workflow.
+
+The 8083 development environment and 8084 release gate are not reused or
+modified. Preparation, start, stop, restart, removal, and reset commands are in
+[`docs/ui-lifecycle-test.md`](docs/ui-lifecycle-test.md).
 ## EC2 production-shaped environment
 
 The EC2 host requires Docker, `curl`, `unzip`, and `sha256sum` to fetch and

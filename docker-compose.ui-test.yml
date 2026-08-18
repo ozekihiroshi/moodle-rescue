@@ -1,0 +1,88 @@
+name: ${UI_TEST_COMPOSE_PROJECT_NAME:-moodle-rescue-ui-test}
+
+x-ui-test-build: &ui-test-build
+  context: .
+  dockerfile: moodle/Dockerfile
+  target: moodle-ui-test
+  args:
+    MOODLE_VERSION: 5.2.2
+    MOODLE_SHA256: 72be209e7c0f5341b87de0bc993b2430087fda2769d8c3cc2f32736d1513e88c
+
+x-ui-test-environment: &ui-test-environment
+  MOODLE_DB_HOST: moodle-ui-test-db
+  MOODLE_DB_NAME: ${UI_TEST_DB_NAME:-moodle_ui_test}
+  MOODLE_DB_USER: ${UI_TEST_DB_USER:-moodle_ui_test}
+  MOODLE_DB_PASSWORD: ${UI_TEST_DB_PASSWORD}
+  MOODLE_WWWROOT: ${UI_TEST_WWWROOT:-http://localhost:8085}
+  MOODLE_REVERSE_PROXY: "false"
+  MOODLE_SSL_PROXY: "false"
+
+x-ui-test-service: &ui-test-service
+  image: ${UI_TEST_MOODLE_IMAGE:-moodle-rescue-ui-test-moodle}
+  build: *ui-test-build
+  environment: *ui-test-environment
+  volumes:
+    - ui_test_moodle_data:/var/moodledata
+    - ui_test_backups:/var/moodlebackups
+  networks:
+    - ui_test_internal
+
+services:
+  moodle-ui-test-install:
+    <<: *ui-test-service
+    container_name: ${UI_TEST_CONTAINER_PREFIX:-moodle-rescue-ui-test}-install
+    restart: "no"
+    command: ["moodle-ui-test-install"]
+    environment:
+      <<: *ui-test-environment
+      UI_TEST_ADMIN_PASSWORD: ${UI_TEST_ADMIN_PASSWORD}
+    depends_on:
+      moodle-ui-test-db:
+        condition: service_healthy
+
+  moodle-ui-test:
+    <<: *ui-test-service
+    container_name: ${UI_TEST_CONTAINER_PREFIX:-moodle-rescue-ui-test}
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${UI_TEST_MOODLE_PORT:-8085}:80"
+    networks:
+      - ui_test_internal
+      - ui_test_access
+    depends_on:
+      moodle-ui-test-install:
+        condition: service_completed_successfully
+
+  moodle-ui-test-db:
+    image: mariadb:11.8
+    container_name: ${UI_TEST_CONTAINER_PREFIX:-moodle-rescue-ui-test}-db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${UI_TEST_DB_NAME:-moodle_ui_test}
+      MARIADB_USER: ${UI_TEST_DB_USER:-moodle_ui_test}
+      MARIADB_PASSWORD: ${UI_TEST_DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${UI_TEST_DB_ROOT_PASSWORD}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ui_test_db:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - healthcheck.sh --connect --innodb_initialized
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - ui_test_internal
+
+volumes:
+  ui_test_moodle_data:
+  ui_test_backups:
+  ui_test_db:
+
+networks:
+  ui_test_internal:
+    internal: true
+  ui_test_access:
