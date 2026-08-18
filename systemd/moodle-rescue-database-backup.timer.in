@@ -1,0 +1,13 @@
+[Unit]
+Description=Schedule Moodle Rescue database backups
+Documentation=https://github.com/ozekihiroshi/moodle-rescue/blob/main/docs/database-backup.md
+
+[Timer]
+OnCalendar=@ON_CALENDAR@
+Persistent=true
+RandomizedDelaySec=15m
+AccuracySec=1m
+Unit=moodle-rescue-database-backup.service
+
+[Install]
+WantedBy=timers.target

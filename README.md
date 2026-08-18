@@ -97,11 +97,13 @@ The course integration path verifies streamed upload, remote read-back, SHA-256
 and size equality, transfer history, and duplicate suppression. A successful
 transfer deliberately leaves the source `.mbz` in `/var/moodlebackups`.
 
-The database development path uses a separate `moodle_database_artifacts`
-volume. The explicit `moodle-db-backup` tools job writes it, Moodle Cron mounts
-it read-only at `/database-artifacts`, and the Moodle web container does not
-mount it. Creation, transfer, MinIO download, and isolated restore commands are
-in [`docs/database-backup.md`](docs/database-backup.md).
+The plugin's default database path now produces private Moodle DTL v2 artifacts
+without another service. For advanced isolation, this repository retains an
+external MariaDB v1 producer using a separate `moodle_database_artifacts`
+volume: the tools job writes it, Moodle Cron mounts it read-only, and the web
+container does not mount it. Manual production, optional systemd scheduling,
+transfer, MinIO download, and both isolated restore paths are documented in
+[`docs/database-backup.md`](docs/database-backup.md).
 
 ## Reproducible course fixture
 
@@ -131,6 +133,11 @@ source. The plugin-owned release builder installs the dependencies pinned by its
 bundled `vendor/autoload.php` and does not receive the source environment's
 external AWS SDK override. The Docker build context is allowlisted so ignored
 secrets such as `.env` are not sent to the builder.
+
+The gate restores both the external MariaDB v1 contract and the built-in
+Moodle DTL v2 contract into separate empty databases. It also proves malformed
+v1/v2 manifests and checksum-corrupt payloads fail closed, preserve the rejected
+local artifacts, and publish neither rejected payloads nor completion manifests.
 
 The release environment reuses only the running local MinIO service and its
 least-privilege identity through the existing internal Docker network. Build

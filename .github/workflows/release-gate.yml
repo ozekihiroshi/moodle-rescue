@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   release-gate:
-    name: Moodle ZIP install and MinIO restore
+    name: Moodle ZIP install and v1/v2 MinIO restore
     runs-on: ubuntu-24.04
     timeout-minutes: 45
 

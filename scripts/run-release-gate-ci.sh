@@ -230,6 +230,8 @@ release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
 release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=prefix --set=moodle/ >/dev/null
 release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databaseproducermode --set=external >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=databaseartifactdirectory --set=/database-artifacts >/dev/null
 release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=databasetransferenabled --set=1 >/dev/null
@@ -238,37 +240,24 @@ echo "Verifying fail-closed handling for malformed manifests and corrupt payload
 release_compose --profile tools run --rm --no-deps \
     release-db-negative-fixtures
 
-negativefirst="$(
+negativeoutput="$(
     release_compose --profile tools run --rm --no-deps \
         moodle-release-negative-db-test \
         runuser -u www-data -- php admin/cli/scheduled_task.php \
         --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
 )"
-printf '%s\n' "$negativefirst"
-if ! printf '%s\n' "$negativefirst" |
+printf '%s\n' "$negativeoutput"
+if ! printf '%s\n' "$negativeoutput" |
         grep -F 'Rejected invalid database artifact manifest' >/dev/null; then
     echo "Malformed database manifest was not explicitly rejected." >&2
     exit 1
 fi
-if ! printf '%s\n' "$negativefirst" |
-        grep -F 'database artifact(s) were observed and will be retried.' >/dev/null; then
-    echo "Checksum-corrupt database payload was not safely observed before transfer." >&2
-    exit 1
-fi
-
-negativesecond="$(
-    release_compose --profile tools run --rm --no-deps \
-        moodle-release-negative-db-test \
-        runuser -u www-data -- php admin/cli/scheduled_task.php \
-        --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
-)"
-printf '%s\n' "$negativesecond"
-if ! printf '%s\n' "$negativesecond" |
+if ! printf '%s\n' "$negativeoutput" |
         grep -F 'Database artifact transfer failed for' >/dev/null; then
     echo "Checksum-corrupt database payload did not produce the expected failure." >&2
     exit 1
 fi
-if ! printf '%s\n' "$negativesecond" |
+if ! printf '%s\n' "$negativeoutput" |
         grep -F 'local artifacts were preserved' >/dev/null; then
     echo "Checksum rejection did not confirm local artifact preservation." >&2
     exit 1
@@ -325,6 +314,82 @@ release_compose --profile tools run --rm --no-deps release-db-fetch
 DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_downloads" \
 MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
     sh scripts/run-database-restore-test.sh
+
+echo "Verifying built-in v2 production, rejection, S3 retrieval, and isolated DTL restore."
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databaseproducermode --set=builtin >/dev/null
+release_moodle_php admin/cli/scheduled_task.php \
+    --execute='\tool_secure_s3_storage\task\transfer_database_backups'
+
+release_compose exec -T moodle-release runuser -u www-data -- php \
+    < scripts/create-v2-negative-fixtures.php
+v2negativeoutput="$(
+    release_moodle_php admin/cli/scheduled_task.php \
+        --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
+)"
+printf '%s\n' "$v2negativeoutput"
+if ! printf '%s\n' "$v2negativeoutput" |
+        grep -F 'Rejected invalid database artifact manifest' >/dev/null; then
+    echo "Malformed v2 manifest was not explicitly rejected." >&2
+    exit 1
+fi
+if ! printf '%s\n' "$v2negativeoutput" |
+        grep -F 'Database artifact transfer failed for' >/dev/null; then
+    echo "Corrupt v2 payload did not fail transfer verification." >&2
+    exit 1
+fi
+
+v2audit="$(
+    release_moodle_php -r '
+define("CLI_SCRIPT", true);
+require "/var/www/html/config.php";
+$malformed = $DB->count_records(
+    "tool_secure_s3_storage_xfer",
+    ["filename" => "moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz.manifest.json"]
+);
+$corrupt = $DB->get_record(
+    "tool_secure_s3_storage_xfer",
+    ["filename" => "moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz.manifest.json"],
+    "status, errormessage",
+    MUST_EXIST
+);
+echo $malformed, ":", $corrupt->status, ":", $corrupt->errormessage, PHP_EOL;
+' | tr -d '\r\n'
+)"
+if [ "$v2audit" != "0:failed:RuntimeException" ]; then
+    echo "V2 rejection audit state is invalid: $v2audit" >&2
+    exit 1
+fi
+
+release_compose exec -T moodle-release sh -c '
+    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz.manifest.json &&
+    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz &&
+    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz.manifest.json &&
+    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz
+'
+
+release_compose --profile tools run --rm --no-deps --entrypoint /bin/sh \
+    release-v2-db-fetch -c '
+        set -eu
+        mc alias set source "$S3_ENDPOINT" "$S3_ACCESS_KEY_ID" "$S3_SECRET_ACCESS_KEY" >/dev/null
+        for rejectedkey in \
+            moodle/database/v2/2000/01/01/33333333333333333333333333333333/manifest.json \
+            moodle/database/v2/2000/01/01/33333333333333333333333333333333/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz \
+            moodle/database/v2/2000/01/01/44444444444444444444444444444444/manifest.json \
+            moodle/database/v2/2000/01/01/44444444444444444444444444444444/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz
+        do
+            if mc stat "source/$S3_BUCKET/$rejectedkey" >/dev/null 2>&1; then
+                echo "Rejected v2 artifact was published: $rejectedkey" >&2
+                exit 1
+            fi
+        done
+    '
+
+release_compose --profile tools run --rm --no-deps release-v2-db-fetch
+DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_v2_downloads" \
+MOODLE_DTL_RESTORE_CONTAINER="$releaseprefix" \
+MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
+    sh scripts/run-dtl-database-restore-test.sh
 
 release_compose --profile tools run --rm --no-deps release-fetch
 

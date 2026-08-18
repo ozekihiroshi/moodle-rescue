@@ -64,12 +64,19 @@ manifest and a checksum-corrupt payload from an isolated volume. The gate
 requires explicit rejection, preservation of both local artifacts, and absence
 of a remotely published completion manifest.
 
-It then generates a real MariaDB dump from the source environment, exposes the
-artifact volume read-only to the ZIP-installed release Cron container, performs
-the two-pass observation and S3 transfer, downloads the completed payload and
-manifest into a separate volume, restores them to another empty MariaDB
-instance, and reads the restored database through a fresh release image. The
-course restore is also repeated to prove idempotency. Finally, the gate checks
+It then generates a real external MariaDB dump from the source environment,
+exposes the artifact volume read-only to the ZIP-installed release Cron
+container, transfers and downloads the completed v1 pair, restores it to an
+empty MariaDB instance, and reads it through a fresh release image.
+
+The same ZIP is then switched to the built-in producer. It creates and
+transfers a v2 Moodle DTL XML artifact in one scheduled run, rejects an
+unknown-field v2 manifest and a checksum-corrupt v2 payload while preserving
+the local pairs and publishing neither their payloads nor completion manifests, downloads a valid v2 pair from MinIO, and invokes
+the plugin's CLI-only restore command against another empty isolated database.
+A fresh release image must read the DTL-restored Moodle version.
+
+The course restore is also repeated to prove idempotency. Finally, the gate checks
 disabled and re-enabled transfer states, runs the Moodle upgrade no-op, rejects
 bind mounts on both release Moodle runtime containers, verifies the database
 hand-off is a read-only named volume, and verifies the final HTTP response.
