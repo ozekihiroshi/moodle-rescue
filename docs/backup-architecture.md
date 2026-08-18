@@ -9,8 +9,8 @@ contract owned by Secure S3 Storage:
 
 The linked document is authoritative for product roles, artifact semantics, and
 security boundaries. This document is authoritative only for the companion
-Docker reference implementation. Database and content producers described
-below are planned and are not present in the current Compose files.
+Docker reference implementation. The database producer and isolated restore gate
+are implemented on the development branch; content production remains planned.
 
 ## Current implementation
 
@@ -34,9 +34,10 @@ The complete course archive round trip is covered by
 [`release-gate.md`](release-gate.md), and
 [`aws-ec2-validation.md`](aws-ec2-validation.md).
 
-## Planned reference topology
+## Database reference topology
 
-The first extension adds a MariaDB producer without giving the Moodle web or
+The current development extension adds a MariaDB producer without giving the
+Moodle web or
 Cron process a database-owner credential:
 
 ```text
@@ -52,15 +53,15 @@ MariaDB <---- database-backup producer      |
                                                          Amazon S3 database/
 ```
 
-The planned services and storage boundaries are:
+The implemented development services and storage boundaries are:
 
 | Component | Network access | Mounted data | Credential | Responsibility |
 | --- | --- | --- | --- | --- |
 | `moodle` | MariaDB and Traefik | Moodle data and course-backup volume | Moodle application DB credential; no static AWS key | Web application and administrator UI |
 | `moodle-cron` | MariaDB and restricted outbound AWS path | Moodle data, course backups, read-only artifact hand-off | Moodle application DB credential and workload AWS identity | Scheduled backup observation, upload, verification, and audit |
 | `moodle-db` | Internal only | Database volume | Database service credentials | Live Moodle database |
-| Planned database producer | MariaDB only; no Traefik or AWS path | Write-only operational ownership of artifact hand-off | Dedicated dump credential | Consistent dump, compression, optional encryption, manifest publication |
-| Planned restore verifier | Isolated test network | Read-only source artifact and disposable target volumes | Ephemeral target database credential; read-only test storage identity | Verify an empty-database restore without production access |
+| `moodle-db-backup` tools job | MariaDB only; no Traefik or AWS path | Write-only operational ownership of artifact hand-off | Current reference: Moodle application DB credential; dedicated dump identity recommended | Consistent dump, gzip compression, manifest publication |
+| Isolated restore verifier | Isolated test network | Read-only source artifact and disposable target volumes | Ephemeral target database credential; read-only test storage identity | Verify an empty-database restore without production access |
 | MinIO test services | Local test networks only | Test-only object volume | Random test credentials | S3-compatible integration testing |
 
 "Write-only operational ownership" means the producer owns its output directory
@@ -68,7 +69,7 @@ and does not require access to payloads from other producers. Unix ownership and
 mode checks, rather than the volume declaration alone, enforce this inside the
 shared volume.
 
-## Planned volume layout
+## Current volume layout
 
 Existing course compatibility remains unchanged:
 
@@ -77,43 +78,39 @@ moodle_backups
   /var/moodlebackups/*.mbz
 ```
 
-Manifest producers use a separate named volume so that database credentials and
-producer lifecycle are not coupled to the Moodle-generated course directory:
+The MariaDB producer uses a separate named volume so database production is not
+coupled to the Moodle-generated course directory:
 
 ```text
-artifact_handoff
-  /var/moodlebackup-artifacts/database/
-    *.partial
-    <final-payload>
-    <final-manifest>
-  /var/moodlebackup-artifacts/content/
-    *.partial
-    <final-payload>
-    <final-manifest>
+moodle_database_artifacts
+  /database-artifacts/
+    moodle-db-<UTC timestamp>-<16 hex>.sql.gz
+    moodle-db-<UTC timestamp>-<16 hex>.sql.gz.manifest.json
 ```
 
-The producer mounts `artifact_handoff` read-write. Moodle Cron mounts it
+The producer mounts `moodle_database_artifacts` read-write. Moodle Cron mounts it
 read-only. Moodle web does not mount it unless a future administrator download
 feature has a reviewed need for access. Restore downloads use a third,
 non-monitored workspace so they cannot be rediscovered as outbound backups.
 
-The final filenames and manifest suffix are deliberately not fixed here. They
-will be taken from the versioned contract and its tests when database ingestion
-is implemented.
+The exact format is fixed by the plugin repository's
+[`database-artifact-v1.md`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/database-artifact-v1.md).
 
 ## Identity and secret boundaries
 
 ### Database producer
 
-The producer receives a dedicated MariaDB dump credential through an
-operator-controlled runtime mechanism. It must not obtain that secret from
-Moodle settings, bake it into an image, expose it in Compose output, or place it
-in a manifest. A file-based client configuration or container secret is
-preferred to a password in process arguments.
+The current reference producer receives the existing Moodle application DB
+credential through Compose runtime environment and writes it to a private
+temporary client option file. The fixed producer has no Traefik or AWS network,
+but the database credential itself is not read-only. A dedicated dump identity
+with only the tested MariaDB grants is the preferred production hardening and
+remains a release gate.
 
-The exact MariaDB grants depend on the selected consistent dump method and must
-be verified in the integration gate. The credential must not create or drop
-databases, modify production rows, grant privileges, or restore a dump.
+No database credential is read from Moodle plugin settings, baked into an
+image, placed in a manifest, or passed as a command-line password. The producer
+contains no restore or database-write command; Compose supplies the expected
+source database.
 
 ### Transfer controller
 
@@ -145,7 +142,7 @@ the real configuration and keys.
 
 ## Database artifact flow
 
-The planned MariaDB producer follows this sequence:
+The implemented MariaDB producer follows this sequence:
 
 1. Confirm that the target is the configured Moodle database.
 2. Create a consistent logical dump with the selected MariaDB method.
@@ -200,7 +197,7 @@ profile must not mount S3 as a generic POSIX replacement for all of
 
 ## Implementation acceptance checklist
 
-Before merging the MariaDB producer:
+Before releasing the MariaDB artifact feature:
 
 - the canonical manifest schema and threat model are stable;
 - Compose validation and shell checks pass;

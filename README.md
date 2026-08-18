@@ -30,8 +30,9 @@ This repository's Docker responsibilities are documented in
 [`docs/backup-architecture.md`](docs/backup-architecture.md), with the detailed
 product boundary in the
 [`Secure S3 Storage architecture`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/backup-architecture.md).
-Database, content backup, and native S3 primary storage remain design targets;
-the current Compose services implement only the course-archive path.
+The 0.3 development environment now includes a MariaDB artifact producer and
+isolated MinIO restore gate. Content backup and native S3 primary storage remain
+design targets.
 
 ## Separation rules
 
@@ -92,9 +93,15 @@ dedicated MinIO bucket and least-privilege writer identity, shares
 plugin scheduled task to MinIO. Credentials and the MinIO endpoint are supplied
 only at container runtime; they are not Moodle plugin settings.
 
-The integration path verifies streamed upload, remote read-back, SHA-256 and
-size equality, transfer history, and duplicate suppression. A successful
+The course integration path verifies streamed upload, remote read-back, SHA-256
+and size equality, transfer history, and duplicate suppression. A successful
 transfer deliberately leaves the source `.mbz` in `/var/moodlebackups`.
+
+The database development path uses a separate `moodle_database_artifacts`
+volume. The explicit `moodle-db-backup` tools job writes it, Moodle Cron mounts
+it read-only at `/database-artifacts`, and the Moodle web container does not
+mount it. Creation, transfer, MinIO download, and isolated restore commands are
+in [`docs/database-backup.md`](docs/database-backup.md).
 
 ## Reproducible course fixture
 

@@ -53,12 +53,46 @@ services:
     volumes:
       - moodle_data:/var/moodledata
       - moodle_backups:/var/moodlebackups
+      - moodle_database_artifacts:/database-artifacts:ro
       - ${PLUGIN_SOURCE_PATH:-../secure-s3-storage-for-moodle}:/var/www/html/public/admin/tool/secure_s3_storage:ro
     depends_on:
       moodle-db:
         condition: service_healthy
       minio-init:
         condition: service_completed_successfully
+    networks:
+      - internal
+
+  moodle-db-backup:
+    image: mariadb:11.8
+    profiles: ["tools"]
+    restart: "no"
+    entrypoint: ["/bin/sh", "/usr/local/bin/moodle-database-backup"]
+    read_only: true
+    tmpfs:
+      - /tmp:mode=0700
+    environment:
+      MOODLE_DB_HOST: moodle-db
+      MOODLE_DB_PORT: "3306"
+      MOODLE_DB_NAME: ${MOODLE_DB_NAME}
+      MOODLE_DB_USER: ${MOODLE_DB_USER}
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      DATABASE_BACKUP_OUTPUT_DIRECTORY: /database-artifacts
+      DATABASE_BACKUP_READER_GID: "33"
+    volumes:
+      - ./moodle/database-backup.sh:/usr/local/bin/moodle-database-backup:ro
+      - moodle_database_artifacts:/database-artifacts
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - FOWNER
     networks:
       - internal
 
@@ -141,6 +175,7 @@ volumes:
   moodle_backups:
   moodle_db:
   minio_data:
+  moodle_database_artifacts:
 
 networks:
   internal:
