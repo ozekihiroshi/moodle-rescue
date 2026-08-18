@@ -81,16 +81,13 @@ RUN set -eux; \
 
 FROM moodle-runtime AS moodle-production
 
-COPY release/tool_secure_s3_storage.zip /tmp/tool_secure_s3_storage.zip
+COPY moodle/install-plugins.sh /usr/local/bin/moodle-install-plugins
+COPY build/plugins.install /tmp/plugins.install
+COPY build/plugin-zips/ /tmp/plugin-zips/
 
 RUN set -eux; \
-    test ! -e /var/www/html/public/admin/tool/secure_s3_storage; \
-    unzip -q /tmp/tool_secure_s3_storage.zip -d /var/www/html/public/admin/tool; \
-    test -f /var/www/html/public/admin/tool/secure_s3_storage/version.php; \
-    test -f /var/www/html/public/admin/tool/secure_s3_storage/settings.php; \
-    test -f /var/www/html/public/admin/tool/secure_s3_storage/vendor/autoload.php; \
-    test -f /var/www/html/public/admin/tool/secure_s3_storage/thirdpartylibs.xml; \
-    rm /tmp/tool_secure_s3_storage.zip; \
-    chown -R root:www-data /var/www/html/public/admin/tool/secure_s3_storage; \
-    find /var/www/html/public/admin/tool/secure_s3_storage -type d -exec chmod 0755 {} +; \
-    find /var/www/html/public/admin/tool/secure_s3_storage -type f -exec chmod 0644 {} +
+    chmod 0755 /usr/local/bin/moodle-install-plugins; \
+    /usr/local/bin/moodle-install-plugins; \
+    rm -rf \
+        /tmp/plugin-zips \
+        /tmp/plugins.install

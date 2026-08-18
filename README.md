@@ -3,6 +3,27 @@
 Docker environments for developing and validating Secure S3 Storage for
 Moodle.
 
+## Production plugin policy
+
+A conventional Moodle installation may install and uninstall plugin ZIP files
+through the administration interface; port 8085 exists to test that workflow.
+The production-shaped Compose environment deliberately prevents the web process
+from changing application code. All additional plugins are instead declared in
+the tracked `plugins.lock`, downloaded over HTTPS, verified against a pinned
+SHA-256, inspected, and copied into one immutable Moodle image shared by the web
+and Cron services.
+
+`plugins.lock` is the complete desired set of additional plugins, not a change
+log. Secure S3 Storage is the initial entry. Add one line below it for every
+additional plugin, then run:
+
+```sh
+sh scripts/deploy.sh
+```
+
+The deploy script synchronizes and validates the declared ZIP files before
+Docker Compose rebuilds or recreates any production-shaped service.
+
 The development order and the reason for each step are maintained in the
 [`Secure S3 Storage roadmap`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/roadmap.md).
 This repository's Docker responsibilities are documented in
@@ -121,51 +142,73 @@ uninstall workflow.
 The 8083 development environment and 8084 release gate are not reused or
 modified. Preparation, start, stop, restart, removal, and reset commands are in
 [`docs/ui-lifecycle-test.md`](docs/ui-lifecycle-test.md).
+
 ## EC2 production-shaped environment
 
-The EC2 host requires Docker, `curl`, `unzip`, and `sha256sum` to fetch and
-validate the self-contained plugin archive. On Ubuntu, `sha256sum` is supplied
-by `coreutils`; install any missing fetch tools with
-`sudo apt-get install curl unzip`.
+The EC2 host requires Docker, `curl`, `unzip`, and `sha256sum`. On
+Ubuntu, `sha256sum` is supplied by `coreutils`; install missing fetch tools
+with `sudo apt-get install curl unzip`.
 
 Copy the production template, replace every `CHANGE_ME` value, and set
 `MOODLE_HOST` to the public hostname and `TRAEFIK_NETWORK` to the existing
-external Traefik Docker network. Fetch the version and SHA-256 pinned in the
-tracked production script before building the immutable image:
+external Traefik Docker network:
 
 ```sh
 cp .env.production.example .env
 chmod 600 .env
-sh scripts/fetch-plugin-release.sh
-sha256sum release/tool_secure_s3_storage.zip
-docker compose config --quiet
-docker compose build --pull moodle
-docker compose up -d --no-build
+sh scripts/deploy.sh
 ```
 
-`scripts/build-plugin-zip.sh` remains available for local development and CI
-against a clean plugin source checkout. Production deployment uses the
-published, checksum-pinned release artifact instead.
+`scripts/deploy.sh` performs the production plugin workflow in order:
 
-Do not add AWS access keys to this file or to Moodle settings. Attach the
+1. `scripts/sync-plugins.sh` reads `plugins.lock`.
+2. Each HTTPS ZIP is downloaded and its pinned SHA-256 is verified.
+3. ZIP paths, the single root directory, duplicate entries, symbolic links,
+   Moodle component, and approved destination are checked.
+4. Verified ZIPs and their generated install manifest are staged below
+   `build/plugin-zips/` and `build/plugins.install`.
+5. Docker Compose validates its configuration and rebuilds the immutable image.
+6. The web and Cron services are recreated from the same image.
+7. Moodle's non-interactive CLI upgrade runs when the database is installed.
+
+To add another plugin, append one complete line to `plugins.lock` using the
+commented field order:
+
+```text
+component|version|destination below public/|HTTPS ZIP URL|SHA-256
+```
+
+Do not remove existing lines when adding a plugin. To update a plugin, replace
+that component's version, URL, and SHA-256 on its existing line, then run the
+same deploy command.
+
+Removing a plugin requires the reverse lifecycle. Uninstall it from the Moodle
+database first, remove its line from `plugins.lock`, and then redeploy:
+
+```sh
+docker compose --env-file .env exec -T moodle \
+  runuser -u www-data -- php admin/cli/uninstall_plugins.php \
+  --plugins=component_name --run
+sh scripts/deploy.sh
+```
+
+Never remove the manifest line or rebuild the image before the database
+uninstall. Doing so leaves Moodle reporting the plugin as missing from disk.
+
+Do not add AWS access keys to `.env` or Moodle settings. Attach the
 least-privilege S3 policy to the EC2 instance role. The production Compose
 configuration derives Moodle's canonical HTTPS URL from `MOODLE_HOST`.
 
-The production image validates and installs the verified plugin ZIP during
-the Docker build. The web and Cron services use that same immutable image, so
-the plugin survives container replacement and is available to scheduled
-tasks. Cron uses a dedicated outbound network for EC2 instance metadata and S3
-access; it does not join the shared Traefik network. Do not make Moodle's plugin
-directory writable or use the web installer for this deployment. After
-updating an already-installed Moodle database, run:
+The web and Cron services use the same root-owned image, so plugins survive
+container replacement and scheduled tasks see the identical code. Cron uses a
+dedicated outbound network for EC2 instance metadata and S3 access; it does not
+join the shared Traefik network. Do not make Moodle's plugin directories
+writable or use the web installer for this deployment.
 
-```sh
-docker compose exec -T moodle \
-  runuser -u www-data -- php admin/cli/upgrade.php --non-interactive
-```
-
-For a fresh database, complete Moodle's normal installation first; plugin
-installation is included in that flow.
+For a fresh database, the deploy script starts the services and skips the CLI
+upgrade. Complete Moodle's normal web installation, then run the deploy script
+again. `scripts/build-plugin-zip.sh` remains available only for local plugin
+development and CI.
 
 The validated EC2 instance-role policy, Docker network boundary, Amazon S3
 round-trip result, and evidence-retention policy are recorded in

@@ -4,8 +4,8 @@ set -eu
 repositoryroot="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)"
 cd "$repositoryroot"
 
-version="0.2.2"
-expectedsha256="1c8038f7679130fda95fdff7eaafe68881eff7449a6c5465e618afaac0f25c14"
+version="0.2.3"
+expectedsha256="b5c5ecce48b4b609d84a47db2ffde2875a9fc13c2720942223ad558d2c43b898"
 releaseurl="https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v${version}/tool_secure_s3_storage.zip"
 output="${1:-release/tool_secure_s3_storage.zip}"
 

@@ -1,4 +1,8 @@
 **
+!build/
+!build/plugin-zips/
+!build/plugin-zips/**
+!build/plugins.install
 !release/
 !release/tool_secure_s3_storage.zip
 !moodle/
@@ -6,5 +10,6 @@
 !moodle/release-test-install.sh
 !moodle/release-test-restore.sh
 !moodle/ui-test-install.sh
+!moodle/install-plugins.sh
 !scripts/
 !scripts/verify-integration-course.php

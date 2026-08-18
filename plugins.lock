@@ -1,0 +1,7 @@
+# Immutable additional-plugin set for the production Moodle image.
+# Format: component|version|destination below public/|HTTPS ZIP URL|SHA-256
+#
+# Add one complete line below for each additional plugin. Keep existing lines
+# unless intentionally updating or removing that plugin. The sync script accepts
+# only reviewed Moodle plugin destinations and rejects duplicate components.
+tool_secure_s3_storage|0.2.3|admin/tool|https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v0.2.3/tool_secure_s3_storage.zip|b5c5ecce48b4b609d84a47db2ffde2875a9fc13c2720942223ad558d2c43b898
