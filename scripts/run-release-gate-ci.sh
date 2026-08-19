@@ -433,6 +433,13 @@ MOODLE_DTL_RESTORE_CONTAINER="$releaseprefix" \
 MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
     sh scripts/run-dtl-database-restore-test.sh
 
+DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_v2_downloads" \
+CONTENT_RECOVERY_VOLUME="${releaseproject}_release_content_downloads" \
+CONTENT_VERIFICATION_MODE=generic \
+MOODLE_DTL_RESTORE_CONTAINER="$releaseprefix" \
+MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
+    sh scripts/run-dtl-database-restore-test.sh
+
 release_compose --profile tools run --rm --no-deps release-fetch
 
 downloadhash="$(

@@ -16,6 +16,23 @@ moodlecontainer="${MOODLE_DTL_RESTORE_CONTAINER:?MOODLE_DTL_RESTORE_CONTAINER is
 moodleimage="${MOODLE_RESTORE_TEST_IMAGE:?MOODLE_RESTORE_TEST_IMAGE is required}"
 contentsource="${CONTENT_RECOVERY_VOLUME:-}"
 contentmarker="${S3_TEST_FILE_MARKER:-secure-s3-content-recovery-marker-v1}"
+contentverificationmode="${CONTENT_VERIFICATION_MODE:-fixture}"
+case "$contentverificationmode" in
+    fixture)
+        contentverifier='scripts/verify-content-recovery-fixture.php'
+        ;;
+    generic)
+        contentverifier='scripts/verify-restored-content.php'
+        ;;
+    *)
+        echo "Invalid content verification mode: $contentverificationmode" >&2
+        exit 1
+        ;;
+esac
+[ -f "$contentverifier" ] || {
+    echo "Content verification script is unavailable: $contentverifier" >&2
+    exit 1
+}
 
 docker volume inspect "$sourcevolume" >/dev/null
 if [ -n "$contentsource" ]; then
@@ -241,7 +258,7 @@ if [ -n "$contentsource" ]; then
         --env "S3_TEST_FILE_MARKER=$contentmarker" \
         --volume "$verificationdata:/var/moodledata" \
         "$moodleimage" runuser -u www-data -- php \
-        < scripts/verify-content-recovery-fixture.php
+        < "$contentverifier"
     contentverified=true
 fi
 

@@ -239,6 +239,11 @@ The validated EC2 instance-role policy, Docker network boundary, Amazon S3
 round-trip result, and evidence-retention policy are recorded in
 [`docs/aws-ec2-validation.md`](docs/aws-ec2-validation.md).
 
+An exact database/content recovery set can be downloaded with the EC2 instance
+role and restored into disposable Docker resources without mounting the live
+database or Moodle data volumes. See
+[`docs/aws-recovery-rehearsal.md`](docs/aws-recovery-rehearsal.md).
+
 `scripts/run-release-gate-ci.sh` automates the complete source-backup-transfer
 and empty-environment restore path. It creates random ephemeral credentials and
 unique Compose projects, then removes only its CI-specific containers and
