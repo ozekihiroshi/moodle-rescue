@@ -264,7 +264,7 @@ try {
     $prefix = rtrim($prefix, '/') . '/';
     if (
         strlen($prefix) > 181 || str_starts_with($prefix, '/') ||
-        preg_match('/[\x00-\x1f\x7f\\]/', $prefix) || str_contains($prefix, '//')
+        preg_match('/[\x00-\x1f\x7f\\\\]/', $prefix) || str_contains($prefix, '//')
     ) {
         throw new RuntimeException('S3_PREFIX is invalid.');
     }
