@@ -140,7 +140,8 @@ until [ "$(docker inspect --format '{{.State.Health.Status}}' "$dbcontainer")" =
 done
 
 docker network connect "$networkname" "$moodlecontainer"
-docker exec "$moodlecontainer" install -d -m 0700 -o www-data -g www-data "$containerdirectory"
+docker exec "$moodlecontainer" install -d -m 0700 -o www-data -g www-data \
+    /var/moodledata/temp "$containerdirectory"
 docker cp "$hosttemporary/$manifestname" "$moodlecontainer:$containerdirectory/$manifestname"
 docker cp "$hosttemporary/$payloadname" "$moodlecontainer:$containerdirectory/$payloadname"
 docker exec "$moodlecontainer" chown www-data:www-data \
