@@ -4,4 +4,4 @@
 # Add one complete line below for each additional plugin. Keep existing lines
 # unless intentionally updating or removing that plugin. The sync script accepts
 # only reviewed Moodle plugin destinations and rejects duplicate components.
-tool_secure_s3_storage|0.4.0|admin/tool|https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v0.4.0/tool_secure_s3_storage.zip|4e710796dbcd1a6c916316d9e475835acfe2a6b047230f2b9f197496b8ee7c38
+tool_secure_s3_storage|0.5.0|admin/tool|https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v0.5.0/tool_secure_s3_storage.zip|e01830f5212efa25dbd2e7c870118eebfebe5e703181fa9613fc9582c24a0c05
