@@ -32,6 +32,7 @@ if docker compose --env-file .env exec -T moodle \
         >/dev/null 2>&1; then
     docker compose --env-file .env exec -T moodle \
         runuser -u www-data -- php admin/cli/upgrade.php --non-interactive
+    sh scripts/configure-moodle-backup-storage.sh .env
 else
     echo "Moodle has a fresh database."
     echo "Complete the normal web installation, then run this deploy script again."

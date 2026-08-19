@@ -24,6 +24,14 @@ sh scripts/deploy.sh
 The deploy script synchronizes and validates the declared ZIP files before
 Docker Compose rebuilds or recreates any production-shaped service.
 
+The production-shaped image also keeps Moodle's `preventexecpath` protection
+enabled. Administrators therefore cannot change executable or local directory
+paths through the web interface. After each installed-site deployment,
+`scripts/deploy.sh` verifies the shared backup volume and pins Moodle automated
+backup storage to `/var/moodlebackups`. It does not enable backups or choose a
+schedule or retention policy; the site administrator retains those decisions
+in **Site administration > Courses > Backups > Automated backup setup**.
+
 The development order and the reason for each step are maintained in the
 [`Secure S3 Storage roadmap`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/roadmap.md).
 This repository's Docker responsibilities are documented in
