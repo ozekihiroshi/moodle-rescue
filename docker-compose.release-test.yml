@@ -180,9 +180,28 @@ services:
       S3_BUCKET: ${MINIO_BUCKET}
       S3_PREFIX: moodle/
       DATABASE_ARTIFACT_DESTINATION: /database-artifacts
+      DATABASE_ARTIFACT_READER_GID: "33"
     volumes:
       - ./moodle/database-artifact-v2-fetch.sh:/usr/local/bin/database-artifact-v2-fetch:ro
       - release_database_v2_downloads:/database-artifacts
+    networks:
+      - source_minio
+
+  release-content-fetch:
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    profiles: ["tools"]
+    entrypoint: ["/bin/sh", "/usr/local/bin/content-recovery-fetch"]
+    environment:
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      S3_BUCKET: ${MINIO_BUCKET}
+      S3_PREFIX: moodle/
+      CONTENT_RECOVERY_DESTINATION: /content-recovery
+      CONTENT_RECOVERY_READER_GID: "33"
+    volumes:
+      - ./moodle/content-recovery-fetch.sh:/usr/local/bin/content-recovery-fetch:ro
+      - release_content_downloads:/content-recovery
     networks:
       - source_minio
 
@@ -207,6 +226,7 @@ volumes:
   release_database_negative_artifacts:
   release_database_downloads:
   release_database_v2_downloads:
+  release_content_downloads:
   release_database_artifacts:
     external: true
     name: ${RELEASE_TEST_DATABASE_ARTIFACT_VOLUME:-moodle-rescue-local_moodle_database_artifacts}

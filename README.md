@@ -135,9 +135,12 @@ external AWS SDK override. The Docker build context is allowlisted so ignored
 secrets such as `.env` are not sent to the builder.
 
 The gate restores both the external MariaDB v1 contract and the built-in
-Moodle DTL v2 contract into separate empty databases. It also proves malformed
-v1/v2 manifests and checksum-corrupt payloads fail closed, preserve the rejected
-local artifacts, and publish neither rejected payloads nor completion manifests.
+Moodle DTL v2 contract into separate empty databases. For the 0.5 development
+path it also captures a File API content inventory in the same database
+snapshot, transfers immutable filedir objects, restores them into a separate
+empty volume, and reads the marker through Moodle's File API. Malformed
+manifests and checksum-corrupt database or content payloads must fail closed
+without publishing completion manifests.
 
 The release environment reuses only the running local MinIO service and its
 least-privilege identity through the existing internal Docker network. Build

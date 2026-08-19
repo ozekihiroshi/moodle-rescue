@@ -315,14 +315,51 @@ DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_downloads" \
 MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
     sh scripts/run-database-restore-test.sh
 
-echo "Verifying built-in v2 production, rejection, S3 retrieval, and isolated DTL restore."
+echo "Verifying matched built-in database and content recovery-set production."
 release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
     --name=databaseproducermode --set=builtin >/dev/null
+release_compose exec -T \
+    -e S3_TEST_FILE_MARKER=secure-s3-content-recovery-marker-v1 \
+    moodle-release runuser -u www-data -- php \
+    < scripts/create-content-recovery-fixture.php
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=contentbatchsize --set=1000 >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=contenttransferenabled --set=1 >/dev/null
 release_moodle_php admin/cli/scheduled_task.php \
     --execute='\tool_secure_s3_storage\task\transfer_database_backups'
+release_moodle_php admin/cli/scheduled_task.php \
+    --execute='\tool_secure_s3_storage\task\transfer_content_objects'
 
-release_compose exec -T moodle-release runuser -u www-data -- php \
+v2negativedirectory=/var/moodledata/tool_secure_s3_storage/database-negative-v2
+release_compose exec -T moodle-release \
+    install -d -m 0750 -o root -g www-data "$v2negativedirectory"
+release_compose exec -T \
+    -e S3_TEST_DATABASE_ARTIFACT_DIRECTORY="$v2negativedirectory" \
+    -e S3_TEST_DATABASE_ARTIFACT_READER_GID=33 \
+    moodle-release php \
     < scripts/create-v2-negative-fixtures.php
+release_compose exec -T moodle-release runuser -u www-data -- php \
+    < scripts/create-content-negative-fixtures.php
+contentnegativeoutput="$(
+    release_moodle_php admin/cli/scheduled_task.php \
+        --execute='\tool_secure_s3_storage\task\transfer_content_objects' 2>&1
+)"
+printf '%s\n' "$contentnegativeoutput"
+for rejectedcontent in \
+    moodle-content-20000101T000005Z-55555555555555555555555555555555.jsonl.gz.manifest.json \
+    moodle-content-20000101T000006Z-66666666666666666666666666666666.jsonl.gz.manifest.json
+do
+    if ! printf '%s\n' "$contentnegativeoutput" |
+            grep -F "Rejected invalid content recovery manifest $rejectedcontent." >/dev/null; then
+        echo "Invalid content fixture was not explicitly rejected: $rejectedcontent" >&2
+        exit 1
+    fi
+done
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databaseproducermode --set=external >/dev/null
+release_moodle_php admin/cli/cfg.php --component=tool_secure_s3_storage \
+    --name=databaseartifactdirectory --set="$v2negativedirectory" >/dev/null
 v2negativeoutput="$(
     release_moodle_php admin/cli/scheduled_task.php \
         --execute='\tool_secure_s3_storage\task\transfer_database_backups' 2>&1
@@ -362,10 +399,10 @@ if [ "$v2audit" != "0:failed:RuntimeException" ]; then
 fi
 
 release_compose exec -T moodle-release sh -c '
-    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz.manifest.json &&
-    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz &&
-    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz.manifest.json &&
-    test -f /var/moodledata/tool_secure_s3_storage/database/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz
+    test -f /var/moodledata/tool_secure_s3_storage/database-negative-v2/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz.manifest.json &&
+    test -f /var/moodledata/tool_secure_s3_storage/database-negative-v2/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz &&
+    test -f /var/moodledata/tool_secure_s3_storage/database-negative-v2/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz.manifest.json &&
+    test -f /var/moodledata/tool_secure_s3_storage/database-negative-v2/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz
 '
 
 release_compose --profile tools run --rm --no-deps --entrypoint /bin/sh \
@@ -376,7 +413,9 @@ release_compose --profile tools run --rm --no-deps --entrypoint /bin/sh \
             moodle/database/v2/2000/01/01/33333333333333333333333333333333/manifest.json \
             moodle/database/v2/2000/01/01/33333333333333333333333333333333/moodle-db-20000101T000003Z-33333333333333333333333333333333.xml.gz \
             moodle/database/v2/2000/01/01/44444444444444444444444444444444/manifest.json \
-            moodle/database/v2/2000/01/01/44444444444444444444444444444444/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz
+            moodle/database/v2/2000/01/01/44444444444444444444444444444444/moodle-db-20000101T000004Z-44444444444444444444444444444444.xml.gz \
+            moodle/content/v1/recovery-sets/2000/01/01/55555555555555555555555555555555/manifest.json \
+            moodle/content/v1/recovery-sets/2000/01/01/66666666666666666666666666666666/manifest.json
         do
             if mc stat "source/$S3_BUCKET/$rejectedkey" >/dev/null 2>&1; then
                 echo "Rejected v2 artifact was published: $rejectedkey" >&2
@@ -386,7 +425,10 @@ release_compose --profile tools run --rm --no-deps --entrypoint /bin/sh \
     '
 
 release_compose --profile tools run --rm --no-deps release-v2-db-fetch
+release_compose --profile tools run --rm --no-deps release-content-fetch
 DATABASE_ARTIFACT_VOLUME="${releaseproject}_release_database_v2_downloads" \
+CONTENT_RECOVERY_VOLUME="${releaseproject}_release_content_downloads" \
+S3_TEST_FILE_MARKER=secure-s3-content-recovery-marker-v1 \
 MOODLE_DTL_RESTORE_CONTAINER="$releaseprefix" \
 MOODLE_RESTORE_TEST_IMAGE="$releaseimage" \
     sh scripts/run-dtl-database-restore-test.sh

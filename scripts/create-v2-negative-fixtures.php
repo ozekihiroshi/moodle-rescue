@@ -4,19 +4,34 @@
 define('CLI_SCRIPT', true);
 require '/var/www/html/config.php';
 
-$directory = $CFG->dataroot . '/tool_secure_s3_storage/database';
+$directory = getenv('S3_TEST_DATABASE_ARTIFACT_DIRECTORY');
+if ($directory === false || trim($directory) === '') {
+    $directory = $CFG->dataroot . '/tool_secure_s3_storage/database';
+}
+$directory = rtrim($directory, '/');
 if (!is_dir($directory) || is_link($directory) || !is_writable($directory)) {
     throw new RuntimeException('Built-in database artifact directory is unavailable.');
 }
+$readergid = getenv('S3_TEST_DATABASE_ARTIFACT_READER_GID');
+if ($readergid === false || !preg_match('/^[0-9]+$/D', $readergid)) {
+    throw new RuntimeException('Database artifact reader GID is invalid.');
+}
+$readergid = (int)$readergid;
 
-$writefixture = static function (string $compacttime, string $artifactid, bool $malformed) use ($directory, $CFG): void {
+$writefixture = static function (string $compacttime, string $artifactid, bool $malformed) use (
+    $directory,
+    $CFG,
+    $readergid
+): void {
     $payload = "moodle-db-{$compacttime}-{$artifactid}.xml.gz";
     $payloadpath = $directory . '/' . $payload;
     $contents = gzencode('<invalid-fixture/>', 6);
     if ($contents === false || file_put_contents($payloadpath, $contents, LOCK_EX) !== strlen($contents)) {
         throw new RuntimeException('Unable to write v2 negative payload fixture.');
     }
-    chmod($payloadpath, 0600);
+    if (!chgrp($payloadpath, $readergid) || !chmod($payloadpath, 0640)) {
+        throw new RuntimeException('Unable to secure v2 negative payload fixture.');
+    }
 
     $created = DateTimeImmutable::createFromFormat('!Ymd\THis\Z', $compacttime);
     if ($created === false) {
@@ -46,7 +61,9 @@ $writefixture = static function (string $compacttime, string $artifactid, bool $
     if (file_put_contents($manifestpath, $json, LOCK_EX) !== strlen($json)) {
         throw new RuntimeException('Unable to write v2 negative manifest fixture.');
     }
-    chmod($manifestpath, 0600);
+    if (!chgrp($manifestpath, $readergid) || !chmod($manifestpath, 0640)) {
+        throw new RuntimeException('Unable to secure v2 negative manifest fixture.');
+    }
 };
 
 $writefixture('20000101T000003Z', str_repeat('3', 32), true);

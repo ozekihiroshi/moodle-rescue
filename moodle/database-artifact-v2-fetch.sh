@@ -7,7 +7,11 @@ secretkey="${S3_SECRET_ACCESS_KEY:?S3_SECRET_ACCESS_KEY is required}"
 bucket="${S3_BUCKET:?S3_BUCKET is required}"
 prefix="${S3_PREFIX:?S3_PREFIX is required}"
 destination="${DATABASE_ARTIFACT_DESTINATION:-/database-artifacts}"
+readergid="${DATABASE_ARTIFACT_READER_GID:-33}"
 
+case "$readergid" in
+    ''|*[!0-9]*) echo "DATABASE_ARTIFACT_READER_GID is invalid." >&2; exit 1 ;;
+esac
 case "$prefix" in
     /*|*..*|*//*|*\\*) echo "S3_PREFIX is invalid." >&2; exit 1 ;;
 esac
@@ -52,6 +56,9 @@ mc cp --quiet "$remoteparent/$payload" "$temporarypayload"
 chmod 0640 "$temporarypayload" "$temporarymanifest"
 mv "$temporarypayload" "$destination/$payload"
 mv "$temporarymanifest" "$destination/$payload.manifest.json"
+chmod 0750 "$destination"
+chmod 0640 "$destination/$payload" "$destination/$payload.manifest.json"
+chown -R "0:$readergid" "$destination"
 
 printf '{"downloaded":true,"version":2,"payload":"%s","manifest":"%s"}\n' \
     "$payload" "$payload.manifest.json"

@@ -69,12 +69,17 @@ exposes the artifact volume read-only to the ZIP-installed release Cron
 container, transfers and downloads the completed v1 pair, restores it to an
 empty MariaDB instance, and reads it through a fresh release image.
 
-The same ZIP is then switched to the built-in producer. It creates and
-transfers a v2 Moodle DTL XML artifact in one scheduled run, rejects an
-unknown-field v2 manifest and a checksum-corrupt v2 payload while preserving
-the local pairs and publishing neither their payloads nor completion manifests, downloads a valid v2 pair from MinIO, and invokes
-the plugin's CLI-only restore command against another empty isolated database.
-A fresh release image must read the DTL-restored Moodle version.
+The same ZIP is then switched to the built-in producer. It creates a File API
+fixture and captures a sorted filedir inventory inside the same repeatable-read
+transaction as the v2 Moodle DTL XML export. The gate transfers the database
+first, then the referenced immutable content objects, inventory, and completion
+manifest. Unknown-field manifests and checksum-corrupt database and content
+payloads must be rejected without publishing completion manifests.
+
+The gate downloads the valid v2 database and content pair from MinIO, requires
+matching recovery-set identifiers, restores into a new database and a separate
+empty filedir volume, and reads the marker through Moodle's File API in a fresh
+release image.
 
 The course restore is also repeated to prove idempotency. Finally, the gate checks
 disabled and re-enabled transfer states, runs the Moodle upgrade no-op, rejects

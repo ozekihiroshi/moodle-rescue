@@ -182,10 +182,13 @@ endpoint.
 
 ## Content phase
 
-The first content reference implementation will back up the existing
-`moodle_data` file pool; it will not make S3 the live filesystem. Database and
-content producers must coordinate a documented consistency point and publish
-the same recovery-set identifier.
+The first content reference implementation backs up the existing `moodle_data`
+file pool; it does not make S3 the live filesystem. When content protection is
+enabled, the built-in database producer writes a sorted contenthash inventory
+inside the same repeatable-read transaction as the DTL export. Database and
+content manifests share one recovery-set identifier. The clean-ZIP gate
+reconstructs filedir into a separate volume and verifies a representative file
+through Moodle's File API.
 
 A later profile will validate the S3 primary-content filesystem implemented by
 Secure S3 Storage itself. It will not install or require an external ObjectFS
