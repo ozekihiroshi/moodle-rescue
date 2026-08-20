@@ -92,6 +92,13 @@ verification; successfully verified remote objects are not deleted by the
 current plugin. If the bucket requires a customer-managed KMS key, grant only
 the corresponding key permissions and update its key policy separately.
 
+Lifecycle and bucket-versioning administration are deployment-operator
+responsibilities. Do not add `s3:PutLifecycleConfiguration`,
+`s3:PutBucketVersioning`, or equivalent administration to this EC2 workload
+policy. The plugin repository documents the initial 30-day recovery
+set and indefinite shared-content policy in
+[`docs/aws-lifecycle.md`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/aws-lifecycle.md).
+
 ## Docker network boundary
 
 The Compose `internal` network is deliberately declared `internal: true` and
@@ -116,3 +123,20 @@ the web and Cron containers. The stability interval was temporarily set to one
 second for the test and restored to 60 seconds afterward. Recovery downloads
 belong below `/var/moodlebackups/restored`, outside the monitored top-level
 source set, so they are not treated as new outbound backups.
+
+## Versioning and Lifecycle validation (2026-08-20)
+
+Plugin version 0.6.0 was validated against a dedicated test bucket below the
+configured plugin prefix.
+
+- Bucket Versioning was enabled and new database payload, database manifest,
+  content inventory, and content completion manifest objects received non-null
+  version IDs.
+- The course, database, and content recovery-set metadata prefixes reported the
+  intended 30-day Lifecycle rules.
+- The shared `content/v1/objects/` key reported no expiration.
+- Incomplete multipart uploads below the plugin prefix are eligible for abort
+  after seven days; completed shared objects are outside expiration rules.
+- A newly generated, matching database/content recovery set passed download,
+  integrity validation, corrupt-inventory rejection, isolated
+  database restore, isolated `filedir` restore, and Moodle File API access.
