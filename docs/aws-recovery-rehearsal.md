@@ -50,3 +50,22 @@ AWS recovery set ... passed the isolated restore rehearsal.
 
 This is a recovery rehearsal, not a production restore command. Production
 recovery remains an explicit administrator-controlled incident procedure.
+
+Run and record this rehearsal before enabling or changing S3 Lifecycle rules.
+The initial bucket policy expires course, database, and recovery-set metadata
+after 30 days while keeping shared content-addressed objects indefinitely. Its
+exact non-overlapping prefix filters and Versioning behavior are documented in
+the plugin repository's
+[`docs/aws-lifecycle.md`](https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/blob/main/docs/aws-lifecycle.md).
+
+## Validated rehearsal (2026-08-20)
+
+After S3 Versioning and the initial Lifecycle policy were enabled, a newly
+generated, matching database/content recovery set passed the following gates
+on the EC2 development deployment:
+
+- database payload and content objects downloaded and verified;
+- v2 DTL data restored into an isolated empty database;
+- a checksum-corrupt content inventory was rejected;
+- the matched content inventory reconstructed an isolated empty `filedir`; and
+- a representative object was read through the Moodle File API.
