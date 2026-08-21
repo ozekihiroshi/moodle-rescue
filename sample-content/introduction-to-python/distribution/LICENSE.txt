@@ -1,0 +1,17 @@
+Python for Data: Foundations in the AI Era
+Copyright © 2026 Hiroshi Ozeki
+
+Except where otherwise noted, the original educational content in this Moodle
+course backup is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/
+
+Recommended attribution:
+
+Python for Data: Foundations in the AI Era, by Hiroshi Ozeki, from Moodle
+Rescue, licensed under CC BY 4.0.
+
+State whether you translated or otherwise modified the material. Moodle,
+plugins, trademarks, and other third-party components retain their respective
+licenses and rights.

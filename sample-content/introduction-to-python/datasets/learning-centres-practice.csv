@@ -1,0 +1,25 @@
+month,centre_id,centre_name,district,course,registered,attended,completed,training_hours,material_cost
+2026-01,C001,Gaborone Learning Centre,South,Python Foundations,32,28,24,24,410.50
+2026-01,C002,Molepolole Learning Centre,Central,Python Foundations,27,21,18,24,356.00
+2026-01,C003,Maun Learning Centre,North,Digital Skills,35,29,25,20,388.75
+2026-01,C004,Francistown Learning Centre,North East,Digital Skills,41,34,30,20,465.20
+2026-02,C001,Gaborone Learning Centre,South,Python Foundations,36,31,27,24,438.00
+2026-02,C002,Molepolole Learning Centre, central ,Python Foundations,29,23,19,24,371.40
+2026-02,C003,Maun Learning Centre,North,Digital Skills,38,31,28,20,402.10
+2026-02,C004,Francistown Learning Centre,North east,Digital Skills,43,36,31,20,479.90
+2026-03,C001,Gaborone Learning Centre,South,Python Foundations,39,34,30,24,452.80
+2026-03,C002,Molepolole Learning Centre,Central,Python Foundations,31,,21,24,382.30
+2026-03,C003,Maun Learning Centre,North,Digital Skills,40,32,29,20,416.60
+2026-03,C004,Francistown Learning Centre,North East,Digital Skills,45,37,39,20,491.00
+2026-04,C001,Gaborone Learning Centre,South,Python Foundations,42,36,32,24,468.25
+2026-04,C002,Molepolole Learning Centre,Central,Python Foundations,33,25,22,24,395.70
+2026-04,C003,Maun Learning Centre,North,Digital Skills,43,35,31,20,429.40
+2026-04,C004,Francistown Learning Centre,North East,Digital Skills,47,39,34,20,508.30
+2026-05,C001,Gaborone Learning Centre,South,Python Foundations,44,38,34,24,482.90
+2026-05,C002,Molepolole Learning Centre,Central,Python Foundations,35,27,23,24,409.10
+2026-05,C003,Maun Learning Centre,North,Digital Skills,45,37,33,20,443.80
+2026-05,C004,Francistown Learning Centre,North East,Digital Skills,49,41,36,20,523.60
+2026-06,C001,Gaborone Learning Centre,South,Python Foundations,46,40,36,24,497.50
+2026-06,C002,Molepolole Learning Centre,Central,Python Foundations,37,29,25,24,421.00
+2026-06,C003,Maun Learning Centre,North,Digital Skills,47,39,35,20,458.20
+2026-06,C004,Francistown Learning Centre,North East,Digital Skills,51,43,38,20,539.40

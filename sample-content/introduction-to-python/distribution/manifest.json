@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release": "1.0.0",
+  "release_date": "2026-08-21",
+  "license": {
+    "educational_content": "CC-BY-4.0",
+    "copyright": "Copyright © 2026 Hiroshi Ozeki",
+    "notice_file": "LICENSE.txt"
+  },
+  "course": {
+    "fullname": "Python for Data: Foundations in the AI Era",
+    "shortname": "PYAI-INTRO",
+    "language": "en",
+    "estimated_hours": 38
+  },
+  "artifact": {
+    "filename": "python-for-data-foundations-ai-era-1.0.0.mbz",
+    "bytes": 150735,
+    "sha256": "23898d1c887dea94355c18dd8179305905b79665161dee56be2225e2882f99ec",
+    "includes_user_data": false
+  },
+  "created_with": {
+    "moodle_release": "5.2.2 (Build: 20260810)",
+    "moodle_version": 2026042002,
+    "backup_version": 2026042000
+  },
+  "inventory": {
+    "chapters": 5,
+    "subsections": 17,
+    "learning_checks": 12,
+    "questions": 120,
+    "notebook_deep_links": 17
+  },
+  "external_requirements": {
+    "python_lab_required_for_notebook_links": true,
+    "lti_1_3_registration_is_site_specific": true
+  }
+}

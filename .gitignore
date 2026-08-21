@@ -6,3 +6,4 @@
 !.env.ui-test.example
 /build/
 /release/
+/sample-content/*/build/

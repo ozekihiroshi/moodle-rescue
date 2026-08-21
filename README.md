@@ -1,7 +1,44 @@
 # Moodle Rescue
 
-Docker environments for developing and validating Secure S3 Storage for
-Moodle.
+Moodle Rescue is a security-focused, reproducible Docker foundation for
+validating Moodle plugins, rehearsing backup and recovery, and starting useful
+education sites quickly.
+
+The project began as a dependable test environment for Secure S3 Storage for
+Moodle. It is being developed beyond that origin into a production-shaped
+resource for schools, learning centres, NGOs, and technical supporters who
+need more than an empty Moodle installation. The repository therefore brings
+together three complementary parts:
+
+1. a reproducible Moodle Docker foundation with local and production-shaped
+   deployment modes;
+2. security, backup, restore, and immutable-plugin validation workflows; and
+3. ready-to-import sample teaching content, beginning with
+   [Python for Data: Foundations in the AI Era](sample-content/introduction-to-python/README.md).
+
+The local Compose environment remains the development and course-authoring
+environment. The production-shaped configuration supplies safer deployment
+defaults and release gates, but it does not make site operation automatic.
+Before serving real learners, an operator must still configure TLS and DNS,
+protect secrets, size and monitor the host, test restores, apply updates,
+configure mail, and meet applicable privacy and education requirements. See
+[Project purpose and production use](docs/project-purpose-and-production-use.md)
+for the intended audience, guarantees, and operating boundary.
+
+## Licensing
+
+Copyright © 2026 Hiroshi Ozeki.
+
+Software in this repository is licensed under the GNU General Public License
+version 3 or, at your option, any later version (`GPL-3.0-or-later`). See
+[`LICENSE`](LICENSE).
+
+Original educational content, including the Python sample course and its
+versioned Moodle backup, is licensed under Creative Commons Attribution 4.0
+International (`CC BY 4.0`). See
+[`LICENSE-CONTENT.md`](LICENSE-CONTENT.md) for the exact scope and recommended
+attribution. Third-party components and future external datasets retain their
+own terms; see [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
 
 ## Production plugin policy
 
