@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "lesson": "1.2 Variables, assignment, and program state",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "V01",
+      "description": "assignment binds a name to an evaluated result",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-01",
+      "teacher": false
+    },
+    {
+      "id": "V02",
+      "description": "assignment and equality comparison are different operations",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-02",
+      "teacher": false
+    },
+    {
+      "id": "V03",
+      "description": "reassignment evaluates the right side before updating the left",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-03",
+      "teacher": false
+    },
+    {
+      "id": "V04",
+      "description": "derived values do not update automatically",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-04",
+      "teacher": false
+    },
+    {
+      "id": "V05",
+      "description": "derived assignments must rerun after an input change",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-05",
+      "teacher": false
+    },
+    {
+      "id": "V06",
+      "description": "augmented assignment is an update shorthand",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-06",
+      "teacher": false
+    },
+    {
+      "id": "V07",
+      "description": "identifiers follow syntax rules and communicate meaning",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-07",
+      "teacher": false
+    },
+    {
+      "id": "V08",
+      "description": "NameError can reveal spelling and execution-order problems",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-08",
+      "teacher": false
+    },
+    {
+      "id": "V09",
+      "description": "restart and run all exposes hidden Notebook state",
+      "level": "M",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-09",
+      "teacher": false
+    },
+    {
+      "id": "V10",
+      "description": "upper-case constants are a convention rather than enforcement",
+      "level": "I",
+      "lesson": true,
+      "notebook": true,
+      "question": "L2R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/02_variables_types_calculations.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/02_variables_types_calculations.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson2-v13.php"
+}

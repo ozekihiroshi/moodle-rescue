@@ -16,6 +16,19 @@ use core_question\local\bank\question_version_status;
 $shortname = getenv('PYTHON_COURSE_SHORTNAME') ?: 'PYAI-INTRO';
 $course = $DB->get_record('course', ['shortname' => $shortname], '*', MUST_EXIST);
 \core\session\manager::set_user(get_admin());
+function v3_announcement_posts(int $courseid, string $marker): array {
+    global $DB;
+    $sql = "SELECT p.*
+              FROM {forum_posts} p
+              JOIN {forum_discussions} d ON d.id = p.discussion
+              JOIN {forum} f ON f.id = d.forum
+             WHERE f.course = :courseid
+               AND " . $DB->sql_like('p.message', ':marker');
+    return array_values($DB->get_records_sql($sql, [
+        'courseid' => $courseid, 'marker' => '%' . $marker . '%',
+    ]));
+}
+
 
 function v3_code(string $code): string {
     return '<pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>'
@@ -36,6 +49,18 @@ function v3_add_page(stdClass $course, int $section, string $name, string $conte
         'visible' => $visible ? 1 : 0, 'visibleoncoursepage' => $visible ? 1 : 0,
         'groupmode' => 0, 'groupingid' => 0, 'completion' => 0, 'showdescription' => 0,
     ], $course);
+}
+
+function v3_quiz_has_question_named(int $quizid, string $name): bool {
+    global $DB;
+    $sql = "SELECT 1
+              FROM {quiz_slots} qs
+              JOIN {question_references} qr
+                ON qr.component = 'mod_quiz' AND qr.questionarea = 'slot' AND qr.itemid = qs.id
+              JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid
+              JOIN {question} q ON q.id = qv.questionid
+             WHERE qs.quizid = :quizid AND q.name = :name";
+    return $DB->record_exists_sql($sql, ['quizid' => $quizid, 'name' => $name]);
 }
 
 function v3_save_question(int $categoryid, int $contextid, array $data): stdClass {
@@ -144,7 +169,7 @@ $journey = [
     'Lesson 10: Grouping and summary statistics' => [
         'story' => 'Individual rows are condensed into a district-level table for a management meeting.',
         'task' => 'Group by district and report number of centre-months, total registered, total completed, and mean attendance rate.',
-        'code' => "summary = df.groupby(\"district\").agg(\n    centre_months=(\"centre_id\", \"count\"),\n    registered=(\"registered\", \"sum\"),\n    completed=(\"completed\", \"sum\"),\n    mean_attendance=(\"attendance_rate\", \"mean\"),\n+)\nprint(summary)",
+        'code' => "summary = df.groupby(\"district\").agg(\n    centre_months=(\"centre_id\", \"count\"),\n    registered=(\"registered\", \"sum\"),\n    completed=(\"completed\", \"sum\"),\n    mean_attendance=(\"attendance_rate\", \"mean\"),\n)\nprint(summary)",
         'transfer' => 'Group by course and calculate total training hours, total material cost, and cost per completion.',
         'answer' => 'Aggregate hours, cost, and completions by course, then divide each course total cost by its total completions.',
         'scale' => 'Group-by converts detailed operations into a decision-sized table; group counts protect against misleading comparisons.',
@@ -239,7 +264,7 @@ $transferquestions = [
 foreach ($transferquestions as $quizname => [$suffix, $prompt, $answers, $correct, $explanation]) {
     $quiz = $DB->get_record('quiz', ['course' => $course->id, 'name' => $quizname], '*', MUST_EXIST);
     $questionname = $shortname . ' transfer: ' . $suffix;
-    if ($DB->record_exists('question', ['name' => $questionname])) {
+    if (v3_quiz_has_question_named((int) $quiz->id, $questionname)) {
         continue;
     }
     $question = v3_save_question($category->id, $context->id, [
@@ -251,8 +276,8 @@ foreach ($transferquestions as $quizname => [$suffix, $prompt, $answers, $correc
 }
 
 $marker = 'PYAI-V3-ANNOUNCEMENT';
-$newsforum = $DB->get_record('forum', ['course' => $course->id, 'type' => 'news']);
-if ($newsforum && !$DB->record_exists_select('forum_posts', $DB->sql_like('message', ':marker'), ['marker' => '%' . $marker . '%'])) {
+$newsforum = forum_get_course_forum($course->id, 'news');
+if (!v3_announcement_posts($course->id, $marker)) {
     forum_add_discussion((object) [
         'course' => $course->id, 'forum' => $newsforum->id,
         'name' => 'Course story: Work alongside Naledi from one centre to open data',

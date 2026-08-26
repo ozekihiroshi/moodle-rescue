@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "1.4 Strings, input, and formatted output",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "S01",
+      "description": "create strings with suitable quotes and escapes",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-01",
+      "teacher": false
+    },
+    {
+      "id": "S02",
+      "description": "index and slice a string using zero-based positions",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-02",
+      "teacher": false
+    },
+    {
+      "id": "S03",
+      "description": "inspect string length",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-03",
+      "teacher": false
+    },
+    {
+      "id": "S04",
+      "description": "clean text with methods that return new strings",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-04",
+      "teacher": false
+    },
+    {
+      "id": "S05",
+      "description": "combine strings and convert non-text values explicitly",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-05",
+      "teacher": false
+    },
+    {
+      "id": "S06",
+      "description": "recognise that input always returns str",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-06",
+      "teacher": false
+    },
+    {
+      "id": "S07",
+      "description": "convert numeric input before arithmetic",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-07",
+      "teacher": false
+    },
+    {
+      "id": "S08",
+      "description": "format values and expressions with f-strings",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-08",
+      "teacher": false
+    },
+    {
+      "id": "S09",
+      "description": "recognise string immutability",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-09",
+      "teacher": false
+    },
+    {
+      "id": "S10",
+      "description": "split delimited text and convert selected fields",
+      "lesson": true,
+      "notebook": true,
+      "question": "L14R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/04_strings_input_formatting.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/04_strings_input_formatting.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson4-v15.php"
+}

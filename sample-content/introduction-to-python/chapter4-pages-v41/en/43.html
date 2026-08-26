@@ -1,0 +1,33 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>Introduction</h2><p><strong>A real lending desk coordinates many objects.</strong> An item knows whether it can be loaned, but it should not know every other item or how the inventory is searched. A coordinating class owns the collection while state rules remain with each item.</p><h2>Learning outcomes</h2><ul><li>Store objects in a collection keyed by stable identity.</li><li>Use composition to model a desk containing items.</li><li>Delegate transitions to the object owning the rule.</li><li>Derive summaries without a second source of truth.</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>Learning route:</strong> Required 4.3.1–4.3.4 | Integration 4.3.5</aside><h2>4.3.1 Compose a desk from item objects</h2><p>Composition means that one object contains or uses other objects. A dictionary keyed by item ID makes lookup and uniqueness explicit.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>class LendingDesk:
+    def __init__(self):
+        self.items = {}
+
+    def add_item(self, item):
+        if item.item_id in self.items:
+            raise ValueError(&quot;duplicate item ID&quot;)
+        self.items[item.item_id] = item
+
+    def find_item(self, item_id):
+        return self.items.get(item_id.strip())
+
+    def loan_item(self, item_id, borrower_id):
+        item = self.find_item(item_id)
+        if item is None:
+            raise KeyError(item_id)
+        item.loan_to(borrower_id)</code></pre><p>The values are actual <code>EquipmentItem</code> objects, not copies of their attributes.</p><h2>4.3.2 Put responsibility where the information lives</h2><p>The desk answers “which item?” The item answers “is this transition allowed?” <code>loan_item</code> searches and then calls <code>item.loan_to()</code>. Repeating double-loan rules in both classes would create two versions that drift apart.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>desk.loan_item(&quot;E001&quot;, &quot;M014&quot;)
+# desk: locate E001
+# item: validate and change its own borrower</code></pre><h2>4.3.3 Distinguish absence from invalid state</h2><p>An unknown ID means the object is absent, so the desk raises <code>KeyError</code>. An existing object that refuses a transition raises <code>ValueError</code>. This difference later becomes a useful audit message.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>try:
+    desk.loan_item(&quot;E999&quot;, &quot;M014&quot;)
+except KeyError:
+    print(&quot;unknown item&quot;)
+
+try:
+    desk.loan_item(&quot;E002&quot;, &quot;M014&quot;)
+except ValueError:
+    print(&quot;item cannot be loaned&quot;)</code></pre><h2>4.3.4 Derive collection results</h2><p>Counts come from current item state. Storing a separate available total would require every transition to update two places.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def summary(self):
+    available = sum(item.is_available() for item in self.items.values())
+    return {
+        &quot;total_items&quot;: len(self.items),
+        &quot;available_items&quot;: available,
+        &quot;loaned_items&quot;: len(self.items) - available,
+    }</code></pre><h2>4.3.5 Integrated practice</h2><p>Add three items, one initially on loan. Loan an available item through the desk, return the borrowed item, and produce a summary. At each call name the class that searches and the class that validates state.</p><h2>Summary</h2><ul><li>Composition lets a coordinator own a collection of domain objects.</li><li>Delegation keeps search, uniqueness, and transition rules in suitable places.</li><li>Derived totals do not become stale stored state.</li></ul><h2>Next</h2><p>Lesson 4.4 crosses the CSV/object boundary and records a result for every accepted or rejected request.</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

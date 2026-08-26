@@ -1,0 +1,18 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>Situation</h2><p>A community learning centre lends shared equipment. At opening time staff receive an inventory CSV and a CSV containing the day’s requests. They need a program that processes requests in order, refuses impossible state changes, and leaves an auditable closing inventory and a result for every request.</p><h2>Program to complete</h2><p>Open <code>projects/equipment-lending/equipment_lending.py</code> in Python Lab and complete its TODOs. Do not start from an empty file.</p><ol><li>Build five <code>EquipmentItem</code> objects from inventory.</li><li>Pass six requests to the desk in file order.</li><li>Change state only for accepted requests and retain each rejection reason.</li><li>Save closing inventory and request results to separate CSV files.</li><li>Display summary counts.</li></ol><h2>Supplied source files</h2><p><code>data/equipment_inventory.csv</code> is the opening inventory. <code>data/lending_requests.csv</code> is the day’s work. Do not edit or overwrite either source.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>item_id,name,category,borrower_id
+E001,Laptop 01,Computer,
+E002,Portable Projector,Presentation,M021
+E003,Network Practice Kit,Networking,
+E004,Training Camera,Media,M031
+E005,Portable Speaker,Audio,</code></pre><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>request_id,action,item_id,borrower_id
+R001,LOAN,E001,M014
+R002,LOAN,E002,M022
+R003,RETURN,E004,
+R004,LOAN,E005,M018
+R005,RETURN,E003,
+R006,LOAN,E999,M014</code></pre><h2>Rules</h2><ul><li>Reject empty required values, duplicate IDs, double lending, return of an available item, unknown IDs, and unknown actions.</li><li>A rejected request must preserve item state and processing must continue.</li><li>Save result rows in request order and inventory rows in item-ID order.</li><li>Do not rename published classes, functions, parameters, constants, or output fields.</li></ul><h2>Expected result for the supplied data</h2><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>EQUIPMENT LENDING REPORT
+REQUESTS: 6
+ACCEPTED: 3
+REJECTED: 3
+TOTAL ITEMS: 5
+AVAILABLE ITEMS: 2
+LOANED ITEMS: 3</code></pre><p>R001, R003, and R004 are accepted. R002, R005, and R006 are rejected. Final borrowers are E001=M014, E002=M021, E003 empty, E004 empty, and E005=M018.</p><h2>Implementation route</h2><ol><li><code>EquipmentItem</code>: construction, state, transitions, row conversion.</li><li><code>LendingDesk</code>: collection, search, delegation, summary, inventory saving.</li><li><code>load_inventory</code> and <code>process_requests</code>.</li><li><code>save_results</code> and <code>run_project</code>.</li></ol><h2>Manual and automatic confirmation</h2><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>python projects/equipment-lending/equipment_lending.py</code></pre><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>python projects/equipment-lending/check_equipment_lending.py</code></pre><p>Inspect both generated CSV files. Completion requires every check to show <code>OK</code> and the final line <code>ALL TESTS PASSED</code>. Submit only <code>equipment_lending.py</code>.</p><p style="display:none">PYAI-V41-PROJECT45</p></div>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "What relationship does `LendingDesk` containing `EquipmentItem` objects demonstrate?",
+    "c": [
+      "inheritance",
+      "composition",
+      "recursion",
+      "numeric conversion"
+    ],
+    "ok": 1,
+    "why": "Composition models a coordinator that owns or uses domain objects."
+  },
+  {
+    "id": "02",
+    "p": "Why key the desk dictionary by `item_id`?",
+    "c": [
+      "to make lookup and uniqueness explicit",
+      "to convert IDs to integers",
+      "to avoid methods",
+      "to share borrower state"
+    ],
+    "ok": 0,
+    "why": "A stable ID supports direct search and duplicate detection."
+  },
+  {
+    "id": "03",
+    "p": "Which class should reject a duplicate item ID?",
+    "c": [
+      "EquipmentItem only",
+      "LendingDesk",
+      "csv.DictReader",
+      "Path"
+    ],
+    "ok": 1,
+    "why": "Uniqueness is a collection-level rule owned by the desk."
+  },
+  {
+    "id": "04",
+    "p": "Which class should reject a double loan?",
+    "c": [
+      "LendingDesk by duplicating all checks",
+      "EquipmentItem",
+      "the output writer",
+      "the quiz"
+    ],
+    "ok": 1,
+    "why": "The item owns borrower state and the transition invariant."
+  },
+  {
+    "id": "05",
+    "p": "What does delegation mean in `desk.loan_item`?",
+    "c": [
+      "copying every attribute",
+      "finding the item then calling its `loan_to` method",
+      "returning the whole dictionary",
+      "ignoring exceptions"
+    ],
+    "ok": 1,
+    "why": "The desk coordinates and asks the item to perform its own transition."
+  },
+  {
+    "id": "06",
+    "p": "Why use KeyError for E999 and ValueError for an already-loaned E002?",
+    "c": [
+      "they distinguish absent identity from invalid state",
+      "Python requires random exceptions",
+      "KeyError is always more serious",
+      "ValueError means CSV only"
+    ],
+    "ok": 0,
+    "why": "The two failures have different meanings and later produce useful audit reasons."
+  },
+  {
+    "id": "07",
+    "p": "What is the risk of storing an independent `available_count` attribute?",
+    "c": [
+      "it may become stale when transitions forget to update it",
+      "integers cannot be attributes",
+      "it prevents loops",
+      "it deletes items"
+    ],
+    "ok": 0,
+    "why": "Derived totals avoid a second source of truth."
+  },
+  {
+    "id": "08",
+    "p": "After two items are added and one is loaned, what should `summary()` derive?",
+    "c": [
+      "only their names",
+      "total, available, and loaned counts from current objects",
+      "a new class",
+      "the input prompts"
+    ],
+    "ok": 1,
+    "why": "Summary reads the current collection and item states."
+  },
+  {
+    "id": "09",
+    "p": "What should `find_item` return for an unknown ID according to the lesson?",
+    "c": [
+      "a new item",
+      "None",
+      "False and delete the desk",
+      "the first item"
+    ],
+    "ok": 1,
+    "why": "A non-raising search returns the object or `None`; required operations then raise KeyError."
+  },
+  {
+    "id": "10",
+    "p": "Which responsibility belongs to orchestration rather than either domain class?",
+    "c": [
+      "checking whether one item is already loaned",
+      "rejecting duplicate membership",
+      "choosing which input file to load and when to save outputs",
+      "storing one item's borrower"
+    ],
+    "ok": 2,
+    "why": "The outer workflow connects input, domain operations, and output."
+  }
+]

@@ -16,6 +16,19 @@ use core_question\local\bank\question_version_status;
 $shortname = getenv('PYTHON_COURSE_SHORTNAME') ?: 'PYAI-INTRO';
 $course = $DB->get_record('course', ['shortname' => $shortname], '*', MUST_EXIST);
 \core\session\manager::set_user(get_admin());
+function v2_announcement_posts(int $courseid, string $marker): array {
+    global $DB;
+    $sql = "SELECT p.*
+              FROM {forum_posts} p
+              JOIN {forum_discussions} d ON d.id = p.discussion
+              JOIN {forum} f ON f.id = d.forum
+             WHERE f.course = :courseid
+               AND " . $DB->sql_like('p.message', ':marker');
+    return array_values($DB->get_records_sql($sql, [
+        'courseid' => $courseid, 'marker' => '%' . $marker . '%',
+    ]));
+}
+
 
 function v2_code(string $code): string {
     return '<pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>'
@@ -58,6 +71,18 @@ function v2_add_assignment(stdClass $course, int $section, string $name, string 
         'assignfeedback_comments_enabled' => 1, 'visible' => 1, 'visibleoncoursepage' => 1,
         'groupmode' => 0, 'groupingid' => 0, 'completion' => 0, 'showdescription' => 1,
     ], $course);
+}
+
+function v2_quiz_has_question_named(int $quizid, string $name): bool {
+    global $DB;
+    $sql = "SELECT 1
+              FROM {quiz_slots} qs
+              JOIN {question_references} qr
+                ON qr.component = 'mod_quiz' AND qr.questionarea = 'slot' AND qr.itemid = qs.id
+              JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid
+              JOIN {question} q ON q.id = qv.questionid
+             WHERE qs.quizid = :quizid AND q.name = :name";
+    return $DB->record_exists_sql($sql, ['quizid' => $quizid, 'name' => $name]);
 }
 
 function v2_save_question(int $categoryid, int $contextid, array $data): stdClass {
@@ -116,8 +141,8 @@ function v2_add_quiz(stdClass $course, int $section, string $name, array $questi
 
 // Post a real announcement, not merely an empty Announcements forum.
 $announcementmarker = 'PYAI-V2-ANNOUNCEMENT';
-$newsforum = $DB->get_record('forum', ['course' => $course->id, 'type' => 'news']);
-if ($newsforum && !$DB->record_exists_select('forum_posts', $DB->sql_like('message', ':marker'), ['marker' => '%' . $announcementmarker . '%'])) {
+$newsforum = forum_get_course_forum($course->id, 'news');
+if (!v2_announcement_posts($course->id, $announcementmarker)) {
     forum_add_discussion((object) [
         'course' => $course->id, 'forum' => $newsforum->id, 'name' => 'Welcome: our path from Python basics to larger datasets',
         'message' => '<p><strong>Welcome.</strong> This course builds one connected set of skills: values become records, records become tables, and tables become evidence for a practical decision.</p>'
@@ -176,7 +201,7 @@ $examples = [
     ],
     'Lesson 10: Grouping and summary statistics' => [
         'task' => 'Compare districts using count, mean completion rate, and total learners. Sort by total learners.',
-        'answer' => "summary = clean.groupby(\"district\").agg(\n    centres=(\"centre\", \"count\"),\n    mean_completion=(\"completion_rate\", \"mean\"),\n    total_learners=(\"learners\", \"sum\"),\n+).sort_values(\"total_learners\", ascending=False)\nprint(summary)",
+        'answer' => "summary = clean.groupby(\"district\").agg(\n    centres=(\"centre\", \"count\"),\n    mean_completion=(\"completion_rate\", \"mean\"),\n    total_learners=(\"learners\", \"sum\"),\n).sort_values(\"total_learners\", ascending=False)\nprint(summary)",
         'path' => 'Group-by aggregation turns millions of detailed rows into a decision-sized table, while counts preserve context.',
     ],
     'Lesson 11: Visualisation and evidence' => [
@@ -221,7 +246,7 @@ $appliedquestions = [
 foreach ($appliedquestions as $quizname => [$suffix, $prompt, $answers, $correct, $explanation]) {
     $quiz = $DB->get_record('quiz', ['course' => $course->id, 'name' => $quizname], '*', MUST_EXIST);
     $questionname = $shortname . ' applied: ' . $suffix;
-    if ($DB->record_exists('question', ['name' => $questionname])) {
+    if (v2_quiz_has_question_named((int) $quiz->id, $questionname)) {
         continue;
     }
     $question = v2_save_question($category->id, $context->id, [
@@ -237,12 +262,16 @@ $miniproject = '<h2>Mini-project: Mobile data budget planner</h2>'
     . '<p>Build a useful command-line programme for a person choosing a mobile-data package. Store at least three packages with name, price, and included gigabytes. Ask for expected weekly use and a monthly budget. Use a loop to compare packages and conditions to mark each as suitable, over budget, or too small.</p>'
     . '<h3>Required evidence</h3><ul><li>Readable Python code</li><li>Tests at a package limit and budget limit</li><li>A sample recommendation</li><li>100–150 words explaining one design decision</li></ul>'
     . '<h3>Rubric</h3><ul><li>Variables and conversions: 20</li><li>Correct conditions and boundaries: 25</li><li>Loop processes every package: 25</li><li>Useful output and tests: 20</li><li>Explanation and AI declaration: 10</li></ul>' . $aideclaration;
-v2_add_assignment($course, 4, 'Mini-project: Mobile data budget planner', $miniproject);
+if (!$DB->record_exists('assign', ['course' => $course->id, 'name' => 'Mini-project: Weekly learning-centre support report'])) {
+    v2_add_assignment($course, 4, 'Mini-project: Mobile data budget planner', $miniproject);
+}
 
 $minianswer = '<h2>Teacher model: Mobile data budget planner</h2>'
     . v2_code("packages = [\n    {\"name\": \"Basic\", \"gb\": 5, \"price\": 8},\n    {\"name\": \"Standard\", \"gb\": 12, \"price\": 15},\n    {\"name\": \"Plus\", \"gb\": 25, \"price\": 26},\n]\nweekly_use = float(input(\"Expected GB per week: \"))\nbudget = float(input(\"Monthly budget: \"))\nmonthly_use = weekly_use * 4\n\nfor package in packages:\n    if package[\"gb\"] < monthly_use:\n        status = \"too small\"\n    elif package[\"price\"] > budget:\n        status = \"over budget\"\n    else:\n        status = \"suitable\"\n    print(package[\"name\"], status)")
     . '<h3>Teacher notes</h3><p>Accept functions, tuples, or parallel lists when the learner can explain them. Test equality at both boundaries. Common errors are comparing weekly use with monthly allowance, converting after calculation, or placing the print statement outside the loop.</p>';
-v2_add_page($course, 4, 'Teacher model answer: Mobile data budget planner (hidden)', $minianswer, false);
+if (!$DB->record_exists('page', ['course' => $course->id, 'name' => 'Teacher model answer: Weekly learning-centre support report (hidden)'])) {
+    v2_add_page($course, 4, 'Teacher model answer: Mobile data budget planner (hidden)', $minianswer, false);
+}
 
 foreach ([15, 16] as $sectionnumber) {
     course_create_sections_if_missing($course, $sectionnumber);

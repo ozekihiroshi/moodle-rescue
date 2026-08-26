@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "project": "3A School meal delivery review",
+  "position": "chapter_3_midterm_choice",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "input": "projects/school-meal-review/data/school-meals-practice.csv",
+  "learner_artifact": "meal_delivery_review.py",
+  "outputs": [
+    "records_to_verify.csv",
+    "school_delivery_summary.csv"
+  ],
+  "source_rows": 37,
+  "verification_rows": 4,
+  "analysis_rows": 33,
+  "naive_first_delivery": "S002",
+  "verified_first_delivery": "S004",
+  "checker_cases": 10,
+  "completion": [
+    "ALL TESTS PASSED",
+    "REVIEW READY"
+  ],
+  "course_review_after_prototype": [
+    "3.1",
+    "3.2",
+    "3.3",
+    "3.4"
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "What does `load_inventory` create from each DictReader row?",
+    "c": [
+      "an EquipmentItem object",
+      "a quiz slot",
+      "a chart",
+      "a second CSV string only"
+    ],
+    "ok": 0,
+    "why": "Rows cross the input boundary by constructing validated objects."
+  },
+  {
+    "id": "02",
+    "p": "How is an available object's `borrower_id is None` represented in CSV?",
+    "c": [
+      "the word None must be written",
+      "an empty field",
+      "the number zero",
+      "the item is omitted"
+    ],
+    "ok": 1,
+    "why": "`to_record()` converts the in-memory absence to an empty string."
+  },
+  {
+    "id": "03",
+    "p": "Why should `to_record()` not open the inventory file itself?",
+    "c": [
+      "one item owns row conversion; collection saving is a separate responsibility",
+      "methods cannot open files",
+      "CSV has no rows",
+      "Path forbids classes"
+    ],
+    "ok": 0,
+    "why": "Separating one-row representation from collection persistence keeps responsibilities clear."
+  },
+  {
+    "id": "04",
+    "p": "A known business rejection occurs while processing request 2 of 6. What should happen next?",
+    "c": [
+      "stop and discard requests 3–6",
+      "record REJECTED and continue",
+      "mark every later request rejected",
+      "overwrite the source"
+    ],
+    "ok": 1,
+    "why": "Every request needs an audit result in original order."
+  },
+  {
+    "id": "05",
+    "p": "Which exceptions should the request loop catch for published business rejection?",
+    "c": [
+      "all BaseException values",
+      "the published ValueError and KeyError",
+      "SyntaxError only",
+      "no exceptions"
+    ],
+    "ok": 1,
+    "why": "Specific expected exceptions become audit results; programming defects remain visible."
+  },
+  {
+    "id": "06",
+    "p": "Why test with X1 and X2 instead of only E001–E005?",
+    "c": [
+      "to detect hard-coded answers tied to the sample",
+      "to make IDs numeric",
+      "to avoid CSV",
+      "to skip the project"
+    ],
+    "ok": 0,
+    "why": "A general solution must process another file with the same contract."
+  },
+  {
+    "id": "07",
+    "p": "Which assertion protects the source inventory?",
+    "c": [
+      "assert source.read_bytes() == before",
+      "assert output is None",
+      "assert item_id == E001",
+      "assert len(code) > 0"
+    ],
+    "ok": 0,
+    "why": "Comparing bytes before and after verifies that the input was not overwritten."
+  },
+  {
+    "id": "08",
+    "p": "Where should final inventory ordering be applied?",
+    "c": [
+      "when the desk saves its collection",
+      "inside every item's loan method",
+      "in the Moodle quiz",
+      "by editing the source"
+    ],
+    "ok": 0,
+    "why": "Collection persistence owns ordering of the exported rows."
+  },
+  {
+    "id": "09",
+    "p": "What is the main role of `run_project()`?",
+    "c": [
+      "reimplement every transition rule",
+      "orchestrate load, process, save, and summary calls",
+      "define Python syntax",
+      "store one borrower's state"
+    ],
+    "ok": 1,
+    "why": "The function connects already defined responsibilities in work order."
+  },
+  {
+    "id": "10",
+    "p": "Why preserve a result row for rejected requests?",
+    "c": [
+      "to audit what was attempted and why it did not change state",
+      "to increase inventory count",
+      "to turn them into accepted requests",
+      "to avoid using classes"
+    ],
+    "ok": 0,
+    "why": "An audit trail explains both accepted state changes and refused work."
+  }
+]

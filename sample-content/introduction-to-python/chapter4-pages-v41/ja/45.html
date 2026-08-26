@@ -1,0 +1,18 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>課題の状況</h2><p>地域学習センターでは共用機材を貸し出しています。始業時に在庫CSVと、その日に受け付けた依頼CSVが届きます。依頼を受付順に処理し、不可能な状態変更を拒否し、閉所時の在庫と全依頼の結果を残すプログラムが必要です。</p><h2>完成させるプログラム</h2><p>Python Labの<code>projects/equipment-lending/equipment_lending.py</code>を開き、TODOを完成させます。空のファイルから作りません。</p><ol><li>在庫から5個の<code>EquipmentItem</code>を作る。</li><li>6件の依頼を入力順に窓口へ渡す。</li><li>受理した依頼だけで状態を変更し、拒否理由も残す。</li><li>更新後在庫と依頼結果を別々のCSVへ保存する。</li><li>集計を画面表示する。</li></ol><h2>配布される原本</h2><p><code>data/equipment_inventory.csv</code>は開始時の在庫、<code>data/lending_requests.csv</code>は当日の依頼です。どちらも編集・上書きしません。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>item_id,name,category,borrower_id
+E001,Laptop 01,Computer,
+E002,Portable Projector,Presentation,M021
+E003,Network Practice Kit,Networking,
+E004,Training Camera,Media,M031
+E005,Portable Speaker,Audio,</code></pre><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>request_id,action,item_id,borrower_id
+R001,LOAN,E001,M014
+R002,LOAN,E002,M022
+R003,RETURN,E004,
+R004,LOAN,E005,M018
+R005,RETURN,E003,
+R006,LOAN,E999,M014</code></pre><h2>処理規則</h2><ul><li>空の必須値、ID重複、二重貸出、未貸出品の返却、未知ID、未知操作を拒否する。</li><li>拒否された依頼は機材状態を変えず、後続依頼を続ける。</li><li>結果は依頼順、在庫はitem_id順で保存する。</li><li>公開されたクラス・関数・引数・定数・出力列名を変更しない。</li></ul><h2>配布データで期待される結果</h2><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>EQUIPMENT LENDING REPORT
+REQUESTS: 6
+ACCEPTED: 3
+REJECTED: 3
+TOTAL ITEMS: 5
+AVAILABLE ITEMS: 2
+LOANED ITEMS: 3</code></pre><p>受理はR001・R003・R004、拒否はR002・R005・R006です。最終利用者はE001=M014、E002=M021、E003=空、E004=空、E005=M018です。</p><h2>実装する順序</h2><ol><li><code>EquipmentItem</code>の生成・状態・遷移・行変換。</li><li><code>LendingDesk</code>の収集・検索・委譲・集計・在庫保存。</li><li><code>load_inventory</code>と<code>process_requests</code>。</li><li><code>save_results</code>と<code>run_project</code>。</li></ol><h2>手動確認と自動確認</h2><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>python projects/equipment-lending/equipment_lending.py</code></pre><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>python projects/equipment-lending/check_equipment_lending.py</code></pre><p>生成された二つのCSVも開きます。全項目が<code>OK</code>となり、最後に<code>ALL TESTS PASSED</code>と表示されたら完成です。提出は<code>equipment_lending.py</code>だけです。</p><p style="display:none">PYAI-V41-PROJECT45</p></div>

@@ -1,0 +1,2080 @@
+{
+  "01_programs_values_output.ipynb": [
+    {
+      "id": "cell-004",
+      "source": [
+        "print(\"Learning centre report\")\n",
+        "print(6 * 4)\n",
+        "print(24 - 5)"
+      ]
+    },
+    {
+      "id": "cell-007",
+      "source": [
+        "print(\"3 + 4\")\n",
+        "print(3 + 4)\n",
+        "print((8 + 2) * 5)"
+      ]
+    },
+    {
+      "id": "cell-010",
+      "source": [
+        "print(\"Workshop places\")\n",
+        "print(\"Morning:\", 18)\n",
+        "print(\"Afternoon:\", 12)\n",
+        "print(\"Total:\", 18 + 12)\n",
+        "print(\"Unused seats:\", 40 - (18 + 12))"
+      ]
+    },
+    {
+      "id": "cell-012",
+      "source": [
+        "# Write three print instructions here.\n"
+      ]
+    },
+    {
+      "id": "cell-015",
+      "source": [
+        "print(\"Runs, but answers the wrong calculation:\", (5 + 3) * 16)\n",
+        "print(\"Total available places:\", 5 * 3 * 16)"
+      ]
+    }
+  ],
+  "02_variables_types_calculations.ipynb": [
+    {
+      "id": "l2-en-one-source-code",
+      "source": [
+        "capacity = 40\n",
+        "morning = 18\n",
+        "afternoon = 12\n",
+        "\n",
+        "print(\"Total:\", morning + afternoon)\n",
+        "print(\"Unused seats:\", capacity - (morning + afternoon))\n"
+      ]
+    },
+    {
+      "id": "l2-en-assignment-code",
+      "source": [
+        "registered = 40\n",
+        "print(\"Registered:\", registered)\n",
+        "print(\"Equal to 40:\", registered == 40)\n",
+        "print(\"Equal to 35:\", registered == 35)\n"
+      ]
+    },
+    {
+      "id": "l2-en-update-code",
+      "source": [
+        "total = 12\n",
+        "amount = 5\n",
+        "print(\"Before:\", total)\n",
+        "total = total + amount\n",
+        "print(\"After long form:\", total)\n",
+        "total += amount\n",
+        "print(\"After shorthand:\", total)\n"
+      ]
+    },
+    {
+      "id": "l2-en-derived-code",
+      "source": [
+        "planned = 15\n",
+        "cancelled = 2\n",
+        "delivered = planned - cancelled\n",
+        "\n",
+        "cancelled = 4\n",
+        "print(\"Before recalculation:\", delivered)\n",
+        "\n",
+        "delivered = planned - cancelled\n",
+        "print(\"After recalculation:\", delivered)\n"
+      ]
+    },
+    {
+      "id": "l2-en-constant",
+      "source": [
+        "MAX_SEATS = 40\n",
+        "print(\"Initial value:\", MAX_SEATS)\n",
+        "MAX_SEATS = 36  # This runs, although it conflicts with the constant convention.\n",
+        "print(\"After reassignment:\", MAX_SEATS)\n"
+      ]
+    },
+    {
+      "id": "l2-en-nameerror-code",
+      "source": [
+        "completed_learners = 29\n",
+        "try:\n",
+        "    print(completed_learner)\n",
+        "except NameError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n",
+        "\n",
+        "print(\"Correct name:\", completed_learners)\n"
+      ]
+    },
+    {
+      "id": "l2-en-guided-code",
+      "source": [
+        "planned = 15\n",
+        "cancelled = 2\n",
+        "delivered = planned - cancelled\n",
+        "\n",
+        "print(\"Planned:\", planned)\n",
+        "print(\"Cancelled:\", cancelled)\n",
+        "print(\"Delivered:\", delivered)\n"
+      ]
+    },
+    {
+      "id": "l2-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "03_basic_scalar_types.ipynb": [
+    {
+      "id": "l13-en-types-code",
+      "source": [
+        "values = [34, 82.5, \"34\", True, None]\n",
+        "for value in values:\n",
+        "    print(repr(value), type(value))\n"
+      ]
+    },
+    {
+      "id": "l13-en-arithmetic-code",
+      "source": [
+        "print(10 + 3)\n",
+        "print(10 - 3)\n",
+        "print(10 * 3)\n",
+        "print(10 / 3)\n",
+        "print(10 // 3)\n",
+        "print(10 % 3)\n",
+        "print(10 ** 2)\n"
+      ]
+    },
+    {
+      "id": "l13-en-precedence-code",
+      "source": [
+        "print(2 + 3 * 4)\n",
+        "print((2 + 3) * 4)\n",
+        "books = 53\n",
+        "per_box = 12\n",
+        "print(\"Full boxes:\", books // per_box)\n",
+        "print(\"Books left:\", books % per_box)\n"
+      ]
+    },
+    {
+      "id": "l13-en-conversion-code",
+      "source": [
+        "learners_text = \"36\"\n",
+        "learners = int(learners_text)\n",
+        "rate_text = \"80.5\"\n",
+        "rate = float(rate_text)\n",
+        "print(learners + 4, type(learners))\n",
+        "print(rate, type(rate))\n",
+        "print(str(learners) + \" learners\")\n",
+        "print(bool(\"False\"), bool(\"\"))\n"
+      ]
+    },
+    {
+      "id": "l13-en-conversion-error-code",
+      "source": [
+        "try:\n",
+        "    int(\"12.5\")\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n",
+        "\n",
+        "value = float(\"12.5\")\n",
+        "print(value, type(value))\n"
+      ]
+    },
+    {
+      "id": "l13-en-numeric-caution-code",
+      "source": [
+        "print(0.1 + 0.2)\n",
+        "print(round(0.1 + 0.2, 1))\n",
+        "try:\n",
+        "    print(10 / 0)\n",
+        "except ZeroDivisionError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n"
+      ]
+    },
+    {
+      "id": "l13-en-guided-code",
+      "source": [
+        "registered = 36\n",
+        "completed = 29\n",
+        "completion_rate = completed / registered * 100\n",
+        "print(\"Completion rate:\", round(completion_rate, 1), \"%\")\n"
+      ]
+    },
+    {
+      "id": "l13-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "04_strings_input_formatting.ipynb": [
+    {
+      "id": "l14-en-create-code",
+      "source": [
+        "course = \"Introduction to Python\"\n",
+        "message = 'The teacher said, \"Run and check.\"'\n",
+        "print(course)\n",
+        "print(message)\n",
+        "print(\"Line 1\\nLine 2\")\n"
+      ]
+    },
+    {
+      "id": "l14-en-sequence-code",
+      "source": [
+        "centre = \"North Centre\"\n",
+        "print(centre[0])\n",
+        "print(centre[-1])\n",
+        "print(centre[0:5])\n",
+        "print(len(centre))\n"
+      ]
+    },
+    {
+      "id": "l14-en-methods-code",
+      "source": [
+        "raw_name = \"  North Centre  \"\n",
+        "clean_name = raw_name.strip()\n",
+        "print(clean_name)\n",
+        "print(clean_name.lower())\n",
+        "print(clean_name.replace(\"Centre\", \"Learning Centre\"))\n",
+        "print(\"Original:\", raw_name)\n"
+      ]
+    },
+    {
+      "id": "l14-en-combine-code",
+      "source": [
+        "completed = 29\n",
+        "print(\"Completed: \" + str(completed))\n",
+        "print(\"-\" * 20)\n"
+      ]
+    },
+    {
+      "id": "l14-en-input-code",
+      "source": [
+        "# registered_text = input(\"Registered learners: \")\n",
+        "# print(registered_text, type(registered_text))\n",
+        "# registered = int(registered_text)\n",
+        "# print(registered + 4)\n",
+        "\n",
+        "# The same state for automatic execution\n",
+        "registered_text = \"36\"\n",
+        "registered = int(registered_text)\n",
+        "print(registered + 4)\n"
+      ]
+    },
+    {
+      "id": "l14-en-format-code",
+      "source": [
+        "centre = \"North Centre\"\n",
+        "registered = 36\n",
+        "completed = 29\n",
+        "rate = completed / registered * 100\n",
+        "cost = 12345.5\n",
+        "print(f\"{centre}: {completed}/{registered} learners, completion {rate:.1f}%\")\n",
+        "print(f\"Materials cost: {cost:,.2f}\")\n"
+      ]
+    },
+    {
+      "id": "l14-en-split-code",
+      "source": [
+        "record = \"North,36,29\"\n",
+        "parts = record.split(\",\")\n",
+        "print(parts)\n",
+        "print(parts[0], int(parts[1]), int(parts[2]))\n"
+      ]
+    },
+    {
+      "id": "l14-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "03_conditions_boundaries.ipynb": [
+    {
+      "id": "l15-en-bool-code",
+      "source": [
+        "score = 68\n",
+        "print(score >= 50)\n",
+        "print(score == 68)\n",
+        "print(score != 68)\n",
+        "print(type(score >= 50))\n"
+      ]
+    },
+    {
+      "id": "l15-en-if-code",
+      "source": [
+        "score = 68\n",
+        "if score >= 50:\n",
+        "    print(\"Pass\")\n",
+        "print(\"Decision complete\")\n"
+      ]
+    },
+    {
+      "id": "l15-en-else-code",
+      "source": [
+        "score = 42\n",
+        "if score >= 50:\n",
+        "    result = \"Pass\"\n",
+        "else:\n",
+        "    result = \"Review\"\n",
+        "print(result)\n"
+      ]
+    },
+    {
+      "id": "l15-en-chain-code",
+      "source": [
+        "score = 85\n",
+        "if score >= 90:\n",
+        "    grade = \"Excellent\"\n",
+        "elif score >= 70:\n",
+        "    grade = \"Pass\"\n",
+        "elif score >= 50:\n",
+        "    grade = \"Conditional pass\"\n",
+        "else:\n",
+        "    grade = \"Review\"\n",
+        "print(grade)\n"
+      ]
+    },
+    {
+      "id": "l15-en-independent-code",
+      "source": [
+        "score = 80\n",
+        "if score >= 50:\n",
+        "    print(\"Pass\")\n",
+        "if score >= 70:\n",
+        "    print(\"Merit\")\n",
+        "\n",
+        "if score >= 70:\n",
+        "    label = \"Merit\"\n",
+        "elif score >= 50:\n",
+        "    label = \"Pass\"\n",
+        "else:\n",
+        "    label = \"Review\"\n",
+        "print(\"Classification:\", label)\n"
+      ]
+    },
+    {
+      "id": "l15-en-logic-code",
+      "source": [
+        "registered = 35\n",
+        "completion_rate = 72\n",
+        "has_enough_learners = registered >= 30\n",
+        "rate_needs_support = completion_rate < 75\n",
+        "priority = has_enough_learners and rate_needs_support\n",
+        "print(has_enough_learners, rate_needs_support, priority)\n",
+        "print(not priority)\n"
+      ]
+    },
+    {
+      "id": "l15-en-boundary-code",
+      "source": [
+        "def support_status(rate):\n",
+        "    if rate < 75:\n",
+        "        return \"priority support\"\n",
+        "    elif rate < 85:\n",
+        "        return \"monitor\"\n",
+        "    else:\n",
+        "        return \"on track\"\n",
+        "\n",
+        "for rate in [74.9, 75, 84.9, 85]:\n",
+        "    print(rate, support_status(rate))\n",
+        "\n",
+        "score = 100\n",
+        "print(0 <= score <= 100)\n"
+      ]
+    },
+    {
+      "id": "l15-en-validation-code",
+      "source": [
+        "score = -5\n",
+        "if not 0 <= score <= 100:\n",
+        "    result = \"Invalid score\"\n",
+        "elif score >= 50:\n",
+        "    result = \"Pass\"\n",
+        "else:\n",
+        "    result = \"Review\"\n",
+        "print(result)\n"
+      ]
+    },
+    {
+      "id": "l15-en-short-code",
+      "source": [
+        "registered = 0\n",
+        "completed = 0\n",
+        "if registered > 0 and completed / registered >= 0.75:\n",
+        "    status = \"on track\"\n",
+        "else:\n",
+        "    status = \"needs review\"\n",
+        "print(status)\n"
+      ]
+    },
+    {
+      "id": "l15-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "04_loops_accumulators.ipynb": [
+    {
+      "id": "l16-en-for-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for attendance in weekly_attendance:\n",
+        "    print(\"Attendance this week:\", attendance)\n",
+        "print(\"Processing complete\")\n"
+      ]
+    },
+    {
+      "id": "l16-en-range-code",
+      "source": [
+        "print(list(range(1, 5)))\n",
+        "for week in range(1, 5):\n",
+        "    print(f\"Week {week}\")\n",
+        "print(list(range(10, 4, -2)))\n"
+      ]
+    },
+    {
+      "id": "l16-en-total-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "total = 0\n",
+        "for attendance in weekly_attendance:\n",
+        "    total += attendance\n",
+        "    print(\"Running total:\", total)\n",
+        "print(\"Total:\", total)\n",
+        "print(\"Mean:\", total / len(weekly_attendance))\n"
+      ]
+    },
+    {
+      "id": "l16-en-count-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "weeks_at_least_30 = 0\n",
+        "for attendance in weekly_attendance:\n",
+        "    if attendance >= 30:\n",
+        "        weeks_at_least_30 += 1\n",
+        "print(weeks_at_least_30)\n"
+      ]
+    },
+    {
+      "id": "l16-en-maximum-code",
+      "source": [
+        "weekly_change = [-4, -2, -7, -3]\n",
+        "if weekly_change:\n",
+        "    largest = weekly_change[0]\n",
+        "    for change in weekly_change[1:]:\n",
+        "        if change > largest:\n",
+        "            largest = change\n",
+        "    print(\"Largest:\", largest)\n",
+        "else:\n",
+        "    print(\"No data\")\n"
+      ]
+    },
+    {
+      "id": "l16-en-enumerate-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for week, attendance in enumerate(weekly_attendance, start=1):\n",
+        "    print(f\"Week {week}: {attendance} learners\")\n"
+      ]
+    },
+    {
+      "id": "l16-en-control-code",
+      "source": [
+        "readings = [28, None, 31, -1, 34]\n",
+        "for reading in readings:\n",
+        "    if reading is None:\n",
+        "        continue\n",
+        "    if reading < 0:\n",
+        "        print(\"Invalid value found; stopping\")\n",
+        "        break\n",
+        "    print(\"Valid value:\", reading)\n"
+      ]
+    },
+    {
+      "id": "l16-en-while-code",
+      "source": [
+        "remaining = 3\n",
+        "while remaining > 0:\n",
+        "    print(\"Remaining:\", remaining)\n",
+        "    remaining -= 1\n",
+        "print(\"Complete\")\n"
+      ]
+    },
+    {
+      "id": "l16-en-choice-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for attendance in weekly_attendance:\n",
+        "    print(attendance)\n",
+        "\n",
+        "# The index-based while version needs explicit boundary and update logic.\n",
+        "index = 0\n",
+        "while index < len(weekly_attendance):\n",
+        "    print(weekly_attendance[index])\n",
+        "    index += 1\n"
+      ]
+    },
+    {
+      "id": "l16-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "05_lists_dictionaries_records.ipynb": [
+    {
+      "id": "l21-en-list-code",
+      "source": [
+        "attendance = [28, 31, 30, 33]\n",
+        "print(attendance[0])\n",
+        "print(attendance[-1])\n",
+        "print(attendance[1:3])\n",
+        "print(len(attendance))\n",
+        "print(31 in attendance)\n"
+      ]
+    },
+    {
+      "id": "l21-en-mutate-code",
+      "source": [
+        "attendance = [28, 31, 30]\n",
+        "attendance[0] = 29\n",
+        "attendance.append(33)\n",
+        "attendance.extend([32, 34])\n",
+        "removed = attendance.pop()\n",
+        "print(attendance)\n",
+        "print(\"Removed:\", removed)\n"
+      ]
+    },
+    {
+      "id": "l21-en-copy-code",
+      "source": [
+        "original = [28, 31, 30]\n",
+        "shared = original\n",
+        "separate = original.copy()\n",
+        "shared.append(33)\n",
+        "print(\"original:\", original)\n",
+        "print(\"shared:\", shared)\n",
+        "print(\"separate:\", separate)\n"
+      ]
+    },
+    {
+      "id": "l21-en-iterate-code",
+      "source": [
+        "attendance = [28, 31, 30, 33]\n",
+        "for week, value in enumerate(attendance, start=1):\n",
+        "    print(f\"Week {week}: {value} learners\")\n"
+      ]
+    },
+    {
+      "id": "l21-en-tuple-code",
+      "source": [
+        "report_period = (2026, 8)\n",
+        "year, month = report_period\n",
+        "print(year, month)\n",
+        "# report_period[0] = 2027  # TypeError: tuples are immutable\n"
+      ]
+    },
+    {
+      "id": "l21-en-dict-code",
+      "source": [
+        "centre = {\n",
+        "    \"name\": \"North Learning Centre\",\n",
+        "    \"district\": \"North\",\n",
+        "    \"registered\": 40,\n",
+        "    \"completed\": 32,\n",
+        "}\n",
+        "print(centre[\"name\"])\n",
+        "print(centre[\"completed\"] / centre[\"registered\"] * 100)\n"
+      ]
+    },
+    {
+      "id": "l21-en-get-code",
+      "source": [
+        "centre = {\"name\": \"North\", \"registered\": 40}\n",
+        "print(centre.get(\"phone\", \"not recorded\"))\n",
+        "print(\"completed\" in centre)\n",
+        "centre[\"completed\"] = 32\n",
+        "centre[\"registered\"] = 42\n",
+        "print(centre)\n"
+      ]
+    },
+    {
+      "id": "l21-en-items-code",
+      "source": [
+        "centre = {\"registered\": 40, \"attended\": 34, \"completed\": 32}\n",
+        "for field, value in centre.items():\n",
+        "    print(field, value)\n"
+      ]
+    },
+    {
+      "id": "l21-en-records-code",
+      "source": [
+        "centres = [\n",
+        "    {\"name\": \"North\", \"district\": \"A\", \"registered\": 40, \"completed\": 32},\n",
+        "    {\"name\": \"South\", \"district\": \"B\", \"registered\": 35, \"completed\": 24},\n",
+        "]\n",
+        "for centre in centres:\n",
+        "    rate = centre[\"completed\"] / centre[\"registered\"] * 100\n",
+        "    print(f\"{centre['name']}: {rate:.1f}%\")\n"
+      ]
+    },
+    {
+      "id": "l21-en-set-code",
+      "source": [
+        "offered = {\"Python\", \"Data\", \"Office\"}\n",
+        "requested = {\"Python\", \"Web\", \"Data\"}\n",
+        "print(\"Common:\", offered & requested)\n",
+        "print(\"Not offered:\", requested - offered)\n",
+        "print(\"All:\", offered | requested)\n"
+      ]
+    },
+    {
+      "id": "l21-v23-en-search-code",
+      "source": [
+        "books = [\n",
+        "    {\"id\": \"B001\", \"title\": \"Python Basics\", \"read\": False},\n",
+        "    {\"id\": \"B002\", \"title\": \"Working with Data\", \"read\": True},\n",
+        "    {\"id\": \"B003\", \"title\": \"Useful Functions\", \"read\": False},\n",
+        "]\n",
+        "\n",
+        "target_id = \"B002\"\n",
+        "found = None\n",
+        "for book in books:\n",
+        "    if book[\"id\"] == target_id:\n",
+        "        found = book\n",
+        "        break\n",
+        "\n",
+        "print(found)\n"
+      ]
+    },
+    {
+      "id": "l21-v23-en-crud-code",
+      "source": [
+        "existing_ids = set()\n",
+        "for book in books:\n",
+        "    existing_ids.add(book[\"id\"])\n",
+        "\n",
+        "new_book = {\"id\": \"B004\", \"title\": \"Files in Practice\", \"read\": False}\n",
+        "if new_book[\"id\"] not in existing_ids:\n",
+        "    books.append(new_book)\n",
+        "\n",
+        "found[\"read\"] = False\n",
+        "\n",
+        "remove_index = None\n",
+        "for index, book in enumerate(books):\n",
+        "    if book[\"id\"] == \"B003\":\n",
+        "        remove_index = index\n",
+        "        break\n",
+        "if remove_index is not None:\n",
+        "    removed = books.pop(remove_index)\n",
+        "    print(\"Removed:\", removed)\n",
+        "\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l21-en-work",
+      "source": [
+        "# Write the transfer solution here.\n",
+        "\n"
+      ]
+    }
+  ],
+  "06_functions_errors_testing.ipynb": [
+    {
+      "id": "l22-en-def-code",
+      "source": [
+        "def completion_rate(completed, registered):\n",
+        "    return completed / registered * 100\n",
+        "\n",
+        "rate = completion_rate(32, 40)\n",
+        "print(f\"Completion rate: {rate:.1f}%\")\n"
+      ]
+    },
+    {
+      "id": "l22-en-return",
+      "source": [
+        "def add_with_print(a, b):\n",
+        "    print(a + b)\n",
+        "\n",
+        "def add_with_return(a, b):\n",
+        "    return a + b\n",
+        "\n",
+        "printed_result = add_with_print(2, 3)\n",
+        "returned_result = add_with_return(2, 3)\n",
+        "print(\"Print version returned:\", printed_result)\n",
+        "print(\"Returned value reused:\", returned_result * 2)\n"
+      ]
+    },
+    {
+      "id": "l22-en-scope-code",
+      "source": [
+        "def difference(planned, actual):\n",
+        "    gap = planned - actual\n",
+        "    return gap\n",
+        "\n",
+        "print(difference(40, 34))\n",
+        "# print(gap)  # NameError: gap is local to the function\n"
+      ]
+    },
+    {
+      "id": "l22-en-default-code",
+      "source": [
+        "def format_centre(name, completed, registered, decimals=1):\n",
+        "    rate = completed / registered * 100\n",
+        "    return f\"{name}: {rate:.{decimals}f}%\"\n",
+        "\n",
+        "print(format_centre(\"North\", completed=32, registered=40))\n",
+        "print(format_centre(\"South\", completed=24, registered=35, decimals=2))\n"
+      ]
+    },
+    {
+      "id": "l22-en-doc-code",
+      "source": [
+        "def safe_rate(completed: int, registered: int) -> float | None:\n",
+        "    \"\"\"Return completion percentage, or None when registration is not positive.\"\"\"\n",
+        "    if registered <= 0:\n",
+        "        return None\n",
+        "    return completed / registered * 100\n",
+        "\n",
+        "print(safe_rate(32, 40))\n",
+        "print(safe_rate(0, 0))\n"
+      ]
+    },
+    {
+      "id": "l22-en-record-code",
+      "source": [
+        "REQUIRED_FIELDS = {\"name\", \"registered\", \"completed\"}\n",
+        "\n",
+        "def validate_centre(centre):\n",
+        "    missing = REQUIRED_FIELDS - centre.keys()\n",
+        "    if missing:\n",
+        "        raise KeyError(f\"Missing required fields: {sorted(missing)}\")\n",
+        "    if centre[\"registered\"] < 0 or centre[\"completed\"] < 0:\n",
+        "        raise ValueError(\"Counts cannot be negative\")\n",
+        "    if centre[\"completed\"] > centre[\"registered\"]:\n",
+        "        raise ValueError(\"Completed cannot exceed registered\")\n",
+        "\n",
+        "def centre_rate(centre):\n",
+        "    validate_centre(centre)\n",
+        "    if centre[\"registered\"] == 0:\n",
+        "        return None\n",
+        "    return centre[\"completed\"] / centre[\"registered\"] * 100\n",
+        "\n",
+        "centre = {\"name\": \"North\", \"registered\": 40, \"completed\": 32}\n",
+        "print(centre_rate(centre))\n"
+      ]
+    },
+    {
+      "id": "l22-en-error-code",
+      "source": [
+        "def broken_rate(completed, registered):\n",
+        "    return completed / registerd * 100  # Intentional spelling error\n",
+        "\n",
+        "try:\n",
+        "    broken_rate(32, 40)\n",
+        "except NameError as error:\n",
+        "    print(type(error).__name__)\n",
+        "    print(error)\n"
+      ]
+    },
+    {
+      "id": "l22-en-exception-code",
+      "source": [
+        "raw = \"40\"\n",
+        "try:\n",
+        "    registered = int(raw)\n",
+        "except ValueError:\n",
+        "    print(\"Not a valid integer\")\n",
+        "else:\n",
+        "    print(\"Registered:\", registered)\n",
+        "finally:\n",
+        "    print(\"Input check finished\")\n"
+      ]
+    },
+    {
+      "id": "l22-en-test-code",
+      "source": [
+        "assert abs(safe_rate(32, 40) - 80.0) < 0.0001\n",
+        "assert safe_rate(0, 0) is None\n",
+        "assert safe_rate(1, -1) is None\n",
+        "\n",
+        "try:\n",
+        "    validate_centre({\"name\": \"Bad\", \"registered\": 5, \"completed\": 7})\n",
+        "except ValueError:\n",
+        "    pass\n",
+        "else:\n",
+        "    raise AssertionError(\"Expected ValueError\")\n",
+        "\n",
+        "print(\"All tests passed\")\n"
+      ]
+    },
+    {
+      "id": "l22-v23-en-contract-code",
+      "source": [
+        "def find_book(books, book_id):\n",
+        "    for book in books:\n",
+        "        if book[\"id\"] == book_id:\n",
+        "            return book\n",
+        "    return None\n",
+        "\n",
+        "def mark_as_read(books, book_id):\n",
+        "    book = find_book(books, book_id)\n",
+        "    if book is None:\n",
+        "        raise KeyError(book_id)\n",
+        "    book[\"read\"] = True\n",
+        "    return book\n",
+        "\n",
+        "books = [{\"id\": \"B001\", \"title\": \"Python Basics\", \"read\": False}]\n",
+        "changed = mark_as_read(books, \"B001\")\n",
+        "print(changed)\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l22-v23-en-errors-code",
+      "source": [
+        "def add_book(books, book_id, title):\n",
+        "    clean_id = book_id.strip()\n",
+        "    clean_title = title.strip()\n",
+        "    if not clean_id or not clean_title:\n",
+        "        raise ValueError(\"id and title are required\")\n",
+        "    if find_book(books, clean_id) is not None:\n",
+        "        raise ValueError(f\"duplicate id: {clean_id}\")\n",
+        "    book = {\"id\": clean_id, \"title\": clean_title, \"read\": False}\n",
+        "    books.append(book)\n",
+        "    return book\n"
+      ]
+    },
+    {
+      "id": "l22-v23-en-state-code",
+      "source": [
+        "before_count = len(books)\n",
+        "added = add_book(books, \" B002 \", \" Working with Data \")\n",
+        "assert len(books) == before_count + 1\n",
+        "assert added is books[-1]\n",
+        "assert added == {\"id\": \"B002\", \"title\": \"Working with Data\", \"read\": False}\n",
+        "\n",
+        "try:\n",
+        "    add_book(books, \"B002\", \"Duplicate\")\n",
+        "except ValueError:\n",
+        "    pass\n",
+        "else:\n",
+        "    raise AssertionError(\"Expected ValueError\")\n",
+        "\n",
+        "print(\"STATE TESTS PASSED\")\n"
+      ]
+    },
+    {
+      "id": "l22-en-work",
+      "source": [
+        "# Write the transfer solution here.\n"
+      ]
+    }
+  ],
+  "07_files_csv.ipynb": [
+    {
+      "id": "l23-en-path-code",
+      "source": [
+        "from pathlib import Path\n",
+        "\n",
+        "def find_course_file(relative_path):\n",
+        "    \"\"\"Find a supplied course file from a Notebook opened at any course level.\"\"\"\n",
+        "    start = Path.cwd().resolve()\n",
+        "    for folder in [start, *start.parents]:\n",
+        "        candidate = folder / relative_path\n",
+        "        if candidate.is_file():\n",
+        "            return candidate\n",
+        "    raise FileNotFoundError(f\"Course file not found: {relative_path}; started at {start}\")\n",
+        "\n",
+        "source_path = find_course_file(Path(\"data\") / \"library-books-practice.csv\")\n",
+        "print(\"Resolved source:\", source_path)\n"
+      ]
+    },
+    {
+      "id": "l23-en-text-code",
+      "source": [
+        "with source_path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "    text = file.read()\n",
+        "\n",
+        "print(text)\n"
+      ]
+    },
+    {
+      "id": "l23-en-reader",
+      "source": [
+        "import csv\n",
+        "\n",
+        "with source_path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "    reader = csv.DictReader(file)\n",
+        "    print(\"Header:\", reader.fieldnames)\n",
+        "    raw_rows = list(reader)\n",
+        "\n",
+        "for row in raw_rows:\n",
+        "    print(row)\n"
+      ]
+    },
+    {
+      "id": "l23-en-bool",
+      "source": [
+        "def parse_read(value):\n",
+        "    normalised = value.strip().lower()\n",
+        "    if normalised == \"true\":\n",
+        "        return True\n",
+        "    if normalised == \"false\":\n",
+        "        return False\n",
+        "    raise ValueError(f\"read must be true or false: {value!r}\")\n",
+        "\n",
+        "print(parse_read(\" TRUE \"))\n",
+        "print(parse_read(\"false\"))\n",
+        "\n",
+        "try:\n",
+        "    parse_read(\"yes\")\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__, error)\n"
+      ]
+    },
+    {
+      "id": "l23-en-load",
+      "source": [
+        "REQUIRED_FIELDS = {\"id\", \"title\", \"read\"}\n",
+        "\n",
+        "def validate_header(fieldnames):\n",
+        "    actual = set(fieldnames or [])\n",
+        "    missing = REQUIRED_FIELDS - actual\n",
+        "    if missing:\n",
+        "        raise ValueError(f\"Missing CSV columns: {sorted(missing)}\")\n",
+        "\n",
+        "def load_books(path):\n",
+        "    books = []\n",
+        "    seen_ids = set()\n",
+        "    with path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "        reader = csv.DictReader(file)\n",
+        "        validate_header(reader.fieldnames)\n",
+        "        for line_number, row in enumerate(reader, start=2):\n",
+        "            book_id = row[\"id\"].strip()\n",
+        "            title = row[\"title\"].strip()\n",
+        "            if not book_id or not title:\n",
+        "                raise ValueError(f\"Blank required value on line {line_number}\")\n",
+        "            if book_id in seen_ids:\n",
+        "                raise ValueError(f\"Duplicate id on line {line_number}: {book_id}\")\n",
+        "            books.append({\"id\": book_id, \"title\": title, \"read\": parse_read(row[\"read\"])})\n",
+        "            seen_ids.add(book_id)\n",
+        "    return books\n",
+        "\n",
+        "books = load_books(source_path)\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l23-en-header-test-code",
+      "source": [
+        "try:\n",
+        "    validate_header([\"id\", \"title\"])\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__, error)\n"
+      ]
+    },
+    {
+      "id": "l23-en-write-code",
+      "source": [
+        "def save_books(books, path):\n",
+        "    path.parent.mkdir(parents=True, exist_ok=True)\n",
+        "    with path.open(\"w\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "        writer = csv.DictWriter(file, fieldnames=[\"id\", \"title\", \"read\"])\n",
+        "        writer.writeheader()\n",
+        "        for book in books:\n",
+        "            writer.writerow({\n",
+        "                \"id\": book[\"id\"],\n",
+        "                \"title\": book[\"title\"],\n",
+        "                \"read\": \"true\" if book[\"read\"] else \"false\",\n",
+        "            })\n",
+        "\n",
+        "source_before = source_path.read_bytes()\n",
+        "updated_books = []\n",
+        "for book in books:\n",
+        "    updated_books.append(book.copy())\n",
+        "updated_books[2][\"read\"] = True\n",
+        "\n",
+        "output_path = source_path.parents[1] / \"output\" / \"lesson23-books-updated.csv\"\n",
+        "save_books(updated_books, output_path)\n",
+        "print(\"Saved:\", output_path)\n"
+      ]
+    },
+    {
+      "id": "l23-en-reload-code",
+      "source": [
+        "reloaded_books = load_books(output_path)\n",
+        "assert reloaded_books == updated_books\n",
+        "assert source_path.read_bytes() == source_before\n",
+        "assert reloaded_books[2][\"read\"] is True\n",
+        "print(\"ROUND TRIP OK\")\n",
+        "print(\"SOURCE PRESERVED\")\n"
+      ]
+    },
+    {
+      "id": "l23-en-notfound-code",
+      "source": [
+        "missing_path = source_path.parent / \"missing.csv\"\n",
+        "print(\"Would read:\", missing_path.resolve())\n",
+        "print(\"Exists:\", missing_path.exists())\n"
+      ]
+    },
+    {
+      "id": "l23-en-work",
+      "source": [
+        "# Write the transfer solution here.\n"
+      ]
+    }
+  ],
+  "ja/01_programs_values_output.ipynb": [
+    {
+      "id": "cell-004",
+      "source": [
+        "print(\"学習センター報告\")\n",
+        "print(6 * 4)\n",
+        "print(24 - 5)"
+      ]
+    },
+    {
+      "id": "cell-007",
+      "source": [
+        "print(\"3 + 4\")\n",
+        "print(3 + 4)\n",
+        "print((8 + 2) * 5)"
+      ]
+    },
+    {
+      "id": "cell-010",
+      "source": [
+        "print(\"研修参加枠\")\n",
+        "print(\"午前:\", 18)\n",
+        "print(\"午後:\", 12)\n",
+        "print(\"合計:\", 18 + 12)\n",
+        "print(\"未使用席:\", 40 - (18 + 12))"
+      ]
+    },
+    {
+      "id": "cell-012",
+      "source": [
+        "# print命令を三つ書きます。\n"
+      ]
+    },
+    {
+      "id": "cell-015",
+      "source": [
+        "print(\"動くが課題とは違う計算:\", (5 + 3) * 16)\n",
+        "print(\"総参加可能人数:\", 5 * 3 * 16)"
+      ]
+    }
+  ],
+  "ja/02_variables_types_calculations.ipynb": [
+    {
+      "id": "l2-ja-one-source-code",
+      "source": [
+        "capacity = 40\n",
+        "morning = 18\n",
+        "afternoon = 12\n",
+        "\n",
+        "print(\"合計:\", morning + afternoon)\n",
+        "print(\"未使用席:\", capacity - (morning + afternoon))\n"
+      ]
+    },
+    {
+      "id": "l2-ja-assignment-code",
+      "source": [
+        "registered = 40\n",
+        "print(\"登録者数:\", registered)\n",
+        "print(\"40と等しいか:\", registered == 40)\n",
+        "print(\"35と等しいか:\", registered == 35)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-update-code",
+      "source": [
+        "total = 12\n",
+        "amount = 5\n",
+        "print(\"更新前:\", total)\n",
+        "total = total + amount\n",
+        "print(\"長い形の後:\", total)\n",
+        "total += amount\n",
+        "print(\"短い形の後:\", total)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-derived-code",
+      "source": [
+        "planned = 15\n",
+        "cancelled = 2\n",
+        "delivered = planned - cancelled\n",
+        "\n",
+        "cancelled = 4\n",
+        "print(\"再計算前:\", delivered)\n",
+        "\n",
+        "delivered = planned - cancelled\n",
+        "print(\"再計算後:\", delivered)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-constant",
+      "source": [
+        "MAX_SEATS = 40\n",
+        "print(\"最初の値:\", MAX_SEATS)\n",
+        "MAX_SEATS = 36  # 実行はできるが、定数として扱う慣習に反する\n",
+        "print(\"再代入後:\", MAX_SEATS)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-nameerror-code",
+      "source": [
+        "completed_learners = 29\n",
+        "try:\n",
+        "    print(completed_learner)\n",
+        "except NameError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n",
+        "\n",
+        "print(\"正しい名前:\", completed_learners)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-guided-code",
+      "source": [
+        "planned = 15\n",
+        "cancelled = 2\n",
+        "delivered = planned - cancelled\n",
+        "\n",
+        "print(\"計画:\", planned)\n",
+        "print(\"中止:\", cancelled)\n",
+        "print(\"実施:\", delivered)\n"
+      ]
+    },
+    {
+      "id": "l2-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/03_basic_scalar_types.ipynb": [
+    {
+      "id": "l13-ja-types-code",
+      "source": [
+        "values = [34, 82.5, \"34\", True, None]\n",
+        "for value in values:\n",
+        "    print(repr(value), type(value))\n"
+      ]
+    },
+    {
+      "id": "l13-ja-arithmetic-code",
+      "source": [
+        "print(10 + 3)\n",
+        "print(10 - 3)\n",
+        "print(10 * 3)\n",
+        "print(10 / 3)\n",
+        "print(10 // 3)\n",
+        "print(10 % 3)\n",
+        "print(10 ** 2)\n"
+      ]
+    },
+    {
+      "id": "l13-ja-precedence-code",
+      "source": [
+        "print(2 + 3 * 4)\n",
+        "print((2 + 3) * 4)\n",
+        "books = 53\n",
+        "per_box = 12\n",
+        "print(\"満杯の箱:\", books // per_box)\n",
+        "print(\"余る冊数:\", books % per_box)\n"
+      ]
+    },
+    {
+      "id": "l13-ja-conversion-code",
+      "source": [
+        "learners_text = \"36\"\n",
+        "learners = int(learners_text)\n",
+        "rate_text = \"80.5\"\n",
+        "rate = float(rate_text)\n",
+        "print(learners + 4, type(learners))\n",
+        "print(rate, type(rate))\n",
+        "print(str(learners) + \" learners\")\n",
+        "print(bool(\"False\"), bool(\"\"))\n"
+      ]
+    },
+    {
+      "id": "l13-ja-conversion-error-code",
+      "source": [
+        "try:\n",
+        "    int(\"12.5\")\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n",
+        "\n",
+        "value = float(\"12.5\")\n",
+        "print(value, type(value))\n"
+      ]
+    },
+    {
+      "id": "l13-ja-numeric-caution-code",
+      "source": [
+        "print(0.1 + 0.2)\n",
+        "print(round(0.1 + 0.2, 1))\n",
+        "try:\n",
+        "    print(10 / 0)\n",
+        "except ZeroDivisionError as error:\n",
+        "    print(type(error).__name__ + \":\", error)\n"
+      ]
+    },
+    {
+      "id": "l13-ja-guided-code",
+      "source": [
+        "registered = 36\n",
+        "completed = 29\n",
+        "completion_rate = completed / registered * 100\n",
+        "print(\"修了率:\", round(completion_rate, 1), \"%\")\n"
+      ]
+    },
+    {
+      "id": "l13-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/04_strings_input_formatting.ipynb": [
+    {
+      "id": "l14-ja-create-code",
+      "source": [
+        "course = \"Python入門\"\n",
+        "message = '講師は「実行して確認」と言いました。'\n",
+        "print(course)\n",
+        "print(message)\n",
+        "print(\"1行目\\n2行目\")\n"
+      ]
+    },
+    {
+      "id": "l14-ja-sequence-code",
+      "source": [
+        "centre = \"North Centre\"\n",
+        "print(centre[0])\n",
+        "print(centre[-1])\n",
+        "print(centre[0:5])\n",
+        "print(len(centre))\n"
+      ]
+    },
+    {
+      "id": "l14-ja-methods-code",
+      "source": [
+        "raw_name = \"  North Centre  \"\n",
+        "clean_name = raw_name.strip()\n",
+        "print(clean_name)\n",
+        "print(clean_name.lower())\n",
+        "print(clean_name.replace(\"Centre\", \"Learning Centre\"))\n",
+        "print(\"元の値:\", raw_name)\n"
+      ]
+    },
+    {
+      "id": "l14-ja-combine-code",
+      "source": [
+        "completed = 29\n",
+        "print(\"修了者: \" + str(completed))\n",
+        "print(\"-\" * 20)\n"
+      ]
+    },
+    {
+      "id": "l14-ja-input-code",
+      "source": [
+        "# registered_text = input(\"登録者数: \")\n",
+        "# print(registered_text, type(registered_text))\n",
+        "# registered = int(registered_text)\n",
+        "# print(registered + 4)\n",
+        "\n",
+        "# 自動実行できる同じ状態\n",
+        "registered_text = \"36\"\n",
+        "registered = int(registered_text)\n",
+        "print(registered + 4)\n"
+      ]
+    },
+    {
+      "id": "l14-ja-format-code",
+      "source": [
+        "centre = \"North Centre\"\n",
+        "registered = 36\n",
+        "completed = 29\n",
+        "rate = completed / registered * 100\n",
+        "cost = 12345.5\n",
+        "print(f\"{centre}: {completed}/{registered}人、修了率 {rate:.1f}%\")\n",
+        "print(f\"教材費: {cost:,.2f}\")\n"
+      ]
+    },
+    {
+      "id": "l14-ja-split-code",
+      "source": [
+        "record = \"North,36,29\"\n",
+        "parts = record.split(\",\")\n",
+        "print(parts)\n",
+        "print(parts[0], int(parts[1]), int(parts[2]))\n"
+      ]
+    },
+    {
+      "id": "l14-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/03_conditions_boundaries.ipynb": [
+    {
+      "id": "l15-ja-bool-code",
+      "source": [
+        "score = 68\n",
+        "print(score >= 50)\n",
+        "print(score == 68)\n",
+        "print(score != 68)\n",
+        "print(type(score >= 50))\n"
+      ]
+    },
+    {
+      "id": "l15-ja-if-code",
+      "source": [
+        "score = 68\n",
+        "if score >= 50:\n",
+        "    print(\"合格\")\n",
+        "print(\"判定完了\")\n"
+      ]
+    },
+    {
+      "id": "l15-ja-else-code",
+      "source": [
+        "score = 42\n",
+        "if score >= 50:\n",
+        "    result = \"合格\"\n",
+        "else:\n",
+        "    result = \"要復習\"\n",
+        "print(result)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-chain-code",
+      "source": [
+        "score = 85\n",
+        "if score >= 90:\n",
+        "    grade = \"優秀\"\n",
+        "elif score >= 70:\n",
+        "    grade = \"合格\"\n",
+        "elif score >= 50:\n",
+        "    grade = \"条件付き合格\"\n",
+        "else:\n",
+        "    grade = \"要復習\"\n",
+        "print(grade)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-independent-code",
+      "source": [
+        "score = 80\n",
+        "if score >= 50:\n",
+        "    print(\"合格\")\n",
+        "if score >= 70:\n",
+        "    print(\"上位成績\")\n",
+        "\n",
+        "if score >= 70:\n",
+        "    label = \"上位成績\"\n",
+        "elif score >= 50:\n",
+        "    label = \"合格\"\n",
+        "else:\n",
+        "    label = \"要復習\"\n",
+        "print(\"分類:\", label)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-logic-code",
+      "source": [
+        "registered = 35\n",
+        "completion_rate = 72\n",
+        "has_enough_learners = registered >= 30\n",
+        "rate_needs_support = completion_rate < 75\n",
+        "priority = has_enough_learners and rate_needs_support\n",
+        "print(has_enough_learners, rate_needs_support, priority)\n",
+        "print(not priority)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-boundary-code",
+      "source": [
+        "def support_status(rate):\n",
+        "    if rate < 75:\n",
+        "        return \"重点支援\"\n",
+        "    elif rate < 85:\n",
+        "        return \"経過観察\"\n",
+        "    else:\n",
+        "        return \"順調\"\n",
+        "\n",
+        "for rate in [74.9, 75, 84.9, 85]:\n",
+        "    print(rate, support_status(rate))\n",
+        "\n",
+        "score = 100\n",
+        "print(0 <= score <= 100)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-validation-code",
+      "source": [
+        "score = -5\n",
+        "if not 0 <= score <= 100:\n",
+        "    result = \"無効な点数\"\n",
+        "elif score >= 50:\n",
+        "    result = \"合格\"\n",
+        "else:\n",
+        "    result = \"要復習\"\n",
+        "print(result)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-short-code",
+      "source": [
+        "registered = 0\n",
+        "completed = 0\n",
+        "if registered > 0 and completed / registered >= 0.75:\n",
+        "    status = \"順調\"\n",
+        "else:\n",
+        "    status = \"確認が必要\"\n",
+        "print(status)\n"
+      ]
+    },
+    {
+      "id": "l15-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/04_loops_accumulators.ipynb": [
+    {
+      "id": "l16-ja-for-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for attendance in weekly_attendance:\n",
+        "    print(\"今週の出席者数:\", attendance)\n",
+        "print(\"処理完了\")\n"
+      ]
+    },
+    {
+      "id": "l16-ja-range-code",
+      "source": [
+        "print(list(range(1, 5)))\n",
+        "for week in range(1, 5):\n",
+        "    print(f\"第{week}週\")\n",
+        "print(list(range(10, 4, -2)))\n"
+      ]
+    },
+    {
+      "id": "l16-ja-total-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "total = 0\n",
+        "for attendance in weekly_attendance:\n",
+        "    total += attendance\n",
+        "    print(\"途中の合計:\", total)\n",
+        "print(\"合計:\", total)\n",
+        "print(\"平均:\", total / len(weekly_attendance))\n"
+      ]
+    },
+    {
+      "id": "l16-ja-count-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "weeks_at_least_30 = 0\n",
+        "for attendance in weekly_attendance:\n",
+        "    if attendance >= 30:\n",
+        "        weeks_at_least_30 += 1\n",
+        "print(weeks_at_least_30)\n"
+      ]
+    },
+    {
+      "id": "l16-ja-maximum-code",
+      "source": [
+        "weekly_change = [-4, -2, -7, -3]\n",
+        "if weekly_change:\n",
+        "    largest = weekly_change[0]\n",
+        "    for change in weekly_change[1:]:\n",
+        "        if change > largest:\n",
+        "            largest = change\n",
+        "    print(\"最大値:\", largest)\n",
+        "else:\n",
+        "    print(\"データなし\")\n"
+      ]
+    },
+    {
+      "id": "l16-ja-enumerate-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for week, attendance in enumerate(weekly_attendance, start=1):\n",
+        "    print(f\"第{week}週: {attendance}人\")\n"
+      ]
+    },
+    {
+      "id": "l16-ja-control-code",
+      "source": [
+        "readings = [28, None, 31, -1, 34]\n",
+        "for reading in readings:\n",
+        "    if reading is None:\n",
+        "        continue\n",
+        "    if reading < 0:\n",
+        "        print(\"無効値を検出。処理を停止します\")\n",
+        "        break\n",
+        "    print(\"有効値:\", reading)\n"
+      ]
+    },
+    {
+      "id": "l16-ja-while-code",
+      "source": [
+        "remaining = 3\n",
+        "while remaining > 0:\n",
+        "    print(\"残り:\", remaining)\n",
+        "    remaining -= 1\n",
+        "print(\"完了\")\n"
+      ]
+    },
+    {
+      "id": "l16-ja-choice-code",
+      "source": [
+        "weekly_attendance = [28, 31, 32, 34]\n",
+        "for attendance in weekly_attendance:\n",
+        "    print(attendance)\n",
+        "\n",
+        "# 同じデータを添字で扱うwhileは、更新と境界の管理が必要です。\n",
+        "index = 0\n",
+        "while index < len(weekly_attendance):\n",
+        "    print(weekly_attendance[index])\n",
+        "    index += 1\n"
+      ]
+    },
+    {
+      "id": "l16-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/05_lists_dictionaries_records.ipynb": [
+    {
+      "id": "l21-ja-list-code",
+      "source": [
+        "attendance = [28, 31, 30, 33]\n",
+        "print(attendance[0])\n",
+        "print(attendance[-1])\n",
+        "print(attendance[1:3])\n",
+        "print(len(attendance))\n",
+        "print(31 in attendance)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-mutate-code",
+      "source": [
+        "attendance = [28, 31, 30]\n",
+        "attendance[0] = 29\n",
+        "attendance.append(33)\n",
+        "attendance.extend([32, 34])\n",
+        "removed = attendance.pop()\n",
+        "print(attendance)\n",
+        "print(\"取り出した値:\", removed)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-copy-code",
+      "source": [
+        "original = [28, 31, 30]\n",
+        "shared = original\n",
+        "separate = original.copy()\n",
+        "shared.append(33)\n",
+        "print(\"original:\", original)\n",
+        "print(\"shared:\", shared)\n",
+        "print(\"separate:\", separate)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-iterate-code",
+      "source": [
+        "attendance = [28, 31, 30, 33]\n",
+        "for week, value in enumerate(attendance, start=1):\n",
+        "    print(f\"第{week}週: {value}人\")\n"
+      ]
+    },
+    {
+      "id": "l21-ja-tuple-code",
+      "source": [
+        "report_period = (2026, 8)\n",
+        "year, month = report_period\n",
+        "print(year, month)\n",
+        "# report_period[0] = 2027  # TypeError: タプルは変更不能\n"
+      ]
+    },
+    {
+      "id": "l21-ja-dict-code",
+      "source": [
+        "centre = {\n",
+        "    \"name\": \"North Learning Centre\",\n",
+        "    \"district\": \"North\",\n",
+        "    \"registered\": 40,\n",
+        "    \"completed\": 32,\n",
+        "}\n",
+        "print(centre[\"name\"])\n",
+        "print(centre[\"completed\"] / centre[\"registered\"] * 100)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-get-code",
+      "source": [
+        "centre = {\"name\": \"North\", \"registered\": 40}\n",
+        "print(centre.get(\"phone\", \"未登録\"))\n",
+        "print(\"completed\" in centre)\n",
+        "centre[\"completed\"] = 32\n",
+        "centre[\"registered\"] = 42\n",
+        "print(centre)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-items-code",
+      "source": [
+        "centre = {\"registered\": 40, \"attended\": 34, \"completed\": 32}\n",
+        "for field, value in centre.items():\n",
+        "    print(field, value)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-records-code",
+      "source": [
+        "centres = [\n",
+        "    {\"name\": \"North\", \"district\": \"A\", \"registered\": 40, \"completed\": 32},\n",
+        "    {\"name\": \"South\", \"district\": \"B\", \"registered\": 35, \"completed\": 24},\n",
+        "]\n",
+        "for centre in centres:\n",
+        "    rate = centre[\"completed\"] / centre[\"registered\"] * 100\n",
+        "    print(f\"{centre['name']}: {rate:.1f}%\")\n"
+      ]
+    },
+    {
+      "id": "l21-ja-set-code",
+      "source": [
+        "offered = {\"Python\", \"Data\", \"Office\"}\n",
+        "requested = {\"Python\", \"Web\", \"Data\"}\n",
+        "print(\"共通:\", offered & requested)\n",
+        "print(\"未提供:\", requested - offered)\n",
+        "print(\"すべて:\", offered | requested)\n"
+      ]
+    },
+    {
+      "id": "l21-v23-ja-search-code",
+      "source": [
+        "books = [\n",
+        "    {\"id\": \"B001\", \"title\": \"Python Basics\", \"read\": False},\n",
+        "    {\"id\": \"B002\", \"title\": \"Working with Data\", \"read\": True},\n",
+        "    {\"id\": \"B003\", \"title\": \"Useful Functions\", \"read\": False},\n",
+        "]\n",
+        "\n",
+        "target_id = \"B002\"\n",
+        "found = None\n",
+        "for book in books:\n",
+        "    if book[\"id\"] == target_id:\n",
+        "        found = book\n",
+        "        break\n",
+        "\n",
+        "print(found)\n"
+      ]
+    },
+    {
+      "id": "l21-v23-ja-crud-code",
+      "source": [
+        "existing_ids = set()\n",
+        "for book in books:\n",
+        "    existing_ids.add(book[\"id\"])\n",
+        "\n",
+        "new_book = {\"id\": \"B004\", \"title\": \"Files in Practice\", \"read\": False}\n",
+        "if new_book[\"id\"] not in existing_ids:\n",
+        "    books.append(new_book)\n",
+        "\n",
+        "found[\"read\"] = False\n",
+        "\n",
+        "remove_index = None\n",
+        "for index, book in enumerate(books):\n",
+        "    if book[\"id\"] == \"B003\":\n",
+        "        remove_index = index\n",
+        "        break\n",
+        "if remove_index is not None:\n",
+        "    removed = books.pop(remove_index)\n",
+        "    print(\"削除:\", removed)\n",
+        "\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l21-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n",
+        "\n"
+      ]
+    }
+  ],
+  "ja/06_functions_errors_testing.ipynb": [
+    {
+      "id": "l22-ja-def-code",
+      "source": [
+        "def completion_rate(completed, registered):\n",
+        "    return completed / registered * 100\n",
+        "\n",
+        "rate = completion_rate(32, 40)\n",
+        "print(f\"修了率: {rate:.1f}%\")\n"
+      ]
+    },
+    {
+      "id": "l22-ja-return",
+      "source": [
+        "def add_with_print(a, b):\n",
+        "    print(a + b)\n",
+        "\n",
+        "def add_with_return(a, b):\n",
+        "    return a + b\n",
+        "\n",
+        "printed_result = add_with_print(2, 3)\n",
+        "returned_result = add_with_return(2, 3)\n",
+        "print(\"print版の戻り値:\", printed_result)\n",
+        "print(\"return版を再計算:\", returned_result * 2)\n"
+      ]
+    },
+    {
+      "id": "l22-ja-scope-code",
+      "source": [
+        "def difference(planned, actual):\n",
+        "    gap = planned - actual\n",
+        "    return gap\n",
+        "\n",
+        "print(difference(40, 34))\n",
+        "# print(gap)  # NameError: gapは関数の外には存在しない\n"
+      ]
+    },
+    {
+      "id": "l22-ja-default-code",
+      "source": [
+        "def format_centre(name, completed, registered, decimals=1):\n",
+        "    rate = completed / registered * 100\n",
+        "    return f\"{name}: {rate:.{decimals}f}%\"\n",
+        "\n",
+        "print(format_centre(\"North\", completed=32, registered=40))\n",
+        "print(format_centre(\"South\", completed=24, registered=35, decimals=2))\n"
+      ]
+    },
+    {
+      "id": "l22-ja-doc-code",
+      "source": [
+        "def safe_rate(completed: int, registered: int) -> float | None:\n",
+        "    \"\"\"修了率を返す。登録者数が0以下ならNoneを返す。\"\"\"\n",
+        "    if registered <= 0:\n",
+        "        return None\n",
+        "    return completed / registered * 100\n",
+        "\n",
+        "print(safe_rate(32, 40))\n",
+        "print(safe_rate(0, 0))\n"
+      ]
+    },
+    {
+      "id": "l22-ja-record-code",
+      "source": [
+        "REQUIRED_FIELDS = {\"name\", \"registered\", \"completed\"}\n",
+        "\n",
+        "def validate_centre(centre):\n",
+        "    missing = REQUIRED_FIELDS - centre.keys()\n",
+        "    if missing:\n",
+        "        raise KeyError(f\"必須項目がありません: {sorted(missing)}\")\n",
+        "    if centre[\"registered\"] < 0 or centre[\"completed\"] < 0:\n",
+        "        raise ValueError(\"人数を負数にはできません\")\n",
+        "    if centre[\"completed\"] > centre[\"registered\"]:\n",
+        "        raise ValueError(\"修了者数が登録者数を超えています\")\n",
+        "\n",
+        "def centre_rate(centre):\n",
+        "    validate_centre(centre)\n",
+        "    if centre[\"registered\"] == 0:\n",
+        "        return None\n",
+        "    return centre[\"completed\"] / centre[\"registered\"] * 100\n",
+        "\n",
+        "centre = {\"name\": \"North\", \"registered\": 40, \"completed\": 32}\n",
+        "print(centre_rate(centre))\n"
+      ]
+    },
+    {
+      "id": "l22-ja-error-code",
+      "source": [
+        "def broken_rate(completed, registered):\n",
+        "    return completed / registerd * 100  # 名前の綴りが違う\n",
+        "\n",
+        "try:\n",
+        "    broken_rate(32, 40)\n",
+        "except NameError as error:\n",
+        "    print(type(error).__name__)\n",
+        "    print(error)\n"
+      ]
+    },
+    {
+      "id": "l22-ja-exception-code",
+      "source": [
+        "raw = \"40\"\n",
+        "try:\n",
+        "    registered = int(raw)\n",
+        "except ValueError:\n",
+        "    print(\"整数として読めません\")\n",
+        "else:\n",
+        "    print(\"登録者数:\", registered)\n",
+        "finally:\n",
+        "    print(\"入力確認を終了しました\")\n"
+      ]
+    },
+    {
+      "id": "l22-ja-test-code",
+      "source": [
+        "assert abs(safe_rate(32, 40) - 80.0) < 0.0001\n",
+        "assert safe_rate(0, 0) is None\n",
+        "assert safe_rate(1, -1) is None\n",
+        "\n",
+        "try:\n",
+        "    validate_centre({\"name\": \"Bad\", \"registered\": 5, \"completed\": 7})\n",
+        "except ValueError:\n",
+        "    pass\n",
+        "else:\n",
+        "    raise AssertionError(\"ValueErrorを期待しました\")\n",
+        "\n",
+        "print(\"すべてのテストに合格しました\")\n"
+      ]
+    },
+    {
+      "id": "l22-v23-ja-contract-code",
+      "source": [
+        "def find_book(books, book_id):\n",
+        "    for book in books:\n",
+        "        if book[\"id\"] == book_id:\n",
+        "            return book\n",
+        "    return None\n",
+        "\n",
+        "def mark_as_read(books, book_id):\n",
+        "    book = find_book(books, book_id)\n",
+        "    if book is None:\n",
+        "        raise KeyError(book_id)\n",
+        "    book[\"read\"] = True\n",
+        "    return book\n",
+        "\n",
+        "books = [{\"id\": \"B001\", \"title\": \"Python Basics\", \"read\": False}]\n",
+        "changed = mark_as_read(books, \"B001\")\n",
+        "print(changed)\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l22-v23-ja-errors-code",
+      "source": [
+        "def add_book(books, book_id, title):\n",
+        "    clean_id = book_id.strip()\n",
+        "    clean_title = title.strip()\n",
+        "    if not clean_id or not clean_title:\n",
+        "        raise ValueError(\"id and title are required\")\n",
+        "    if find_book(books, clean_id) is not None:\n",
+        "        raise ValueError(f\"duplicate id: {clean_id}\")\n",
+        "    book = {\"id\": clean_id, \"title\": clean_title, \"read\": False}\n",
+        "    books.append(book)\n",
+        "    return book\n"
+      ]
+    },
+    {
+      "id": "l22-v23-ja-state-code",
+      "source": [
+        "before_count = len(books)\n",
+        "added = add_book(books, \" B002 \", \" Working with Data \")\n",
+        "assert len(books) == before_count + 1\n",
+        "assert added is books[-1]\n",
+        "assert added == {\"id\": \"B002\", \"title\": \"Working with Data\", \"read\": False}\n",
+        "\n",
+        "try:\n",
+        "    add_book(books, \"B002\", \"Duplicate\")\n",
+        "except ValueError:\n",
+        "    pass\n",
+        "else:\n",
+        "    raise AssertionError(\"ValueErrorを期待しました\")\n",
+        "\n",
+        "print(\"STATE TESTS PASSED\")\n"
+      ]
+    },
+    {
+      "id": "l22-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n"
+      ]
+    }
+  ],
+  "ja/07_files_csv.ipynb": [
+    {
+      "id": "l23-ja-path-code",
+      "source": [
+        "from pathlib import Path\n",
+        "\n",
+        "def find_course_file(relative_path):\n",
+        "    \"\"\"Find a supplied course file from a Notebook opened at any course level.\"\"\"\n",
+        "    start = Path.cwd().resolve()\n",
+        "    for folder in [start, *start.parents]:\n",
+        "        candidate = folder / relative_path\n",
+        "        if candidate.is_file():\n",
+        "            return candidate\n",
+        "    raise FileNotFoundError(f\"教材ファイルが見つかりません: {relative_path}; started at {start}\")\n",
+        "\n",
+        "source_path = find_course_file(Path(\"data\") / \"library-books-practice.csv\")\n",
+        "print(\"Resolved source:\", source_path)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-text-code",
+      "source": [
+        "with source_path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "    text = file.read()\n",
+        "\n",
+        "print(text)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-reader",
+      "source": [
+        "import csv\n",
+        "\n",
+        "with source_path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "    reader = csv.DictReader(file)\n",
+        "    print(\"Header:\", reader.fieldnames)\n",
+        "    raw_rows = list(reader)\n",
+        "\n",
+        "for row in raw_rows:\n",
+        "    print(row)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-bool",
+      "source": [
+        "def parse_read(value):\n",
+        "    normalised = value.strip().lower()\n",
+        "    if normalised == \"true\":\n",
+        "        return True\n",
+        "    if normalised == \"false\":\n",
+        "        return False\n",
+        "    raise ValueError(f\"read must be true or false: {value!r}\")\n",
+        "\n",
+        "print(parse_read(\" TRUE \"))\n",
+        "print(parse_read(\"false\"))\n",
+        "\n",
+        "try:\n",
+        "    parse_read(\"yes\")\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__, error)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-load",
+      "source": [
+        "REQUIRED_FIELDS = {\"id\", \"title\", \"read\"}\n",
+        "\n",
+        "def validate_header(fieldnames):\n",
+        "    actual = set(fieldnames or [])\n",
+        "    missing = REQUIRED_FIELDS - actual\n",
+        "    if missing:\n",
+        "        raise ValueError(f\"Missing CSV columns: {sorted(missing)}\")\n",
+        "\n",
+        "def load_books(path):\n",
+        "    books = []\n",
+        "    seen_ids = set()\n",
+        "    with path.open(\"r\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "        reader = csv.DictReader(file)\n",
+        "        validate_header(reader.fieldnames)\n",
+        "        for line_number, row in enumerate(reader, start=2):\n",
+        "            book_id = row[\"id\"].strip()\n",
+        "            title = row[\"title\"].strip()\n",
+        "            if not book_id or not title:\n",
+        "                raise ValueError(f\"Blank required value on line {line_number}\")\n",
+        "            if book_id in seen_ids:\n",
+        "                raise ValueError(f\"Duplicate id on line {line_number}: {book_id}\")\n",
+        "            books.append({\"id\": book_id, \"title\": title, \"read\": parse_read(row[\"read\"])})\n",
+        "            seen_ids.add(book_id)\n",
+        "    return books\n",
+        "\n",
+        "books = load_books(source_path)\n",
+        "print(books)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-header-test-code",
+      "source": [
+        "try:\n",
+        "    validate_header([\"id\", \"title\"])\n",
+        "except ValueError as error:\n",
+        "    print(type(error).__name__, error)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-write-code",
+      "source": [
+        "def save_books(books, path):\n",
+        "    path.parent.mkdir(parents=True, exist_ok=True)\n",
+        "    with path.open(\"w\", encoding=\"utf-8\", newline=\"\") as file:\n",
+        "        writer = csv.DictWriter(file, fieldnames=[\"id\", \"title\", \"read\"])\n",
+        "        writer.writeheader()\n",
+        "        for book in books:\n",
+        "            writer.writerow({\n",
+        "                \"id\": book[\"id\"],\n",
+        "                \"title\": book[\"title\"],\n",
+        "                \"read\": \"true\" if book[\"read\"] else \"false\",\n",
+        "            })\n",
+        "\n",
+        "source_before = source_path.read_bytes()\n",
+        "updated_books = []\n",
+        "for book in books:\n",
+        "    updated_books.append(book.copy())\n",
+        "updated_books[2][\"read\"] = True\n",
+        "\n",
+        "output_path = source_path.parents[1] / \"output\" / \"lesson23-books-updated.csv\"\n",
+        "save_books(updated_books, output_path)\n",
+        "print(\"Saved:\", output_path)\n"
+      ]
+    },
+    {
+      "id": "l23-ja-reload-code",
+      "source": [
+        "reloaded_books = load_books(output_path)\n",
+        "assert reloaded_books == updated_books\n",
+        "assert source_path.read_bytes() == source_before\n",
+        "assert reloaded_books[2][\"read\"] is True\n",
+        "print(\"ROUND TRIP OK\")\n",
+        "print(\"SOURCE PRESERVED\")\n"
+      ]
+    },
+    {
+      "id": "l23-ja-notfound-code",
+      "source": [
+        "missing_path = source_path.parent / \"missing.csv\"\n",
+        "print(\"Would read:\", missing_path.resolve())\n",
+        "print(\"Exists:\", missing_path.exists())\n"
+      ]
+    },
+    {
+      "id": "l23-ja-work",
+      "source": [
+        "# ここに応用練習の解答を書きます。\n"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+date,school_id,school_name,district,pupils_present,meals_delivered,meals_served
+2026-02-02,S001,Riverside School,South,120,122,120
+2026-02-03,S001,Riverside School,South,118,120,117
+2026-02-04,S001,Riverside School,South,121,123,121
+2026-02-05,S001,Riverside School,South,119,121,118
+2026-02-06,S001,Riverside School,South,122,124,122
+2026-02-09,S001,Riverside School,South,120,122,119
+2026-02-02,S002,Hillview School,Central,101,103,100
+2026-02-03,S002,Hillview School,central,99,101,99
+2026-02-04,S002,Hillview School,Central,102,104,
+2026-02-05,S002,Hillview School,Central,100,102,99
+2026-02-06,S002,Hillview School,Central,103,105,103
+2026-02-09,S002,Hillview School,Central,101,103,100
+2026-02-02,S003,Lakeside School,North,140,142,140
+2026-02-03,S003,Lakeside School, North ,138,140,138
+2026-02-04,S003,Lakeside School,North,141,143,141
+2026-02-05,S003,Lakeside School,North,139,141,139
+2026-02-06,S003,Lakeside School,North,142,144,142
+2026-02-06,S003,Lakeside School,North,142,144,142
+2026-02-09,S003,Lakeside School,North,140,142,140
+2026-02-02,S004,Market Road School,East,110,105,103
+2026-02-03,S004,Market Road School,EAST,112,106,104
+2026-02-04,S004,Market Road School,East,108,104,102
+2026-02-05,S004,Market Road School,East,114,107,105
+2026-02-06,S004,Market Road School,East,111,106,104
+2026-02-09,S004,Market Road School,East,113,107,105
+2026-02-02,S005,Greenfields School,West,90,92,90
+2026-02-03,S005,Greenfields School,West,92,94,92
+2026-02-04,S005,Greenfields School,West,91,93,91
+2026-02-05,S005,Greenfields School,West,90,92,95
+2026-02-06,S005,Greenfields School,West,93,95,93
+2026-02-09,S005,Greenfields School,West,91,93,91
+2026-02-02,S006,Oakridge School,South East,130,130,128
+2026-02-03,S006,Oakridge School,South east,132,131,129
+2026-02-04,S006,Oakridge School,South East,129,129,127
+2026-02-05,S006,Oakridge School,South East,134,132,130
+2026-02-06,S006,Oakridge School,South East,131,130,128
+2026-02-09,S006,Oakridge School,South East,130,130,128

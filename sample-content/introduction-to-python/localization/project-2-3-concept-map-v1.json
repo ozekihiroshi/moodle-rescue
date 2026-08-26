@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "lesson": "2.3 Applied project: Monthly centre performance report",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "P23-01",
+      "description": "represent at least three centre records with the six required fields",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-02",
+      "description": "state and implement non-negative and count-order business rules",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-03",
+      "description": "separate validation safe calculations record metrics and aggregation",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-04",
+      "description": "raise specific exceptions and retain invalid records with reasons",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-05",
+      "description": "handle zero denominators explicitly with None",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-06",
+      "description": "calculate centre metrics and support thresholds without mutating input",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-07",
+      "description": "calculate overall rates from totals rather than averaging percentages",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-08",
+      "description": "test normal zero missing negative impossible and threshold cases",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-09",
+      "description": "produce a readable centre-level and overall operational report",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    },
+    {
+      "id": "P23-10",
+      "description": "submit a reproducible notebook and evidence-based explanation",
+      "assignment": true,
+      "notebook": true,
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/P2_monthly_centre_report.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/P2_monthly_centre_report.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-project23-v21.php"
+}

@@ -1,0 +1,28 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>Introduction</h2><p><strong>An object is useful only while its state remains believable.</strong> A loan item cannot be available and assigned to a borrower at the same time. It cannot be loaned twice, and a rejected operation must leave it exactly as it was. This lesson places those rules where state changes.</p><h2>Learning outcomes</h2><ul><li>Validate required attributes during construction.</li><li>State an invariant and identify the method responsible for it.</li><li>Reject invalid transitions before mutation.</li><li>Test successful and rejected transitions with assertions.</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>Learning route:</strong> Required 4.2.1–4.2.4 | Integration 4.2.5</aside><h2>4.2.1 Establish valid state during construction</h2><p>The constructor is the first boundary. Strip surrounding whitespace and reject an empty ID, name, or category before a usable object exists.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def required(value, label):
+    cleaned = value.strip()
+    if not cleaned:
+        raise ValueError(f&quot;{label} must not be empty&quot;)
+    return cleaned
+
+self.item_id = required(item_id, &quot;item_id&quot;)</code></pre><p>Construction either completes with all required attributes or raises an exception. Do not leave a partly initialised object for later code to repair.</p><h2>4.2.2 Express one invariant with one source of state</h2><p>An invariant should remain true after every completed public operation. Here <code>borrower_id is None</code> means available; any non-empty borrower means on loan.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def is_available(self):
+    return self.borrower_id is None</code></pre><p>A separate available flag could contradict the borrower. Deriving availability keeps one source of truth.</p><h2>4.2.3 Validate before changing state</h2><p>Check every refusal condition before assignment. If an exception is raised, the previous borrower remains unchanged.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def loan_to(self, borrower_id):
+    borrower_id = borrower_id.strip()
+    if not borrower_id:
+        raise ValueError(&quot;borrower_id must not be empty&quot;)
+    if not self.is_available():
+        raise ValueError(&quot;item is already on loan&quot;)
+    self.borrower_id = borrower_id
+
+def return_item(self):
+    if self.is_available():
+        raise ValueError(&quot;item is not on loan&quot;)
+    self.borrower_id = None</code></pre><p>Mutating first and validating second would corrupt the object even though the method eventually failed.</p><h2>4.2.4 Test success, refusal, and preservation</h2><p>Boundary bugs are missed by happy-path tests. Check before success, after success, and after rejection.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>item = EquipmentItem(&quot;E001&quot;, &quot;Laptop 01&quot;, &quot;Computer&quot;)
+assert item.is_available()
+item.loan_to(&quot;M014&quot;)
+try:
+    item.loan_to(&quot;M021&quot;)
+except ValueError:
+    pass
+else:
+    raise AssertionError(&quot;double lending should fail&quot;)
+assert item.borrower_id == &quot;M014&quot;</code></pre><h2>4.2.5 Integrated practice</h2><p>Draw AVAILABLE and ON LOAN. Label the permitted transitions <code>loan_to</code> and <code>return_item</code>. Test valid loan, double loan, valid return, and return while already available. Confirm rejected calls preserve state.</p><h2>Summary</h2><ul><li>Construction establishes valid initial state.</li><li>An invariant gives all transition methods one consistent rule.</li><li>Validation precedes mutation; refusal paths require tests too.</li></ul><h2>Next</h2><p>One item can now protect itself. Lesson 4.3 introduces a desk that owns many items, locates the requested one, and delegates its transition.</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

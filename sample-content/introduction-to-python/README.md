@@ -3,6 +3,24 @@
 This directory contains the reproducible source for the Moodle sample course
 `PYAI-INTRO`.
 
+## Version 2 curriculum work
+
+The immutable 1.0.0 distribution remains the current release. The approved
+systematic v2 curriculum, migration audit, and complete 120-question mapping
+are maintained in:
+
+- [`curriculum-v2.md`](curriculum-v2.md)
+- [`curriculum-v2-audit.md`](curriculum-v2-audit.md)
+- [`v2-question-audit.md`](v2-question-audit.md)
+- [`concept-coverage-v2.md`](concept-coverage-v2.md)
+- [`chapter-0-1-concept-gap-audit-v2.md`](chapter-0-1-concept-gap-audit-v2.md)
+- [`localization/chapter-0-1-concept-map-v2.json`](localization/chapter-0-1-concept-map-v2.json)
+
+The local authoring courses currently contain the reviewed v2 prototype for
+Chapter 0 and Chapter 1 Lesson 1. Do not promote it as a version 2 release
+until the complete learner path has been rebuilt and restored in a disposable
+course.
+
 ## Ready-to-restore release
 
 The versioned Moodle backup in [`distribution/`](distribution/README.md) is the
@@ -60,10 +78,21 @@ docker compose -f docker-compose.local.yml exec -T moodle \
 
 docker compose -f docker-compose.local.yml exec -T moodle \
   runuser -u www-data -- php < scripts/upgrade-python-sample-course-v7.php
+
+
+scripts/apply-python-sample-course-v9.sh PYAI-INTRO
+scripts/apply-python-sample-course-v9.sh PYAI-INTRO-JA
+docker compose -f docker-compose.local.yml exec -T moodle \
+  runuser -u www-data -- php < scripts/upgrade-python-sample-course-v8.php
 ```
 
 The first command refuses to overwrite an existing populated `PYAI-INTRO`
-course. The v2 through v5 and v7 upgrades, plus the chapter-grouping step, are idempotent and may be rerun safely.
+course. The v2 through v5 and v7 upgrades, plus the chapter-grouping step, are
+idempotent. The v8 prototype preserves any attempted v1 Lesson 1 quiz as a
+hidden archive and creates a new activity before changing its questions.
+The v9 runner applies that foundation and then upgrades Lesson 1.2 in the
+selected English or Japanese course. It refuses to replace a Lesson 1.2 quiz
+that already has attempts.
 The v4 upgrade clears attempts in this reproducible development course before
 normalising quiz structure and grading; exported release courses contain no
 learner attempt history.
@@ -81,14 +110,28 @@ docker compose -f docker-compose.local.yml exec -T moodle \
   runuser -u www-data -- php < scripts/verify-python-learning-check-policy.php
 
 docker compose -f docker-compose.local.yml exec -T moodle \
-  runuser -u www-data -- php admin/cli/backup.php \
-  --courseshortname=PYAI-INTRO --destination=/var/moodlebackups
+  runuser -u www-data -- php < scripts/verify-python-course-v8-prototype.php
+
+python scripts/verify-python-lesson-1-2-concept-map-v2.py
+
+# Copy the distribution-safe CLI below the Moodle root, then run it.
+docker cp scripts/backup-course-for-distribution.php \
+  moodle-rescue-local:/var/www/html/admin/cli/backup-course-for-distribution.php
+docker exec moodle-rescue-local php \
+  /var/www/html/admin/cli/backup-course-for-distribution.php \
+  --courseid=<course-id> --destination=/var/moodlebackups
 ```
 
 Copy the generated `.mbz` into this directory's ignored `build/` folder, run
 all verification steps, and then deliberately promote the verified file to
 `distribution/` as a versioned release. Do not link documentation to an
 unversioned file in `build/`.
+
+The reviewed Notebook documents in
+`python-lab/templates/` are the source of truth. The generator publishes them
+without reconstructing their content from string literals. English notebooks
+are at the workspace root; language-specific adaptations use subdirectories
+such as `ja/` so one Moodle account can open both editions safely.
 
 ## Attach Python Lab through LTI 1.3
 

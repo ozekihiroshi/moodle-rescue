@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "4.1 Visualisation and evidence",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "E01",
+      "description": "define question and plotted grain before choosing a chart",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-01",
+      "teacher": false
+    },
+    {
+      "id": "E02",
+      "description": "use zero-based ordered bar charts for category magnitudes",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-02",
+      "teacher": false
+    },
+    {
+      "id": "E03",
+      "description": "use chronological line charts and expose missing periods",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-03",
+      "teacher": false
+    },
+    {
+      "id": "E04",
+      "description": "use scatter plots for two quantitative variables without claiming causation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-04",
+      "teacher": false
+    },
+    {
+      "id": "E05",
+      "description": "distinguish histograms and bin choices from categorical bars",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-05",
+      "teacher": false
+    },
+    {
+      "id": "E06",
+      "description": "label title axes units legends colour and sample count accessibly",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-06",
+      "teacher": false
+    },
+    {
+      "id": "E07",
+      "description": "avoid misleading scales ordering area and decorative encodings",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-07",
+      "teacher": false
+    },
+    {
+      "id": "E08",
+      "description": "qualify small groups missingness scope association and causation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-08",
+      "teacher": false
+    },
+    {
+      "id": "E09",
+      "description": "write evidence using observation numbers scope and limitation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-09",
+      "teacher": false
+    },
+    {
+      "id": "E10",
+      "description": "reconcile plotted tables and preserve reproducible chart code",
+      "lesson": true,
+      "notebook": true,
+      "question": "L41R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/11_visualisation_evidence.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/11_visualisation_evidence.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson41-v26.php"
+}

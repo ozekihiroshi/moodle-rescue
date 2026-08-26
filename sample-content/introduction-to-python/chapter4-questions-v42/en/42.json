@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "Why strip and validate required text in `__init__`?",
+    "c": [
+      "to guarantee usable initial state",
+      "to make every value numeric",
+      "to avoid all exceptions",
+      "to create a CSV"
+    ],
+    "ok": 0,
+    "why": "Construction should either create a valid object or raise before it exists."
+  },
+  {
+    "id": "02",
+    "p": "In this design, which single condition means an item is available?",
+    "c": [
+      "name is not empty",
+      "borrower_id is None",
+      "category equals Computer",
+      "item_id starts with E"
+    ],
+    "ok": 1,
+    "why": "Availability is derived from the absence of a borrower."
+  },
+  {
+    "id": "03",
+    "p": "Why avoid storing both `available` and `borrower_id`?",
+    "c": [
+      "two fields always cause syntax errors",
+      "they can contradict and become two sources of truth",
+      "bool cannot be an attribute",
+      "None cannot be saved"
+    ],
+    "ok": 1,
+    "why": "One representation prevents `available=True` while a borrower is recorded."
+  },
+  {
+    "id": "04",
+    "p": "What must happen before assigning a new borrower?",
+    "c": [
+      "save a CSV",
+      "validate borrower and current availability",
+      "return the item",
+      "change the name"
+    ],
+    "ok": 1,
+    "why": "All refusal conditions are checked before mutation."
+  },
+  {
+    "id": "05",
+    "p": "An item is loaned to M014. A second loan raises ValueError. What should its borrower be afterward?",
+    "c": [
+      "None",
+      "M021",
+      "M014",
+      "an empty string"
+    ],
+    "ok": 2,
+    "why": "A rejected transition must preserve the previous valid state."
+  },
+  {
+    "id": "06",
+    "p": "What does an invariant describe?",
+    "c": [
+      "a condition that remains true after completed public operations",
+      "a variable that never has a name",
+      "the order of CSV rows",
+      "a comment style"
+    ],
+    "ok": 0,
+    "why": "The invariant guides construction and every state-changing method."
+  },
+  {
+    "id": "07",
+    "p": "Which call should raise ValueError for a new available item?",
+    "c": [
+      "item.loan_to(\"M1\")",
+      "item.is_available()",
+      "item.return_item()",
+      "item.to_record()"
+    ],
+    "ok": 2,
+    "why": "Returning an item that is not on loan is an invalid transition."
+  },
+  {
+    "id": "08",
+    "p": "Why test a rejected operation as well as a successful one?",
+    "c": [
+      "rejection paths can partially corrupt state",
+      "successful paths never run",
+      "assert works only with exceptions",
+      "Moodle requires two files"
+    ],
+    "ok": 0,
+    "why": "Boundary bugs often appear during refusal and cleanup."
+  },
+  {
+    "id": "09",
+    "p": "Which test proves preservation after double lending?",
+    "c": [
+      "assert item.name",
+      "assert item.borrower_id == \"M014\" after the rejected call",
+      "print(item)",
+      "assert True"
+    ],
+    "ok": 1,
+    "why": "The post-rejection state must equal the state before the refused request."
+  },
+  {
+    "id": "10",
+    "p": "Which order is safest inside `loan_to`?",
+    "c": [
+      "assign, then validate",
+      "validate, then assign",
+      "save, delete, assign",
+      "return before validation"
+    ],
+    "ok": 1,
+    "why": "Validation before mutation prevents partial state changes."
+  }
+]

@@ -1,0 +1,28 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>導入</h2><p><strong>信頼できる状態を保てて初めて、オブジェクトは役立ちます。</strong> 一つの機材が利用可能であると同時に利用者へ貸出中であってはいけません。二重貸出も、貸出中でない機材の返却も拒否し、拒否後は元の状態を保ちます。</p><h2>このレッスンの到達目標</h2><ul><li>生成時に必須属性を検証する。</li><li>不変条件と、それを守るメソッドの責任を説明する。</li><li>状態変更より前に不正な遷移を拒否する。</li><li>成功と拒否をassertで確認する。</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>学習経路:</strong> 必須 4.2.1〜4.2.4｜統合練習 4.2.5</aside><h2>4.2.1 生成時に正しい初期状態を作る</h2><p>コンストラクタは最初の境界です。前後空白を取り除き、空のID・名称・分類を拒否します。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def required(value, label):
+    cleaned = value.strip()
+    if not cleaned:
+        raise ValueError(f&quot;{label} must not be empty&quot;)
+    return cleaned
+
+self.item_id = required(item_id, &quot;item_id&quot;)</code></pre><p>中途半端なオブジェクトを後で直すのではなく、生成完了か例外かのどちらかにします。</p><h2>4.2.2 一つの状態から不変条件を表す</h2><p>公開操作の完了後も守る条件が不変条件です。<code>borrower_id is None</code>なら利用可能、空でない利用者なら貸出中とします。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def is_available(self):
+    return self.borrower_id is None</code></pre><p>利用可能フラグを別に保存しないため、利用者との矛盾が生じません。</p><h2>4.2.3 状態変更より先に検証する</h2><p>拒否条件をすべて確認してから代入します。例外になれば以前の利用者は変わりません。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def loan_to(self, borrower_id):
+    borrower_id = borrower_id.strip()
+    if not borrower_id:
+        raise ValueError(&quot;borrower_id must not be empty&quot;)
+    if not self.is_available():
+        raise ValueError(&quot;item is already on loan&quot;)
+    self.borrower_id = borrower_id
+
+def return_item(self):
+    if self.is_available():
+        raise ValueError(&quot;item is not on loan&quot;)
+    self.borrower_id = None</code></pre><p>先に代入して後で検証すると、例外を出しても状態が壊れます。</p><h2>4.2.4 成功・拒否・状態保持をテストする</h2><p>境界のバグは正常処理だけでは見つかりません。成功前後と拒否後を確認します。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>item = EquipmentItem(&quot;E001&quot;, &quot;Laptop 01&quot;, &quot;Computer&quot;)
+assert item.is_available()
+item.loan_to(&quot;M014&quot;)
+try:
+    item.loan_to(&quot;M021&quot;)
+except ValueError:
+    pass
+else:
+    raise AssertionError(&quot;double lending should fail&quot;)
+assert item.borrower_id == &quot;M014&quot;</code></pre><h2>4.2.5 統合練習</h2><p>AVAILABLEとON LOANを書き、<code>loan_to</code>と<code>return_item</code>で結びます。正常貸出、二重貸出、正常返却、未貸出返却をテストし、拒否後の状態も確認してください。</p><h2>まとめ</h2><ul><li>コンストラクタが正しい初期状態を確立する。</li><li>不変条件が状態変更へ一つの基準を与える。</li><li>変更前に検証し、拒否経路もテストする。</li></ul><h2>次のレッスンへ</h2><p>一件の機材は自分を守れるようになりました。次は窓口が多数の機材を持ち、検索後に処理を委譲します。</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

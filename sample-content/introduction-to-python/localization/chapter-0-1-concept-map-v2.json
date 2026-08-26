@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "course_specification": "curriculum-v2",
+  "canonical_language": "en",
+  "adaptations": ["ja"],
+  "scope": ["chapter-0", "lesson-1.1"],
+  "required_evidence_for_master": [
+    "teach",
+    "demonstrate",
+    "practise",
+    "diagnose",
+    "test",
+    "assess",
+    "support"
+  ],
+  "resources": {
+    "moodle.chapter0.guide": {
+      "kind": "moodle_page",
+      "source": "scripts/upgrade-python-sample-course-v8.php",
+      "marker": "PYAI-V8-CHAPTER0-REFINED"
+    },
+    "moodle.chapter0.lab_guide": {
+      "kind": "moodle_page",
+      "source": "scripts/upgrade-python-sample-course-v8.php",
+      "marker": "PYAI-V8-LAB-GUIDE-REFINED"
+    },
+    "moodle.lesson1.page": {
+      "kind": "moodle_page",
+      "source": "scripts/upgrade-python-sample-course-v8.php",
+      "marker": "PYAI-V8-LESSON1-REFINED"
+    },
+    "moodle.teacher.chapter0_lesson1": {
+      "kind": "hidden_moodle_page_section",
+      "source": "scripts/upgrade-python-sample-course-v8.php",
+      "marker": "PYAI-V8-TEACHER-CH0-L1"
+    },
+    "notebook.chapter0": {
+      "kind": "notebook",
+      "en": "sample-content/introduction-to-python/python-lab/templates/00_start_here.ipynb",
+      "ja": "sample-content/introduction-to-python/python-lab/templates/ja/00_start_here.ipynb",
+      "cell_ids": [
+        "cell-001", "cell-002", "cell-003", "cell-004", "cell-005",
+        "cell-006", "cell-007", "cell-008", "cell-009", "cell-010",
+        "cell-011", "cell-012", "cell-013", "cell-014", "cell-015"
+      ]
+    },
+    "notebook.lesson1": {
+      "kind": "notebook",
+      "en": "sample-content/introduction-to-python/python-lab/templates/01_programs_values_output.ipynb",
+      "ja": "sample-content/introduction-to-python/python-lab/templates/ja/01_programs_values_output.ipynb",
+      "cell_ids": [
+        "cell-001", "cell-002", "cell-003", "cell-004", "cell-005",
+        "cell-006", "cell-007", "cell-008", "cell-009", "cell-010",
+        "cell-011", "cell-012", "cell-013", "cell-014", "cell-015",
+        "cell-016"
+      ]
+    },
+    "quiz.lesson1": {
+      "kind": "moodle_quiz",
+      "source": "scripts/upgrade-python-sample-course-v8.php",
+      "question_ids": [
+        "L1R-01", "L1R-02", "L1R-03", "L1R-04", "L1R-05",
+        "L1R-06", "L1R-07", "L1R-08", "L1R-09", "L1R-10"
+      ]
+    }
+  },
+  "concepts": [
+    {
+      "id": "E01",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.guide"],
+        "demonstrate": ["notebook.chapter0#cell-005"],
+        "practise": ["notebook.chapter0#cell-004"],
+        "diagnose": ["notebook.chapter0#cell-013"],
+        "test": ["notebook.chapter0#cell-014"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E02",
+      "level": "I",
+      "evidence": {
+        "teach": ["moodle.chapter0.guide"],
+        "demonstrate": ["notebook.chapter0#cell-015"]
+      }
+    },
+    {
+      "id": "E03",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.guide"],
+        "demonstrate": ["notebook.chapter0#cell-005"],
+        "practise": ["notebook.chapter0#cell-004"],
+        "diagnose": ["notebook.chapter0#cell-013"],
+        "test": ["notebook.chapter0#cell-014"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E04",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.guide"],
+        "demonstrate": ["notebook.chapter0#cell-013", "notebook.chapter0#cell-014"],
+        "practise": ["notebook.chapter0#cell-007", "notebook.chapter0#cell-008"],
+        "diagnose": ["notebook.chapter0#cell-013"],
+        "test": ["notebook.chapter0#cell-014"],
+        "assess": ["notebook.chapter0#cell-015", "quiz.lesson1#L1R-09"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E05",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-004", "notebook.chapter0#cell-005"],
+        "practise": ["notebook.chapter0#cell-015"],
+        "diagnose": ["moodle.teacher.chapter0_lesson1"],
+        "test": ["notebook.chapter0#cell-015"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E06",
+      "level": "I",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-003"]
+      }
+    },
+    {
+      "id": "E07",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-006"],
+        "practise": ["notebook.chapter0#cell-010", "notebook.chapter0#cell-011", "notebook.chapter0#cell-012"],
+        "diagnose": ["notebook.chapter0#cell-010"],
+        "test": ["notebook.chapter0#cell-015"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E08",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-006"],
+        "practise": ["notebook.chapter0#cell-009"],
+        "diagnose": ["notebook.chapter0#cell-015"],
+        "test": ["notebook.chapter0#cell-015"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E09",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-007"],
+        "practise": ["notebook.chapter0#cell-008", "notebook.chapter0#cell-013"],
+        "diagnose": ["notebook.chapter0#cell-013"],
+        "test": ["notebook.chapter0#cell-014"],
+        "assess": ["quiz.lesson1#L1R-09"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "E10",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.chapter0.lab_guide"],
+        "demonstrate": ["notebook.chapter0#cell-003"],
+        "practise": ["notebook.chapter0#cell-015"],
+        "diagnose": ["notebook.chapter0#cell-015"],
+        "test": ["notebook.chapter0#cell-015"],
+        "assess": ["notebook.chapter0#cell-015"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F01",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-003", "notebook.lesson1#cell-004", "notebook.lesson1#cell-005"],
+        "practise": ["notebook.lesson1#cell-009", "notebook.lesson1#cell-010"],
+        "diagnose": ["notebook.lesson1#cell-014", "notebook.lesson1#cell-015"],
+        "test": ["notebook.lesson1#cell-016"],
+        "assess": ["quiz.lesson1#L1R-01", "quiz.lesson1#L1R-03", "quiz.lesson1#L1R-04", "quiz.lesson1#L1R-05"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F02",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-003", "notebook.lesson1#cell-004"],
+        "practise": ["notebook.lesson1#cell-009", "notebook.lesson1#cell-010"],
+        "diagnose": ["moodle.teacher.chapter0_lesson1"],
+        "test": ["notebook.lesson1#cell-013"],
+        "assess": ["quiz.lesson1#L1R-02"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F03",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-005", "notebook.lesson1#cell-006", "notebook.lesson1#cell-007"],
+        "practise": ["notebook.lesson1#cell-011", "notebook.lesson1#cell-012"],
+        "diagnose": ["notebook.lesson1#cell-006"],
+        "test": ["notebook.lesson1#cell-016"],
+        "assess": ["quiz.lesson1#L1R-04", "quiz.lesson1#L1R-05", "quiz.lesson1#L1R-09"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F04",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-006", "notebook.lesson1#cell-007"],
+        "practise": ["notebook.lesson1#cell-011", "notebook.lesson1#cell-012"],
+        "diagnose": ["notebook.lesson1#cell-014", "notebook.lesson1#cell-015"],
+        "test": ["notebook.lesson1#cell-015"],
+        "assess": ["quiz.lesson1#L1R-06", "quiz.lesson1#L1R-07"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F05",
+      "level": "M",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-008"],
+        "practise": ["notebook.lesson1#cell-011", "notebook.lesson1#cell-012"],
+        "diagnose": ["notebook.lesson1#cell-008"],
+        "test": ["notebook.lesson1#cell-016"],
+        "assess": ["quiz.lesson1#L1R-05", "quiz.lesson1#L1R-08"],
+        "support": ["moodle.teacher.chapter0_lesson1"]
+      }
+    },
+    {
+      "id": "F06",
+      "level": "I",
+      "evidence": {
+        "teach": ["moodle.lesson1.page"],
+        "demonstrate": ["notebook.lesson1#cell-009", "notebook.lesson1#cell-010"],
+        "assess": ["quiz.lesson1#L1R-10"]
+      }
+    }
+  ],
+  "quiz_question_map": {
+    "L1R-01": ["F01"],
+    "L1R-02": ["F02"],
+    "L1R-03": ["F01"],
+    "L1R-04": ["F01", "F03"],
+    "L1R-05": ["F01", "F03", "F05"],
+    "L1R-06": ["F04"],
+    "L1R-07": ["F04"],
+    "L1R-08": ["F05", "E06"],
+    "L1R-09": ["E04", "E09", "F03"],
+    "L1R-10": ["F06"]
+  }
+}

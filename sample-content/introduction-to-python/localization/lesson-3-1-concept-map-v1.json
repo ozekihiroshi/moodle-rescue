@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "3.1 Tabular data, CSV, and pandas",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "T01",
+      "description": "interpret rows columns cells observations variables and schema",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-01",
+      "teacher": false
+    },
+    {
+      "id": "T02",
+      "description": "recognise CSV headers delimiters quoting encoding and missing fields",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-02",
+      "teacher": false
+    },
+    {
+      "id": "T03",
+      "description": "resolve course data independently of the Notebook start directory",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-03",
+      "teacher": false
+    },
+    {
+      "id": "T04",
+      "description": "load CSV with explicit encoding and identifier dtypes",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-04",
+      "teacher": false
+    },
+    {
+      "id": "T05",
+      "description": "inspect head shape columns dtypes info and missing counts before analysis",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-05",
+      "teacher": false
+    },
+    {
+      "id": "T06",
+      "description": "distinguish a pandas Series from a DataFrame",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-06",
+      "teacher": false
+    },
+    {
+      "id": "T07",
+      "description": "calculate a derived column with aligned vectorised arithmetic",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-07",
+      "teacher": false
+    },
+    {
+      "id": "T08",
+      "description": "distinguish the DataFrame index from an operational identifier",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-08",
+      "teacher": false
+    },
+    {
+      "id": "T09",
+      "description": "export CSV without an unintended index and verify the saved file",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-09",
+      "teacher": false
+    },
+    {
+      "id": "T10",
+      "description": "diagnose path delimiter encoding and dtype loading problems",
+      "lesson": true,
+      "notebook": true,
+      "question": "L31R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/07_tables_csv_pandas.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/07_tables_csv_pandas.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson31-v22.php"
+}

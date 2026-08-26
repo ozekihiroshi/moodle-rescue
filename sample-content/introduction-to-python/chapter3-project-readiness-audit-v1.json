@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "chapter": 3,
+  "project": "3A-school-meal-delivery-review",
+  "decision": "revise_lessons_before_moodle_release",
+  "ready": [
+    "csv_reading_and_identifier_types",
+    "initial_schema_and_missingness_inspection",
+    "required_column_validation",
+    "source_copy_preservation",
+    "missing_is_not_zero",
+    "range_and_cross_field_constraints",
+    "business_key_duplicates_keep_false",
+    "category_normalisation_with_source_preservation",
+    "valid_row_derived_columns",
+    "named_group_aggregation",
+    "ratio_of_totals",
+    "chapter2_function_pipeline"
+  ],
+  "partial": [
+    {
+      "requirement": "combine_quality_flags",
+      "lesson": "3.3",
+      "revision": "preserve individual flags and derive one analysis-ready decision"
+    },
+    {
+      "requirement": "save_two_csv_products",
+      "lesson": "3.4",
+      "revision": "save two purpose-specific outputs to a supplied directory"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "C3-G01",
+      "requirement": "row_level_verification_report",
+      "lesson": "3.3",
+      "revision": "select flagged source rows and assign one deterministic public reason"
+    },
+    {
+      "id": "C3-G02",
+      "requirement": "conditional_count_in_named_aggregation",
+      "lesson": "3.4",
+      "revision": "count rows meeting a Boolean condition inside a named aggregation"
+    },
+    {
+      "id": "C3-G03",
+      "requirement": "mixed_direction_deterministic_ranking",
+      "lesson": "3.4",
+      "revision": "sort descending, descending, ascending and explain the tie-break identifier"
+    },
+    {
+      "id": "C3-G04",
+      "requirement": "output_boundary_reconciliation",
+      "lesson": "3.4-notebook",
+      "revision": "re-read two output CSVs and assert schemas, counts, and selected result"
+    }
+  ],
+  "release_gate": {
+    "apply_to_moodle": false,
+    "required_gap_count": 4,
+    "languages": ["en", "ja"],
+    "project_reference_checks_must_pass": true,
+    "learner_path_smoke_test_required": true
+  }
+}

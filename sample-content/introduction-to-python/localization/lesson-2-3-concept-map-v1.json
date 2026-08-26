@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lesson": "2.3 File and CSV input/output",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "IO01",
+      "description": "resolve and diagnose course-relative paths in notebooks and scripts",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-01"
+    },
+    {
+      "id": "IO02",
+      "description": "use with, file modes, UTF-8, and newline correctly",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-02"
+    },
+    {
+      "id": "IO03",
+      "description": "parse quoted CSV with the standard csv module",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-03"
+    },
+    {
+      "id": "IO04",
+      "description": "understand DictReader headers and initial string values",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-04"
+    },
+    {
+      "id": "IO05",
+      "description": "convert Boolean text deliberately and reject invalid text",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-05"
+    },
+    {
+      "id": "IO06",
+      "description": "validate required headers, blanks, and duplicate IDs",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-06"
+    },
+    {
+      "id": "IO07",
+      "description": "write stable CSV fields and lower-case Boolean text",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-07"
+    },
+    {
+      "id": "IO08",
+      "description": "preserve source data by separating input and output paths",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-08"
+    },
+    {
+      "id": "IO09",
+      "description": "reload output and compare records for a round trip",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-09"
+    },
+    {
+      "id": "IO10",
+      "description": "transfer the full read-validate-change-write-reload workflow",
+      "lesson": true,
+      "notebook": true,
+      "question": "L23R-10"
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/07_files_csv.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/07_files_csv.ipynb"
+  },
+  "dataset": "sample-content/introduction-to-python/datasets/library-books-practice.csv",
+  "implementation": "scripts/upgrade-python-lesson23-v22.php"
+}

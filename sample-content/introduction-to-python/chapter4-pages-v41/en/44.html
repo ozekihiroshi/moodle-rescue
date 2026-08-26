@@ -1,0 +1,36 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>Introduction</h2><p><strong>Files contain records; a running program uses objects.</strong> CSV cannot store methods. The program converts rows into objects, performs work through methods, then converts final objects back into rows. This explicit boundary preserves reusable rules and auditable files.</p><h2>Learning outcomes</h2><ul><li>Convert CSV rows into domain objects and objects back into rows.</li><li>Continue after expected rejection and retain one result per request.</li><li>Keep orchestration separate from domain rules.</li><li>Test with different data and protect source files.</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>Learning route:</strong> Required 4.4.1–4.4.5 | Integration 4.4.6</aside><h2>4.4.1 Load rows by constructing objects</h2><p><code>DictReader</code> supplies strings. Construction applies the same cleaning and validation whether data came from a file or direct code.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def load_inventory(path):
+    desk = LendingDesk()
+    with Path(path).open(newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as handle:
+        for row in csv.DictReader(handle):
+            item = EquipmentItem(
+                row[&quot;item_id&quot;], row[&quot;name&quot;], row[&quot;category&quot;], row[&quot;borrower_id&quot;]
+            )
+            desk.add_item(item)
+    return desk</code></pre><p>Adding through the desk also applies duplicate-ID rules; loading does not bypass class contracts.</p><h2>4.4.2 Convert one object to one storage row</h2><p><code>to_record()</code> is the reverse boundary. In-memory <code>None</code> becomes an empty CSV field. The method describes one row but does not open a file.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def to_record(self):
+    return {
+        &quot;item_id&quot;: self.item_id,
+        &quot;name&quot;: self.name,
+        &quot;category&quot;: self.category,
+        &quot;borrower_id&quot;: self.borrower_id or &quot;&quot;,
+    }</code></pre><h2>4.4.3 Process requests and retain an audit result</h2><p>An expected business rejection must not discard later requests. Catch only the published <code>ValueError</code> and <code>KeyError</code>, record REJECTED, and continue.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def process_requests(desk, path):
+    results = []
+    with Path(path).open(newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as handle:
+        for row in csv.DictReader(handle):
+            try:
+                if row[&quot;action&quot;] == &quot;LOAN&quot;:
+                    desk.loan_item(row[&quot;item_id&quot;], row[&quot;borrower_id&quot;])
+                elif row[&quot;action&quot;] == &quot;RETURN&quot;:
+                    desk.return_item(row[&quot;item_id&quot;])
+                else:
+                    raise ValueError(&quot;unknown action&quot;)
+                status = &quot;ACCEPTED&quot;
+            except (ValueError, KeyError):
+                status = &quot;REJECTED&quot;
+            results.append({&quot;request_id&quot;: row[&quot;request_id&quot;], &quot;status&quot;: status})
+    return results</code></pre><p>Do not hide unexpected programming errors with a broad <code>except Exception</code>.</p><h2>4.4.4 Orchestrate without duplicating rules</h2><p><code>run_project()</code> reads like the job: load, process, save final inventory, save results, derive counts. It connects tested units rather than reimplementing loan rules.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>desk = load_inventory(inventory_path)
+results = process_requests(desk, requests_path)
+desk.save_inventory(inventory_output)
+save_results(results, results_output)</code></pre><h2>4.4.5 Test with a second dataset and protect sources</h2><p>A program containing answers for E001–E005 is not a solution. Use temporary X1/X2 records and a different request order. Check status, final state, output order, and unchanged source bytes.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>before = inventory_path.read_bytes()
+result = run_project(inventory_path, requests_path, out1, out2)
+assert inventory_path.read_bytes() == before
+assert result[&quot;accepted&quot;] + result[&quot;rejected&quot;] == result[&quot;requests&quot;]</code></pre><h2>4.4.6 Integrated practice</h2><p>Trace R002 from CSV row to desk lookup, item validation, <code>ValueError</code>, and REJECTED result. Confirm E002 still belongs to M021 after refusal.</p><h2>Summary</h2><ul><li>Rows become objects at input and objects become rows at output.</li><li>Expected rejection is audited while unexpected defects remain visible.</li><li>Orchestration connects responsibilities without becoming a second implementation.</li></ul><h2>Next</h2><p>Every concept required by Project 4.5 is now available. Complete the starter against five inventory records and six requests.</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

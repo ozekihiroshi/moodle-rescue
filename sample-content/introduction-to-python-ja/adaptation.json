@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "course": "PYAI-INTRO-JA",
+  "fullname": "Pythonによるデータ活用：AI時代の基礎",
+  "adaptation_version": "1.0.0",
+  "canonical_course": "PYAI-INTRO",
+  "based_on_canonical_version": "1.0.0",
+  "language": "ja",
+  "relationship": "official_adaptation",
+  "status": "released",
+  "invariants": {
+    "chapters": 5,
+    "subsections": 17,
+    "learning_checks": 12,
+    "questions": 120,
+    "pass_grade": 90,
+    "attempts": "unlimited",
+    "grade_method": "highest",
+    "notebook_deep_links": 17
+  },
+  "license": {
+    "educational_content": "CC-BY-4.0",
+    "software": "GPL-3.0-or-later",
+    "copyright": "Copyright © 2026 Hiroshi Ozeki"
+  }
+}

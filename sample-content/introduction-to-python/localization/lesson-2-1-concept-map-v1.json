@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "2.1 Lists, dictionaries, and records",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "D01",
+      "description": "read list values with indexes slices len and membership",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-01",
+      "teacher": false
+    },
+    {
+      "id": "D02",
+      "description": "modify a list with assignment append extend and pop",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-02",
+      "teacher": false
+    },
+    {
+      "id": "D03",
+      "description": "distinguish shared list aliases from a shallow copy",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-03",
+      "teacher": false
+    },
+    {
+      "id": "D04",
+      "description": "recognise a tuple as an ordered immutable group",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-04",
+      "teacher": false
+    },
+    {
+      "id": "D05",
+      "description": "create read add and update dictionary fields",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-05",
+      "teacher": false
+    },
+    {
+      "id": "D06",
+      "description": "handle required and optional dictionary keys deliberately",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-06",
+      "teacher": false
+    },
+    {
+      "id": "D07",
+      "description": "iterate through dictionary keys values and items",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-07",
+      "teacher": false
+    },
+    {
+      "id": "D08",
+      "description": "process a list of dictionaries as labelled records",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-08",
+      "teacher": false
+    },
+    {
+      "id": "D09",
+      "description": "use sets for unique membership union intersection and difference",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-09",
+      "teacher": false
+    },
+    {
+      "id": "D10",
+      "description": "choose and combine list tuple dictionary and set for an operational task",
+      "lesson": true,
+      "notebook": true,
+      "question": "L21R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/05_lists_dictionaries_records.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/05_lists_dictionaries_records.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson21-v19.php"
+}

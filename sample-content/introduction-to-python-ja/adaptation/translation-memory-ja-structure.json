@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "language": "ja",
+  "policy": "Reviewed structural summaries for the official Japanese adaptation.",
+  "translations": {
+    "<p>Follow Naledi as one learning-centre reporting task grows from basic Python into a validated analysis of larger CSV files and, finally, a licensed open dataset. Worked examples, transfer challenges, practical milestones, and teacher-only answers form one connected learning journey. Responsible AI assistance is permitted; testing, verification, modification, and explanation are required.</p>": "<p>ナレディが担当する一つの学習センター報告業務をたどりながら、Pythonの基礎から大きなCSVファイルの検証済み分析へ進み、最後に適切なライセンスを持つオープンデータへ発展させます。例題、応用課題、実践上の節目、教師専用の解答が、一つの連続した学習過程を構成します。責任あるAI支援は利用できますが、実行、検証、修正、説明が必要です。</p>",
+    "<p>Start here. Understand the outcome, study method, and responsible-AI policy.</p>": "<p>ここから始めます。到達目標、学習方法、責任あるAI利用方針を確認しましょう。</p>",
+    "<p>Write small Python programs using values, variables, decisions, and repetition, then combine them in a practical weekly report.</p>": "<p>値、変数、条件による判断、繰り返しを使って小さなPythonプログラムを書き、実用的な週間報告へまとめます。</p>",
+    "<p>Organise records with Python data structures and build reusable, testable functions.</p>": "<p>Pythonのデータ構造でレコードを整理し、再利用でき、テスト可能な関数を作ります。</p>",
+    "<p>Read, select, clean, group, and summarise tabular data while keeping an audit trail.</p>": "<p>監査証跡を残しながら、表形式データの読み込み、選択、クリーニング、グループ化、要約を行います。</p>",
+    "<p>Create appropriate visual evidence, explain findings, and complete guided and independent analyses.</p>": "<p>問いに適した視覚的な根拠を作り、分かったことを説明し、ガイド付き分析と自立した分析を完成させます。</p>",
+    "<p>Apply the same careful workflow to larger files using chunking, validation, and data provenance.</p>": "<p>チャンク処理、検証、データの来歴を用いて、同じ慎重な作業手順をより大きなファイルへ適用します。</p>",
+    "<p>Run a first program and explain how Python represents and displays values.</p>": "<p>最初のプログラムを実行し、Pythonが値をどのように表現して表示するか説明します。</p>",
+    "<p>Store information, perform calculations, and accept simple input.</p>": "<p>情報を保存し、計算を行い、簡単な入力を受け取ります。</p>",
+    "<p>Use Boolean expressions and boundary checks to make reliable decisions.</p>": "<p>ブール式と境界値の確認を使って、信頼できる判断を行います。</p>",
+    "<p>Repeat work safely and accumulate useful totals.</p>": "<p>処理を安全に繰り返し、必要な合計を累積します。</p>",
+    "<p>Combine variables, conditions, and loops in a small learning-centre report.</p>": "<p>変数、条件、ループを組み合わせて、小さな学習センター報告を作ります。</p>",
+    "<p>Represent collections and structured learning-centre records.</p>": "<p>データの集まりと、構造化された学習センターのレコードを表現します。</p>",
+    "<p>Break a program into functions, read errors, and check behaviour.</p>": "<p>プログラムを関数に分け、エラーを読み、動作を確認します。</p>",
+    "<p>Turn a collection of centre records into a checked monthly report.</p>": "<p>学習センターのレコード群を、確認済みの月次報告へまとめます。</p>",
+    "<p>Move from Python records to CSV files and pandas DataFrames.</p>": "<p>PythonのレコードからCSVファイルとpandasのDataFrameへ進みます。</p>",
+    "<p>Select the records that answer a question using sets and Boolean logic.</p>": "<p>集合とブール論理を使い、問いに答えるために必要なレコードを選びます。</p>",
+    "<p>Detect missing or invalid data and document each cleaning decision.</p>": "<p>欠損データや不正なデータを検出し、クリーニングで行った判断を一つずつ記録します。</p>",
+    "<p>Compare groups with totals, averages, medians, and other useful summaries.</p>": "<p>合計、平均値、中央値などの有用な要約を使ってグループを比較します。</p>",
+    "<p>Choose a chart that supports the question and explain what the evidence shows.</p>": "<p>問いを支えるグラフを選び、その根拠から何が分かるかを説明します。</p>",
+    "<p>Complete a guided analysis from a fictional CSV dataset to an evidence-based conclusion.</p>": "<p>架空のCSVデータセットを使い、根拠に基づく結論までガイド付き分析を完成させます。</p>",
+    "<p>Define a useful question, analyse the data, communicate the result, and reflect on the process.</p>": "<p>役立つ問いを定め、データを分析し、結果を伝え、作業過程を振り返ります。</p>",
+    "<p>Process larger datasets in chunks and validate that the result remains complete and correct.</p>": "<p>より大きなデータセットをチャンク単位で処理し、結果の完全性と正確性が保たれているか検証します。</p>",
+    "<p>Produce decision-sized evidence from a larger operational dataset.</p>": "<p>より大きな運営データセットから、意思決定に使える大きさの根拠を作ります。</p>"
+  }
+}

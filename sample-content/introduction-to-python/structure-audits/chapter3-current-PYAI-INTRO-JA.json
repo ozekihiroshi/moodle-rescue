@@ -1,0 +1,497 @@
+{
+    "course": "PYAI-INTRO-JA",
+    "activities": [
+        {
+            "cmid": 180,
+            "modname": "page",
+            "name": "Python Labの使い方：Notebook・Console・スクリプト",
+            "section_number": 0,
+            "section_name": "第0章 — PythonとPython Labを始める",
+            "content": "<div class=\"python-sample-lesson\"><h2>このコースで使うPython環境</h2><p>Moodleには説明、理解度チェック、課題がありますが、PythonコードそのものはPython Labで実行します。Moodleの「Python Lab 00」を開くと、学習者ごとの作業領域にある<code>00_start_here.ipynb</code>へ進みます。共用PCを使う場合も、ファイルはブラウザで開いたサーバー側の領域へ保存されるため、PCごとにPythonをインストールする必要はありません。</p><p>Pythonにはいくつかの実行方法があります。Consoleでは入力した命令を一つずつ試せます。<code>.py</code>スクリプトでは、保存した命令を通常は上から順にまとめて実行します。Notebookでは説明とコードをセルに分け、途中結果も一緒に残せます。学び直すときに考え方と結果を追えるため、このコースではNotebookを標準にします。</p><table class=\"generaltable\"><thead><tr><th>方法</th><th>向いていること</th><th>このコースでの使い方</th></tr></thead><tbody><tr><td>Console（対話モード）</td><td>短い式や一つの命令をすぐ試す</td><td>必要に応じた小さな実験</td></tr><tr><td><code>.py</code>スクリプト</td><td>保存した一連の命令を実行する</td><td>一般的な実行方法を知る</td></tr><tr><td>Notebook</td><td>説明、コード、結果を一つにまとめる</td><td><strong>例題、練習、提出物の標準</strong></td></tr></tbody></table><h3>最初のセルを実行する</h3><p>Notebookには、文章を書くMarkdownセルと、Pythonを実行するCodeセルがあります。Codeセルを選んで<kbd>Shift</kbd>+<kbd>Enter</kbd>を押すと、Pythonがセルの内容を実行し、その下に結果を返します。次のコードを実行すると、文字列と計算結果が二行に表示されます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(&quot;Python Lab is ready&quot;)\nprint(3 + 4)</code></pre><p>一行目の引用符で囲まれた部分は表示する文字です。二行目の<code>3 + 4</code>は、表示する前に計算されます。今は文法を暗記する必要はありません。値を一つ変えて再実行し、結果が変わることを確かめてください。</p><h3>実行中の状態と保存されたNotebook</h3><p>Codeセルを実行すると、PythonのKernelが値をメモリに保持します。セルの左に現れる番号は、画面上の並び順ではなく実際に実行した順番です。そのため、下のセルを先に実行すると、上から読んだだけでは再現できない状態になることがあります。</p><p>結果が説明と合わなくなったら、Kernelを再起動し、すべてのセルを上から実行します。これで、最初から同じ結果を再現できるか確認できます。一方、<kbd>Ctrl</kbd>+<kbd>S</kbd>で保存されるNotebookファイルには、コード、説明、表示結果が残ります。Kernelの一時的な状態と、保存されたファイルは同じものではありません。</p><h3>エラーは失敗ではなく手掛かりになる</h3><p>たとえば引用符を閉じ忘れると、Pythonは命令を読み取れず<code>SyntaxError</code>を示します。文法を読み取れても、存在しない名前を使えば実行中に<code>NameError</code>になります。どちらも表示の最後の行に、エラー名と短い説明があります。まず最後の行を読み、示されたセルを確認し、一度に一か所だけ直して再実行します。</p><p>さらに注意したいのは、エラーを出さずに間違った答えを返す場合です。たとえば「3日間、1日4回」を求めるのに<code>3 + 4</code>と書いても、Pythonは7を返します。コードが動いたことと、目的に合う結果であることは別なので、実行前の予想と実行後の説明が必要になります。</p><h3>Python Lab 00を完了する</h3><ol><li><code>00_start_here.ipynb</code>を開き、Codeセルを上から順に実行します。</li><li>一つの値を変更して再実行し、変化した理由をMarkdownセルに書きます。</li><li>用意された文法エラーと実行時エラーを確認し、最後の行にあるエラー名を読みます。</li><li>Kernelを再起動して、すべてのセルを上から実行します。</li><li>保存して閉じ、再び開いて、自分の変更が残っていることを確認します。</li></ol><p>ここまでできれば、次の章では環境操作ではなくPythonそのものに集中できます。作業領域を開けない、またはサーバーが応答しない場合は、自分で環境を変更せず、Moodleの活動名と画面に出た最後のエラー行を講師または管理者へ伝えてください。</p><p><strong>学習時間の目安：</strong>45〜60分</p><p style=\"display:none\">PYAI-V11-CHAPTER0-LAB</p></div>"
+        },
+        {
+            "cmid": 220,
+            "modname": "page",
+            "name": "理解度チェックの進め方：再挑戦し、学び、100点を目指す",
+            "section_number": 0,
+            "section_name": "第0章 — PythonとPython Labを始める",
+            "content": "<h2>理解度チェック：考え方が自分のものになるまで練習する</h2><p>これらは一度だけ受ける試験ではありません。理解できたことを確認し、思い違いに気づき、解説を読んで、もう一度試すための活動です。</p><ol><li>間違いを恐れず、10問すべてに答えます。</li><li>送信後、間違えた選択肢のフィードバックをすべて読みます。</li><li>つながる例題へ戻り、実行するか処理を追います。</li><li>値または境界を一つ変更します。</li><li>もう一度取り組みます。最高得点が記録されます。</li></ol><h3>進捗</h3><ul><li><strong>90%以上：</strong>合格です。おめでとうございます。</li><li><strong>100%：</strong>完全習得の目標です。</li><li><strong>90%未満：</strong>失敗ではなく、復習すべき内容を示す有用な根拠です。</li></ul><p>誤答の一部は、よくある間違いを意図的に使っています。分子と分母の逆転、数値として文字列を使うこと、境界値の除外、ANDとORの混同、平均値と中央値の混同、グループ割合の誤った単純平均などです。</p>"
+        },
+        {
+            "cmid": 226,
+            "modname": "lti",
+            "name": "Python Lab 00：Notebookを始める",
+            "section_number": 0,
+            "section_name": "第0章 — PythonとPython Labを始める"
+        },
+        {
+            "cmid": 192,
+            "modname": "quiz",
+            "name": "理解度チェック：2.2 関数・エラー・テスト [archived before v23; 1 attempt(s)]",
+            "section_number": 0,
+            "section_name": "第0章 — PythonとPython Labを始める",
+            "slots": 10
+        },
+        {
+            "cmid": 181,
+            "modname": "page",
+            "name": "レッスン1.1：プログラム・値・式・出力",
+            "section_number": 6,
+            "section_name": "1.1 プログラム・値・式・出力",
+            "content": "<div class=\"python-sample-lesson\"><h2>最初のプログラムを読む</h2><p>Python Labの準備ができたので、短いプログラムから始めます。次の例は、ある講座を1日3回、5日間実施し、各回に16人が参加できる場合の規模を表示します。まず実行せず、三行に何が表示されるか予想してください。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(&quot;講座実施計画&quot;)\nprint(3 * 5)\nprint(3 * 5 * 16)</code></pre><p>Pythonインタプリタは、通常この三つの命令を上から順に実行します。一行目は見出しを表示し、二行目は実施回数の15、三行目は参加可能人数の240を表示します。プログラムを読むときは、画面に見える結果だけでなく、その結果を作った命令を一行ずつ追います。</p><table class=\"generaltable\"><thead><tr><th>用語</th><th>この例にあるもの</th><th>役割</th></tr></thead><tbody><tr><td>命令</td><td><code>print(...)</code></td><td>コンピュータに行わせる処理を示す</td></tr><tr><td>値</td><td><code>3</code>、<code>5</code>、<code>16</code>、見出しの文字</td><td>プログラムが扱うデータそのもの</td></tr><tr><td>式</td><td><code>3 * 5 * 16</code></td><td>評価されると一つの値になる</td></tr><tr><td>出力</td><td>表示された三行</td><td>処理した結果をプログラムの外へ示す</td></tr></tbody></table><h3>式は値を作り、<code>print()</code>がそれを外へ示す</h3><p><code>3 * 5</code>という式は、Pythonに評価されると15という値になります。その値を<code>print()</code>へ渡したため、画面に15が表示されます。式を評価することと、結果を出力することは別の働きです。</p><p>Notebookでは、セルの最後に<code>3 * 5</code>だけを書くと、学習を助けるために結果が表示されます。しかし、同じ行を通常の<code>.py</code>スクリプトへ書いただけでは表示されません。プログラムとして外へ示したい結果には<code>print()</code>を使うと、実行方法が変わっても意図が明確です。</p><h3>同じ記号でも、値が違えば意味が変わる</h3><p>次の二行はよく似ていますが、同じ結果にはなりません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(3 + 4)\nprint(&quot;3 + 4&quot;)</code></pre><p>一行目の<code>3</code>と<code>4</code>は数値なので、<code>+</code>は加算を行い7を作ります。二行目は引用符の内側全体が文字としての値なので、<code>3 + 4</code>という文字がそのまま表示されます。値には種類があり、その種類によって可能な操作が決まります。型の名前と変換は後のレッスンで体系的に学ぶので、ここでは数値と引用符で囲んだ文字を区別できれば十分です。</p><h3>計算の順序をコードに表す</h3><p>このレッスンでは、加算<code>+</code>、減算<code>-</code>、乗算<code>*</code>だけを使います。乗算は加算や減算より先に評価され、括弧の内側はさらに先に評価されます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(2 + 3 * 4)\nprint((2 + 3) * 4)</code></pre><p>最初の式は<code>3 * 4</code>を先に計算するため14、二番目は括弧内の<code>2 + 3</code>を先に計算するため20になります。優先順位を覚えていても、仕事上の意味を明確にするために括弧を使うことがあります。たとえば午前18人と午後12人の合計を定員40人から引くなら、<code>40 - (18 + 12)</code>と書けば、先に参加者を合計する意図が読み取れます。</p><h3>値を変えると、プログラムの弱点が見える</h3><p>次の例は午前と午後の参加枠、その合計、未使用席を表示します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(&quot;研修参加枠&quot;)\nprint(&quot;午前:&quot;, 18)\nprint(&quot;午後:&quot;, 12)\nprint(&quot;合計:&quot;, 18 + 12)\nprint(&quot;未使用席:&quot;, 40 - (18 + 12))</code></pre><p>実行前に五行を予想してから、Notebookで上から実行してください。次に午前の参加枠を20へ変えます。このコードでは、午前の18が三か所に直接書かれているため、三か所すべてを直さなければ出力が矛盾します。Pythonは三つの18が同じ意味だとは推測できません。次のレッスンで一つの値に名前を付けると、この変更漏れを防ぎやすくなります。</p><p>コードが動かない場合は、閉じ引用符や閉じ括弧を忘れていないか確認します。コードが動いても、合計と未使用席が同時に正しいかを確認します。文法、実行、目的に合う結果という第0章の三つの問いが、ここでも役立ちます。</p><h3>自分で作る</h3><p>教材を1箱に12冊ずつ入れ、満杯の箱を4箱用意するとします。見出し、1箱の冊数、箱数、合計冊数を、意味の分かるラベル付きで四行に表示してください。使うものは、数値、文字、<code>*</code>、括弧、<code>print()</code>だけです。完成したら箱数を5へ変え、どの行を変更する必要があったかMarkdownセルに書きます。</p><p>このレッスンを終えると、命令、値、式、出力を短いコードの中で指し示し、上から順に結果を予想できます。理解度チェックでは、用語の暗記だけでなく、実際のコードが何を表示するかを確かめます。その後、レッスン2で値に名前を付け、変化するプログラムの状態を扱います。</p><p><strong>学習時間の目安：</strong>約2時間</p><p style=\"display:none\">PYAI-V12-LESSON1-FLOW</p></div>"
+        },
+        {
+            "cmid": 227,
+            "modname": "lti",
+            "name": "Python Lab 1.1：プログラム・値・式・出力",
+            "section_number": 6,
+            "section_name": "1.1 プログラム・値・式・出力"
+        },
+        {
+            "cmid": 182,
+            "modname": "quiz",
+            "name": "[v1受験履歴・非表示] 理解度チェック：レッスン1 初めてのPythonプログラム",
+            "section_number": 6,
+            "section_name": "1.1 プログラム・値・式・出力",
+            "slots": 10
+        },
+        {
+            "cmid": 265,
+            "modname": "quiz",
+            "name": "理解度チェック：1.1 プログラム・値・式・出力",
+            "section_number": 6,
+            "section_name": "1.1 プログラム・値・式・出力",
+            "slots": 10
+        },
+        {
+            "cmid": 183,
+            "modname": "page",
+            "name": "レッスン1.2：変数・代入・プログラムの状態",
+            "section_number": 7,
+            "section_name": "1.2 変数・代入・プログラムの状態",
+            "content": "<div class=\"python-sample-lesson\"><h2>同じ意味の値を一か所で管理する</h2><p>Lesson 1の最後では、午前の参加枠18を複数の式へ直接書いたため、20へ変えるときに何か所も直す必要がありました。同じ意味の値が離れた場所に重複すると、直し忘れによって出力が矛盾します。そこで、値に一つの名前を付けます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>capacity = 40\nmorning = 18\nafternoon = 12\n\nprint(&quot;合計:&quot;, morning + afternoon)\nprint(&quot;未使用席:&quot;, capacity - (morning + afternoon))</code></pre><p><code>morning = 18</code>を実行すると、Pythonはまず右辺の18を評価し、<code>morning</code>という名前がその値を指すようにします。この処理が代入です。その後の式は18を直接書く代わりに<code>morning</code>を読みます。午前を20へ変えるときは、最初の代入一か所を直せば、合計と未使用席の両方が同じ情報を使います。</p><h3>代入は、数学の等号とは違う</h3><p>Pythonの一つの<code>=</code>は、「左右が等しい」と主張する記号ではありません。右辺を評価した後、その結果を左辺の名前へ代入する命令です。左右が等しいかを調べるときは二つの<code>==</code>を使います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>registered = 40\nprint(registered == 40)\nprint(registered == 35)</code></pre><p>一行目は状態を作り、後の二行はその状態を変えずに比較します。結果は順に<code>True</code>と<code>False</code>です。真偽値と条件による判断は後の章で詳しく学びますが、ここでは<code>=</code>と<code>==</code>を混同しないことが重要です。</p><h3>右辺を読んでから、左辺を更新する</h3><p>一度付けた名前へ、別の値を代入することもできます。これを再代入といいます。次のコードを、各行の実行後に<code>total</code>が指す値を書きながら読んでください。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>total = 12\namount = 5\ntotal = total + amount\nprint(total)</code></pre><p>三行目では、右辺の<code>total</code>はまだ12です。12と5を加えて17を作り、その後で左辺の<code>total</code>を17へ更新します。したがって、数式として<code>total = total + amount</code>を読むのではなく、「現在の合計に金額を加え、その結果を新しい合計にする」と実行順に読みます。</p><p>この更新は<code>total += amount</code>とも書けます。短い書き方ですが、右辺の値を使ってから左辺を更新する考え方は同じです。このコースでは、まず長い形で状態を追えるようになってから短い形を使います。</p><h3>計算済みの値は、自動では変わらない</h3><p>代入は、その行を実行した時点の結果を名前へ結び付けます。表計算のセルのように、元の値が変わるたび自動で式を再計算するわけではありません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>planned = 15\ncancelled = 2\ndelivered = planned - cancelled\n\ncancelled = 4\nprint(&quot;中止:&quot;, cancelled)\nprint(&quot;実施:&quot;, delivered)</code></pre><p><code>delivered</code>は三行目で13になりました。その後<code>cancelled</code>を4へ変更しても、すでに計算した<code>delivered</code>は13のままです。実施回数を11へ更新するには、<code>delivered = planned - cancelled</code>をもう一度実行します。どの値を変更したら、どの計算を再実行する必要があるかを理解することが、状態を扱う第一歩です。</p><h3>名前は規則を守り、意味を伝える</h3><p>名前はコードを読む人への説明にもなります。<code>x</code>より<code>completed_learners</code>の方が、何を表すか分かります。ただし、自由な文章をそのまま名前にはできません。</p><table class=\"generaltable\"><thead><tr><th>名前</th><th>使用可否</th><th>理由</th></tr></thead><tbody><tr><td><code>completed_learners</code></td><td>使用できる</td><td>文字とアンダースコアで意味を示している</td></tr><tr><td><code>group2</code></td><td>使用できる</td><td>数字は先頭でなければ使える</td></tr><tr><td><code>2nd_group</code></td><td>使用できない</td><td>数字から始まっている</td></tr><tr><td><code>completed learners</code></td><td>使用できない</td><td>空白を含んでいる</td></tr><tr><td><code>class</code></td><td>使用できない</td><td>Pythonが文法に使う予約語である</td></tr></tbody></table><p>大文字と小文字も区別されるため、<code>Score</code>と<code>score</code>は別の名前です。通常の変数には小文字とアンダースコアを使います。<code>MAX_SEATS</code>のような全大文字は「プログラム中で変更しない値」として扱う慣習ですが、Pythonが再代入を禁止するわけではありません。</p><h3><code>NameError</code>から実行順序を調べる</h3><p>まだ代入していない名前、つづりの違う名前、または大文字・小文字の違う名前を読むと、通常は<code>NameError</code>になります。Tracebackの最後の行にある例外名とメッセージを読み、コード中の名前を一文字ずつ比較します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>completed_learners = 29\nprint(completed_learner)</code></pre><p>この例では末尾の<code>s</code>がありません。Notebookでは、正しい代入セルが画面上にあっても、まだ実行していなければ同じエラーになります。名前のつづりだけでなく、必要な代入が先に実行されたかも確認します。</p><h3>Notebookの状態を再現する</h3><p>Kernelは、以前実行したセルで作られた名前を覚えています。そのため、下のセルを先に実行したNotebookが自分の画面では動いても、別の人が上から実行すると失敗する場合があります。保存前にKernelを再起動し、すべてのセルを上から実行してください。これで、必要な代入が使う場所より前にあり、隠れた状態へ依存していないことを確認できます。</p><h3>例題から応用へ</h3><p>ある学習センターは15回の講座を計画し、2回を中止しました。<code>planned</code>、<code>cancelled</code>、<code>delivered</code>を使って三つの値を表示します。まず各行後の状態を予想し、実行後に<code>cancelled</code>を4へ変えてください。実施回数を正しく更新するにはどの行を再実行する必要があるか、Markdownセルで説明します。</p><p>次に、研修室の定員24人、午前利用18人、午後利用20人へ意味のある名前を付け、午前と午後の空席を表示します。定員の代入一か所だけを22へ変え、Kernelを再起動して全セルを上から実行し、空席が4人と2人になることを確認してください。</p><p>このレッスンを終えると、代入を右辺から追い、再代入後の状態を説明し、<code>=</code>と<code>==</code>を区別し、<code>NameError</code>とNotebookの実行順を調べられます。次のレッスンでは、名前が指す値の種類を基本データ型として体系的に学びます。</p><p><strong>学習時間の目安：</strong>約2時間</p><p style=\"display:none\">PYAI-V13-LESSON2-FLOW</p></div>"
+        },
+        {
+            "cmid": 228,
+            "modname": "lti",
+            "name": "Python Lab 1.2：変数・代入・状態",
+            "section_number": 7,
+            "section_name": "1.2 変数・代入・プログラムの状態"
+        },
+        {
+            "cmid": 184,
+            "modname": "quiz",
+            "name": "理解度チェック：1.2 変数・代入・プログラムの状態",
+            "section_number": 7,
+            "section_name": "1.2 変数・代入・プログラムの状態",
+            "slots": 10
+        },
+        {
+            "cmid": 185,
+            "modname": "page",
+            "name": "レッスン1.5：条件による判断",
+            "section_number": 8,
+            "section_name": "1.5 条件による判断",
+            "content": "<div class=\"python-sample-lesson\"><h2>値を計算したら、次はその値に応じて処理を選ぶ</h2><p>ここまでに、プログラムは値を作り、変数へ保存し、文字列や数値へ変換して、人に伝わる形で表示できるようになりました。しかし実務では、すべての値を同じように扱うわけではありません。修了率が低いセンターには支援を提案し、順調なセンターには通常の報告を作る、といった選択が必要です。Pythonでは、この選択を<code>if</code>文で表します。</p><h3>条件式はTrueまたはFalseという値を作る</h3><p><code>score &gt;= 50</code>のような比較式を実行すると、結果は真偽値<code>bool</code>の<code>True</code>または<code>False</code>になります。<code>=</code>は右側の値を名前へ代入し、<code>==</code>は二つの値が等しいかを比較します。この違いは小さく見えますが、条件のバグを避けるための基本です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = 68\nprint(score &gt;= 50)\nprint(score == 68)\nprint(score != 68)\nprint(type(score &gt;= 50))</code></pre><table class=\"generaltable\"><thead><tr><th>演算子</th><th>判定</th></tr></thead><tbody><tr><td><code>==</code> / <code>!=</code></td><td>等しい / 等しくない</td></tr><tr><td><code>&lt;</code> / <code>&lt;=</code></td><td>より小さい / 以下</td></tr><tr><td><code>&gt;</code> / <code>&gt;=</code></td><td>より大きい / 以上</td></tr></tbody></table><h3>if文は条件がTrueのときだけ字下げされた処理を実行する</h3><p><code>if 条件式:</code>の末尾にはコロンが必要です。次の行を字下げすると、その行がif文に属することを表します。Pythonの字下げは見た目だけではなく、プログラムの構造そのものです。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = 68\nif score &gt;= 50:\n    print(&quot;合格&quot;)\nprint(&quot;判定完了&quot;)</code></pre><p>68では条件がTrueなので二行とも表示されます。42なら<code>合格</code>は表示されませんが、字下げされていない<code>判定完了</code>は表示されます。どの行が条件の内側にあるかを意識して読みます。</p><h3>elseを加えると、二つの処理から必ず一つを選べる</h3><p><code>else</code>は直前の条件がFalseだった場合を受け持ちます。一回の判定でif側とelse側の両方が実行されることはありません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = 42\nif score &gt;= 50:\n    result = &quot;合格&quot;\nelse:\n    result = &quot;要復習&quot;\nprint(result)</code></pre><h3>elifは複数の候補を上から調べ、最初の一つだけを選ぶ</h3><p>結果が三つ以上なら<code>elif</code>を使います。Pythonは上から条件を調べ、最初にTrueとなった分岐を実行すると残りを調べません。そのため、条件が重なる場合は、より限定的な条件を先に置きます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = 85\nif score &gt;= 90:\n    grade = &quot;優秀&quot;\nelif score &gt;= 70:\n    grade = &quot;合格&quot;\nelif score &gt;= 50:\n    grade = &quot;条件付き合格&quot;\nelse:\n    grade = &quot;要復習&quot;\nprint(grade)</code></pre><p>もし<code>score &gt;= 50</code>を最初に置くと、85もそこで一致し、上位の区分へ到達できません。エラーにならずに動くコードでも、業務ルールを誤って実装することがあります。</p><h3>独立したif文は、条件がTrueならそれぞれ実行する</h3><p>二つの独立した<code>if</code>は、両方がTrueなら両方を実行します。一方、<code>if / elif / else</code>は候補から一つだけを選びます。「合格なら通知し、上位成績なら追加の表彰もする」なら独立したif文が適します。「成績区分を一つ決める」なら一連の分岐が適します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = 80\nif score &gt;= 50:\n    print(&quot;合格通知&quot;)\nif score &gt;= 70:\n    print(&quot;上位成績の表彰&quot;)</code></pre><h3>and・or・notで複数の判定を組み合わせる</h3><p><code>and</code>は両方がTrue、<code>or</code>は少なくとも一方がTrueのときTrueになります。<code>not</code>は真偽を反転します。長い条件を一行へ詰め込まず、説明的な名前へ分けると、途中結果を表示して確認できます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>registered = 35\ncompletion_rate = 72\nhas_enough_learners = registered &gt;= 30\nrate_needs_support = completion_rate &lt; 75\npriority = has_enough_learners and rate_needs_support\nprint(has_enough_learners, rate_needs_support, priority)</code></pre><p>比較演算は<code>not</code>より先に評価され、次に<code>and</code>、最後に<code>or</code>が評価されます。ただし、優先順位を暗記して読ませるより、<code>(registered &gt;= 30) and (completion_rate &lt; 75)</code>のように括弧と名前で意図を示す方が安全です。</p><h3>境界値は、直前・一致・直後を実行する</h3><p><code>&gt;= 50</code>は50を含み、<code>&gt; 50</code>は含みません。しきい値75と85で区分するなら、74.9、75、84.9、85のように各境界の両側を試します。Pythonでは<code>0 &lt;= score &lt;= 100</code>のように、範囲を連鎖比較として書けます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>rate = 75\nif rate &lt; 75:\n    status = &quot;重点支援&quot;\nelif rate &lt; 85:\n    status = &quot;経過観察&quot;\nelse:\n    status = &quot;順調&quot;\nprint(status)</code></pre><h3>通常の分類より先に、入力値が妥当か確認する</h3><p>点数-5を単に「要復習」へ分類すると、コードは動いても意味は誤っています。まず許される範囲を確認し、その後で通常の分類を行います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>score = -5\nif not 0 &lt;= score &lt;= 100:\n    result = &quot;無効な点数&quot;\nelif score &gt;= 50:\n    result = &quot;合格&quot;\nelse:\n    result = &quot;要復習&quot;\nprint(result)</code></pre><h3>短絡評価は、結果が決まった後の式を評価しない</h3><p><code>and</code>は左側がFalseなら右側を評価せず、<code>or</code>は左側がTrueなら右側を評価しません。次の例では登録者数が0なので割り算を実行せず、ゼロ除算を避けます。ただし、条件式の右側に更新処理などの副作用を隠すと読みにくくなるため、判定は判定として書きます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>registered = 0\ncompleted = 0\nif registered &gt; 0 and completed / registered &gt;= 0.75:\n    status = &quot;順調&quot;\nelse:\n    status = &quot;確認が必要&quot;\nprint(status)</code></pre><h3>例題から応用へ</h3><p>学習センターの登録者数、修了者数、欠席報告の有無から支援状態を決めます。人数が負、または修了者数が登録者数を超える場合は「データ確認」。欠席報告がある、または修了率が75%未満なら「重点支援」。85%未満なら「経過観察」。それ以外は「順調」とします。無効値と、74.9%、75%、84.9%、85%に相当するデータを試し、すべての分岐へ到達することを確認してください。</p><p>このレッスンを終えると、比較演算子とbool、字下げ、if/elif/elseの順序、独立したif文、and/or/not、境界値、妥当性確認、短絡評価を説明できます。次は、同じ処理を複数の値へ繰り返すループへ進みます。</p><p><strong>学習時間の目安：</strong>約3時間</p><p style=\"display:none\">PYAI-V16-CONDITIONS-FLOW</p></div>"
+        },
+        {
+            "cmid": 229,
+            "modname": "lti",
+            "name": "Python Lab 1.5：条件と境界値",
+            "section_number": 8,
+            "section_name": "1.5 条件による判断"
+        },
+        {
+            "cmid": 186,
+            "modname": "quiz",
+            "name": "理解度チェック：1.5 条件による判断",
+            "section_number": 8,
+            "section_name": "1.5 条件による判断",
+            "slots": 10
+        },
+        {
+            "cmid": 187,
+            "modname": "page",
+            "name": "レッスン1.6：ループによる繰り返し",
+            "section_number": 9,
+            "section_name": "1.6 ループによる繰り返し",
+            "content": "<div class=\"python-sample-lesson\"><h2>同じ形の処理を、値の数だけ正確に繰り返す</h2><p>条件分岐によって、一つの値に対する処理を選べるようになりました。次に必要なのは、複数の週、複数の受講者、複数のセンターへ同じ処理を適用することです。処理を手作業でコピーすると、値の追加や修正時に一部だけ直し忘れます。ループは、繰り返す処理を一度だけ記述し、対象となる値を順に渡します。</p><h3>for文は、値の並びから一つずつ取り出す</h3><p><code>for attendance in weekly_attendance:</code>では、リストの各値が順に<code>attendance</code>へ入り、字下げされた処理を実行します。ループ変数は現在処理している値を表す一時的な名前です。ループ外の行は、すべての反復が終わってから一度だけ実行されます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>weekly_attendance = [28, 31, 32, 34]\nfor attendance in weekly_attendance:\n    print(&quot;今週の出席者数:&quot;, attendance)\nprint(&quot;処理完了&quot;)</code></pre><h3>range()は開始を含み、終了を含まない</h3><p><code>range(start, stop, step)</code>は整数の並びを作ります。<code>range(1, 5)</code>は1、2、3、4で、5を含みません。<code>range(4)</code>は0から3です。期待する最初の値、最後の値、反復回数を先に書くと、一回多い・一回少ないという境界エラーを見つけやすくなります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(list(range(1, 5)))\nfor week in range(1, 5):\n    print(f&quot;第{week}週&quot;)\nprint(list(range(10, 4, -2)))</code></pre><h3>アキュムレータはループの外で初期化し、内側で更新する</h3><p>合計のように反復をまたいで残す値をアキュムレータと呼びます。合計は通常0から始め、各反復で現在の値を加えます。初期化をループ内へ置くと毎回0へ戻り、最後の値しか残りません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>weekly_attendance = [28, 31, 32, 34]\ntotal = 0\nfor attendance in weekly_attendance:\n    total += attendance\n    print(&quot;途中の合計:&quot;, total)\nprint(&quot;合計:&quot;, total)\nprint(&quot;平均:&quot;, total / len(weekly_attendance))</code></pre><p><code>sum()</code>で合計を求めることもできますが、明示的なループを追跡すると、後で条件付き集計や複数の状態を同時に更新する仕組みが理解できます。目的が単純な合計だけなら、実務では読みやすい<code>sum()</code>を選べます。</p><h3>カウンタは、条件に一致したときだけ1増やす</h3><p>件数を数える変数も0から始めます。合計とカウンタは似ていますが、合計は値を加え、カウンタは一件につき1を加えます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>weeks_at_least_30 = 0\nfor attendance in [28, 31, 32, 34]:\n    if attendance &gt;= 30:\n        weeks_at_least_30 += 1\nprint(weeks_at_least_30)</code></pre><h3>最大値は実データから初期化する</h3><p>最大値を0から始めると、すべての値が負の場合に、データに存在しない0を最大値として返します。空でないことが分かっているなら最初の要素から始めます。空データの可能性があるなら、先に分岐して「データなし」を明示します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>weekly_change = [-4, -2, -7, -3]\nif weekly_change:\n    largest = weekly_change[0]\n    for change in weekly_change[1:]:\n        if change &gt; largest:\n            largest = change\n    print(&quot;最大値:&quot;, largest)\nelse:\n    print(&quot;データなし&quot;)</code></pre><h3>enumerate()は番号と値を同時に取り出す</h3><p>人が読む週番号と値の両方が必要なら、手作業でカウンタを更新するより<code>enumerate()</code>が適します。<code>start=1</code>を指定すると、第1週から始められます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>weekly_attendance = [28, 31, 32, 34]\nfor week, attendance in enumerate(weekly_attendance, start=1):\n    print(f&quot;第{week}週: {attendance}人&quot;)</code></pre><h3>continueは今回の残りを飛ばし、breakはループ全体を止める</h3><p><code>continue</code>は現在の反復の残りを飛ばして次の値へ進みます。<code>break</code>は残りの値を処理せずにループを終了します。通常処理の途中へ多用すると流れが分かりにくくなるため、欠損値を飛ばす、重大な無効値で停止する、といった理由を明確にします。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>readings = [28, None, 31, -1, 34]\nfor reading in readings:\n    if reading is None:\n        continue\n    if reading &lt; 0:\n        print(&quot;無効値を検出。停止します&quot;)\n        break\n    print(&quot;有効値:&quot;, reading)</code></pre><h3>while文は、条件がTrueである間繰り返す</h3><p>値の並びではなく、終了条件によって反復を決める場合は<code>while</code>を使います。条件に使う状態をループ内で終了へ近づけなければ、無限ループになります。実行が終わらない場合はNotebookの停止操作で中断し、条件と更新を確認します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>remaining = 3\nwhile remaining &gt; 0:\n    print(&quot;残り:&quot;, remaining)\n    remaining -= 1\nprint(&quot;完了&quot;)</code></pre><h3>処理対象が分かっているならfor、終了条件で続けるならwhile</h3><p>リストなどの反復可能な値を処理するならforが自然です。「成功するまで再試行する」「残数が0になるまで処理する」ならwhileが自然です。既知のリストを添字とwhileで処理すると、添字の初期化、境界、更新を自分で管理する必要があり、誤りが増えます。</p><h3>空データでは、ループは一度も実行されない</h3><p>空のリストに対するfor文は0回で正常終了します。合計は0のままですが、平均を<code>total / len(values)</code>で求めると0除算になります。ループ後に件数を確認し、平均が存在しないことを明示します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>values = []\ntotal = 0\nfor value in values:\n    total += value\nif values:\n    print(total / len(values))\nelse:\n    print(&quot;データなし&quot;)</code></pre><h3>例題から応用へ</h3><p>4週間の教材費<code>[82.5, 74.0, 91.5, 80.0]</code>を一つのfor文で処理し、合計、平均、最大値、80を超えた週の件数を求めます。<code>enumerate()</code>で各週も表示します。次に空のリストで実行し、割り算を行わず「データなし」と表示してください。「80を超える」なら80ちょうどを含まないことを、条件式と説明の両方で示します。</p><p>このレッスンを終えると、for、rangeの終端、アキュムレータ、カウンタ、最大値の初期化、enumerate、continue/break、whileの終了条件、空データを説明できます。これらを週間サポート報告のプロジェクトで統合します。</p><p><strong>学習時間の目安：</strong>約3時間</p><p style=\"display:none\">PYAI-V17-LOOPS-FLOW</p></div>"
+        },
+        {
+            "cmid": 230,
+            "modname": "lti",
+            "name": "Python Lab 1.6：ループと累積処理",
+            "section_number": 9,
+            "section_name": "1.6 ループによる繰り返し"
+        },
+        {
+            "cmid": 188,
+            "modname": "quiz",
+            "name": "理解度チェック：1.6 ループによる繰り返し",
+            "section_number": 9,
+            "section_name": "1.6 ループによる繰り返し",
+            "slots": 10
+        },
+        {
+            "cmid": 231,
+            "modname": "lti",
+            "name": "Python Labプロジェクト1.7：週間サポート報告",
+            "section_number": 10,
+            "section_name": "1.7 小プロジェクト：週間サポート報告"
+        },
+        {
+            "cmid": 209,
+            "modname": "assign",
+            "name": "プロジェクト1.7：学習センター週間サポート報告",
+            "section_number": 10,
+            "section_name": "1.7 小プロジェクト：週間サポート報告"
+        },
+        {
+            "cmid": 189,
+            "modname": "page",
+            "name": "レッスン2.1：リスト・辞書・レコード",
+            "section_number": 11,
+            "section_name": "2.1 リスト・辞書・レコード",
+            "content": "<div class=\"python-sample-lesson\"><h2>関連する値を一つの構造へまとめる</h2><p>Chapter 1では、複数週の出席者数をリストとして与え、ループで処理しました。ここでは、そのリスト自体を体系的に学びます。さらに、名前、登録者数、修了者数のように意味の異なる項目を一件のレコードへまとめ、複数のレコードを扱える形へ進みます。</p><h3>リストは順序を持ち、内容を変更できる</h3><p>リストは角括弧で作ります。文字列と同じく添字は0から始まり、負の添字は末尾から数え、スライスは終了位置を含みません。<code>len()</code>は要素数、<code>in</code>は値が含まれるかを返します。Pythonは異なる型も同じリストへ入れられますが、実務では同じ意味の値をそろえる方が安全です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>attendance = [28, 31, 30, 33]\nprint(attendance[0])\nprint(attendance[-1])\nprint(attendance[1:3])\nprint(len(attendance))\nprint(31 in attendance)</code></pre><h3>リストの変更には、位置の代入と変更メソッドを使う</h3><p>添字への代入は既存要素を置き換えます。<code>append()</code>は一つ、<code>extend()</code>は複数、<code>insert()</code>は指定位置へ追加します。<code>remove()</code>は最初に一致した値、<code>pop()</code>は位置の値を取り除いて返します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>attendance = [28, 31, 30]\nattendance[0] = 29\nattendance.append(33)\nattendance.extend([32, 34])\nremoved = attendance.pop()\nprint(attendance)\nprint(&quot;取り出した値:&quot;, removed)</code></pre><p><code>append()</code>など多くの変更メソッドは、既存のリスト自身を変更し、戻り値は<code>None</code>です。<code>attendance = attendance.append(33)</code>と書くと、名前がNoneを指してしまう典型的な誤りになります。</p><h3>代入はリストを複製せず、同じオブジェクトを共有する</h3><p><code>shared = original</code>では、二つの名前が同じリストを参照します。一方から追加すると両方から見えます。独立した浅いコピーには<code>copy()</code>または全体スライスを使います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>original = [28, 31, 30]\nshared = original\nseparate = original.copy()\nshared.append(33)\nprint(&quot;original:&quot;, original)\nprint(&quot;shared:&quot;, shared)\nprint(&quot;separate:&quot;, separate)</code></pre><p>浅いコピーは外側のリストだけを複製します。内側に別のリストや辞書がある場合、その内側のオブジェクトは共有されます。入れ子構造を変更するときは、どこまで独立させる必要があるかを確認します。</p><h3>タプルは順序を持つが、作成後に要素を置き換えられない</h3><p>タプルは丸括弧で作り、添字やループで読めます。年と月、座標など、固定された一組として扱い、途中で要素を変更させたくない値に向きます。要素数に合わせて複数の名前へ展開することもできます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>report_period = (2026, 8)\nyear, month = report_period\nprint(year, month)\n# report_period[0] = 2027  # TypeError</code></pre><h3>辞書はキーによって各値の意味を表す</h3><p>辞書は<code>キー: 値</code>の組を波括弧で作ります。数値の位置ではなく、<code>centre[\\\"registered\\\"]</code>のようなキーで読みます。キーは一つの辞書内で一意で、同じキーへ代入すると値を更新し、新しいキーへ代入すると項目を追加します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centre = {\n    &quot;name&quot;: &quot;North Learning Centre&quot;,\n    &quot;district&quot;: &quot;North&quot;,\n    &quot;registered&quot;: 40,\n    &quot;completed&quot;: 32,\n}\ncentre[&quot;registered&quot;] = 42\ncentre[&quot;phone&quot;] = &quot;000-000&quot;\nprint(centre)</code></pre><h3>存在しないキーをどう扱うかは、項目の意味で決める</h3><p>角括弧で存在しないキーを読むと<code>KeyError</code>になります。電話番号のような任意項目なら<code>get(\\\"phone\\\", \\\"未登録\\\")</code>で既定値を返せます。しかし登録者数のような必須項目にgetを使って0を補うと、欠落と本当の0を区別できません。<code>in</code>で存在を確認し、必須項目の欠落は無効データとして扱います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centre = {&quot;name&quot;: &quot;North&quot;, &quot;registered&quot;: 40}\nprint(centre.get(&quot;phone&quot;, &quot;未登録&quot;))\nprint(&quot;completed&quot; in centre)</code></pre><h3>辞書を反復するときは、必要な部分を選ぶ</h3><p>辞書を直接for文へ渡すとキーを反復します。<code>keys()</code>もキー、<code>values()</code>は値、<code>items()</code>はキーと値の組を返します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centre = {&quot;registered&quot;: 40, &quot;attended&quot;: 34, &quot;completed&quot;: 32}\nfor field, value in centre.items():\n    print(field, value)</code></pre><h3>リストの中に辞書を置くと、複数のレコードになる</h3><p>一つの辞書を一件のレコード、各キーを項目名として扱います。同じキー構成の辞書をリストへ並べると、小さな表のようなデータになります。これは後でCSVをDataFrameとして扱うための橋です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centres = [\n    {&quot;name&quot;: &quot;North&quot;, &quot;district&quot;: &quot;A&quot;, &quot;registered&quot;: 40, &quot;completed&quot;: 32},\n    {&quot;name&quot;: &quot;South&quot;, &quot;district&quot;: &quot;B&quot;, &quot;registered&quot;: 35, &quot;completed&quot;: 24},\n]\nfor centre in centres:\n    rate = centre[&quot;completed&quot;] / centre[&quot;registered&quot;] * 100\n    print(f&quot;{centre[&#039;name&#039;]}: {rate:.1f}%&quot;)</code></pre><h3>集合は重複のない所属と集合演算を表す</h3><p>集合は値の順序や重複ではなく、「含まれるか」を扱います。和集合<code>|</code>、積集合<code>&amp;</code>、差集合<code>-</code>を使うと、提供コースと希望コースのようなカテゴリを比較できます。集合の表示順には依存しません。空集合は<code>set()</code>で作ります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>offered = {&quot;Python&quot;, &quot;Data&quot;, &quot;Office&quot;}\nrequested = {&quot;Python&quot;, &quot;Web&quot;, &quot;Data&quot;}\nprint(&quot;共通:&quot;, offered &amp; requested)\nprint(&quot;未提供:&quot;, requested - offered)\nprint(&quot;すべて:&quot;, offered | requested)</code></pre><table class=\"generaltable\"><thead><tr><th>構造</th><th>順序</th><th>変更</th><th>主な用途</th></tr></thead><tbody><tr><td>list</td><td>あり</td><td>可</td><td>同じ意味の値の並び</td></tr><tr><td>tuple</td><td>あり</td><td>不可</td><td>固定された組</td></tr><tr><td>dict</td><td>挿入順を保持</td><td>可</td><td>名前付き項目</td></tr><tr><td>set</td><td>順序に依存しない</td><td>可</td><td>重複のない所属</td></tr></tbody></table><h3>IDで一件を探し、該当なしを区別する</h3><p>位置ではなく一意なIDを照合します。結果を最初は<code>None</code>とし、一致した辞書を保存して<code>break</code>します。最後まで見つからない<code>None</code>は「該当なし」という通常の検索結果です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>found = None\nfor book in books:\n    if book[&quot;id&quot;] == target_id:\n        found = book\n        break</code></pre><h3>一つの集合で追加・参照・更新・削除する</h3><p>追加前にID集合で重複を確認します。検索結果の辞書はリストに保存された辞書そのものなので、項目を変更するとレコードも変わります。削除は<code>enumerate()</code>で位置を得て一度だけ<code>pop()</code>し、残る順序を保ちます。これがCRUDです。</p><h3>応用練習：備品台帳</h3><p><code>asset_id</code>、<code>name</code>、<code>available</code>を持つ三件から始め、A004の追加、A002の更新、A003の削除、存在しないIDの検索を行います。</p><h3>追加練習：センターレコードへ応用する</h3><p>3センターを、<code>name</code>、<code>district</code>、<code>registered</code>、<code>completed</code>を持つ辞書としてリストへ格納します。ループで各修了率を表示し、75%未満のセンター名を別のリストへ追加し、地区の集合を作ってください。登録者数0や必須キー欠落を通常の修了率として処理しないことも確認します。</p><p>このレッスンを終えると、順序、名前、重複、変更可能性を基準に構造を選び、リストと辞書を組み合わせてレコードを処理できます。次は、この処理を関数へ分け、エラーとテストを扱います。</p><p><strong>学習時間の目安：</strong>約4時間</p><p style=\"display:none\">PYAI-V19-LESSON21-FLOW</p></div><p style=\"display:none\">PYAI-V23-2.1-PROJECT24-READY</p>"
+        },
+        {
+            "cmid": 232,
+            "modname": "lti",
+            "name": "Python Lab 2.1：リスト・辞書・レコード",
+            "section_number": 11,
+            "section_name": "2.1 リスト・辞書・レコード"
+        },
+        {
+            "cmid": 190,
+            "modname": "quiz",
+            "name": "理解度チェック：2.1 リスト・辞書・レコード",
+            "section_number": 11,
+            "section_name": "2.1 リスト・辞書・レコード",
+            "slots": 10
+        },
+        {
+            "cmid": 191,
+            "modname": "page",
+            "name": "レッスン2.2：関数・エラー・テスト",
+            "section_number": 12,
+            "section_name": "2.2 関数・エラー・テスト",
+            "content": "<div class=\"python-sample-lesson\"><h2>長い処理を、役割の明確な関数へ分ける</h2><p>2.1では、複数の学習センターを辞書のリストとして表しました。次は、その処理を一度だけ動くコードから、名前を付けて繰り返し呼び出せる部品へ変えます。関数にする目的は行数を減らすことだけではありません。入力、処理、出力の境界を明らかにし、同じ規則を一か所で保守し、個別にテストできるようにすることです。</p><h3>defで定義し、名前と丸括弧で呼び出す</h3><p><code>def</code>の行には関数名と仮引数を書き、末尾にコロンを置きます。インデントされた本体は、定義した時点では実行されません。呼び出した時に上から実行されるため、定義は呼び出しより先に実行されている必要があります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def completion_rate(completed, registered):\n    return completed / registered * 100\n\nrate = completion_rate(32, 40)\nprint(f&quot;修了率: {rate:.1f}%&quot;)</code></pre><h3>仮引数は入口、returnは出口になる</h3><p>定義に書く名前を仮引数、呼び出しで渡す値を実引数と呼びます。<code>return</code>は値を呼び出し元へ返し、その時点で関数を終了します。<code>print()</code>は表示するだけで、戻り値を指定しない関数は<code>None</code>を返します。後の計算に使う結果は表示ではなくreturnで返します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def add_with_print(a, b):\n    print(a + b)\n\ndef add_with_return(a, b):\n    return a + b\n\nx = add_with_print(2, 3)\ny = add_with_return(2, 3)\nprint(x, y * 2)</code></pre><h3>ローカル変数によって処理を閉じ込める</h3><p>関数内で代入した変数は原則としてローカル変数で、関数外から直接参照できません。必要な値を引数で受け取り、結果をreturnで返すと、外部の変数に偶然依存するバグを減らせます。同じ入力から同じ結果が得られる関数は、再現とテストも容易です。</p><h3>既定値とキーワード引数で呼び出しを読みやすくする</h3><p>省略可能な仮引数には既定値を付けられます。既定値のない仮引数を先に置きます。キーワード引数なら<code>completed=32</code>のように意味を明記でき、同じ数値型の引数を取り違えにくくなります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def format_centre(name, completed, registered, decimals=1):\n    rate = completed / registered * 100\n    return f&quot;{name}: {rate:.{decimals}f}%&quot;\n\nprint(format_centre(&quot;North&quot;, completed=32, registered=40))</code></pre><h3>docstringと型ヒントで関数の契約を伝える</h3><p>関数直下のdocstringには、目的、入力、戻り値、無効な入力の扱いを書きます。型ヒントは読み手と開発ツールを助けますが、Pythonが実行時に型を自動強制するものではありません。実データの条件はコードで検証します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def safe_rate(completed: int, registered: int) -&gt; float | None:\n    &quot;&quot;&quot;修了率を返す。登録者数が0以下ならNoneを返す。&quot;&quot;&quot;\n    if registered &lt;= 0:\n        return None\n    return completed / registered * 100</code></pre><h3>検証、計算、表示を別の責務に分ける</h3><p>一つの長い関数へすべてを混ぜると、どこで誤ったか分かりにくくなります。必須キーの有無と値の範囲を検証する関数、率を計算する関数、表示を作る関数へ分けます。必須キー欠落には<code>KeyError</code>、値の規則違反には<code>ValueError</code>を<code>raise</code>すると、失敗理由を呼び出し元へ伝えられます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>REQUIRED = {&quot;name&quot;, &quot;registered&quot;, &quot;completed&quot;}\n\ndef validate_centre(centre):\n    missing = REQUIRED - centre.keys()\n    if missing:\n        raise KeyError(f&quot;必須項目がありません: {sorted(missing)}&quot;)\n    if centre[&quot;completed&quot;] &gt; centre[&quot;registered&quot;]:\n        raise ValueError(&quot;修了者数が登録者数を超えています&quot;)</code></pre><h3>エラーは発生段階を分け、トレースバックは最後から読む</h3><p>文法エラーはPythonが構文を解釈できない状態、実行時エラーは実行中に例外が発生した状態、論理エラーは最後まで動いても結果が誤っている状態です。トレースバックでは、まず最後の行の例外名とメッセージを読み、その上にある自分のコード行へ戻ります。</p><h3>tryには失敗し得る最小範囲を置く</h3><p><code>except</code>では、対処できる具体的な例外だけを捕捉します。<code>else</code>は例外がなかった場合、<code>finally</code>は成否にかかわらない後始末に使います。<code>except Exception: pass</code>のように原因を隠してはいけません。予想していない例外は、修正できるよう表へ出す必要があります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>try:\n    registered = int(raw_value)\nexcept ValueError:\n    print(&quot;整数として読めません&quot;)\nelse:\n    print(registered)\nfinally:\n    print(&quot;入力確認終了&quot;)</code></pre><h3>正常値、境界値、異常値を別々にテストする</h3><p>正常値一件だけでは境界のバグを見つけられません。通常の値、0やしきい値直前直後などの境界、必須キー欠落や範囲違反などの異常値を用意します。<code>assert</code>で期待値を明記し、浮動小数点数は小さな許容誤差で比較します。assertはここでの検査には便利ですが、利用者入力の検証の代わりにはなりません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>assert abs(safe_rate(32, 40) - 80.0) &lt; 0.0001\nassert safe_rate(0, 0) is None\nassert safe_rate(1, -1) is None</code></pre><h3>検索・変更関数の契約を決める</h3><p>検索の該当なしは<code>None</code>です。変更関数は見つかった保存中の辞書を変更して返し、対象がなければ<code>KeyError</code>を送出します。空欄や重複追加は新しい値の規則違反なので<code>ValueError</code>です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def mark_as_read(books, book_id):\n    book = find_book(books, book_id)\n    if book is None:\n        raise KeyError(book_id)\n    book[&quot;read&quot;] = True\n    return book</code></pre><h3>状態の前後をテストする</h3><p>戻り値だけでなく、件数、順序、格納されたオブジェクトを呼出前後で確認します。提供された確認プログラムは、この公開契約を利用する別のプログラムです。内部を作れなくても、ファイル名、関数名、戻り値、状態変化、例外を保つ必要があります。</p><h3>応用練習：備品台帳の関数</h3><p>2.1の操作を検索・追加・更新・削除関数へ分け、通常、該当なし、空欄、重複、変更前後を<code>assert</code>で確認します。</p><h3>追加練習：センター処理を関数へ分ける</h3><p>2.1の3センターを使い、<code>validate_centre()</code>、<code>centre_rate()</code>、<code>summarise_centres()</code>へ処理を分けます。最後の関数は、修了率75%未満のセンター名、地区の集合、全体の登録者数と修了者数を辞書で返します。正常な3件、登録者数0、必須キー欠落、修了者数超過をテストしてください。</p><p>このレッスンを終えると、関数の契約を定め、失敗を分類して伝え、代表的な境界をテストできます。次の2.3では、この部品を組み合わせて月次実績報告を作ります。</p><p><strong>学習時間の目安：</strong>約4時間</p><p style=\"display:none\">PYAI-V20-LESSON22-FLOW</p></div><p style=\"display:none\">PYAI-V23-2.2-PROJECT24-READY</p>"
+        },
+        {
+            "cmid": 233,
+            "modname": "lti",
+            "name": "Python Lab 2.2：関数・エラー・テスト",
+            "section_number": 12,
+            "section_name": "2.2 関数・エラー・テスト"
+        },
+        {
+            "cmid": 293,
+            "modname": "quiz",
+            "name": "理解度チェック：2.2 関数・エラー・テスト",
+            "section_number": 12,
+            "section_name": "2.2 関数・エラー・テスト",
+            "slots": 10
+        },
+        {
+            "cmid": 234,
+            "modname": "lti",
+            "name": "Python Lab 2.4：CSV図書記録管理",
+            "section_number": 13,
+            "section_name": "2.4 実践プロジェクト：学習センター月次実績報告"
+        },
+        {
+            "cmid": 202,
+            "modname": "assign",
+            "name": "プロジェクト2.4：CSV図書記録管理",
+            "section_number": 13,
+            "section_name": "2.4 実践プロジェクト：学習センター月次実績報告"
+        },
+        {
+            "cmid": 193,
+            "modname": "page",
+            "name": "レッスン3.1：表形式データ・CSV・pandas",
+            "section_number": 14,
+            "section_name": "3.1 表形式データ・CSV・pandas",
+            "content": "<div class=\"python-sample-lesson\"><h2>レコードの集まりを、確認可能な表として扱う</h2><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.1 表形式データ — 行・列・セルの意味</h3><p>2.3では一件のセンターを辞書、複数件をリストとして処理しました。件数と項目が増えると、すべてのレコードで同じ列をそろえ、列単位で確認・計算できる表形式が有効になります。pandasはこの表を<code>DataFrame</code>として扱います。</p><h4>一行を一観測、一列を一変数としてそろえる</h4><p>この教材では一行を一つのセンター・月、一列を同じ意味の変数、一つのセルを一観測の一変数の値とします。列名だけでなく、各列の期待型、単位、欠損規則までをスキーマとして確認します。同じ列へ人数と文字を混ぜると、後の計算が不安定になります。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.2 CSV — 表を交換するテキスト形式</h3><p>CSVでは通常、一行目がヘッダー、後続行がレコード、カンマがフィールドの区切りです。値にカンマや改行を含む場合は引用符が必要です。CSV自体はセルの色、数式、複数シートを保持しません。文字コード、区切り文字、空欄、識別子の先頭0をどのように読むかを決める必要があります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>month,centre_id,centre_name,registered,completed\n2026-01,C001,Gaborone Learning Centre,32,24\n2026-01,C002,&quot;North, Main Centre&quot;,27,18</code></pre><h4>相対パスと実際に読み込むファイル</h4><p><code>data/learning-centres-practice.csv</code>はNotebookファイルの位置ではなく、カーネルの現在の作業フォルダを基準にします。そのためPython Labを別の入口から開くと、同じ相対パスでも見つからないことがあります。教材Notebookは現在位置と親フォルダ、サーバー上の学習領域、配布元を調べ、実際に読み込んだ絶対パスを表示します。<code>FileNotFoundError</code>では、まず現在位置と確認済みパスを読みます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>from pathlib import Path\nprint(&quot;Working directory:&quot;, Path.cwd())\ndata_file = find_course_data(&quot;learning-centres-practice.csv&quot;)\nprint(&quot;Loading:&quot;, data_file.resolve())</code></pre><h4>read_csvの前提をコードへ明示する</h4><p><code>import pandas as pd</code>は一般的な読み込み方です。<code>pd.read_csv()</code>はCSVからDataFrameを作ります。ここではUTF-8を指定し、<code>centre_id</code>と<code>month</code>を計算対象ではない文字列として保持します。別のファイルでは<code>sep</code>や<code>encoding</code>が異なる可能性があります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>df = pd.read_csv(\n    data_file,\n    encoding=&quot;utf-8&quot;,\n    dtype={&quot;centre_id&quot;: &quot;string&quot;, &quot;month&quot;: &quot;string&quot;},\n)</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.3 pandas — DataFrameを読み、確かめる</h3><p><code>head()</code>で値の並び、<code>shape</code>で行数と列数、<code>columns</code>で正確な列名、<code>dtypes</code>と<code>info()</code>で推定型、<code>isna().sum()</code>で欠損数を確認します。練習CSVは24行10列で、品質問題を意図的に含みます。読み込めたことと、正しく読めたことは同じではありません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(df.head(3))\nprint(&quot;Shape:&quot;, df.shape)\nprint(df.columns.tolist())\nprint(df.dtypes)\nprint(df.isna().sum())\ndf.info()</code></pre><h4>全件表示とカテゴリ値の件数を確認する</h4><p><code>head()</code>は先頭確認に向きますが、37件程度の原資料を人が全件確認するときは<code>to_string(index=False)</code>で中間行の省略を防げます。カテゴリ列は、補正する前に原資料の値と件数を確認します。<code>value_counts(dropna=False, sort=False)</code>は欠損も含め、値が最初に現れた順で数えます。2列の表が必要ならSeriesの名前を列へ戻します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(df.to_string(index=False, line_width=200))\n\ndistrict_counts = (\n    df[&quot;district&quot;]\n    .value_counts(dropna=False, sort=False)\n    .rename_axis(&quot;district&quot;)\n    .reset_index(name=&quot;records&quot;)\n)\nprint(district_counts.to_string(index=False, formatters={&quot;district&quot;: repr}))</code></pre><h4>一列はSeries、複数列の表はDataFrame</h4><p><code>df[\\\"registered\\\"]</code>は一次元のSeries、<code>df[[\\\"registered\\\"]]</code>は一列を持つ二次元のDataFrameです。列名は完全一致で指定します。Seriesどうしの演算は、対応する行へまとめて適用されます。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.4 pandas — 列計算とCSV出力</h3><p><code>assign()</code>を使うと、元の<code>df</code>を直接変更せず、計算列を持つ新しいDataFrameを作れます。分母0、欠損、不正値をどう扱うか決めないまま最終結果として解釈してはいけません。これらの品質判断は3.3で詳しく扱います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>report = df.assign(\n    completion_rate=df[&quot;completed&quot;] / df[&quot;registered&quot;] * 100\n)\nprint(report[[&quot;centre_name&quot;, &quot;completion_rate&quot;]].head())</code></pre><h4>indexと業務上の識別子を区別する</h4><p>DataFrame左端のindexはpandasが行へ付けるラベルで、<code>centre_id</code>ではありません。CSVへ保存するときに<code>index=False</code>を指定すると、業務データに不要なindex列を書き出しません。保存後はパスとヘッダーを確認します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.5 読込問題を原因別に切り分ける</h3><p><code>FileNotFoundError</code>では作業フォルダと探索先、列が一列だけなら区切り文字、文字化けや<code>UnicodeDecodeError</code>なら文字コード、数値列が文字列なら空白・単位記号・不正値を確認します。推測で値を直す前に、入力と読込条件を記録します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.1.6 例題を別の表へ応用する</h3><p>2.3のセンターレコードからDataFrameを作り、CSVへ保存して再読込します。前後のshape、列名、識別子、人数合計を比較し、<code>attendance_rate</code>と<code>completion_rate</code>を追加してください。次の3.2では、分析の問いに合う行と列を選びます。</p><p><strong>学習時間の目安：</strong>約4時間</p><p style=\"display:none\">PYAI-V22-LESSON31-FLOW</p><p style=\"display:none\">PYAI-V36-CHAPTER3-TOPICS</p></div>"
+        },
+        {
+            "cmid": 235,
+            "modname": "lti",
+            "name": "Python Lab 3.1：表形式データ・CSV・pandas",
+            "section_number": 14,
+            "section_name": "3.1 表形式データ・CSV・pandas"
+        },
+        {
+            "cmid": 194,
+            "modname": "quiz",
+            "name": "理解度チェック：3.1 表形式データ・CSV・pandas",
+            "section_number": 14,
+            "section_name": "3.1 表形式データ・CSV・pandas",
+            "slots": 10
+        },
+        {
+            "cmid": 195,
+            "modname": "page",
+            "name": "レッスン3.2：データの選択・抽出とブール論理",
+            "section_number": 15,
+            "section_name": "3.2 データの選択・抽出とブール論理",
+            "content": "<div class=\"python-sample-lesson\"><h2>分析の問いを、表示列と行条件へ翻訳する</h2><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.1 問いを表示列と行条件へ分ける</h3><p>3.1ではCSVを読み、表の形、列名、型、欠損を確認しました。次は「どの観測を、どの項目で見るか」をコードにします。抽出は都合のよい行だけを隠れて選ぶ操作ではありません。問い、条件、元件数、該当件数を対応させ、同じ条件を再現できるようにします。</p><h4>必要列を検査し、部分条件へ分ける</h4><p>「2026年2月と3月について、登録者30人以上で出席率80%未満のセンター名を確認する」なら、表示する列、月の所属条件、登録者数の下限、出席率の上限へ分解します。処理前に必要列と<code>df.columns</code>の差集合を取り、欠けた列を明示します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>required = {&quot;month&quot;, &quot;centre_name&quot;, &quot;registered&quot;, &quot;attended&quot;}\nmissing = required - set(df.columns)\nif missing:\n    raise KeyError(sorted(missing))</code></pre><h4>列名で必要な項目を選ぶ</h4><p><code>df[\\\"registered\\\"]</code>は一列のSeries、<code>df[[\\\"month\\\", \\\"registered\\\"]]</code>は複数列のDataFrameです。列名は完全一致で指定します。結果に必要な列と条件計算だけに必要な列を区別し、表示列を選びます。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.2 locとilocで行・列を選ぶ</h3><p><code>loc[行条件, 列名]</code>はindexラベルと列名を使い、分析上の意味をコードへ残せます。<code>iloc[行位置, 列位置]</code>は0から始まる位置を使い、先頭行の確認などに向きます。indexラベルは常に0, 1, 2とは限らないため、ラベルと位置を混同してはいけません。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.3 比較式をブールマスクにする</h3><p><code>df[\\\"registered\\\"] &gt;= 30</code>は、元のindexと対応するブールSeriesを返します。<code>True</code>の行が条件に一致します。<code>mask.sum()</code>で該当件数を数え、抽出前後の件数とともに記録すると、条件の向きや境界の誤りを発見しやすくなります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>large = df[&quot;registered&quot;] &gt;= 30\nprint(large.head())\nprint(&quot;該当件数:&quot;, int(large.sum()))\nresult = df.loc[large, [&quot;month&quot;, &quot;centre_name&quot;, &quot;registered&quot;]]</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.4 ブール論理で複数条件を組み立てる</h3><p>Pythonの単一の真偽値には<code>and</code>、<code>or</code>、<code>not</code>を使います。Seriesを行ごとに組み合わせるpandasでは<code>&amp;</code>、<code>|</code>、<code>~</code>を使い、各比較を括弧で囲みます。Seriesへ<code>and</code>を使うと、Series全体を一つの真偽値へ決められずエラーになります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>large = report[&quot;registered&quot;] &gt;= 30\nlow_rate = report[&quot;attendance_rate&quot;] &lt; 80\nprint(&quot;AND:&quot;, int((large &amp; low_rate).sum()))\nprint(&quot;OR:&quot;, int((large | low_rate).sum()))\nprint(&quot;NOT large:&quot;, int((~large).sum()))</code></pre><h4>AND・OR・NOTを件数で確かめる</h4><p>ANDは両方を満たすため通常は狭くなり、ORはいずれかを満たすため通常は広くなります。NOTは真偽を反転します。ド・モルガンの法則により<code>~(A | B)</code>と<code>(~A) &amp; (~B)</code>は同じです。ただし、業務上の意味が読みやすい形を選び、部分マスクの件数でも確認します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.5 所属・範囲・欠損を条件に表す</h3><p>複数候補のいずれかに一致するなら<code>isin()</code>、上下限を持つなら<code>between()</code>を使えます。<code>between()</code>は既定で両端を含みます。「以上」「以下」「未満」の違いを問題文と一致させます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>months = report[&quot;month&quot;].isin([&quot;2026-02&quot;, &quot;2026-03&quot;])\nsize = report[&quot;registered&quot;].between(25, 35, inclusive=&quot;both&quot;)\nsubset = report.loc[months &amp; size]</code></pre><h4>欠損を条件から偶然落とさない</h4><p>欠損値との大小比較は通常Falseになり、理由を示さないまま抽出から消えることがあります。値が必要なら<code>notna()</code>、欠損を調べるなら<code>isna()</code>を条件へ加え、件数を別に記録します。ここでは補完や削除をせず、3.3で扱う品質問題として保持します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>known = report[&quot;attended&quot;].notna()\nlow_known = known &amp; (report[&quot;attendance_rate&quot;] &lt; 80)\nprint(int(low_known.sum()))\nprint(&quot;欠損:&quot;, int(report[&quot;attended&quot;].isna().sum()))</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.6 マスクで抽出し、件数を検証する</h3><p>一つの長い式へ埋め込まず、月、規模、率、欠損の条件へ名前を付けると、それぞれの件数を確認できます。最後に<code>loc[最終マスク, 表示列]</code>で抽出し、必要なら<code>sort_values()</code>で再現可能な順序にします。結果には元件数、該当件数、条件を添えます。</p><h4>マスクと行をindexで対応させる</h4><p>pandasはマスクを物理的な位置だけでなくindexラベルで対応させます。別のDataFrameから作ったマスクや、index変更前の古いマスクを流用すると、ずれやエラーの原因になります。原則として抽出対象と同じDataFrameからマスクを作ります。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.2.7 条件を別の問いへ応用する</h3><p>「2026年2月または3月、Python Foundations、登録者25～40人、修了率75%未満、修了値が欠損していないセンター」を抽出します。必要列、各部分マスク、最終件数を表示し、月・センターID順に並べてください。否定を一つ含む別の問いも作り、件数を比較します。</p><p>このレッスンでは値を選びますが、まだ値を直しません。次の3.3で、欠損、表記ゆれ、不可能な値を監査記録とともに扱います。</p><p><strong>学習時間の目安：</strong>約4時間</p><p style=\"display:none\">PYAI-V23-LESSON32-FLOW</p><p style=\"display:none\">PYAI-V36-CHAPTER3-TOPICS</p></div>"
+        },
+        {
+            "cmid": 236,
+            "modname": "lti",
+            "name": "Python Lab 3.2：データの選択・抽出とブール論理",
+            "section_number": 15,
+            "section_name": "3.2 データの選択・抽出とブール論理"
+        },
+        {
+            "cmid": 225,
+            "modname": "quiz",
+            "name": "理解度チェック：3.2 データの選択・抽出とブール論理",
+            "section_number": 15,
+            "section_name": "3.2 データの選択・抽出とブール論理",
+            "slots": 10
+        },
+        {
+            "cmid": 196,
+            "modname": "page",
+            "name": "レッスン3.3：データのクリーニングと監査記録",
+            "section_number": 16,
+            "section_name": "3.3 データのクリーニングと監査記録",
+            "content": "<div class=\"python-sample-lesson\"><h2>データを直す前に、何を問題とするか決める</h2><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.1 原本を保ち、品質問題を定義する</h3><p>3.2では、必要な列と条件を指定して行を抽出しました。しかし、欠損や表記ゆれ、不可能な値を説明しないまま抽出すると、正しく動くコードから誤った結論が生まれます。データクリーニングは、見栄えを整えたり、都合の悪い行を削除したりする作業ではありません。元データを保持し、規則を先に定義し、問題を検出し、処置と結果を記録する工程です。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.2 原本・作業用・分析用データを分ける</h3><p><code>raw</code>は読み込んだ状態のまま保持します。<code>clean = raw.copy()</code>で作業用データを作り、問題の有無を表すフラグを追加します。そのうえで、定義した分析に使える行だけを<code>analysis</code>へ取り出します。三つを分けると、どの値を変え、どの行を分析対象外にしたかを追跡できます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>raw = pd.read_csv(data_file)\nclean = raw.copy()\nprint(&quot;Rows:&quot;, len(raw))\nprint(raw.dtypes)\nprint(raw.isna().sum())</code></pre><h4>修正前に型・欠損・カテゴリ・範囲を確認する</h4><p>最初に<code>dtypes</code>、<code>isna().sum()</code>、カテゴリの<code>unique()</code>、数値列の<code>describe()</code>を確認します。この時点の件数が基準です。問題を見つける前に値を置き換えると、元からあった問題と処理によって生じた問題を区別できません。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.3 型変換と欠損を区別する</h3><p><code>pd.to_numeric(..., errors=\"coerce\")</code>は数値へ変換できない文字を欠損値へ変えます。便利ですが、変換前から空だった値と、新しく変換に失敗した値は意味が違います。変換前の欠損マスクと変換後の欠損マスクの差を取り、列ごとの失敗件数を記録します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>before_missing = clean[&quot;attended&quot;].isna()\nconverted = pd.to_numeric(clean[&quot;attended&quot;], errors=&quot;coerce&quot;)\nconversion_failed = converted.isna() &amp; ~before_missing\nclean[&quot;attended&quot;] = converted\nprint(&quot;Source missing:&quot;, int(before_missing.sum()))\nprint(&quot;Conversion failures:&quot;, int(conversion_failed.sum()))</code></pre><h4>欠損と0を混同しない</h4><p>出席者数の空欄は「未報告」であり、「出席者が0人」とは限りません。根拠なく0や平均値で補完すると、割合や合計の意味を変えます。<code>isna()</code>で欠損を明示し、集計から除くのか、確認待ちとして隔離するのか、信頼できる原資料で修正するのかを決めて記録します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.4 表記を整え、元の値を残す</h3><p>地区名の前後空白や大文字・小文字の違いは、集計時に別カテゴリを作ります。作業列へ<code>str.strip()</code>と<code>str.title()</code>を適用し、元の文字列は<code>district_raw</code>に残します。ただし、似た名前を同じ意味だと推測して統合してはいけません。明示された表記規則または対応表が必要です。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>clean[&quot;district_raw&quot;] = clean[&quot;district&quot;]\nclean[&quot;district&quot;] = clean[&quot;district&quot;].astype(&quot;string&quot;).str.strip().str.title()\nchanged = clean[&quot;district_raw&quot;].astype(&quot;string&quot;) != clean[&quot;district&quot;]\nprint(&quot;Changed labels:&quot;, int(changed.sum()))</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.5 範囲・項目間制約・重複を検査する</h3><p>人数と費用は0以上という単独の範囲規則に加え、この表では<code>registered &gt;= attended &gt;= completed</code>という項目間の制約があります。欠損を不正値と混同せず、規則ごとに名前付きマスクを作って件数を表示します。どの規則に違反したか分からない一つの巨大な条件式にはしません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>missing_attended = clean[&quot;attended&quot;].isna()\ncompletion_over_attendance = (\n    clean[&quot;completed&quot;].notna()\n    &amp; clean[&quot;attended&quot;].notna()\n    &amp; (clean[&quot;completed&quot;] &gt; clean[&quot;attended&quot;])\n)\nnegative_cost = clean[&quot;material_cost&quot;].notna() &amp; (clean[&quot;material_cost&quot;] &lt; 0)\nprint(int(missing_attended.sum()), int(completion_over_attendance.sum()), int(negative_cost.sum()))</code></pre><h4>業務キーで重複グループ全体を調べる</h4><p>この表の1記録を「センター・月・コース」と定義するなら、その三列が業務キーです。<code>duplicated(subset=business_key, keep=False)</code>は重複グループの全行を示します。同じセンターが異なる月に現れることは正当なので、全列一致やセンターIDだけで判定してはいけません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>business_key = [&quot;centre_id&quot;, &quot;month&quot;, &quot;course&quot;]\nduplicate_key = clean.duplicated(subset=business_key, keep=False)\nprint(&quot;Duplicate-key rows:&quot;, int(duplicate_key.sum()))</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.6 品質フラグから確認対象表を作る</h3><p>問題を検出しただけでは、正しい値は分かりません。原資料で確認できれば修正し、表記規則があれば正規化し、根拠がなければ欠損または確認待ちとして扱います。不可能な修了者数を出席者数へ合わせるといった推測はしません。ここでは行を削除せず<code>analysis_ready</code>フラグを付け、分析用の抽出を別に作ります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>clean[&quot;analysis_ready&quot;] = ~(missing_attended | completion_over_attendance | negative_cost | duplicate_key)\nanalysis = clean.loc[clean[&quot;analysis_ready&quot;]].copy()\nprint(&quot;Raw:&quot;, len(raw), &quot;ready:&quot;, len(analysis), &quot;flagged:&quot;, int((~clean[&quot;analysis_ready&quot;]).sum()))</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.7 監査記録と再検証を残す</h3><p>監査記録には、問題名、検出規則、影響件数、実施した処置、未解決件数を残します。0件だった検査も、確認を実施した証拠です。最後に、元件数が分析可能件数とフラグ件数の合計に一致すること、分析用データが同じ制約を満たすことを<code>assert</code>で確認します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>assert len(raw) == len(clean)\nassert len(clean) == int(clean[&quot;analysis_ready&quot;].sum()) + int((~clean[&quot;analysis_ready&quot;]).sum())\nassert not (analysis[&quot;completed&quot;] &gt; analysis[&quot;attended&quot;]).any()</code></pre><h4>問題理由を行単位の確認対象表へ残す</h4><p>規則ごとの件数だけでは原資料のどの行を確認すべきか分かりません。個別フラグを残し、公開した順序ですべての該当理由を連結し、識別列とともに確認対象表へ取り出します。一行が複数規則へ違反した場合も理由を一つに絞りません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>issue_rules = [(missing_attended, &#039;missing attended&#039;), (duplicate_key, &#039;duplicate business key&#039;)]\nclean[&#039;issue&#039;] = &#039;&#039;\nfor mask, label in issue_rules:\n    clean.loc[mask, &#039;issue&#039;] += label + &#039;; &#039;\nrecords_to_verify = clean.loc[~clean[&#039;analysis_ready&#039;], [&#039;month&#039;,&#039;centre_id&#039;,&#039;course&#039;,&#039;issue&#039;]]</code></pre><h4>課題へ進む前に境界値を検証する</h4><p>原本は<code>raw</code>として保持し、作業表は<code>raw.copy(deep=True)</code>で分けます。数値は<code>pd.to_numeric(..., errors=\"coerce\")</code>で変換してから、欠損、負数、比較可能な項目間制約を個別に判定します。重複キーは文字列の前後空白を除いた後、<code>duplicated(..., keep=False)</code>でグループ全行を示します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.3.8 品質規則を別のデータへ応用する</h3><p>練習CSVについて、欠損した出席者数、地区名の表記ゆれ、修了者数が出席者数を上回る行を検出し、各件数を記録します。その応用として、欠損した修了者数、登録者数を上回る出席者数、0以下の研修時間、負の教材費、業務キー重複も検査し、規則・件数・提案する処置を監査表へまとめます。</p><p>このレッスンを終えたら、元データを保持し、型変換失敗と元の欠損を区別し、表記ゆれ、範囲違反、項目間制約、業務キー重複を検出できます。また、処置を推測せず、件数照合と監査記録で分析用データの作成過程を説明できます。</p><p><strong>学習時間の目安：</strong>約3時間</p><p style=\"display:none\">PYAI-V24-LESSON33-FLOW</p><p style=\"display:none\">PYAI-V36-CHAPTER3-TOPICS</p></div><p style=\"display:none\">PYAI-V35-L33-VERIFY-ROWS</p><p style=\"display:none\">PYAI-V35-L33-PROJECT-BOUNDARIES</p>"
+        },
+        {
+            "cmid": 237,
+            "modname": "lti",
+            "name": "Python Lab 3.3：データのクリーニングと監査記録",
+            "section_number": 16,
+            "section_name": "3.3 データのクリーニングと監査記録"
+        },
+        {
+            "cmid": 197,
+            "modname": "quiz",
+            "name": "理解度チェック：3.3 データのクリーニングと監査記録",
+            "section_number": 16,
+            "section_name": "3.3 データのクリーニングと監査記録",
+            "slots": 10
+        },
+        {
+            "cmid": 198,
+            "modname": "page",
+            "name": "レッスン3.4：グループ化と要約統計",
+            "section_number": 17,
+            "section_name": "3.4 グループ化と要約統計",
+            "content": "<div class=\"python-sample-lesson\"><h2>集計する前に、一行の意味を決める</h2><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.1 明細と集計結果の粒度を決める</h3><p>3.3では品質規則を満たす分析用データを作りました。次は24件の明細を、会議や報告で読める少数の行へまとめます。しかし、集計は情報を圧縮するため、何を一行とするかを先に定義しなければなりません。元表の一行はセンター・月・コース、地区別集計の一行は一地区、地区・コース別集計の一行はその組合せです。この単位を粒度と呼びます。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.2 groupbyで分け、数え、まとめる</h3><p><code>groupby(\"district\")</code>は同じ地区の行を分け、各地区へ同じ集計を適用し、結果を結合します。名前付き<code>agg()</code>なら出力列の意味がコードに残ります。<code>reset_index()</code>はグループキーを通常の列へ戻します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>district = analysis.groupby(&quot;district&quot;, dropna=False).agg(\n    centre_months=(&quot;centre_id&quot;, &quot;size&quot;),\n    centres=(&quot;centre_id&quot;, &quot;nunique&quot;),\n    registered_total=(&quot;registered&quot;, &quot;sum&quot;),\n).reset_index()</code></pre><h4>size・count・nuniqueの対象を区別する</h4><p><code>size</code>は欠損を含む行数、<code>count</code>は指定列の欠損でない値の数、<code>nunique</code>は異なる値の数です。センター月数、出席報告済み件数、異なるセンター数は同じ「件数」ではありません。列名も質問に合う具体名にします。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.3 要約統計と割合を計算する</h3><p><code>sum</code>は総量、<code>mean</code>は算術平均、<code>median</code>は並べた中央、<code>min</code>と<code>max</code>は範囲の端、<code>std</code>は平均からの散らばりです。極端な値は平均を動かすため、件数、中央値、最小・最大と一緒に読みます。標準偏差はばらつきの大きさを示しますが、原因を説明するものではありません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>analysis.groupby(&quot;course&quot;)[&quot;registered&quot;].agg([&quot;size&quot;, &quot;sum&quot;, &quot;mean&quot;, &quot;median&quot;, &quot;min&quot;, &quot;max&quot;, &quot;std&quot;])</code></pre><h4>率は対応する分子と分母の合計から求める</h4><p>コース全体の修了率は、コースの修了者合計を登録者合計で割ります。各センター月の修了率を単純平均すると、小規模な行と大規模な行へ同じ重みを与えます。これは「典型的なセンター月」を尋ねる値であり、「全登録者のうち何人が修了したか」とは違います。問いに合う分母を文章でも明記します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>course = analysis.groupby(&quot;course&quot;).agg(\n    records=(&quot;centre_id&quot;, &quot;size&quot;),\n    registered=(&quot;registered&quot;, &quot;sum&quot;),\n    completed=(&quot;completed&quot;, &quot;sum&quot;),\n    mean_row_rate=(&quot;completion_rate&quot;, &quot;mean&quot;),\n    material_cost=(&quot;material_cost&quot;, &quot;sum&quot;),\n)\ncourse[&quot;overall_completion_rate&quot;] = course[&quot;completed&quot;] / course[&quot;registered&quot;] * 100\ncourse[&quot;cost_per_completion&quot;] = course[&quot;material_cost&quot;] / course[&quot;completed&quot;]</code></pre><p>練習データのPython Foundationsでは、行別修了率の単純平均は約71.9%、合計修了者290人を合計登録者400人で割った全体修了率は72.5%です。似た値でも定義が違うため、名前と分母を省略してはいけません。</p><h4>複数キーで比較の階層を保つ</h4><p><code>groupby([\"district\", \"course\"])</code>は一地区・一コースを一行にします。地区だけの表とは粒度が違います。粒度の異なる表を、そのまま足したり平均したりしてはいけません。必要なら<code>sort_values()</code>で表示順も明示します。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.4 複数条件で再現可能な順位を作る</h3><p>主要指標を降順、次の指標も降順、最後のIDを昇順にします。最後の安定したキーが同順位を再現可能にし、丸める前の値で順位を決めます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>ranked = summary.sort_values([&#039;average&#039;,&#039;days&#039;,&#039;id&#039;], ascending=[False,False,True])</code></pre><h4>用途別CSVを保存し、再読込して検証する</h4><p>確認対象表と順位表を別々に保存し、再読込した列順、件数、先頭の優先対象を照合します。保存前の変数だけで成果物を検証したことにはなりません。</p><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.5 構成比の分母と合計を確認する</h3><p>地区内のコース別登録者構成比なら、各地区・コースの登録者数をその地区の登録者合計で割ります。全体合計を使えば別の問いです。<code>transform(\"sum\")</code>で各行へ地区合計を対応させ、地区ごとの構成比合計が100%になることを確認します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>dc[&quot;district_total&quot;] = dc.groupby(&quot;district&quot;)[&quot;registered&quot;].transform(&quot;sum&quot;)\ndc[&quot;share&quot;] = dc[&quot;registered&quot;] / dc[&quot;district_total&quot;] * 100\nprint(dc.groupby(&quot;district&quot;)[&quot;share&quot;].sum())</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.6 集計・保存・再読込を照合する</h3><p>グループ別の記録数、登録者数、修了者数、教材費を再合計すると、分析用明細の全体と一致するはずです。<code>assert</code>で照合すれば、欠落や二重集計をデータ更新時に検出できます。平均の比較には必ず件数を添え、少数グループの差を原因や優劣の証明として扱いません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>assert int(course[&quot;records&quot;].sum()) == len(analysis)\nassert course[&quot;registered&quot;].sum() == analysis[&quot;registered&quot;].sum()\nassert course[&quot;completed&quot;].sum() == analysis[&quot;completed&quot;].sum()</code></pre><h4>条件付き件数を名前付き集計へ入れる</h4><p>まず明細へ条件のブール列を作り、グループ内でTrueを合計します。判定式と件数を別々に確認できます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>operational = analysis.assign(low_completion=analysis[&#039;completion_rate&#039;] &lt; 75)\nsummary = operational.groupby(&#039;course&#039;).agg(low_records=(&#039;low_completion&#039;,&#039;sum&#039;))</code></pre><h3 style=\"margin-top:2em;padding:.55em .75em;border-left:4px solid #0f6cbf;background:#f3f7fb\">3.4.7 集計と順位を別の判断へ応用する</h3><p>月別・コース別に、記録数、異なるセンター数、登録者・出席者・修了者合計、全体修了率、教材費合計、一人修了当たり教材費を作ります。各率の分母を書き、行別率平均と比較し、全体合計との照合を追加します。</p><p>集計粒度を定義し、件数の種類と統計量を選び、比率の分子・分母を先に合計し、複数キー、構成比、全体照合を説明できれば、このレッスンの到達点です。</p><p><strong>学習時間の目安：</strong>約3時間</p><p style=\"display:none\">PYAI-V25-LESSON34-FLOW</p><p style=\"display:none\">PYAI-V36-CHAPTER3-TOPICS</p></div><p style=\"display:none\">PYAI-V35-L34-PROJECT-BOUNDARY</p>"
+        },
+        {
+            "cmid": 238,
+            "modname": "lti",
+            "name": "Python Lab 3.4：グループ化と要約統計",
+            "section_number": 17,
+            "section_name": "3.4 グループ化と要約統計"
+        },
+        {
+            "cmid": 199,
+            "modname": "quiz",
+            "name": "理解度チェック：3.4 グループ化と要約統計",
+            "section_number": 17,
+            "section_name": "3.4 グループ化と要約統計",
+            "slots": 10
+        },
+        {
+            "cmid": 200,
+            "modname": "page",
+            "name": "レッスン4.1：可視化と根拠",
+            "section_number": 18,
+            "section_name": "4.1 可視化と根拠",
+            "content": "<div class=\"python-sample-lesson\"><h2>グラフを選ぶ前に、問いと描画する一行の意味を決める</h2><p>4.1では、3.4で作った集計表を人が比較できる形にします。グラフは飾りではありません。カテゴリ比較ならカテゴリ別、時系列なら月別へ先に集約し、描画する表の数値を確認してから図を作ります。明細を無条件に描くと、問いと異なる重みや重複を持ち込みます。</p><h3>棒グラフはカテゴリの大きさを比較する</h3><p>少数のコース別修了率には棒グラフが適します。修了者合計÷登録者合計で率を求め、意味のある順に並べます。棒の長さが量を表すため、通常は0を起点にし、割合なら0〜100%を基準にします。70%から始めると72%と74%の差を誇張します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>fig, ax = plt.subplots()\nax.barh(course[&quot;course&quot;], course[&quot;completion_rate&quot;])\nax.set(xlabel=&quot;Completion rate (%)&quot;, title=&quot;Overall completion rate by course&quot;)\nax.set_xlim(0, 100)</code></pre><h3>折れ線グラフは時間順の変化を示す</h3><p>月は日時へ変換して並べます。欠けた月がある場合、そのまま線で結ぶと連続観測のように見えるため、期待する月一覧へ再配置して欠損を示します。順序のないコース名を折れ線で結ぶと、存在しない途中の変化を暗示します。</p><h3>散布図は二つの数値の関係を調べる</h3><p>一記録の修了者数と教材費のような二数値を点で対応させます。まとまりや外れを観察できますが、関連があっても因果関係は証明しません。センター規模、月、コースなど別要因が両方へ影響する可能性があります。</p><h3>ヒストグラムは一つの数値の分布を示す</h3><p>ヒストグラムは連続する数値区間ごとの件数、棒グラフは独立カテゴリの量を示します。ビン幅で見え方が変わるため複数を試し、標本数<code>n</code>も示します。少ない点から滑らかな分布を断定しません。</p><h3>タイトル、軸、単位、凡例、色を意味に合わせる</h3><p>タイトルには比較対象、軸には変数名と単位を記します。複数系列だけ凡例を付け、色だけに意味を依存せず、コントラストや直接ラベルを使います。3Dや過剰な装飾、面積で量を誇張する表現は避けます。</p><h3>尺度、並び順、欠損を隠さない</h3><p>軸範囲と並び順は差の印象を変えます。狭い軸で小変化を示す場合は範囲を明示し、差の絶対値も文章へ書きます。並べ替え規則を一貫させ、欠損を0へ置き換えて線をつなげません。</p><h3>グラフの元表を照合する</h3><p>描画前に表を表示し、登録者・修了者合計が分析用明細と一致することを<code>assert</code>で確認します。グラフは元データの品質や計算を自動検証しません。Notebookへ集計と描画コードを残し、必要なら<code>savefig()</code>で同じ画像を再生成します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>assert course[&quot;registered&quot;].sum() == analysis[&quot;registered&quot;].sum()\nassert course[&quot;completed&quot;].sum() == analysis[&quot;completed&quot;].sum()\n# fig.savefig(&quot;completion-rate-by-course.png&quot;, dpi=150, bbox_inches=&quot;tight&quot;)</code></pre><h3>根拠文は観察・数値・範囲・限界を含める</h3><p>「Python Foundationsの全体修了率は72.5%、Digital Skillsは約73.1%で、差は約0.6ポイントだった」と観察を数値で支えます。続けて「分析可能な22センター月に限られ、参加者構成や難易度を調整していないため、原因や優劣は判断できない」と範囲と限界を書きます。図だけから因果を断定しません。</p><h3>例題から応用へ</h3><p>月別登録者数の折れ線、コース別一人修了当たり教材費の棒、登録者数と修了率の散布図を作ります。各図に問い、描画粒度、軸、単位、件数を示し、一図について観察・数値・範囲・限界の4文を書きます。誤解を招く軸範囲も作り、採用しない理由を説明します。</p><p>問いに合う図を選び、集計後に描き、尺度と欠損を隠さず、数値と限界を伴う根拠文を書ければ到達です。</p><p><strong>学習時間の目安：</strong>約3時間</p><p style=\"display:none\">PYAI-V26-LESSON41-FLOW</p></div>"
+        },
+        {
+            "cmid": 239,
+            "modname": "lti",
+            "name": "Python Lab 4.1：可視化と根拠",
+            "section_number": 18,
+            "section_name": "4.1 可視化と根拠"
+        },
+        {
+            "cmid": 201,
+            "modname": "quiz",
+            "name": "理解度チェック：4.1 可視化と根拠",
+            "section_number": 18,
+            "section_name": "4.1 可視化と根拠",
+            "slots": 10
+        },
+        {
+            "cmid": 203,
+            "modname": "page",
+            "name": "4.2 データセットとプロジェクト手順",
+            "section_number": 19,
+            "section_name": "4.2 ガイド付きプロジェクト：学習センター分析",
+            "content": "<div class=\"python-sample-lesson\"><h2>まずデータを取得する</h2><p><a class=\"btn btn-primary\" href=\"@@PLUGINFILE@@/learning-centres-practice.csv?forcedownload=1\">learning-centres-practice.csvをダウンロード</a></p><p>同じファイルはPython Labの<code>/home/jovyan/work/data/learning-centres-practice.csv</code>にもあります。Notebookの最初のセルが自動的に探し、実際に読んだ絶対パスを表示します。読み込み直後は<strong>24行×10列</strong>です。</p><h3>今回答える具体的な問い</h3><p>2026年1〜6月について、<strong>Python Foundations</strong>と<strong>Digital Skills</strong>のどちらが全体修了率が高く、どちらが一人修了当たり教材費が低いでしょうか。両方の差を数値で示し、この24件だけでコースの優劣を決められるか判断し、次に必要なデータを一つ提案します。</p><h3>作成する集計表</h3><p>コース別に<code>records</code>、<code>centres</code>、<code>registered</code>、<code>completed</code>、<code>material_cost</code>、<code>completion_rate</code>、<code>cost_per_completion</code>を作ります。修了率は修了者合計÷登録者合計、一人修了当たり教材費は教材費合計÷修了者合計です。</p><h3>作業順</h3><ol><li>絶対パス、24行×10列、列名、先頭5行を確認する。</li><li>型、欠損、地区名、数値範囲を表示する。</li><li>欠損出席、修了者数＞出席者数、業務キー重複を別々に数え、監査表へ記録する。</li><li>問題行を推測修正せず、分析可能行でコース別集計を作る。</li><li>行数、登録者、修了者、教材費を明細と照合する。</li><li>0〜100%軸の修了率グラフを作る。</li><li>指定された5項目へ300〜500字で回答する。</li></ol><h3>回答する5項目</h3><ol><li>二つの全体修了率と差（パーセントポイント）。</li><li>二つの一人修了当たり教材費と差。</li><li>どちらが高い／低いか。ただし優劣や原因は断定しない。</li><li>分析対象件数、対象期間、少なくとも一つの限界。</li><li>次に必要なデータを一つ。</li></ol><p style=\"display:none\">PYAI-V28-PROJECT42-CONCRETE</p></div>"
+        },
+        {
+            "cmid": 240,
+            "modname": "lti",
+            "name": "Python Lab 4.2：学習センター分析",
+            "section_number": 19,
+            "section_name": "4.2 ガイド付きプロジェクト：学習センター分析"
+        },
+        {
+            "cmid": 204,
+            "modname": "assign",
+            "name": "提出課題4.2：学習センター分析",
+            "section_number": 19,
+            "section_name": "4.2 ガイド付きプロジェクト：学習センター分析"
+        },
+        {
+            "cmid": 241,
+            "modname": "lti",
+            "name": "Python Labプロジェクト：問いから根拠へ",
+            "section_number": 20,
+            "section_name": "4.3 最終プロジェクト：問いから根拠へ"
+        },
+        {
+            "cmid": 205,
+            "modname": "assign",
+            "name": "最終プロジェクト：問いから根拠へ",
+            "section_number": 20,
+            "section_name": "4.3 最終プロジェクト：問いから根拠へ"
+        },
+        {
+            "cmid": 211,
+            "modname": "page",
+            "name": "レッスン12：大きなCSVファイルをチャンクで処理する",
+            "section_number": 21,
+            "section_name": "5.1 大きなCSVファイルを安全に処理する",
+            "content": "<h2>ファイルが「小さい」とはいえなくなったら</h2><p><strong>学習時間の目安：</strong>3時間</p><h3>学習目標</h3><ul><li>ファイルがメモリに収まるか見積もる</li><li>必要な列だけを明示的なデータ型で読み込む</li><li>CSVをチャンク単位で集計する</li><li>チャンク処理の結果を独立した合計値と照合する</li></ul><p>「ビッグデータ」かどうかは、利用できるコンピュータによって変わります。実務では、早い段階でデータを必要な範囲に減らし、処理記録を残し、最後の合計値を検証する習慣が重要です。まず、ファイルサイズ、列、データ型、行数、欠損、そして答えたい問いを確認します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>import pandas as pd\n\ntotals = {}\nrow_count = 0\nfor chunk in pd.read_csv(\n    &quot;transactions.csv&quot;,\n    usecols=[&quot;district&quot;, &quot;amount&quot;],\n    dtype={&quot;district&quot;: &quot;category&quot;, &quot;amount&quot;: &quot;float64&quot;},\n    chunksize=100_000,\n):\n    row_count += len(chunk)\n    part = chunk.groupby(&quot;district&quot;, observed=True)[&quot;amount&quot;].sum()\n    for district, amount in part.items():\n        totals[district] = totals.get(district, 0) + amount\n\nprint(&quot;Rows processed:&quot;, row_count)\nprint(totals)</code></pre><h3>検証チェックリスト</h3><ol><li>処理した行数を、元データから予想される行数と比較します。</li><li>除外した値や欠損している金額の件数を数えます。</li><li>結果が分かっている小さなテストデータで、総合計を別の計算結果と比較します。</li><li>ファイル名、日付、抽出条件、クリーニング上の判断を記録します。</li></ol><h3>プライバシーと必要性</h3><p>保存できるという理由だけで個人データを収集してはいけません。問いに不要な識別子は除き、アクセスを制限し、可能なら集計結果で報告します。</p><div style=\"border-left:5px solid #7b5aa6;padding:.7em 1em;background:#f6f0fb\"><strong>これまでの学習とのつながり：</strong>変数は累積値を保持し、条件分岐は行を検証し、ループはチャンクを順に処理します。辞書はグループごとの結果を統合し、関数は検証を再利用可能にします。pandasは列操作とグループ集計を行い、グラフは最後に得られた集計結果を伝えます。</div>"
+        },
+        {
+            "cmid": 242,
+            "modname": "lti",
+            "name": "Python Lab 12：スケールアップ・チャンク・検証",
+            "section_number": 21,
+            "section_name": "5.1 大きなCSVファイルを安全に処理する"
+        },
+        {
+            "cmid": 212,
+            "modname": "quiz",
+            "name": "実践理解度チェック：安全なスケールアップ",
+            "section_number": 21,
+            "section_name": "5.1 大きなCSVファイルを安全に処理する",
+            "slots": 10
+        },
+        {
+            "cmid": 213,
+            "modname": "page",
+            "name": "総合プロジェクトガイド：大きなファイルから意思決定に使える根拠へ",
+            "section_number": 22,
+            "section_name": "5.2 スケールアップ総合プロジェクト",
+            "content": "<h2>発展プロジェクト：運営判断の根拠</h2><p>教師が承認した公開データ、組織データ、または生成データを使います。行数は少なくとも10,000行とし、使用するコンピュータで無理がなければ100,000行以上を扱います。目的は行数を競うことではなく、ファイルが大きくなっても正しく動く信頼できる処理手順を作ることです。</p><h3>実務上の問いを一つ選ぶ</h3><ul><li>どの場所または期間に注意が必要か。</li><li>需要、修了、利用、費用はグループや時間によってどう異なるか。</li><li>データ品質の問題はどこに集中しているか。</li></ul><h3>必須の処理手順</h3><ol><li>問いとデータ辞書を書く。</li><li>ファイルサイズ、行数、列、データ型、欠損、プライバシー上の判断を記録する。</li><li>小さなテストデータで分析を作成し、検証する。</li><li>必要に応じて列・データ型を指定するか、チャンク処理を使って全データを処理する。</li><li>処理行数、除外行数、合計値を照合する。</li><li>意思決定に適した大きさの表とグラフを一つ作る。</li><li>分かったこと、限界、推奨する次の行動を述べる。</li></ol>"
+        },
+        {
+            "cmid": 243,
+            "modname": "lti",
+            "name": "Python Labプロジェクト：スケールアップ総合課題",
+            "section_number": 22,
+            "section_name": "5.2 スケールアップ総合プロジェクト"
+        },
+        {
+            "cmid": 214,
+            "modname": "assign",
+            "name": "スケールアップ総合プロジェクト：運営判断の根拠",
+            "section_number": 22,
+            "section_name": "5.2 スケールアップ総合プロジェクト"
+        },
+        {
+            "cmid": 215,
+            "modname": "page",
+            "name": "教師用資料：スケールアップ総合プロジェクト（非表示）",
+            "section_number": 22,
+            "section_name": "5.2 スケールアップ総合プロジェクト",
+            "content": "<h2>教師用参考資料：発展プロジェクト</h2><p>必須のデータセットや唯一の正解はありません。良い提出物では、次の流れを確認できます。</p><ol><li>結果を手作業で検証できる小さなテストデータ</li><li><code>usecols</code>、<code>dtype</code>、または理由を説明できるチャンクサイズの明示</li><li>処理行、欠損行、不正行、除外行の件数</li><li>複数のチャンクに現れる同じグループの合計が正しく統合されていること</li><li>手作業でも確認できる大きさの最終集計</li><li>数値で裏付けられた主張、限界、根拠のない因果関係を避けた説明</li></ol><h3>口頭で変更を求める例</h3><ul><li>チャンクサイズを変更してください。結果が同じになるべき理由は何ですか。</li><li>テストデータへ不正な行を一つ追加してください。どこで数えられますか。</li><li>抽出条件のしきい値を変更し、変化の方向を予想してください。</li><li>採用しなかった、または変更したAIの提案を一つ説明してください。</li></ul><p>単なる行数の多さを評価しません。正しさ、検証、必要性に見合ったデータ利用、学習者が成果物を説明・変更できることを評価します。</p>"
+        },
+        {
+            "cmid": 271,
+            "modname": "page",
+            "name": "レッスン1.3：基本データ型・型変換・算術",
+            "section_number": 23,
+            "section_name": "1.3 基本データ型・型変換・算術",
+            "content": "<div class=\"python-sample-lesson\"><h2>同じ見た目でも、値の種類が違う</h2><p>Lesson 2では、名前が値を指すことを学びました。次に必要なのは、その値がどのような種類なのかを見分けることです。たとえば<code>34</code>と<code>\"34\"</code>は画面上では似ていますが、前者は計算に使える整数、後者は二文字からなる文字列です。型が違えば、同じ記号を使っても可能な処理や結果が変わります。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>print(34, type(34))\nprint(82.5, type(82.5))\nprint(&quot;34&quot;, type(&quot;34&quot;))\nprint(True, type(True))\nprint(None, type(None))</code></pre><table class=\"generaltable\"><thead><tr><th>型</th><th>例</th><th>表すもの</th></tr></thead><tbody><tr><td><code>int</code></td><td><code>34</code></td><td>小数部分を持たない整数</td></tr><tr><td><code>float</code></td><td><code>82.5</code></td><td>小数を含む数値</td></tr><tr><td><code>str</code></td><td><code>\"North\"</code></td><td>文字の並び</td></tr><tr><td><code>bool</code></td><td><code>True</code>、<code>False</code></td><td>真か偽か</td></tr><tr><td><code>NoneType</code></td><td><code>None</code></td><td>値がないことを示す特別な値</td></tr></tbody></table><p><code>type()</code>は、今ある値の型を確かめます。<code>None</code>は0や空文字列ではなく、「値がない」ことを表す別の値です。真偽値は条件分岐で詳しく扱いますが、この段階では数値や文字列とは異なる型だと理解します。</p><h3>数値を処理する七つの算術演算子</h3><p>数値型には、加算<code>+</code>、減算<code>-</code>、乗算<code>*</code>、除算<code>/</code>、切り下げ除算<code>//</code>、余り<code>%</code>、べき乗<code>**</code>を使えます。</p><table class=\"generaltable\"><thead><tr><th>式</th><th>結果</th><th>用途</th></tr></thead><tbody><tr><td><code>10 + 3</code></td><td>13</td><td>合計を求める</td></tr><tr><td><code>10 - 3</code></td><td>7</td><td>差を求める</td></tr><tr><td><code>10 * 3</code></td><td>30</td><td>同じ量のまとまりを求める</td></tr><tr><td><code>10 / 3</code></td><td>3.333…</td><td>割合や平均を求める</td></tr><tr><td><code>10 // 3</code></td><td>3</td><td>満杯になるまとまり数を求める</td></tr><tr><td><code>10 % 3</code></td><td>1</td><td>まとまりに入らない余りを求める</td></tr><tr><td><code>10 ** 2</code></td><td>100</td><td>べき乗を求める</td></tr></tbody></table><p>Python 3では、整数同士でも<code>/</code>の結果は通常<code>float</code>です。<code>//</code>は単に小数部分を切り捨てる説明だけでは不十分で、負数も含めて小さい整数側へ丸めます。このコースの箱詰め例では正数を使い、「満杯になる箱数」として読みます。</p><h3>優先順位と括弧で、計算の意味を示す</h3><p>べき乗、乗算・除算、加算・減算の順に評価されます。<code>2 + 3 * 4</code>は14、<code>(2 + 3) * 4</code>は20です。優先順位を覚えるだけでなく、人が式の意味を読み間違えないよう括弧を使います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>books = 53\nper_box = 12\nfull_boxes = books // per_box\nremaining_books = books % per_box\nprint(&quot;満杯の箱:&quot;, full_boxes)\nprint(&quot;余る冊数:&quot;, remaining_books)</code></pre><p>53冊を12冊ずつ分けると、満杯の箱は4箱、余りは5冊です。全冊を収める箱数は5箱なので、<code>//</code>の結果をそのまま「必要な箱数」と呼んではいけません。演算結果が仕事上のどの量を表すかを確認します。</p><h3>型を暗黙に期待せず、明示的に変換する</h3><p>CSVや入力フォームから受け取った数字は、文字列になっていることがあります。文字列の<code>\"36\"</code>へ数値の4を直接加えることはできません。整数が必要なら<code>int()</code>、小数を含む数値なら<code>float()</code>、表示用の文字列なら<code>str()</code>を使います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>learners_text = &quot;36&quot;\nlearners = int(learners_text)\nprint(learners + 4)\n\ncost_text = &quot;487.50&quot;\ncost = float(cost_text)\nprint(cost, type(cost))</code></pre><p>変換できない内容を無理に変換すると<code>ValueError</code>になります。たとえば<code>int(\"12.5\")</code>は失敗します。小数を表す文字列なら、まず<code>float(\"12.5\")</code>とします。その後で整数化する場合は、小数部分を失ってよいかを判断しなければなりません。</p><p><code>bool()</code>にも注意が必要です。<code>bool(\"False\")</code>は、文字の意味を読んで偽にするのではなく、空ではない文字列なので<code>True</code>になります。外部データの<code>\"True\"</code>や<code>\"False\"</code>は、内容を確認して明示的に変換します。</p><h3>正しく実行できても、数値として妥当か確認する</h3><p>0で割ると<code>ZeroDivisionError</code>になります。登録者0人の修了率や、修了者0人の1人当たり費用は、そのまま割り算をせず、後の条件分岐で処理方法を決めます。</p><p><code>float</code>は多くの小数を2進数の近似として保存するため、<code>0.1 + 0.2</code>が<code>0.30000000000000004</code>と表示されることがあります。報告では<code>round()</code>で表示桁を整えられますが、丸めは元データの誤りを直す機能ではありません。何桁に丸めたかを明確にします。</p><h3>例題から応用へ</h3><p>登録者36人のうち29人が修了した場合、修了率は<code>completed / registered * 100</code>です。分子と分母を逆にせず、結果を小数第1位へ丸めます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>registered = 36\ncompleted = 29\ncompletion_rate = completed / registered * 100\nprint(&quot;修了率:&quot;, round(completion_rate, 1), &quot;%&quot;)</code></pre><p>応用練習では、教材53冊を1箱12冊で梱包したときの満杯の箱、余り、全冊に必要な箱数を表示します。続いて文字列<code>\"487.50\"</code>を数値へ変換し、登録者30人で割った1人当たり教材費を小数第2位まで表示します。登録者が0人の場合に何が起こるかも説明してください。</p><p>このレッスンを終えると、値と型を区別し、七つの算術演算子、優先順位、明示的な型変換、代表的な数値エラーを説明できます。次に、文字列、入力、書式付き出力を独立して学んだ後、条件分岐へ進みます。</p><p><strong>学習時間の目安：</strong>約2.5時間</p><p style=\"display:none\">PYAI-V14-LESSON13-FLOW</p></div>"
+        },
+        {
+            "cmid": 273,
+            "modname": "lti",
+            "name": "Python Lab 1.3：基本データ型・型変換・算術",
+            "section_number": 23,
+            "section_name": "1.3 基本データ型・型変換・算術"
+        },
+        {
+            "cmid": 272,
+            "modname": "quiz",
+            "name": "理解度チェック：1.3 基本データ型・型変換・算術",
+            "section_number": 23,
+            "section_name": "1.3 基本データ型・型変換・算術",
+            "slots": 10
+        },
+        {
+            "cmid": 279,
+            "modname": "page",
+            "name": "レッスン1.4：文字列・入力・書式付き出力",
+            "section_number": 24,
+            "section_name": "1.4 文字列・入力・書式付き出力",
+            "content": "<div class=\"python-sample-lesson\"><h2>数値だけでは、仕事の意味を伝えられない</h2><p>前のレッスンでは修了率80.6という数値を作りました。しかし、画面に<code>80.6</code>だけ表示しても、修了率なのか費用なのか分かりません。プログラムは数値を計算するだけでなく、名称、説明、単位と組み合わせて人に伝える必要があります。その役割を担う基本データ型が文字列<code>str</code>です。</p><h3>引用符で文字列の範囲を示す</h3><p>一重引用符と二重引用符は、どちらも文字列を作ります。内容に二重引用符を含めるなら外側に一重引用符を使うなど、読みやすい方を選べます。改行は<code>\\n</code>、タブは<code>\\t</code>、バックスラッシュ自体は<code>\\</code>と書きます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>course = &quot;Python入門&quot;\nmessage = &#039;講師は「実行して確認」と言いました。&#039;\nprint(course)\nprint(message)\nprint(&quot;1行目\\n2行目&quot;)</code></pre><p>閉じ引用符を忘れるとPythonは文字列の終わりを判断できず、通常は<code>SyntaxError</code>になります。引用符の種類とエスケープは、文字列の内容とPythonの文法を区別するためにあります。</p><h3>文字列は、0から位置を数える文字の並び</h3><p>文字列の各文字には位置があります。最初の文字は0番、次は1番です。負の位置は末尾から数え、<code>-1</code>は最後の文字を表します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centre = &quot;North Centre&quot;\nprint(centre[0])\nprint(centre[-1])\nprint(centre[0:5])\nprint(len(centre))</code></pre><p><code>centre[0:5]</code>のようなスライスは、開始位置を含み終了位置を含みません。そのため0番から4番までの<code>North</code>になります。<code>len()</code>は文字数を返します。範囲外の位置を一文字として読むと<code>IndexError</code>になりますが、スライスは利用できる範囲で結果を返します。</p><h3>文字列は変更不能なので、処理結果は新しい値になる</h3><p>文字列の一文字だけを<code>centre[0] = \"n\"</code>のように置き換えることはできません。文字列は変更不能です。代わりに、整えた新しい文字列を作り、必要なら名前へ再代入します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>raw_name = &quot;  North Centre  &quot;\nclean_name = raw_name.strip()\nprint(clean_name)\nprint(clean_name.lower())\nprint(clean_name.upper())\nprint(clean_name.replace(&quot;Centre&quot;, &quot;Learning Centre&quot;))\nprint(&quot;元の値:&quot;, raw_name)</code></pre><p><code>strip()</code>は前後の空白、<code>lower()</code>と<code>upper()</code>は大文字・小文字、<code>replace()</code>は指定した部分を置き換えた新しい文字列を返します。元の<code>raw_name</code>は変化しません。この性質は、データクリーニングで元データと処理後データを区別するときにも役立ちます。</p><h3>連結するときは、型を揃える</h3><p>文字列同士の<code>+</code>は連結、文字列と整数の直接加算は<code>TypeError</code>になります。数値を文字列へ連結するなら<code>str()</code>で意図を明示します。<code>*</code>は文字列を指定回数繰り返すので、区切り線などを作れます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>completed = 29\nprint(&quot;修了者: &quot; + str(completed))\nprint(&quot;-&quot; * 20)</code></pre><h3><code>input()</code>は必ず文字列を返す</h3><p><code>input()</code>は画面に問いを表示し、利用者が入力してEnterを押すまで待ちます。数字の36を入力しても、戻り値は文字列<code>\"36\"</code>です。計算する前に<code>int()</code>または<code>float()</code>で変換します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>registered_text = input(&quot;登録者数: &quot;)\nregistered = int(registered_text)\nprint(registered + 4)</code></pre><p>Notebookでこのセルを実行すると入力待ちになります。セル左側が<code>[*]</code>のままなら、入力欄へ値を入れてEnterを押します。自動実行用Notebookでは停止を避けるため、この対話部分をコメントにし、同じ文字列を代入した例も用意しています。入力が空、または数字以外なら変換時に<code>ValueError</code>になるため、条件分岐と例外を学んだ後に安全な入力処理へ発展させます。</p><h3>f文字列で、説明と値を書式付きで組み合わせる</h3><p>文字列の先頭に<code>f</code>を付けると、波括弧の中に名前や式を書けます。<code>.1f</code>は小数第1位、<code>.2f</code>は小数第2位、<code>,</code>は桁区切りを指定します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>centre = &quot;North Centre&quot;\nregistered = 36\ncompleted = 29\nrate = completed / registered * 100\ncost = 12345.5\nprint(f&quot;{centre}: {completed}/{registered}人、修了率 {rate:.1f}%&quot;)\nprint(f&quot;教材費: {cost:,.2f}&quot;)</code></pre><p>書式は表示の形を整えるもので、変数<code>rate</code>や<code>cost</code>の元の値を変更しません。計算用の値と、人に見せる表現を分けて考えます。</p><h3>区切られた文字列を分ける</h3><p><code>split()</code>は区切り文字で文字列を分け、複数の文字列をリストとして返します。たとえば<code>\"North,36,29\"</code>をカンマで分けると、名称と二つの人数を取り出せます。リスト自体は後の章で体系的に学びます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>record = &quot;North,36,29&quot;\nparts = record.split(&quot;,&quot;)\ncentre = parts[0]\nregistered = int(parts[1])\ncompleted = int(parts[2])\nprint(f&quot;{centre}: {completed}/{registered}人&quot;)</code></pre><h3>例題から応用へ</h3><p>前後に空白を含むセンター名、登録者数の文字列<code>\"36\"</code>、修了者数の文字列<code>\"29\"</code>を用意します。センター名を<code>strip()</code>で整え、人数を整数へ変換し、修了率を計算して、<code>North Centre: 29/36人、修了率 80.6%</code>と表示してください。センター名と人数を別の値へ変え、同じコードで正しく表示できることも確認します。</p><p>このレッスンを終えると、引用符とエスケープ、添字とスライス、文字列の変更不能性、主なメソッド、<code>input()</code>の戻り型、数値変換、f文字列の書式を説明できます。これで値を受け取り、処理し、人へ伝える基礎が揃い、次の条件分岐へ進めます。</p><p><strong>学習時間の目安：</strong>約2.5時間</p><p style=\"display:none\">PYAI-V15-LESSON14-FLOW</p></div>"
+        },
+        {
+            "cmid": 281,
+            "modname": "lti",
+            "name": "Python Lab 1.4：文字列・入力・書式付き出力",
+            "section_number": 24,
+            "section_name": "1.4 文字列・入力・書式付き出力"
+        },
+        {
+            "cmid": 280,
+            "modname": "quiz",
+            "name": "理解度チェック：1.4 文字列・入力・書式付き出力",
+            "section_number": 24,
+            "section_name": "1.4 文字列・入力・書式付き出力",
+            "slots": 10
+        },
+        {
+            "cmid": 289,
+            "modname": "page",
+            "name": "レッスン2.3：ファイル・CSVの読み書き",
+            "section_number": 25,
+            "section_name": "2.3 ファイル・CSVの読み書き",
+            "content": "<div class=\"python-sample-lesson\"><h2>プログラムの外にある記録を、安全に受け渡す</h2><p>これまで扱った値は、プログラムが終了すると失われました。実務では、前回の記録を読み、処理結果を次回も使える形で保存する必要があります。ここでは、小さな図書一覧をCSVから読み、Pythonのレコードへ変換し、変更後の一覧を別のCSVへ保存します。</p><h3>読む前に、ファイルの場所を確定する</h3><p>相対パスは現在の作業フォルダを基準にします。Notebookでは<code>Path.cwd()</code>を表示し、候補を<code>resolve()</code>して確認します。独立したスクリプトでは<code>Path(__file__).resolve().parent</code>を基準にすると、起動位置が変わっても同じ付属ファイルを参照できます。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>from pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent\nINPUT_PATH = BASE_DIR / &quot;data&quot; / &quot;books.csv&quot;\nOUTPUT_PATH = BASE_DIR / &quot;output&quot; / &quot;books_updated.csv&quot;</code></pre><p><code>FileNotFoundError</code>が出たら、ファイル名だけでなく、解決した絶対パスと<code>exists()</code>の結果を表示します。Notebookでは<code>__file__</code>が通常ないため、教材Notebookには現在位置から親フォルダを探す補助関数を用意しています。</p><h3>with、モード、文字コード</h3><p><code>with</code>で開くと、正常終了でも例外でもファイルが閉じられます。<code>r</code>は読込、<code>w</code>は新規作成または上書き、<code>a</code>は末尾追加です。文字コードは<code>encoding=&quot;utf-8&quot;</code>、CSVでは<code>newline=&quot;&quot;</code>を明示します。入力元を<code>w</code>で開くと内容を失うため、入力と出力のパスを分けます。</p><h3>CSVはコンマでsplitしない</h3><p>CSVでは、コンマを含む一つの値を引用符で囲めます。<code>Data, Decisions, and Evidence</code>という書名は一項目です。標準<code>csv</code>モジュールは引用符、区切り、改行の規則を扱います。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>import csv\n\nwith INPUT_PATH.open(&quot;r&quot;, encoding=&quot;utf-8&quot;, newline=&quot;&quot;) as file:\n    reader = csv.DictReader(file)\n    print(reader.fieldnames)\n    for row in reader:\n        print(row)</code></pre><h3>DictReaderの値は最初は文字列</h3><p>見出しは辞書のキーになりますが、CSVの<code>false</code>はPythonの<code>False</code>へ自動変換されません。さらに<code>bool(&quot;false&quot;)</code>は空でない文字列なので<code>True</code>です。受け入れる表記を決めた関数で明示的に変換します。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>def parse_read(value):\n    text = value.strip().lower()\n    if text == &quot;true&quot;:\n        return True\n    if text == &quot;false&quot;:\n        return False\n    raise ValueError(f&quot;read must be true or false: {value!r}&quot;)</code></pre><h3>使う前にヘッダーと各行を検証する</h3><p>必要列<code>id</code>、<code>title</code>、<code>read</code>の不足、空のIDや書名、重複ID、不正な真偽値を入力境界で拒否します。黙って0や空文字へ置き換えると、後の処理は動いても結果が誤ります。行番号を例外メッセージに含めると、元データを修正できます。</p><h3>別のCSVへ書き、もう一度読む</h3><p><code>csv.DictWriter</code>へ列順を指定し、<code>writeheader()</code>の後に各レコードを書きます。真偽値は小文字の<code>true</code>または<code>false</code>へ戻します。出力フォルダは必要な時だけ作り、教材の入力CSVは変更しません。</p><pre style=\"background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto\"><code>OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)\nwith OUTPUT_PATH.open(&quot;w&quot;, encoding=&quot;utf-8&quot;, newline=&quot;&quot;) as file:\n    writer = csv.DictWriter(file, fieldnames=[&quot;id&quot;, &quot;title&quot;, &quot;read&quot;])\n    writer.writeheader()\n    for book in books:\n        writer.writerow({&quot;id&quot;: book[&quot;id&quot;], &quot;title&quot;: book[&quot;title&quot;], &quot;read&quot;: &quot;true&quot; if book[&quot;read&quot;] else &quot;false&quot;})</code></pre><p>保存処理が例外なく終わっただけでは十分ではありません。同じ読込関数で出力CSVを再読込し、レコード数、ID順、書名、真偽値を期待値と比較します。さらに、処理前後の入力ファイルのバイト列が同じであることを確認します。</p><h3>例題から応用へ</h3><p>Notebookでは<code>library-books-practice.csv</code>を読み、L003だけを読了済みにしたコピーを出力します。応用ではL001の書名だけを変更し、別名で保存して再読込してください。この段階では追加・検索・削除を一度に実装しません。それらは2.1と2.2の部品と組み合わせ、2.4で一つのプログラムにします。</p><p>このレッスンを終えると、ファイルの位置を説明し、標準csvモジュールで安全に読み書きし、型と入力規則を検証し、元データを保ったまま出力を照合できます。</p><p><strong>学習時間の目安：</strong>約4時間</p><p style=\"display:none\">PYAI-V22-LESSON23-FLOW</p></div>"
+        },
+        {
+            "cmid": 290,
+            "modname": "lti",
+            "name": "Python Lab 2.3：ファイル・CSVの読み書き",
+            "section_number": 25,
+            "section_name": "2.3 ファイル・CSVの読み書き"
+        },
+        {
+            "cmid": 291,
+            "modname": "quiz",
+            "name": "理解度チェック：2.3 ファイル・CSVの読み書き",
+            "section_number": 25,
+            "section_name": "2.3 ファイル・CSVの読み書き",
+            "slots": 10
+        },
+        {
+            "cmid": 302,
+            "modname": "lti",
+            "name": "Python Lab 3.5A：学校給食の追加配送",
+            "section_number": 26,
+            "section_name": "3.5A 中間実践課題：学校給食の追加配送"
+        },
+        {
+            "cmid": 303,
+            "modname": "assign",
+            "name": "提出 3.5A：学校給食の追加配送",
+            "section_number": 26,
+            "section_name": "3.5A 中間実践課題：学校給食の追加配送"
+        }
+    ]
+}

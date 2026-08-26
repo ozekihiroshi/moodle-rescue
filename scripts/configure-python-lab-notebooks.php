@@ -24,7 +24,7 @@ if ($type->ltiversion !== LTI_VERSION_1P3 || $type->state != LTI_TOOL_STATE_CONF
 }
 
 $items = [
-    [1, 'Python Lab 01: Programs, values, and output', '01_programs_values_output.ipynb', 'page', 'Lesson 1: Your first Python program'],
+    [1, 'Python Lab 01: Programs, values, expressions, and output', '01_programs_values_output.ipynb', 'page', 'Lesson 1: Programs, values, expressions, and output'],
     [2, 'Python Lab 02: Variables, types, and calculations', '02_variables_types_calculations.ipynb', 'page', 'Lesson 2: Variables, types, input, and calculations'],
     [3, 'Python Lab 03: Conditions and boundaries', '03_conditions_boundaries.ipynb', 'page', 'Lesson 3: Decisions with conditions'],
     [4, 'Python Lab 04: Loops and accumulators', '04_loops_accumulators.ipynb', 'page', 'Lesson 4: Repetition with loops'],
@@ -56,16 +56,27 @@ function activity_cm(int $courseid, string $modname, string $name): ?stdClass {
     return get_coursemodule_from_instance($modname, $instance->id, $courseid, false, MUST_EXIST);
 }
 
-function position_before(int $courseid, int $sectionnumber, int $cmid, ?int $beforecmid): void {
+function position_before(int $courseid, int $sectionid, int $cmid, ?int $beforecmid): void {
     global $DB;
-    $section = $DB->get_record('course_sections', [
-        'course' => $courseid,
-        'section' => $sectionnumber,
-    ], '*', MUST_EXIST);
-    $sequence = array_values(array_filter(
-        array_map('intval', explode(',', (string) $section->sequence)),
-        fn(int $id): bool => $id > 0 && $id !== $cmid
-    ));
+    $sections = $DB->get_records('course_sections', ['course' => $courseid]);
+    if (!isset($sections[$sectionid])) {
+        throw new moodle_exception("Target section {$sectionid} was not found.");
+    }
+    // A course module may occur in exactly one section sequence. Remove stale
+    // legacy references before placing it beside its current anchor.
+    foreach ($sections as $candidate) {
+        $sequence = array_values(array_filter(
+            array_map('intval', explode(',', (string) $candidate->sequence)),
+            fn(int $id): bool => $id > 0 && $id !== $cmid
+        ));
+        $updated = implode(',', $sequence);
+        if ($updated !== (string) $candidate->sequence) {
+            $candidate->sequence = $updated;
+            $DB->update_record('course_sections', $candidate);
+        }
+    }
+    $section = $DB->get_record('course_sections', ['id' => $sectionid, 'course' => $courseid], '*', MUST_EXIST);
+    $sequence = array_values(array_filter(array_map('intval', explode(',', (string) $section->sequence))));
     $position = $beforecmid ? array_search($beforecmid, $sequence, true) : false;
     if ($position === false) {
         $sequence[] = $cmid;
@@ -95,6 +106,9 @@ foreach ($items as [$section, $name, $filename, $anchormod, $anchorname]) {
         $activity = reset($activities);
         $activity->typeid = $type->id;
         $activity->toolurl = $toolurl;
+        $activity->intro = '<p>Open the notebook for this topic. Predict before running, change at least one value, save your work, and return to Moodle for the learning check.</p>'
+            . '<p><strong>Notebook:</strong> <code>' . s($filename) . '</code></p>';
+        $activity->introformat = FORMAT_HTML;
         $activity->launchcontainer = LTI_LAUNCH_CONTAINER_WINDOW;
         $activity->instructorchoicesendname = LTI_SETTING_NEVER;
         $activity->instructorchoicesendemailaddr = LTI_SETTING_NEVER;
@@ -139,7 +153,10 @@ foreach ($items as [$section, $name, $filename, $anchormod, $anchorname]) {
     } else {
         $beforecmid = $anchor ? (int) $anchor->id : null;
     }
-    position_before($course->id, $section, (int) $cm->id, $beforecmid);
+    if (!$anchor) {
+        throw new moodle_exception("Anchor activity not found for {$name}.");
+    }
+    position_before($course->id, (int) $anchor->section, (int) $cm->id, $beforecmid);
 
     $results[] = [
         'cmid' => (int) $cm->id,

@@ -60,6 +60,7 @@ COPY moodle/php.ini /usr/local/etc/php/conf.d/zz-moodle.ini
 COPY moodle/config.php /usr/local/share/moodle/config.php
 COPY moodle/entrypoint.sh /usr/local/bin/moodle-entrypoint
 COPY moodle/cron-loop.sh /usr/local/bin/moodle-cron-loop
+COPY moodle/local/pythonlabsubmit/ /var/www/html/public/local/pythonlabsubmit/
 
 RUN chmod 0755 \
     /usr/local/bin/moodle-entrypoint \

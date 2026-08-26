@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "2.2 Functions, errors, and testing",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "F01",
+      "description": "define and call a function after its definition",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-01",
+      "teacher": false
+    },
+    {
+      "id": "F02",
+      "description": "distinguish parameters arguments return values and printed output",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-02",
+      "teacher": false
+    },
+    {
+      "id": "F03",
+      "description": "use local scope and explicit inputs and outputs",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-03",
+      "teacher": false
+    },
+    {
+      "id": "F04",
+      "description": "use default and keyword arguments deliberately",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-04",
+      "teacher": false
+    },
+    {
+      "id": "F05",
+      "description": "document a function contract with a docstring and type hints",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-05",
+      "teacher": false
+    },
+    {
+      "id": "F06",
+      "description": "decompose record validation calculation and presentation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-06",
+      "teacher": false
+    },
+    {
+      "id": "F07",
+      "description": "classify syntax runtime and logic errors and read a traceback",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-07",
+      "teacher": false
+    },
+    {
+      "id": "F08",
+      "description": "raise and catch specific exceptions without hiding causes",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-08",
+      "teacher": false
+    },
+    {
+      "id": "F09",
+      "description": "test normal boundary and invalid cases including float tolerance",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-09",
+      "teacher": false
+    },
+    {
+      "id": "F10",
+      "description": "build and test a reusable centre-summary pipeline",
+      "lesson": true,
+      "notebook": true,
+      "question": "L22R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/06_functions_errors_testing.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/06_functions_errors_testing.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson22-v20.php"
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "project": "1.7 Weekly support report",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "P01",
+      "description": "use meaningful scalar and string inputs from Lessons 1.1 to 1.4",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P02",
+      "description": "validate registration empty data and each weekly value before calculation",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P03",
+      "description": "use one loop to update total attendance processed weeks and priority weeks",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P04",
+      "description": "calculate a combined monthly denominator and attendance rate",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P05",
+      "description": "classify the rate with the ordered boundaries from Lesson 1.5",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P06",
+      "description": "produce a formatted operational report and recommendation",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P07",
+      "description": "test immediately below and exactly at both internal boundaries",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P08",
+      "description": "test an impossible weekly value without ordinary classification",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P09",
+      "description": "handle empty weekly data without division",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    },
+    {
+      "id": "P10",
+      "description": "explain how the evidence supports the category and recommendation",
+      "source_lessons": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "notebook": true,
+      "assignment": true,
+      "teacher": false
+    }
+  ],
+  "rubric": [
+    {
+      "id": "P01",
+      "points": 10,
+      "criterion": "clear inputs and meaningful names"
+    },
+    {
+      "id": "P02",
+      "points": 15,
+      "criterion": "complete validation before calculation"
+    },
+    {
+      "id": "P03",
+      "points": 20,
+      "criterion": "correct loop state and weekly output"
+    },
+    {
+      "id": "P04",
+      "points": 10,
+      "criterion": "correct combined totals and rate"
+    },
+    {
+      "id": "P05",
+      "points": 15,
+      "criterion": "correct ordered support boundaries"
+    },
+    {
+      "id": "P06",
+      "points": 10,
+      "criterion": "readable formatted report and recommendation"
+    },
+    {
+      "id": "P07",
+      "points": 5,
+      "criterion": "tests below and at 75 and 85 percent"
+    },
+    {
+      "id": "P08",
+      "points": 5,
+      "criterion": "invalid value test"
+    },
+    {
+      "id": "P09",
+      "points": 5,
+      "criterion": "empty-data test"
+    },
+    {
+      "id": "P10",
+      "points": 5,
+      "criterion": "evidence-based explanation"
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/P1_weekly_support_report.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/P1_weekly_support_report.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-project1-v18.php"
+}

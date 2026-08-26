@@ -17,6 +17,19 @@ use core_question\local\bank\question_version_status;
 $shortname = getenv('PYTHON_COURSE_SHORTNAME') ?: 'PYAI-INTRO';
 $course = $DB->get_record('course', ['shortname' => $shortname], '*', MUST_EXIST);
 \core\session\manager::set_user(get_admin());
+function v4_announcement_posts(int $courseid, string $marker): array {
+    global $DB;
+    $sql = "SELECT p.*
+              FROM {forum_posts} p
+              JOIN {forum_discussions} d ON d.id = p.discussion
+              JOIN {forum} f ON f.id = d.forum
+             WHERE f.course = :courseid
+               AND " . $DB->sql_like('p.message', ':marker');
+    return array_values($DB->get_records_sql($sql, [
+        'courseid' => $courseid, 'marker' => '%' . $marker . '%',
+    ]));
+}
+
 
 function v4_code(string $code): string {
     return '<pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>'
@@ -41,6 +54,18 @@ function v4_add_page(stdClass $course, int $section, string $name, string $conte
 
 function v4_question(string $id, string $prompt, array $choices, int $correct, string $explanation): array {
     return compact('id', 'prompt', 'choices', 'correct', 'explanation');
+}
+
+function v4_quiz_has_question_named(int $quizid, string $name): bool {
+    global $DB;
+    $sql = "SELECT 1
+              FROM {quiz_slots} qs
+              JOIN {question_references} qr
+                ON qr.component = 'mod_quiz' AND qr.questionarea = 'slot' AND qr.itemid = qs.id
+              JOIN {question_versions} qv ON qv.questionbankentryid = qr.questionbankentryid
+              JOIN {question} q ON q.id = qv.questionid
+             WHERE qs.quizid = :quizid AND q.name = :name";
+    return $DB->record_exists_sql($sql, ['quizid' => $quizid, 'name' => $name]);
 }
 
 function v4_save_question(int $categoryid, int $contextid, string $prefix, array $data): stdClass {
@@ -209,13 +234,21 @@ foreach ($banks as $quizname => $newquestions) {
     if ($needed > count($newquestions)) {
         throw new RuntimeException("Quiz {$quizname} needs {$needed} questions but the v4 bank has only " . count($newquestions) . '.');
     }
-    foreach (array_slice($newquestions, 0, $needed) as $data) {
+    $added = 0;
+    foreach ($newquestions as $data) {
+        if ($added >= $needed) {
+            break;
+        }
         $questionname = $shortname . ' mastery: ' . $data['id'];
-        if ($DB->record_exists('question', ['name' => $questionname])) {
-            throw new RuntimeException("Question exists but is not slotted: {$questionname}");
+        if (v4_quiz_has_question_named((int) $quiz->id, $questionname)) {
+            continue;
         }
         $question = v4_save_question($category->id, $context->id, $shortname . ' mastery: ', $data);
         quiz_add_quiz_question($question->id, $quiz, 0, 10);
+        $added++;
+    }
+    if ($added !== $needed) {
+        throw new RuntimeException("Quiz {$quizname} could add only {$added} of {$needed} required questions.");
     }
 
     $DB->set_field('quiz_slots', 'maxmark', 10, ['quizid' => $quiz->id]);
@@ -257,8 +290,8 @@ foreach ($banks as $quizname => $newquestions) {
 }
 
 $marker = 'PYAI-V4-ANNOUNCEMENT';
-$newsforum = $DB->get_record('forum', ['course' => $course->id, 'type' => 'news']);
-if ($newsforum && !$DB->record_exists_select('forum_posts', $DB->sql_like('message', ':marker'), ['marker' => '%' . $marker . '%'])) {
+$newsforum = forum_get_course_forum($course->id, 'news');
+if (!v4_announcement_posts($course->id, $marker)) {
     forum_add_discussion((object) [
         'course' => $course->id, 'forum' => $newsforum->id,
         'name' => 'Learning checks: Try again, learn from feedback, and aim for 100%',

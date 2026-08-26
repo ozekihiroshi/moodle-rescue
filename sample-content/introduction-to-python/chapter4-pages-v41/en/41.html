@@ -1,0 +1,37 @@
+<div class="python-sample-lesson python-sample-lesson-v42"><h2>Introduction</h2><p><strong>Begin with a design that already works.</strong> Chapter 2 represented one record with a dictionary and passed it to functions. That design remains appropriate for a few passive records. Lending equipment has a changing borrower and several operations that must agree about the same state. We therefore compare both designs before deciding what a class improves.</p><h2>Learning outcomes</h2><ul><li>Distinguish class, object, and instance in executable code.</li><li>Use <code>__init__</code> and <code>self</code> to create independent objects.</li><li>Read attributes and method calls from the object on the left.</li><li>Decide whether a class or records plus functions better fits a small problem.</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>Learning route:</strong> Required 4.1.1–4.1.4 | Integration 4.1.5</aside><h2>4.1.1 Start with records and functions</h2><p>The dictionary stores state and the function receives a record to change it. Run the program and locate data, operation, and caller.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>item = {
+    "item_id": "E001",
+    "name": "Laptop 01",
+    "category": "Computer",
+    "borrower_id": None,
+}
+
+def loan_item(record, borrower_id):
+    if record["borrower_id"] is not None:
+        raise ValueError("already on loan")
+    record["borrower_id"] = borrower_id
+
+loan_item(item, "M014")
+print(item["borrower_id"])</code></pre><p>This version is short and clear. Its cost appears as loan, return, rename, validation, and saving functions all need knowledge of the same keys. A class is justified by related state and growing rules, not merely by the presence of data.</p><p><strong>Quick check:</strong> If the record is read-only, what behaviour would a class actually organise?</p><h2>4.1.2 Define construction and behaviour together</h2><p>A class is a definition. Calling the class constructs an object; that particular object is an instance. <code>__init__</code> establishes its initial attributes, while methods describe operations available to it.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>class EquipmentItem:
+    def __init__(self, item_id, name, category):
+        self.item_id = item_id
+        self.name = name
+        self.category = category
+        self.borrower_id = None
+
+    def is_available(self):
+        return self.borrower_id is None
+
+    def loan_to(self, borrower_id):
+        if not self.is_available():
+            raise ValueError("already on loan")
+        self.borrower_id = borrower_id</code></pre><p>The class does not contain E001 or E002. It defines how any equipment item begins and how one item answers or changes state.</p><h2>4.1.3 Read self as the receiving object</h2><p>During <code>first.loan_to("M014")</code>, <code>self</code> is <code>first</code>. Every <code>self.attribute</code> access therefore refers to that receiver.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>first = EquipmentItem("E001", "Laptop 01", "Computer")
+second = EquipmentItem("E002", "Projector", "Presentation")
+
+first.loan_to("M014")
+
+print(first.borrower_id)   # M014
+print(second.borrower_id)  # None</code></pre><p>The second instance remains unchanged. This is the first practical benefit over a loose collection of shared variables: the call names the individual whose state is involved.</p><p>Calling <code>EquipmentItem.loan_to(first, "M014")</code> expresses the same dispatch explicitly, but normal code uses <code>first.loan_to("M014")</code>.</p><h2>4.1.4 Separate attributes, methods, equality, and identity</h2><p>An attribute such as <code>item.name</code> stores state. A method such as <code>item.is_available()</code> asks for behaviour. Parentheses matter, but the deeper distinction is data versus an operation using the object.</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>a = EquipmentItem("E001", "Laptop 01", "Computer")
+b = EquipmentItem("E001", "Laptop 01", "Computer")
+
+print(a is b)                  # False
+print(a.item_id == b.item_id)  # True</code></pre><p><code>is</code> asks whether two names refer to the same object. <code>==</code> asks whether values compare equal. Two separately created items may carry the same ID, although the lending desk will later reject that business-level duplicate.</p><h2>4.1.5 Integrated practice: refactor and compare</h2><p>Add <code>display_label()</code>, returning a label such as <code>E001 — Laptop 01</code>. Create two items and verify each label uses its own attributes. Then rewrite the same operation as a function receiving a dictionary. State which form is clearer for (a) one read-only record and (b) many items with loan and return rules.</p><h2>Summary</h2><ul><li>A class defines construction and related behaviour; an instance is one object created from it.</li><li><code>self</code> identifies the receiver, so instance attributes remain independent.</li><li>Classes are valuable when state and rules belong together, but are not automatically better for every record.</li></ul><h2>Next</h2><p>Lesson 4.2 makes the object reliable by rejecting invalid construction and state transitions before they can damage its state.</p><p style="display:none">PYAI-V42-CHAPTER4-COMPLETE</p></div>

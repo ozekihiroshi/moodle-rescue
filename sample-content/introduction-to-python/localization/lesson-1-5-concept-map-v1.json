@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "1.5 Decisions with conditions",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "C01",
+      "description": "distinguish assignment from comparisons and identify bool results",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-01",
+      "teacher": false
+    },
+    {
+      "id": "C02",
+      "description": "write an if statement with a colon and meaningful indentation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-02",
+      "teacher": false
+    },
+    {
+      "id": "C03",
+      "description": "select between two actions with if and else",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-03",
+      "teacher": false
+    },
+    {
+      "id": "C04",
+      "description": "trace an ordered if elif else chain and run only its first true branch",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-04",
+      "teacher": false
+    },
+    {
+      "id": "C05",
+      "description": "distinguish independent if statements from an exclusive chain",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-05",
+      "teacher": false
+    },
+    {
+      "id": "C06",
+      "description": "combine and explain conditions with and or and not",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-06",
+      "teacher": false
+    },
+    {
+      "id": "C07",
+      "description": "test inclusive and exclusive boundaries and chained comparisons",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-07",
+      "teacher": false
+    },
+    {
+      "id": "C08",
+      "description": "validate the permitted domain before ordinary classification",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-08",
+      "teacher": false
+    },
+    {
+      "id": "C09",
+      "description": "explain short-circuit evaluation and use it for a safe guard",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-09",
+      "teacher": false
+    },
+    {
+      "id": "C10",
+      "description": "translate a practical support rule into ordered tested branches",
+      "lesson": true,
+      "notebook": true,
+      "question": "L15R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/03_conditions_boundaries.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/03_conditions_boundaries.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-conditions-v16.php"
+}

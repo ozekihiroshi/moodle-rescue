@@ -1,0 +1,17 @@
+Pythonによるデータ活用：AI時代の基礎
+Copyright © 2026 Hiroshi Ozeki
+
+別途明記されている場合を除き、このMoodleコースバックアップに
+含まれるオリジナル教育コンテンツは、Creative Commons Attribution
+4.0 International License（CC BY 4.0）の下で提供されます。
+
+https://creativecommons.org/licenses/by/4.0/
+
+推奨する表示：
+
+「Pythonによるデータ活用：AI時代の基礎」、Hiroshi Ozeki、Moodle
+Rescue、CC BY 4.0。
+
+翻訳その他の変更を行った場合は、その旨を表示してください。
+Moodle、プラグイン、商標、その他の第三者コンポーネントには、
+それぞれのライセンスと権利が適用されます。

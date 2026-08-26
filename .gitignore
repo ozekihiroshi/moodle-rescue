@@ -6,4 +6,8 @@
 !.env.ui-test.example
 /build/
 /release/
+/backups/
 /sample-content/*/build/
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]

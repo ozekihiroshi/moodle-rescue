@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "3.3 Data cleaning with an audit trail",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "C01",
+      "description": "preserve source data and profile it before changes",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-01",
+      "teacher": false
+    },
+    {
+      "id": "C02",
+      "description": "detect conversion failures separately from source missingness",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-02",
+      "teacher": false
+    },
+    {
+      "id": "C03",
+      "description": "distinguish missing values from zero and avoid unsupported imputation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-03",
+      "teacher": false
+    },
+    {
+      "id": "C04",
+      "description": "normalise category text while retaining original values",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-04",
+      "teacher": false
+    },
+    {
+      "id": "C05",
+      "description": "test ranges and cross-field operational constraints separately",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-05",
+      "teacher": false
+    },
+    {
+      "id": "C06",
+      "description": "define a business key before detecting duplicate records",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-06",
+      "teacher": false
+    },
+    {
+      "id": "C07",
+      "description": "separate detection from correction exclusion or review action",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-07",
+      "teacher": false
+    },
+    {
+      "id": "C08",
+      "description": "retain source and working row counts while flagging analysis-ready rows",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-08",
+      "teacher": false
+    },
+    {
+      "id": "C09",
+      "description": "record rules affected counts actions and unresolved issues in an audit log",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-09",
+      "teacher": false
+    },
+    {
+      "id": "C10",
+      "description": "reapply constraints and reconcile counts with assertions",
+      "lesson": true,
+      "notebook": true,
+      "question": "L33R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/09_cleaning_audit_trail.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/09_cleaning_audit_trail.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson33-v24.php"
+}

@@ -1,0 +1,36 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>導入</h2><p><strong>ファイルはレコードを持ち、実行中のプログラムはオブジェクトを使います。</strong> CSVはメソッドを保存できません。行からオブジェクトを作り、メソッドを通して処理し、最後に行へ戻します。</p><h2>このレッスンの到達目標</h2><ul><li>CSV行をオブジェクトへ、オブジェクトを保存行へ変換する。</li><li>想定された拒否後も続け、依頼ごとの結果を残す。</li><li>処理手順とドメイン規則を分ける。</li><li>別データでテストし、原本を保護する。</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>学習経路:</strong> 必須 4.4.1〜4.4.5｜統合練習 4.4.6</aside><h2>4.4.1 行を読んでオブジェクトを生成する</h2><p><code>DictReader</code>の文字列をコンストラクタへ渡し、直接コードから作る場合と同じ検証を働かせます。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def load_inventory(path):
+    desk = LendingDesk()
+    with Path(path).open(newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as handle:
+        for row in csv.DictReader(handle):
+            item = EquipmentItem(
+                row[&quot;item_id&quot;], row[&quot;name&quot;], row[&quot;category&quot;], row[&quot;borrower_id&quot;]
+            )
+            desk.add_item(item)
+    return desk</code></pre><p>窓口への追加でID重複も検証されます。読込処理から内部属性へ抜け道を作りません。</p><h2>4.4.2 オブジェクトを一行の保存レコードへ変換する</h2><p><code>to_record()</code>は逆方向の境界です。メモリ内の<code>None</code>をCSVの空欄へ変換します。一件の形は機材、集合の保存は窓口が担当します。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def to_record(self):
+    return {
+        &quot;item_id&quot;: self.item_id,
+        &quot;name&quot;: self.name,
+        &quot;category&quot;: self.category,
+        &quot;borrower_id&quot;: self.borrower_id or &quot;&quot;,
+    }</code></pre><h2>4.4.3 依頼を処理して監査結果を残す</h2><p>業務上の拒否は想定された結果です。公開された<code>ValueError</code>と<code>KeyError</code>だけを捕捉し、REJECTEDを記録して後続依頼へ進みます。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def process_requests(desk, path):
+    results = []
+    with Path(path).open(newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as handle:
+        for row in csv.DictReader(handle):
+            try:
+                if row[&quot;action&quot;] == &quot;LOAN&quot;:
+                    desk.loan_item(row[&quot;item_id&quot;], row[&quot;borrower_id&quot;])
+                elif row[&quot;action&quot;] == &quot;RETURN&quot;:
+                    desk.return_item(row[&quot;item_id&quot;])
+                else:
+                    raise ValueError(&quot;unknown action&quot;)
+                status = &quot;ACCEPTED&quot;
+            except (ValueError, KeyError):
+                status = &quot;REJECTED&quot;
+            results.append({&quot;request_id&quot;: row[&quot;request_id&quot;], &quot;status&quot;: status})
+    return results</code></pre><p>予期しない不具合まで<code>except Exception</code>で隠しません。</p><h2>4.4.4 規則を複製せず作業を接続する</h2><p><code>run_project()</code>は在庫読込、依頼処理、二つの保存、集計という仕事の順に読みます。貸出規則を書き直す場所ではありません。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>desk = load_inventory(inventory_path)
+results = process_requests(desk, requests_path)
+desk.save_inventory(inventory_output)
+save_results(results, results_output)</code></pre><h2>4.4.5 別データでテストして原本を守る</h2><p>E001〜E005を直接書いたプログラムは解答ではありません。X1・X2と別順序の依頼で、結果、最終状態、出力順、原本不変を確認します。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>before = inventory_path.read_bytes()
+result = run_project(inventory_path, requests_path, out1, out2)
+assert inventory_path.read_bytes() == before
+assert result[&quot;accepted&quot;] + result[&quot;rejected&quot;] == result[&quot;requests&quot;]</code></pre><h2>4.4.6 統合練習</h2><p>R002をCSV行から窓口検索、機材検証、<code>ValueError</code>、REJECTED結果まで追い、拒否後もE002の利用者がM021であることを確認します。</p><h2>まとめ</h2><ul><li>入力境界で行をオブジェクトへ、出力境界でオブジェクトを行へ変換する。</li><li>想定された拒否を記録し、予期しない不具合は見えるままにする。</li><li>処理手順は責任を接続し、規則の第二実装にならない。</li></ul><h2>次のレッスンへ</h2><p>4.5に必要な概念がそろいました。在庫5件と依頼6件を処理するスターターを完成させます。</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

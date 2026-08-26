@@ -1,0 +1,37 @@
+<?php
+define('CLI_SCRIPT', true);
+require '/var/www/html/config.php';
+
+$result = [];
+foreach (['PYAI-INTRO', 'PYAI-INTRO-JA'] as $shortname) {
+    $course = $DB->get_record('course', ['shortname' => $shortname], '*', MUST_EXIST);
+    $language = $shortname === 'PYAI-INTRO-JA' ? 'ja' : 'en';
+    $lessonname = $language === 'ja'
+        ? 'レッスン1：プログラム・値・式・出力'
+        : 'Lesson 1: Programs, values, expressions, and output';
+    $quizname = $language === 'ja'
+        ? '理解度チェック：レッスン1 プログラム・値・式・出力'
+        : 'Knowledge check: Lesson 1: Programs, values, expressions, and output';
+    $page = $DB->get_record('page', ['course' => $course->id, 'name' => $lessonname], '*', MUST_EXIST);
+    if (substr_count($page->content, 'PYAI-V12-LESSON1-FLOW') !== 1) {
+        throw new RuntimeException("{$shortname}: Lesson 1 marker missing or duplicated");
+    }
+    foreach (['Naledi', 'ナレディ', 'AI checkpoint', 'AI利用の確認'] as $forbidden) {
+        if (str_contains($page->content, $forbidden)) {
+            throw new RuntimeException("{$shortname}: forbidden Lesson 1 text {$forbidden}");
+        }
+    }
+    $quiz = $DB->get_record('quiz', ['course' => $course->id, 'name' => $quizname], '*', MUST_EXIST);
+    $slots = $DB->count_records('quiz_slots', ['quizid' => $quiz->id]);
+    if ((int) $slots !== 10) {
+        throw new RuntimeException("{$shortname}: expected 10 Lesson 1 quiz slots, found {$slots}");
+    }
+    $result[] = [
+        'courseid' => (int) $course->id,
+        'shortname' => $shortname,
+        'lesson' => $lessonname,
+        'marker' => 1,
+        'quiz_slots_preserved' => (int) $slots,
+    ];
+}
+echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL;

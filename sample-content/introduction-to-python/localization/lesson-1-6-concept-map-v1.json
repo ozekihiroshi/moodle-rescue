@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "1.6 Repetition with loops",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "R01",
+      "description": "trace a for loop and identify its loop variable and indented body",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-01",
+      "teacher": false
+    },
+    {
+      "id": "R02",
+      "description": "predict range values and prevent off by one errors",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-02",
+      "teacher": false
+    },
+    {
+      "id": "R03",
+      "description": "initialise and update an accumulator across iterations",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-03",
+      "teacher": false
+    },
+    {
+      "id": "R04",
+      "description": "count only items satisfying a condition",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-04",
+      "teacher": false
+    },
+    {
+      "id": "R05",
+      "description": "initialise a maximum safely and handle empty data",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-05",
+      "teacher": false
+    },
+    {
+      "id": "R06",
+      "description": "use enumerate when both a position and value are required",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-06",
+      "teacher": false
+    },
+    {
+      "id": "R07",
+      "description": "distinguish continue from break and predict remaining work",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-07",
+      "teacher": false
+    },
+    {
+      "id": "R08",
+      "description": "write a while loop whose condition state changes toward termination",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-08",
+      "teacher": false
+    },
+    {
+      "id": "R09",
+      "description": "choose for or while from the kind of repetition",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-09",
+      "teacher": false
+    },
+    {
+      "id": "R10",
+      "description": "combine totals counts maxima boundaries and empty-data handling in a practical loop",
+      "lesson": true,
+      "notebook": true,
+      "question": "L16R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/04_loops_accumulators.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/04_loops_accumulators.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-loops-v17.php"
+}

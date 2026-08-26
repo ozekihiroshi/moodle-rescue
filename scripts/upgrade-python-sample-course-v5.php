@@ -4,6 +4,10 @@
 define('CLI_SCRIPT', true);
 
 require '/var/www/html/config.php';
+
+$CFG->debug = DEBUG_DEVELOPER;
+$CFG->debugdisplay = 1;
+
 require_once $CFG->dirroot . '/course/lib.php';
 require_once $CFG->dirroot . '/course/modlib.php';
 require_once $CFG->dirroot . '/mod/forum/lib.php';
@@ -16,6 +20,19 @@ use core_question\local\bank\question_version_status;
 $shortname = getenv('PYTHON_COURSE_SHORTNAME') ?: 'PYAI-INTRO';
 $course = $DB->get_record('course', ['shortname' => $shortname], '*', MUST_EXIST);
 \core\session\manager::set_user(get_admin());
+function v5_announcement_posts(int $courseid, string $marker): array {
+    global $DB;
+    $sql = "SELECT p.*
+              FROM {forum_posts} p
+              JOIN {forum_discussions} d ON d.id = p.discussion
+              JOIN {forum} f ON f.id = d.forum
+             WHERE f.course = :courseid
+               AND " . $DB->sql_like('p.message', ':marker');
+    return array_values($DB->get_records_sql($sql, [
+        'courseid' => $courseid, 'marker' => '%' . $marker . '%',
+    ]));
+}
+
 
 function v5_question(int $categoryid, int $contextid, string $prefix, array $data): stdClass {
     $question = (object) ['qtype' => 'multichoice', 'category' => $categoryid . ',' . $contextid];
@@ -118,6 +135,10 @@ $quiz->questionsperpage = 5;
 $quiz->preferredbehaviour = 'deferredfeedback';
 $quiz->timemodified = time();
 $DB->update_record('quiz', $quiz);
+// add_moduleinfo() invalidates the course cache, but the in-process modinfo
+// instance can still predate the newly created quiz. Refresh it before the
+// grade calculator resolves the quiz instance back to its course module.
+rebuild_course_cache($course->id, true);
 \mod_quiz\quiz_settings::create($quiz->id)->get_grade_calculator()->recompute_quiz_sumgrades();
 $gradeitem = \grade_item::fetch([
     'courseid' => $course->id, 'itemtype' => 'mod', 'itemmodule' => 'quiz',
@@ -133,14 +154,12 @@ v5_feedback_bands($quiz->id);
 
 $oldmarker = 'PYAI-V5-PYTHON-LAB-NOTEBOOKS';
 $marker = 'PYAI-V5-ANNOUNCEMENT';
-foreach ($DB->get_records_select(
-    'forum_posts', $DB->sql_like('message', ':oldmarker'), ['oldmarker' => '%' . $oldmarker . '%']
-) as $post) {
+foreach (v5_announcement_posts($course->id, $oldmarker) as $post) {
     $post->message = str_replace($oldmarker, $marker, $post->message);
     $DB->update_record('forum_posts', $post);
 }
-$newsforum = $DB->get_record('forum', ['course' => $course->id, 'type' => 'news']);
-if ($newsforum && !$DB->record_exists_select('forum_posts', $DB->sql_like('message', ':marker'), ['marker' => '%' . $marker . '%'])) {
+$newsforum = forum_get_course_forum($course->id, 'news');
+if (!v5_announcement_posts($course->id, $marker)) {
     forum_add_discussion((object) [
         'course' => $course->id, 'forum' => $newsforum->id,
         'name' => 'Python Lab notebooks now connect each lesson to hands-on practice',

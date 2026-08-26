@@ -1,0 +1,794 @@
+{
+  "course": "PYAI-INTRO",
+  "activities": [
+    {
+      "cmid": 35,
+      "modname": "page",
+      "name": "Lesson 1.1: Programs, values, expressions, and output",
+      "section_number": 6,
+      "section_name": "1.1 Programs, values, expressions, and output",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Read the first program"
+        },
+        {
+          "level": "h3",
+          "text": "An expression makes a value; print() makes it visible"
+        },
+        {
+          "level": "h3",
+          "text": "The kind of value changes what an operator means"
+        },
+        {
+          "level": "h3",
+          "text": "Express the intended order of calculation"
+        },
+        {
+          "level": "h3",
+          "text": "Changing a value exposes a weakness"
+        },
+        {
+          "level": "h3",
+          "text": "Create your own program"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 1,
+      "marker": [
+        "PYAI-V12-LESSON1-FLOW"
+      ]
+    },
+    {
+      "cmid": 78,
+      "modname": "lti",
+      "name": "Python Lab 1.1: Programs, values, expressions, and output",
+      "section_number": 6,
+      "section_name": "1.1 Programs, values, expressions, and output"
+    },
+    {
+      "cmid": 36,
+      "modname": "quiz",
+      "name": "[v1 attempt archive - hidden] Knowledge check: Lesson 1: Your first Python program",
+      "section_number": 6,
+      "section_name": "1.1 Programs, values, expressions, and output",
+      "slots": 10
+    },
+    {
+      "cmid": 264,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.1 Programs, values, expressions, and output",
+      "section_number": 6,
+      "section_name": "1.1 Programs, values, expressions, and output",
+      "slots": 10
+    },
+    {
+      "cmid": 37,
+      "modname": "page",
+      "name": "Lesson 1.2: Variables, assignment, and program state",
+      "section_number": 7,
+      "section_name": "1.2 Variables, assignment, and program state",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Keep one source for one meaning"
+        },
+        {
+          "level": "h3",
+          "text": "Assignment is not mathematical equality"
+        },
+        {
+          "level": "h3",
+          "text": "Read the right side before updating the left"
+        },
+        {
+          "level": "h3",
+          "text": "A calculated value does not update itself"
+        },
+        {
+          "level": "h3",
+          "text": "A name follows rules and communicates meaning"
+        },
+        {
+          "level": "h3",
+          "text": "Use NameError to inspect execution order"
+        },
+        {
+          "level": "h3",
+          "text": "Make Notebook state reproducible"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 5,
+      "tables": 1,
+      "marker": [
+        "PYAI-V13-LESSON2-FLOW"
+      ]
+    },
+    {
+      "cmid": 79,
+      "modname": "lti",
+      "name": "Python Lab 1.2: Variables, assignment, and state",
+      "section_number": 7,
+      "section_name": "1.2 Variables, assignment, and program state"
+    },
+    {
+      "cmid": 38,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.2 Variables, assignment, and program state",
+      "section_number": 7,
+      "section_name": "1.2 Variables, assignment, and program state",
+      "slots": 10
+    },
+    {
+      "cmid": 39,
+      "modname": "page",
+      "name": "Lesson 1.5: Decisions with conditions",
+      "section_number": 8,
+      "section_name": "1.5 Decisions with conditions",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "After calculating a value, choose what the program should do with it"
+        },
+        {
+          "level": "h3",
+          "text": "A condition produces the Boolean value True or False"
+        },
+        {
+          "level": "h3",
+          "text": "if runs its indented block only when the condition is True"
+        },
+        {
+          "level": "h3",
+          "text": "else selects exactly one of two actions"
+        },
+        {
+          "level": "h3",
+          "text": "elif checks several candidates from the top and selects the first match"
+        },
+        {
+          "level": "h3",
+          "text": "Independent if statements run independently"
+        },
+        {
+          "level": "h3",
+          "text": "and, or, and not combine decisions"
+        },
+        {
+          "level": "h3",
+          "text": "Test immediately below, at, and above each boundary"
+        },
+        {
+          "level": "h3",
+          "text": "Validate the value before applying ordinary categories"
+        },
+        {
+          "level": "h3",
+          "text": "Short-circuit evaluation skips an expression after the result is known"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 9,
+      "tables": 1,
+      "marker": [
+        "PYAI-V16-CONDITIONS-FLOW"
+      ]
+    },
+    {
+      "cmid": 80,
+      "modname": "lti",
+      "name": "Python Lab 1.5: Conditions and boundaries",
+      "section_number": 8,
+      "section_name": "1.5 Decisions with conditions"
+    },
+    {
+      "cmid": 40,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.5 Decisions with conditions",
+      "section_number": 8,
+      "section_name": "1.5 Decisions with conditions",
+      "slots": 10
+    },
+    {
+      "cmid": 41,
+      "modname": "page",
+      "name": "Lesson 1.6: Repetition with loops",
+      "section_number": 9,
+      "section_name": "1.6 Repetition with loops",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Repeat one pattern accurately for every value"
+        },
+        {
+          "level": "h3",
+          "text": "for takes one value at a time from an iterable"
+        },
+        {
+          "level": "h3",
+          "text": "range() includes its start and excludes its stop"
+        },
+        {
+          "level": "h3",
+          "text": "Initialise an accumulator before the loop and update it inside"
+        },
+        {
+          "level": "h3",
+          "text": "A counter increases by one only for a matching item"
+        },
+        {
+          "level": "h3",
+          "text": "Initialise a maximum from real data"
+        },
+        {
+          "level": "h3",
+          "text": "enumerate() supplies a number and value together"
+        },
+        {
+          "level": "h3",
+          "text": "continue skips this iteration; break ends the loop"
+        },
+        {
+          "level": "h3",
+          "text": "while repeats while its condition remains True"
+        },
+        {
+          "level": "h3",
+          "text": "Use for for known values and while for a changing stopping condition"
+        },
+        {
+          "level": "h3",
+          "text": "An empty iterable runs a for loop zero times"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 9,
+      "tables": 0,
+      "marker": [
+        "PYAI-V17-LOOPS-FLOW"
+      ]
+    },
+    {
+      "cmid": 81,
+      "modname": "lti",
+      "name": "Python Lab 1.6: Loops and accumulators",
+      "section_number": 9,
+      "section_name": "1.6 Repetition with loops"
+    },
+    {
+      "cmid": 42,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.6 Repetition with loops",
+      "section_number": 9,
+      "section_name": "1.6 Repetition with loops",
+      "slots": 10
+    },
+    {
+      "cmid": 282,
+      "modname": "page",
+      "name": "1.7 Project brief and completion contract",
+      "section_number": 10,
+      "section_name": "1.7 Mini-project: Weekly support report",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "1.7 Mini-project: Weekly support report"
+        },
+        {
+          "level": "h3",
+          "text": "What you will do"
+        },
+        {
+          "level": "h3",
+          "text": "Situation"
+        },
+        {
+          "level": "h3",
+          "text": "Input and sample daily records"
+        },
+        {
+          "level": "h3",
+          "text": "Program requirements"
+        },
+        {
+          "level": "h3",
+          "text": "Expected output"
+        },
+        {
+          "level": "h3",
+          "text": "Zero requests and invalid data"
+        },
+        {
+          "level": "h3",
+          "text": "Python in scope"
+        },
+        {
+          "level": "h3",
+          "text": "Checking"
+        },
+        {
+          "level": "h4",
+          "text": "1. Check it yourself"
+        },
+        {
+          "level": "h4",
+          "text": "2. Run the supplied checker"
+        },
+        {
+          "level": "h3",
+          "text": "Save, check, and submit"
+        },
+        {
+          "level": "h4",
+          "text": "Save first"
+        },
+        {
+          "level": "h4",
+          "text": "Method A: Submit directly from Python Lab"
+        },
+        {
+          "level": "h4",
+          "text": "Method B: Use Moodle's standard submission page"
+        },
+        {
+          "level": "h4",
+          "text": "Deliverable and completion conditions"
+        }
+      ],
+      "code_blocks": 5,
+      "tables": 1,
+      "marker": [
+        "PYAI-V30-PROJECT17-READABLE-BRIEF",
+        "PYAI-V33-PROJECT17-SAVE-SUBMIT"
+      ]
+    },
+    {
+      "cmid": 82,
+      "modname": "lti",
+      "name": "Python Lab project 1.7: Weekly support report",
+      "section_number": 10,
+      "section_name": "1.7 Mini-project: Weekly support report"
+    },
+    {
+      "cmid": 63,
+      "modname": "assign",
+      "name": "Project 1.7: Weekly learning-centre support report",
+      "section_number": 10,
+      "section_name": "1.7 Mini-project: Weekly support report"
+    },
+    {
+      "cmid": 43,
+      "modname": "page",
+      "name": "Lesson 2.1: Lists, dictionaries, and records",
+      "section_number": 11,
+      "section_name": "2.1 Lists, dictionaries, and records",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Organise related values as one structure"
+        },
+        {
+          "level": "h3",
+          "text": "A list is ordered and mutable"
+        },
+        {
+          "level": "h3",
+          "text": "Modify a list through positions and mutation methods"
+        },
+        {
+          "level": "h3",
+          "text": "Assignment shares one list rather than duplicating it"
+        },
+        {
+          "level": "h3",
+          "text": "A tuple is ordered but immutable"
+        },
+        {
+          "level": "h3",
+          "text": "A dictionary names each field with a key"
+        },
+        {
+          "level": "h3",
+          "text": "Handle a missing key according to the field meaning"
+        },
+        {
+          "level": "h3",
+          "text": "Select the dictionary view needed by the loop"
+        },
+        {
+          "level": "h3",
+          "text": "A list of dictionaries represents several records"
+        },
+        {
+          "level": "h3",
+          "text": "A set represents unique membership and supports set operations"
+        },
+        {
+          "level": "h3",
+          "text": "Find one record by ID and distinguish absence"
+        },
+        {
+          "level": "h3",
+          "text": "Add, read, update, and delete in one collection"
+        },
+        {
+          "level": "h3",
+          "text": "Transfer exercise: equipment register"
+        },
+        {
+          "level": "h3",
+          "text": "Additional practice: transfer to centre records"
+        }
+      ],
+      "code_blocks": 10,
+      "tables": 1,
+      "marker": [
+        "PYAI-V19-LESSON21-FLOW",
+        "PYAI-V23-2"
+      ]
+    },
+    {
+      "cmid": 83,
+      "modname": "lti",
+      "name": "Python Lab 2.1: Lists, dictionaries, and records",
+      "section_number": 11,
+      "section_name": "2.1 Lists, dictionaries, and records"
+    },
+    {
+      "cmid": 44,
+      "modname": "quiz",
+      "name": "Knowledge check: 2.1 Lists, dictionaries, and records",
+      "section_number": 11,
+      "section_name": "2.1 Lists, dictionaries, and records",
+      "slots": 10
+    },
+    {
+      "cmid": 45,
+      "modname": "page",
+      "name": "Lesson 2.2: Functions, errors, and testing",
+      "section_number": 12,
+      "section_name": "2.2 Functions, errors, and testing",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Separate a long process into functions with clear responsibilities"
+        },
+        {
+          "level": "h3",
+          "text": "Define with def, then call by name"
+        },
+        {
+          "level": "h3",
+          "text": "Parameters are inputs and return is the output"
+        },
+        {
+          "level": "h3",
+          "text": "Local names keep processing contained"
+        },
+        {
+          "level": "h3",
+          "text": "Defaults and keyword arguments make calls readable"
+        },
+        {
+          "level": "h3",
+          "text": "Docstrings and type hints communicate a contract"
+        },
+        {
+          "level": "h3",
+          "text": "Separate validation, calculation, and presentation"
+        },
+        {
+          "level": "h3",
+          "text": "Classify errors by stage and read a traceback from the end"
+        },
+        {
+          "level": "h3",
+          "text": "Keep try narrow and catch only expected exceptions"
+        },
+        {
+          "level": "h3",
+          "text": "Test normal, boundary, and invalid cases separately"
+        },
+        {
+          "level": "h3",
+          "text": "Define search and mutation contracts"
+        },
+        {
+          "level": "h3",
+          "text": "Test state before and after"
+        },
+        {
+          "level": "h3",
+          "text": "Transfer exercise: equipment-register functions"
+        },
+        {
+          "level": "h3",
+          "text": "Additional practice: separate centre processing into functions"
+        }
+      ],
+      "code_blocks": 8,
+      "tables": 0,
+      "marker": [
+        "PYAI-V20-LESSON22-FLOW",
+        "PYAI-V23-2"
+      ]
+    },
+    {
+      "cmid": 84,
+      "modname": "lti",
+      "name": "Python Lab 2.2: Functions, errors, and testing",
+      "section_number": 12,
+      "section_name": "2.2 Functions, errors, and testing"
+    },
+    {
+      "cmid": 46,
+      "modname": "quiz",
+      "name": "Knowledge check: 2.2 Functions, errors, and testing",
+      "section_number": 12,
+      "section_name": "2.2 Functions, errors, and testing",
+      "slots": 10
+    },
+    {
+      "cmid": 294,
+      "modname": "page",
+      "name": "2.4 Project brief and completion criteria",
+      "section_number": 13,
+      "section_name": "2.4 Applied project: Monthly centre performance report",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Project 2.4 — CSV library record manager"
+        },
+        {
+          "level": "h3",
+          "text": "1. Situation"
+        },
+        {
+          "level": "h3",
+          "text": "2. What you will do"
+        },
+        {
+          "level": "h3",
+          "text": "3. Input CSV and source protection"
+        },
+        {
+          "level": "h3",
+          "text": "4. How to apply the four update requests"
+        },
+        {
+          "level": "h3",
+          "text": "5. Before and after"
+        },
+        {
+          "level": "h3",
+          "text": "6. Public contract for all ten functions"
+        },
+        {
+          "level": "h3",
+          "text": "7. Path basis"
+        },
+        {
+          "level": "h3",
+          "text": "8. Implementation stages"
+        },
+        {
+          "level": "h3",
+          "text": "9. Manual check"
+        },
+        {
+          "level": "h3",
+          "text": "10. Automatic check and submission"
+        }
+      ],
+      "code_blocks": 5,
+      "tables": 2,
+      "marker": [
+        "PYAI-V25-PROJECT24-LEARNER-BRIEF",
+        "PYAI-V24-PROJECT24-LIBRARY"
+      ]
+    },
+    {
+      "cmid": 85,
+      "modname": "lti",
+      "name": "Python Lab 2.4: CSV library record manager",
+      "section_number": 13,
+      "section_name": "2.4 Applied project: Monthly centre performance report"
+    },
+    {
+      "cmid": 56,
+      "modname": "assign",
+      "name": "Project 2.4: CSV library record manager",
+      "section_number": 13,
+      "section_name": "2.4 Applied project: Monthly centre performance report"
+    },
+    {
+      "cmid": 267,
+      "modname": "page",
+      "name": "Lesson 1.3: Basic scalar types, conversion, and arithmetic",
+      "section_number": 23,
+      "section_name": "1.3 Basic scalar types, conversion, and arithmetic",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Similar appearance does not mean the same kind of value"
+        },
+        {
+          "level": "h3",
+          "text": "Seven arithmetic operators process numeric values"
+        },
+        {
+          "level": "h3",
+          "text": "Precedence and parentheses communicate calculation meaning"
+        },
+        {
+          "level": "h3",
+          "text": "Convert explicitly instead of assuming a type"
+        },
+        {
+          "level": "h3",
+          "text": "Successful execution is not enough: validate the number"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 2,
+      "marker": [
+        "PYAI-V14-LESSON13-FLOW"
+      ]
+    },
+    {
+      "cmid": 269,
+      "modname": "lti",
+      "name": "Python Lab 1.3: Basic scalar types, conversion, and arithmetic",
+      "section_number": 23,
+      "section_name": "1.3 Basic scalar types, conversion, and arithmetic"
+    },
+    {
+      "cmid": 268,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.3 Basic scalar types, conversion, and arithmetic",
+      "section_number": 23,
+      "section_name": "1.3 Basic scalar types, conversion, and arithmetic",
+      "slots": 10
+    },
+    {
+      "cmid": 275,
+      "modname": "page",
+      "name": "Lesson 1.4: Strings, input, and formatted output",
+      "section_number": 24,
+      "section_name": "1.4 Strings, input, and formatted output",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "A number alone does not communicate its work meaning"
+        },
+        {
+          "level": "h3",
+          "text": "Quotes mark the extent of a string"
+        },
+        {
+          "level": "h3",
+          "text": "A string is a sequence whose positions begin at zero"
+        },
+        {
+          "level": "h3",
+          "text": "Strings are immutable, so processing produces a new value"
+        },
+        {
+          "level": "h3",
+          "text": "Match types before concatenation"
+        },
+        {
+          "level": "h3",
+          "text": "input() always returns a string"
+        },
+        {
+          "level": "h3",
+          "text": "f-strings combine meaning and values with a display format"
+        },
+        {
+          "level": "h3",
+          "text": "Split delimited text into fields"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 7,
+      "tables": 0,
+      "marker": [
+        "PYAI-V15-LESSON14-FLOW"
+      ]
+    },
+    {
+      "cmid": 277,
+      "modname": "lti",
+      "name": "Python Lab 1.4: Strings, input, and formatted output",
+      "section_number": 24,
+      "section_name": "1.4 Strings, input, and formatted output"
+    },
+    {
+      "cmid": 276,
+      "modname": "quiz",
+      "name": "Knowledge check: 1.4 Strings, input, and formatted output",
+      "section_number": 24,
+      "section_name": "1.4 Strings, input, and formatted output",
+      "slots": 10
+    },
+    {
+      "cmid": 285,
+      "modname": "page",
+      "name": "Lesson 2.3: File and CSV input/output",
+      "section_number": 25,
+      "section_name": "2.3 File and CSV input/output",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Exchange records safely beyond one program run"
+        },
+        {
+          "level": "h3",
+          "text": "Establish the file location before reading"
+        },
+        {
+          "level": "h3",
+          "text": "Use with, an intentional mode, and an explicit encoding"
+        },
+        {
+          "level": "h3",
+          "text": "Do not parse CSV with split"
+        },
+        {
+          "level": "h3",
+          "text": "DictReader values initially remain strings"
+        },
+        {
+          "level": "h3",
+          "text": "Validate the header and each row before use"
+        },
+        {
+          "level": "h3",
+          "text": "Write a separate CSV and load it again"
+        },
+        {
+          "level": "h3",
+          "text": "From guided example to transfer"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 0,
+      "marker": [
+        "PYAI-V22-LESSON23-FLOW"
+      ]
+    },
+    {
+      "cmid": 286,
+      "modname": "lti",
+      "name": "Python Lab 2.3: File and CSV input/output",
+      "section_number": 25,
+      "section_name": "2.3 File and CSV input/output"
+    },
+    {
+      "cmid": 287,
+      "modname": "quiz",
+      "name": "Knowledge check: 2.3 File and CSV input/output",
+      "section_number": 25,
+      "section_name": "2.3 File and CSV input/output",
+      "slots": 10
+    }
+  ]
+}

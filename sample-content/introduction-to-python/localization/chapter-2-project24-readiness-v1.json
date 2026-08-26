@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "purpose": "Project 2.4 prerequisite closure",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "requirements": [
+    {
+      "id": "P24-R01",
+      "requirement": "linear search returns stored record or None",
+      "lesson": "2.1",
+      "notebook": true,
+      "questions": [
+        "L21P-05",
+        "L21P-06"
+      ]
+    },
+    {
+      "id": "P24-R02",
+      "requirement": "unique ID check before add",
+      "lesson": "2.1",
+      "notebook": true,
+      "questions": [
+        "L21P-08"
+      ]
+    },
+    {
+      "id": "P24-R03",
+      "requirement": "mutate found record and preserve collection order",
+      "lesson": "2.1",
+      "notebook": true,
+      "questions": [
+        "L21P-07",
+        "L21P-09"
+      ]
+    },
+    {
+      "id": "P24-R04",
+      "requirement": "CRUD transfer exercise",
+      "lesson": "2.1",
+      "notebook": true,
+      "questions": [
+        "L21P-10"
+      ]
+    },
+    {
+      "id": "P24-R05",
+      "requirement": "mutation contract returns stored record",
+      "lesson": "2.2",
+      "notebook": true,
+      "questions": [
+        "L22P-03",
+        "L22P-04"
+      ]
+    },
+    {
+      "id": "P24-R06",
+      "requirement": "ValueError versus KeyError",
+      "lesson": "2.2",
+      "notebook": true,
+      "questions": [
+        "L22P-05",
+        "L22P-06"
+      ]
+    },
+    {
+      "id": "P24-R07",
+      "requirement": "test state before and after mutation",
+      "lesson": "2.2",
+      "notebook": true,
+      "questions": [
+        "L22P-07",
+        "L22P-08"
+      ]
+    },
+    {
+      "id": "P24-R08",
+      "requirement": "supplied checker consumes public contract",
+      "lesson": "2.2",
+      "notebook": true,
+      "questions": [
+        "L22P-09",
+        "L22P-10"
+      ]
+    }
+  ]
+}

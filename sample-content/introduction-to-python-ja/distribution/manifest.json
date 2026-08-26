@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release": "1.0.0",
+  "release_date": "2026-08-22",
+  "license": {
+    "educational_content": "CC-BY-4.0",
+    "copyright": "Copyright © 2026 Hiroshi Ozeki",
+    "notice_file": "LICENSE.txt"
+  },
+  "course": {
+    "fullname": "Pythonによるデータ活用：AI時代の基礎",
+    "shortname": "PYAI-INTRO-JA",
+    "language": "ja",
+    "estimated_hours": 38
+  },
+  "adaptation": {
+    "relationship": "official_adaptation",
+    "canonical_course": "PYAI-INTRO",
+    "based_on_canonical_version": "1.0.0",
+    "normative_source_language": "en"
+  },
+  "artifact": {
+    "filename": "python-for-data-foundations-ai-era-ja-1.0.0.mbz",
+    "bytes": 152291,
+    "sha256": "a04b3800a47c0256eae99cdc48aaa52a4968e8754b45c454912f16cded482953",
+    "includes_user_data": false
+  },
+  "created_with": {
+    "moodle_release": "5.2.2 (Build: 20260810)",
+    "moodle_version": 2026042002,
+    "backup_version": 2026042000
+  },
+  "inventory": {
+    "chapters": 5,
+    "subsections": 17,
+    "learning_checks": 12,
+    "questions": 120,
+    "notebook_deep_links": 17
+  },
+  "external_requirements": {
+    "python_lab_required_for_notebook_links": true,
+    "lti_1_3_registration_is_site_specific": true
+  }
+}

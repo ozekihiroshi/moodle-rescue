@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "3.2 Data selection, filtering, and Boolean logic",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "B01",
+      "description": "translate an analysis question into displayed columns and row conditions",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-01",
+      "teacher": false
+    },
+    {
+      "id": "B02",
+      "description": "validate and select columns by exact names",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-02",
+      "teacher": false
+    },
+    {
+      "id": "B03",
+      "description": "distinguish label selection with loc from positional selection with iloc",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-03",
+      "teacher": false
+    },
+    {
+      "id": "B04",
+      "description": "create inspect and count an index-aligned Boolean mask",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-04",
+      "teacher": false
+    },
+    {
+      "id": "B05",
+      "description": "combine pandas conditions with parenthesised ampersand pipe and tilde",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-05",
+      "teacher": false
+    },
+    {
+      "id": "B06",
+      "description": "reason about AND OR NOT and De Morgan equivalence",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-06",
+      "teacher": false
+    },
+    {
+      "id": "B07",
+      "description": "select memberships and inclusive ranges with isin and between",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-07",
+      "teacher": false
+    },
+    {
+      "id": "B08",
+      "description": "handle missingness explicitly with isna and notna during selection",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-08",
+      "teacher": false
+    },
+    {
+      "id": "B09",
+      "description": "combine named masks in loc and verify source and result counts",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-09",
+      "teacher": false
+    },
+    {
+      "id": "B10",
+      "description": "avoid reusing a Boolean mask with a different index",
+      "lesson": true,
+      "notebook": true,
+      "question": "L32R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/08_filtering_boolean_logic.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/08_filtering_boolean_logic.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson32-v23.php"
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson": "3.4 Grouping and summary statistics",
+  "canonical_language": "en",
+  "adaptations": [
+    "ja"
+  ],
+  "concepts": [
+    {
+      "id": "D01",
+      "description": "define source and result grain before aggregation",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-01",
+      "teacher": false
+    },
+    {
+      "id": "D02",
+      "description": "use groupby named aggregation and reset_index",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-02",
+      "teacher": false
+    },
+    {
+      "id": "D03",
+      "description": "distinguish size count and nunique",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-03",
+      "teacher": false
+    },
+    {
+      "id": "D04",
+      "description": "choose totals centre and spread statistics",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-04",
+      "teacher": false
+    },
+    {
+      "id": "D05",
+      "description": "interpret mean median range and standard deviation with group count",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-05",
+      "teacher": false
+    },
+    {
+      "id": "D06",
+      "description": "compute rates from aggregated compatible numerators and denominators",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-06",
+      "teacher": false
+    },
+    {
+      "id": "D07",
+      "description": "distinguish an overall weighted rate from a mean row rate",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-07",
+      "teacher": false
+    },
+    {
+      "id": "D08",
+      "description": "group by multiple keys without mixing grains",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-08",
+      "teacher": false
+    },
+    {
+      "id": "D09",
+      "description": "calculate within-group proportions with an explicit denominator",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-09",
+      "teacher": false
+    },
+    {
+      "id": "D10",
+      "description": "reconcile grouped counts and totals with detail and qualify small groups",
+      "lesson": true,
+      "notebook": true,
+      "question": "L34R-10",
+      "teacher": false
+    }
+  ],
+  "notebooks": {
+    "en": "sample-content/introduction-to-python/python-lab/templates/10_grouping_statistics.ipynb",
+    "ja": "sample-content/introduction-to-python/python-lab/templates/ja/10_grouping_statistics.ipynb"
+  },
+  "implementation": "scripts/upgrade-python-lesson34-v25.php"
+}

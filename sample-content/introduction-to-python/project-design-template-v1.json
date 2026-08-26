@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "canonical_language": "en",
+  "adaptations": ["ja"],
+  "identity": {
+    "project_id": "",
+    "chapter": "",
+    "title": {"en": "", "ja": ""},
+    "scale": "mini|chapter|capstone",
+    "estimated_hours": null
+  },
+  "learning_scope": {
+    "prerequisites": [],
+    "required_concepts": [],
+    "not_yet_required": []
+  },
+  "problem": {
+    "user": "",
+    "current_problem": "",
+    "input_location": "",
+    "input_delivery": "keyboard|distributed_file|fixed_calls|learner_created",
+    "desired_result": ""
+  },
+  "artifacts": {
+    "starter": "",
+    "learner_edits": [],
+    "submit": [],
+    "do_not_edit": [],
+    "input_originals": [],
+    "generated_outputs": []
+  },
+  "public_contract": {
+    "processing_steps": [],
+    "input_rules": [],
+    "output_rules": [],
+    "boundary_rules": [],
+    "invalid_data_rules": [],
+    "function_contracts": [],
+    "learning_constraints": []
+  },
+  "worked_confirmation": {
+    "sample_input": "",
+    "expected_stdout": "",
+    "expected_files": []
+  },
+  "implementation": {
+    "todo_stages": [],
+    "manual_command": "",
+    "checker_command": "",
+    "submission_command": ""
+  },
+  "checker": {
+    "completion_text": "ALL TESTS PASSED",
+    "cases": [],
+    "requires_only_public_contract": true,
+    "diagnoses_expected_and_actual": true,
+    "blocks_submission_on_failure": true
+  },
+  "distribution": {
+    "moodle_activity": "",
+    "notebook": {"en": "", "ja": ""},
+    "readme": {"en": "", "ja": ""},
+    "preserve_learner_artifacts": true
+  },
+  "completion_gates": {
+    "learner_can_identify_input": false,
+    "learner_can_identify_edit_target": false,
+    "reference_passes_all_checks": false,
+    "starter_failure_is_instructive": false,
+    "moodle_notebook_readme_align": false,
+    "submission_failure_is_safe": false,
+    "submission_and_resubmission_verified": false,
+    "canonical_and_adaptation_align": false,
+    "distribution_image_verified": false
+  }
+}

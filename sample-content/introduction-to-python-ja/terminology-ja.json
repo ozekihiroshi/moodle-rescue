@@ -1,0 +1,40 @@
+{
+  "style": {
+    "learner_voice": "clear polite Japanese using です・ます form",
+    "first_use": "give the English technical term in parentheses on first use",
+    "code": "do not translate Python keywords, identifiers, filenames, or CSV column names",
+    "evidence": "distinguish observations from causal claims",
+    "ai": "preserve Ask, Read, Run, Check, Modify, Explain as a learning cycle"
+  },
+  "terms": {
+    "program": "プログラム",
+    "expression": "式（expression）",
+    "variable": "変数（variable）",
+    "data type": "データ型（data type）",
+    "condition": "条件（condition）",
+    "Boolean value": "真偽値（Boolean value）",
+    "loop": "繰り返し（loop）",
+    "list": "リスト（list）",
+    "dictionary": "辞書（dictionary）",
+    "function": "関数（function）",
+    "argument": "引数（argument）",
+    "return value": "戻り値（return value）",
+    "exception": "例外（exception）",
+    "traceback": "トレースバック（traceback）",
+    "test": "テスト（test）",
+    "table": "表形式データ（tabular data）",
+    "DataFrame": "データフレーム（DataFrame）",
+    "missing value": "欠損値（missing value）",
+    "Boolean logic": "ブール論理（Boolean logic）",
+    "set": "集合（set）",
+    "data cleaning": "データクリーニング（data cleaning）",
+    "audit trail": "監査証跡（audit trail）",
+    "grouping": "グループ化（grouping）",
+    "mean": "平均値（mean）",
+    "median": "中央値（median）",
+    "summary statistics": "要約統計量（summary statistics）",
+    "visualisation": "可視化（visualisation）",
+    "evidence": "根拠（evidence）",
+    "chunk": "チャンク（chunk）"
+  }
+}

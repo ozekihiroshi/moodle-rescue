@@ -1,0 +1,586 @@
+{
+  "PYAI-INTRO": [
+    {
+      "number": "1.1",
+      "cmid": 35,
+      "before": [
+        "Read the first program",
+        "An expression makes a value; print() makes it visible",
+        "The kind of value changes what an operator means",
+        "Express the intended order of calculation",
+        "Changing a value exposes a weakness",
+        "Create your own program"
+      ],
+      "after": [
+        "1.1.1 Read values, expressions, and visible output",
+        "1.1.2 Express the intended calculation order",
+        "1.1.3 Change a program and verify the result",
+        "1.1.4 Integrated practice: write and explain a short program"
+      ],
+      "outcomes": [
+        "Identify instructions, values, expressions, and output in a short program.",
+        "Predict execution from top to bottom and distinguish evaluation from display.",
+        "Use parentheses to make the intended order of a calculation visible.",
+        "Change a small program and check whether all displayed results remain consistent."
+      ],
+      "route": "Required: 1.1.1–1.1.3  |  Integration: 1.1.4",
+      "next": "Lesson 1.2 gives repeated values meaningful names, so one change can update every dependent calculation consistently."
+    },
+    {
+      "number": "1.2",
+      "cmid": 37,
+      "before": [
+        "Keep one source for one meaning",
+        "Assignment is not mathematical equality",
+        "Read the right side before updating the left",
+        "A calculated value does not update itself",
+        "A name follows rules and communicates meaning",
+        "Use NameError to inspect execution order",
+        "Make Notebook state reproducible",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "1.2.1 Create and update program state with assignment",
+        "1.2.2 Choose meaningful names and diagnose NameError",
+        "1.2.3 Make Notebook state reproducible",
+        "1.2.4 Integrated practice: trace and update a small model"
+      ],
+      "outcomes": [
+        "Explain assignment as evaluating the right side before updating the name on the left.",
+        "Trace the value associated with each name after reassignment.",
+        "Distinguish assignment with = from comparison with ==.",
+        "Choose valid, meaningful names and diagnose spelling or execution-order errors."
+      ],
+      "route": "Required: 1.2.1–1.2.3  |  Integration: 1.2.4",
+      "next": "Lesson 1.3 examines the kinds of scalar values stored by those names and the arithmetic and conversions permitted for each kind."
+    },
+    {
+      "number": "1.3",
+      "cmid": 267,
+      "before": [
+        "Similar appearance does not mean the same kind of value",
+        "Seven arithmetic operators process numeric values",
+        "Precedence and parentheses communicate calculation meaning",
+        "Convert explicitly instead of assuming a type",
+        "Successful execution is not enough: validate the number",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "1.3.1 Distinguish the basic scalar types",
+        "1.3.2 Calculate with numeric operators and explicit order",
+        "1.3.3 Convert and validate values deliberately",
+        "1.3.4 Integrated practice: calculate and check a rate"
+      ],
+      "outcomes": [
+        "Distinguish int, float, str, bool, and None by value and purpose.",
+        "Use the seven arithmetic operators and parentheses appropriately.",
+        "Convert between compatible scalar types explicitly and interpret conversion errors.",
+        "Check that a numeric result is plausible as well as executable."
+      ],
+      "route": "Required: 1.3.1–1.3.3  |  Integration: 1.3.4",
+      "next": "Lesson 1.4 develops text as a sequence, accepts keyboard input, and combines values into clear formatted output."
+    },
+    {
+      "number": "1.4",
+      "cmid": 275,
+      "before": [
+        "A number alone does not communicate its work meaning",
+        "Quotes mark the extent of a string",
+        "A string is a sequence whose positions begin at zero",
+        "Strings are immutable, so processing produces a new value",
+        "Match types before concatenation",
+        "input() always returns a string",
+        "f-strings combine meaning and values with a display format",
+        "Split delimited text into fields",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "1.4.1 Create, inspect, and transform strings",
+        "1.4.2 Combine text and values with compatible types",
+        "1.4.3 Accept input and convert it for calculation",
+        "1.4.4 Produce meaningful formatted output",
+        "1.4.5 Read simple delimited text",
+        "1.4.6 Integrated practice: input, calculate, and report"
+      ],
+      "outcomes": [
+        "Create strings and read characters or slices by position.",
+        "Explain that string methods return new values rather than modifying the original string.",
+        "Accept input as text and convert it before numeric calculation.",
+        "Produce labelled, formatted output with f-strings.",
+        "Split a simple delimited record while recognising that full CSV needs a CSV library."
+      ],
+      "route": "Required: 1.4.1–1.4.4  |  Supporting: 1.4.5  |  Integration: 1.4.6",
+      "next": "Lesson 1.5 uses comparisons and Boolean logic to choose what a program should do with the values it has calculated."
+    },
+    {
+      "number": "1.5",
+      "cmid": 39,
+      "before": [
+        "After calculating a value, choose what the program should do with it",
+        "A condition produces the Boolean value True or False",
+        "if runs its indented block only when the condition is True",
+        "else selects exactly one of two actions",
+        "elif checks several candidates from the top and selects the first match",
+        "Independent if statements run independently",
+        "and, or, and not combine decisions",
+        "Test immediately below, at, and above each boundary",
+        "Validate the value before applying ordinary categories",
+        "Short-circuit evaluation skips an expression after the result is known",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "1.5.1 Build comparisons that produce Boolean values",
+        "1.5.2 Select between two actions with if and else",
+        "1.5.3 Select among several or independent actions",
+        "1.5.4 Combine decisions with Boolean logic",
+        "1.5.5 Validate domains and test boundaries",
+        "1.5.6 Use short-circuit evaluation as a guard",
+        "1.5.7 Integrated practice: implement and test an operational rule"
+      ],
+      "outcomes": [
+        "Build comparisons and explain the resulting bool value.",
+        "Use indentation and if/elif/else to implement mutually exclusive rules.",
+        "Distinguish one branch chain from independent if statements.",
+        "Combine conditions with and, or, and not using explicit grouping.",
+        "Test invalid values and points immediately below, at, and above a boundary."
+      ],
+      "route": "Required: 1.5.1–1.5.5  |  Supporting: 1.5.6  |  Integration: 1.5.7",
+      "next": "Lesson 1.6 repeats the same decision and update pattern over several values without copying the same code many times."
+    },
+    {
+      "number": "1.6",
+      "cmid": 41,
+      "before": [
+        "Repeat one pattern accurately for every value",
+        "for takes one value at a time from an iterable",
+        "range() includes its start and excludes its stop",
+        "Initialise an accumulator before the loop and update it inside",
+        "A counter increases by one only for a matching item",
+        "Initialise a maximum from real data",
+        "enumerate() supplies a number and value together",
+        "continue skips this iteration; break ends the loop",
+        "while repeats while its condition remains True",
+        "Use for for known values and while for a changing stopping condition",
+        "An empty iterable runs a for loop zero times",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "1.6.1 Repeat over known values with for and range",
+        "1.6.2 Build totals and conditional counts",
+        "1.6.3 Track an extreme value and its position",
+        "1.6.4 Control one iteration or the whole loop",
+        "1.6.5 Repeat until a condition changes with while",
+        "1.6.6 Handle zero iterations and empty input",
+        "1.6.7 Integrated practice: process a sequence and report the result"
+      ],
+      "outcomes": [
+        "Choose for for known values and while for a changing stopping condition.",
+        "Use range and enumerate without off-by-one errors.",
+        "Build totals, counts, and maximum tracking with correct initial values.",
+        "Use break and continue only when their effect on the loop is clear.",
+        "Define sensible behaviour for empty input and zero iterations."
+      ],
+      "route": "Required: 1.6.1–1.6.3, 1.6.5–1.6.6  |  Supporting: 1.6.4  |  Integration: 1.6.7",
+      "next": "Project 1.7 combines input, conversion, conditions, and a for loop to turn five daily records into one checked weekly support report."
+    },
+    {
+      "number": "2.1",
+      "cmid": 43,
+      "before": [
+        "Organise related values as one structure",
+        "A list is ordered and mutable",
+        "Modify a list through positions and mutation methods",
+        "Assignment shares one list rather than duplicating it",
+        "A tuple is ordered but immutable",
+        "A dictionary names each field with a key",
+        "Handle a missing key according to the field meaning",
+        "Select the dictionary view needed by the loop",
+        "A list of dictionaries represents several records",
+        "A set represents unique membership and supports set operations",
+        "Find one record by ID and distinguish absence",
+        "Add, read, update, and delete in one collection",
+        "Transfer exercise: equipment register",
+        "Additional practice: transfer to centre records"
+      ],
+      "after": [
+        "2.1.1 Store and modify ordered values with lists",
+        "2.1.2 Use tuples for fixed ordered values",
+        "2.1.3 Represent named fields with dictionaries",
+        "2.1.4 Represent several records with a list of dictionaries",
+        "2.1.5 Represent unique membership with sets",
+        "2.1.6 Search, add, update, and remove records in an equipment register",
+        "2.1.7 Integrated practice: maintain another small register"
+      ],
+      "outcomes": [
+        "Choose a list, tuple, dictionary, or set from the meaning of the data.",
+        "Modify a collection while distinguishing shared references from copies.",
+        "Represent one record with named fields and several records as a list of dictionaries.",
+        "Search by a stable ID and define the result when no record exists.",
+        "Apply add, read, update, and remove operations without losing collection invariants."
+      ],
+      "route": "Required: 2.1.1, 2.1.3–2.1.6  |  Supporting: 2.1.2  |  Integration: 2.1.7",
+      "next": "Lesson 2.2 moves these operations into small functions with public contracts, explicit errors, and automatic tests."
+    },
+    {
+      "number": "2.2",
+      "cmid": 45,
+      "before": [
+        "Separate a long process into functions with clear responsibilities",
+        "Define with def, then call by name",
+        "Parameters are inputs and return is the output",
+        "Local names keep processing contained",
+        "Defaults and keyword arguments make calls readable",
+        "Docstrings and type hints communicate a contract",
+        "Separate validation, calculation, and presentation",
+        "Classify errors by stage and read a traceback from the end",
+        "Keep try narrow and catch only expected exceptions",
+        "Test normal, boundary, and invalid cases separately",
+        "Define search and mutation contracts",
+        "Test state before and after",
+        "Transfer exercise: equipment-register functions",
+        "Additional practice: separate centre processing into functions"
+      ],
+      "after": [
+        "2.2.1 Define a function with explicit inputs and output",
+        "2.2.2 Control scope and communicate the calling contract",
+        "2.2.3 Separate validation, processing, and presentation",
+        "2.2.4 Read errors and catch only expected exceptions",
+        "2.2.5 Test normal, boundary, and invalid cases",
+        "2.2.6 Specify and test search and mutation contracts",
+        "2.2.7 Integrated practice: connect tested functions"
+      ],
+      "outcomes": [
+        "Define and call functions with parameters and useful return values.",
+        "Explain local scope, defaults, keyword arguments, docstrings, and type hints as parts of a contract.",
+        "Separate validation, calculation, state change, and presentation responsibilities.",
+        "Classify syntax, runtime, and logical errors and keep exception handling narrow.",
+        "Test return values, raised exceptions, and state before and after a call."
+      ],
+      "route": "Required: 2.2.1–2.2.6  |  Integration: 2.2.7",
+      "next": "Lesson 2.3 uses these function and error contracts to read persistent records from CSV and save a separately verifiable result."
+    },
+    {
+      "number": "2.3",
+      "cmid": 285,
+      "before": [
+        "Exchange records safely beyond one program run",
+        "Establish the file location before reading",
+        "Use with, an intentional mode, and an explicit encoding",
+        "Do not parse CSV with split",
+        "DictReader values initially remain strings",
+        "Validate the header and each row before use",
+        "Write a separate CSV and load it again",
+        "From guided example to transfer"
+      ],
+      "after": [
+        "2.3.1 Resolve the intended file path",
+        "2.3.2 Open text files with an explicit mode and encoding",
+        "2.3.3 Read CSV records without losing their structure",
+        "2.3.4 Validate headers, rows, and converted values",
+        "2.3.5 Save to a separate file and verify by re-reading",
+        "2.3.6 Integrated practice: build a complete CSV round trip"
+      ],
+      "outcomes": [
+        "Resolve file paths from a defined base rather than an assumed current directory.",
+        "Open and close text files safely with an explicit mode and UTF-8 encoding.",
+        "Read CSV with DictReader and convert field values according to a declared schema.",
+        "Validate the header and every row before using the records.",
+        "Write a separate CSV with DictWriter and verify the saved product by re-reading it."
+      ],
+      "route": "Required: 2.3.1–2.3.5  |  Integration: 2.3.6",
+      "next": "Project 2.4 combines record structures, tested functions, validation, and CSV input/output in a library-record update program."
+    }
+  ],
+  "PYAI-INTRO-JA": [
+    {
+      "number": "1.1",
+      "cmid": 181,
+      "before": [
+        "最初のプログラムを読む",
+        "式は値を作り、print()がそれを外へ示す",
+        "同じ記号でも、値が違えば意味が変わる",
+        "計算の順序をコードに表す",
+        "値を変えると、プログラムの弱点が見える",
+        "自分で作る"
+      ],
+      "after": [
+        "1.1.1 値・式・出力を読み分ける",
+        "1.1.2 計算の意図を順序として表す",
+        "1.1.3 プログラムを変更し、結果を確かめる",
+        "1.1.4 統合練習：短いプログラムを書いて説明する"
+      ],
+      "outcomes": [
+        "短いプログラムから命令・値・式・出力を見分けられる。",
+        "上から順に実行結果を予測し、計算と表示を区別できる。",
+        "括弧を使って計算順序と意図を明確にできる。",
+        "プログラムを変更し、表示結果どうしに矛盾がないか確認できる。"
+      ],
+      "route": "必須：1.1.1～1.1.3　｜　統合練習：1.1.4",
+      "next": "1.2では、繰り返し現れる値に名前を付け、一か所の変更を関連する計算へ一貫して反映させます。"
+    },
+    {
+      "number": "1.2",
+      "cmid": 183,
+      "before": [
+        "同じ意味の値を一か所で管理する",
+        "代入は、数学の等号とは違う",
+        "右辺を読んでから、左辺を更新する",
+        "計算済みの値は、自動では変わらない",
+        "名前は規則を守り、意味を伝える",
+        "NameErrorから実行順序を調べる",
+        "Notebookの状態を再現する",
+        "例題から応用へ"
+      ],
+      "after": [
+        "1.2.1 代入によってプログラムの状態を作り、更新する",
+        "1.2.2 意味のある名前を選び、NameErrorを調べる",
+        "1.2.3 Notebookの状態を再現可能にする",
+        "1.2.4 統合練習：小さなモデルの状態を追跡する"
+      ],
+      "outcomes": [
+        "右辺を評価してから左辺の名前を更新する代入の流れを説明できる。",
+        "再代入の後で各変数が指す値を追跡できる。",
+        "代入の=と比較の==を区別できる。",
+        "有効で意味のある名前を選び、綴りや実行順によるエラーを調べられる。"
+      ],
+      "route": "必須：1.2.1～1.2.3　｜　統合練習：1.2.4",
+      "next": "1.3では、変数が保持する基本データ型と、型ごとに使える算術演算・型変換を整理します。"
+    },
+    {
+      "number": "1.3",
+      "cmid": 271,
+      "before": [
+        "同じ見た目でも、値の種類が違う",
+        "数値を処理する七つの算術演算子",
+        "優先順位と括弧で、計算の意味を示す",
+        "型を暗黙に期待せず、明示的に変換する",
+        "正しく実行できても、数値として妥当か確認する",
+        "例題から応用へ"
+      ],
+      "after": [
+        "1.3.1 基本的なスカラー型を区別する",
+        "1.3.2 数値演算子と明示した順序で計算する",
+        "1.3.3 必要な型へ変換し、値を検証する",
+        "1.3.4 統合練習：割合を計算して確かめる"
+      ],
+      "outcomes": [
+        "int・float・str・bool・Noneを、値と用途から区別できる。",
+        "7種類の算術演算子と括弧を適切に使える。",
+        "互換性のある型を明示的に変換し、変換エラーを読める。",
+        "実行できたかだけでなく、数値が妥当か確認できる。"
+      ],
+      "route": "必須：1.3.1～1.3.3　｜　統合練習：1.3.4",
+      "next": "1.4では、文字列を並びとして扱い、キーボード入力を受け取り、値を意味の分かる出力へ組み立てます。"
+    },
+    {
+      "number": "1.4",
+      "cmid": 279,
+      "before": [
+        "数値だけでは、仕事の意味を伝えられない",
+        "引用符で文字列の範囲を示す",
+        "文字列は、0から位置を数える文字の並び",
+        "文字列は変更不能なので、処理結果は新しい値になる",
+        "連結するときは、型を揃える",
+        "input()は必ず文字列を返す",
+        "f文字列で、説明と値を書式付きで組み合わせる",
+        "区切られた文字列を分ける",
+        "例題から応用へ"
+      ],
+      "after": [
+        "1.4.1 文字列を作り、調べ、変換する",
+        "1.4.2 型を合わせて文字列と値を組み合わせる",
+        "1.4.3 入力を受け取り、計算用の型へ変換する",
+        "1.4.4 意味の分かる書式付き出力を作る",
+        "1.4.5 単純な区切り文字付きテキストを読む",
+        "1.4.6 統合練習：入力・計算・報告をつなぐ"
+      ],
+      "outcomes": [
+        "文字列を作り、位置を使って文字や部分文字列を取り出せる。",
+        "文字列メソッドが元の文字列を変えず、新しい値を返すと説明できる。",
+        "入力を文字列として受け取り、数値計算の前に変換できる。",
+        "f文字列でラベルと値を組み合わせた出力を作れる。",
+        "単純な区切り文字付きデータと、本格的なCSV処理の違いを説明できる。"
+      ],
+      "route": "必須：1.4.1～1.4.4　｜　補足：1.4.5　｜　統合練習：1.4.6",
+      "next": "1.5では、比較とブール論理を使い、計算した値に応じてプログラムが行う処理を選びます。"
+    },
+    {
+      "number": "1.5",
+      "cmid": 185,
+      "before": [
+        "値を計算したら、次はその値に応じて処理を選ぶ",
+        "条件式はTrueまたはFalseという値を作る",
+        "if文は条件がTrueのときだけ字下げされた処理を実行する",
+        "elseを加えると、二つの処理から必ず一つを選べる",
+        "elifは複数の候補を上から調べ、最初の一つだけを選ぶ",
+        "独立したif文は、条件がTrueならそれぞれ実行する",
+        "and・or・notで複数の判定を組み合わせる",
+        "境界値は、直前・一致・直後を実行する",
+        "通常の分類より先に、入力値が妥当か確認する",
+        "短絡評価は、結果が決まった後の式を評価しない",
+        "例題から応用へ"
+      ],
+      "after": [
+        "1.5.1 ブール値を生む比較条件を作る",
+        "1.5.2 ifとelseで二つの処理から選ぶ",
+        "1.5.3 複数候補と独立した処理を区別する",
+        "1.5.4 ブール論理で条件を組み合わせる",
+        "1.5.5 値の範囲を検証し、境界をテストする",
+        "1.5.6 短絡評価を安全確認に使う",
+        "1.5.7 統合練習：業務ルールを実装して検証する"
+      ],
+      "outcomes": [
+        "比較式を作り、その結果となるbool値を説明できる。",
+        "インデントとif・elif・elseで排他的な規則を実装できる。",
+        "一つの分岐連鎖と独立したif文を使い分けられる。",
+        "and・or・notを明示的なまとまりで組み合わせられる。",
+        "不正値と、境界の直前・境界上・直後をテストできる。"
+      ],
+      "route": "必須：1.5.1～1.5.5　｜　補足：1.5.6　｜　統合練習：1.5.7",
+      "next": "1.6では、同じ判断と更新を複数の値へ適用し、同じコードを何度も書かずに処理します。"
+    },
+    {
+      "number": "1.6",
+      "cmid": 187,
+      "before": [
+        "同じ形の処理を、値の数だけ正確に繰り返す",
+        "for文は、値の並びから一つずつ取り出す",
+        "range()は開始を含み、終了を含まない",
+        "アキュムレータはループの外で初期化し、内側で更新する",
+        "カウンタは、条件に一致したときだけ1増やす",
+        "最大値は実データから初期化する",
+        "enumerate()は番号と値を同時に取り出す",
+        "continueは今回の残りを飛ばし、breakはループ全体を止める",
+        "while文は、条件がTrueである間繰り返す",
+        "処理対象が分かっているならfor、終了条件で続けるならwhile",
+        "空データでは、ループは一度も実行されない",
+        "例題から応用へ"
+      ],
+      "after": [
+        "1.6.1 forとrangeで既知の値を繰り返し処理する",
+        "1.6.2 合計と条件付き件数を作る",
+        "1.6.3 最大・最小などの値と位置を追跡する",
+        "1.6.4 一回の処理またはループ全体を制御する",
+        "1.6.5 条件が変わるまでwhileで繰り返す",
+        "1.6.6 0回の繰り返しと空の入力を扱う",
+        "1.6.7 統合練習：値の並びを処理して報告する"
+      ],
+      "outcomes": [
+        "既知の値にはfor、変化する終了条件にはwhileを選べる。",
+        "rangeとenumerateを境界のずれなく使える。",
+        "正しい初期値から合計・件数・最大値を更新できる。",
+        "breakとcontinueが繰り返しへ与える影響を説明できる。",
+        "空の入力と0回の繰り返しに対する結果を定義できる。"
+      ],
+      "route": "必須：1.6.1～1.6.3、1.6.5～1.6.6　｜　補足：1.6.4　｜　統合練習：1.6.7",
+      "next": "1.7では、入力・型変換・条件分岐・forループを組み合わせ、5日分の日報から自動確認可能な週間報告を作ります。"
+    },
+    {
+      "number": "2.1",
+      "cmid": 189,
+      "before": [
+        "関連する値を一つの構造へまとめる",
+        "リストは順序を持ち、内容を変更できる",
+        "リストの変更には、位置の代入と変更メソッドを使う",
+        "代入はリストを複製せず、同じオブジェクトを共有する",
+        "タプルは順序を持つが、作成後に要素を置き換えられない",
+        "辞書はキーによって各値の意味を表す",
+        "存在しないキーをどう扱うかは、項目の意味で決める",
+        "辞書を反復するときは、必要な部分を選ぶ",
+        "リストの中に辞書を置くと、複数のレコードになる",
+        "集合は重複のない所属と集合演算を表す",
+        "IDで一件を探し、該当なしを区別する",
+        "一つの集合で追加・参照・更新・削除する",
+        "応用練習：備品台帳",
+        "追加練習：センターレコードへ応用する"
+      ],
+      "after": [
+        "2.1.1 リストで順序のある値を保持し、変更する",
+        "2.1.2 タプルで固定された順序付き値を表す",
+        "2.1.3 辞書で名前付きフィールドを表す",
+        "2.1.4 辞書のリストで複数レコードを表す",
+        "2.1.5 集合で重複のない所属を表す",
+        "2.1.6 備品台帳のレコードを検索・追加・更新・削除する",
+        "2.1.7 統合練習：別の小さな台帳を管理する"
+      ],
+      "outcomes": [
+        "データの意味からリスト・タプル・辞書・集合を選べる。",
+        "同じオブジェクトの共有とコピーを区別してコレクションを変更できる。",
+        "一件を名前付きフィールドで、複数件を辞書のリストで表せる。",
+        "安定したIDで検索し、見つからない場合の結果を定義できる。",
+        "追加・参照・更新・削除でコレクションの規則を保てる。"
+      ],
+      "route": "必須：2.1.1、2.1.3～2.1.6　｜　補足：2.1.2　｜　統合練習：2.1.7",
+      "next": "2.2では、これらの操作を公開仕様のある小さな関数へ分け、エラーと自動テストを扱います。"
+    },
+    {
+      "number": "2.2",
+      "cmid": 191,
+      "before": [
+        "長い処理を、役割の明確な関数へ分ける",
+        "defで定義し、名前と丸括弧で呼び出す",
+        "仮引数は入口、returnは出口になる",
+        "ローカル変数によって処理を閉じ込める",
+        "既定値とキーワード引数で呼び出しを読みやすくする",
+        "docstringと型ヒントで関数の契約を伝える",
+        "検証、計算、表示を別の責務に分ける",
+        "エラーは発生段階を分け、トレースバックは最後から読む",
+        "tryには失敗し得る最小範囲を置く",
+        "正常値、境界値、異常値を別々にテストする",
+        "検索・変更関数の契約を決める",
+        "状態の前後をテストする",
+        "応用練習：備品台帳の関数",
+        "追加練習：センター処理を関数へ分ける"
+      ],
+      "after": [
+        "2.2.1 入力と出力が明確な関数を定義する",
+        "2.2.2 スコープを管理し、呼び出し規約を伝える",
+        "2.2.3 検証・処理・表示の責任を分ける",
+        "2.2.4 エラーを読み、予測できる例外だけを捕捉する",
+        "2.2.5 正常・境界・異常ケースをテストする",
+        "2.2.6 検索・更新関数の契約と状態変化をテストする",
+        "2.2.7 統合練習：テスト済み関数を接続する"
+      ],
+      "outcomes": [
+        "引数と有用な戻り値を持つ関数を定義し、呼び出せる。",
+        "ローカルスコープ、既定値、キーワード引数、docstring、型ヒントを関数契約として説明できる。",
+        "検証・計算・状態変更・表示の責任を分けられる。",
+        "構文・実行時・論理エラーを区別し、狭い範囲で例外を処理できる。",
+        "戻り値、発生する例外、呼び出し前後の状態をテストできる。"
+      ],
+      "route": "必須：2.2.1～2.2.6　｜　統合練習：2.2.7",
+      "next": "2.3では、関数とエラーの契約を使い、CSVから永続的なレコードを読み、別の検証可能な結果として保存します。"
+    },
+    {
+      "number": "2.3",
+      "cmid": 289,
+      "before": [
+        "プログラムの外にある記録を、安全に受け渡す",
+        "読む前に、ファイルの場所を確定する",
+        "with、モード、文字コード",
+        "CSVはコンマでsplitしない",
+        "DictReaderの値は最初は文字列",
+        "使う前にヘッダーと各行を検証する",
+        "別のCSVへ書き、もう一度読む",
+        "例題から応用へ"
+      ],
+      "after": [
+        "2.3.1 読み込むファイルの場所を確定する",
+        "2.3.2 モードと文字コードを明示してファイルを開く",
+        "2.3.3 構造を壊さずにCSVレコードを読む",
+        "2.3.4 ヘッダー・各行・変換した値を検証する",
+        "2.3.5 別ファイルへ保存し、再読込で確認する",
+        "2.3.6 統合練習：CSVの往復処理を完成させる"
+      ],
+      "outcomes": [
+        "現在位置を仮定せず、定義した基準位置からパスを作れる。",
+        "モードとUTF-8を明示し、安全にテキストファイルを開閉できる。",
+        "DictReaderでCSVを読み、宣言したスキーマに従って値を変換できる。",
+        "使用前にヘッダーと各行を検証できる。",
+        "DictWriterで別のCSVへ保存し、再読込した成果物を確認できる。"
+      ],
+      "route": "必須：2.3.1～2.3.5　｜　統合練習：2.3.6",
+      "next": "2.4では、レコード構造、テスト済み関数、入力検証、CSV入出力を組み合わせ、図書台帳を更新するプログラムを作ります。"
+    }
+  ]
+}

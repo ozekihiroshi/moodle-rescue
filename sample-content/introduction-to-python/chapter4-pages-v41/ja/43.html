@@ -1,0 +1,33 @@
+<div class="python-sample-lesson python-sample-lesson-v41"><h2>導入</h2><p><strong>実際の窓口は多数のオブジェクトを調整します。</strong> 機材は貸出可能かを知っていますが、全機材の検索まで知る必要はありません。窓口クラスがコレクションを持ち、状態規則は機材に残します。</p><h2>このレッスンの到達目標</h2><ul><li>安定した識別子をキーにオブジェクトを保存する。</li><li>機材を含む窓口を合成として表す。</li><li>状態変更を規則を持つオブジェクトへ委譲する。</li><li>第二の真実を作らず集計する。</li></ul><aside style="padding:.75em 1em;border-left:4px solid #5b7c99;background:#f6f8fa"><strong>学習経路:</strong> 必須 4.3.1〜4.3.4｜統合練習 4.3.5</aside><h2>4.3.1 機材オブジェクトから窓口を合成する</h2><p>合成は一つのオブジェクトが別のオブジェクトを含む関係です。IDをキーとする辞書で検索と一意性を明確にします。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>class LendingDesk:
+    def __init__(self):
+        self.items = {}
+
+    def add_item(self, item):
+        if item.item_id in self.items:
+            raise ValueError(&quot;duplicate item ID&quot;)
+        self.items[item.item_id] = item
+
+    def find_item(self, item_id):
+        return self.items.get(item_id.strip())
+
+    def loan_item(self, item_id, borrower_id):
+        item = self.find_item(item_id)
+        if item is None:
+            raise KeyError(item_id)
+        item.loan_to(borrower_id)</code></pre><p>値は属性のコピーではなく、実際の<code>EquipmentItem</code>です。</p><h2>4.3.2 情報を持つクラスへ責任を置く</h2><p>窓口は「どの機材か」、機材は「その遷移が許されるか」を判断します。窓口は検索後に<code>item.loan_to()</code>を呼び、二重貸出規則を複製しません。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>desk.loan_item(&quot;E001&quot;, &quot;M014&quot;)
+# desk: E001を探す
+# item: 自分の状態を検証して変更する</code></pre><h2>4.3.3 存在しない対象と不正な状態を区別する</h2><p>未知IDは対象が存在しないので<code>KeyError</code>、存在する機材が遷移を拒否すると<code>ValueError</code>です。違いが監査結果の理由になります。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>try:
+    desk.loan_item(&quot;E999&quot;, &quot;M014&quot;)
+except KeyError:
+    print(&quot;unknown item&quot;)
+
+try:
+    desk.loan_item(&quot;E002&quot;, &quot;M014&quot;)
+except ValueError:
+    print(&quot;item cannot be loaned&quot;)</code></pre><h2>4.3.4 現在状態から集計値を導く</h2><p>利用可能件数は各機材の現在状態から計算できます。別の合計変数を保存すると、すべての遷移で二か所を更新する必要があります。</p><pre style="background:#f4f5f7;border:1px solid #d8dce1;padding:1em;overflow:auto"><code>def summary(self):
+    available = sum(item.is_available() for item in self.items.values())
+    return {
+        &quot;total_items&quot;: len(self.items),
+        &quot;available_items&quot;: available,
+        &quot;loaned_items&quot;: len(self.items) - available,
+    }</code></pre><h2>4.3.5 統合練習</h2><p>三件を追加し、一件を貸出中にします。窓口経由で貸出・返却・集計を行い、各呼び出しで検索するクラスと状態を検証するクラスを答えてください。</p><h2>まとめ</h2><ul><li>合成により調整役がドメインオブジェクトの集合を持つ。</li><li>委譲により検索・一意性・状態遷移を適切な場所へ置く。</li><li>現在状態から集計し、古くなる保存値を作らない。</li></ul><h2>次のレッスンへ</h2><p>次はCSVとオブジェクトの境界を作り、受理・拒否の結果を一件ずつ残します。</p><p style="display:none">PYAI-V41-CHAPTER4-TEXTBOOK</p></div>

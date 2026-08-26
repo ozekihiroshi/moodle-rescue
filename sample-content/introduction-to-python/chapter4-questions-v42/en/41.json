@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "After `first = EquipmentItem(\"E001\", \"Laptop\", \"Computer\")`, which statement is correct?",
+    "c": [
+      "EquipmentItem is an instance",
+      "first is an instance of EquipmentItem",
+      "first is a method",
+      "E001 is a class"
+    ],
+    "ok": 1,
+    "why": "Calling a class constructs an object; `first` refers to that instance."
+  },
+  {
+    "id": "02",
+    "p": "During `first.loan_to(\"M014\")`, what does `self` refer to?",
+    "c": [
+      "the EquipmentItem class",
+      "the string M014",
+      "the object referred to by first",
+      "every EquipmentItem instance"
+    ],
+    "ok": 2,
+    "why": "The receiver to the left of the method call becomes `self`."
+  },
+  {
+    "id": "03",
+    "p": "What is printed?\n\nfirst = EquipmentItem(\"E1\", \"Laptop\", \"Computer\")\nsecond = EquipmentItem(\"E2\", \"Camera\", \"Media\")\nfirst.borrower_id = \"M1\"\nprint(second.borrower_id)",
+    "c": [
+      "M1",
+      "None",
+      "E2",
+      "an error"
+    ],
+    "ok": 1,
+    "why": "Instance attributes are independent; only `first` changed."
+  },
+  {
+    "id": "04",
+    "p": "Which expression calls behaviour rather than reading stored state?",
+    "c": [
+      "item.name",
+      "item.item_id",
+      "item.is_available()",
+      "item.borrower_id"
+    ],
+    "ok": 2,
+    "why": "Parentheses call the method; the others read attributes."
+  },
+  {
+    "id": "05",
+    "p": "What is the main role of `__init__` in this chapter?",
+    "c": [
+      "delete an object",
+      "create its valid initial attributes",
+      "compare two objects",
+      "save CSV automatically"
+    ],
+    "ok": 1,
+    "why": "The constructor establishes the state of each new instance."
+  },
+  {
+    "id": "06",
+    "p": "Two separately constructed items have the same `item_id`. Which result is expected before custom equality is defined?",
+    "c": [
+      "a is b is True",
+      "a is b is False",
+      "both names must refer to one object",
+      "Python rejects the second construction automatically"
+    ],
+    "ok": 1,
+    "why": "Equal-looking attributes do not make separately constructed objects identical."
+  },
+  {
+    "id": "07",
+    "p": "Which situation most strongly justifies introducing a class?",
+    "c": [
+      "one read-only dictionary",
+      "several operations must preserve one entity's changing state",
+      "one arithmetic expression",
+      "a constant heading"
+    ],
+    "ok": 1,
+    "why": "Classes earn their cost when related state and rules need one boundary."
+  },
+  {
+    "id": "08",
+    "p": "A method is defined as `def label(): ...` inside a class and called with `item.label()`. What is missing?",
+    "c": [
+      "a CSV file",
+      "the receiving `self` parameter",
+      "a loop",
+      "an `elif`"
+    ],
+    "ok": 1,
+    "why": "An ordinary instance method receives the object as its first parameter."
+  },
+  {
+    "id": "09",
+    "p": "How should `first.loan_to(\"M014\")` be read?",
+    "c": [
+      "copy first into M014",
+      "ask first to perform loan_to using M014",
+      "call every object's loan_to",
+      "construct a new class"
+    ],
+    "ok": 1,
+    "why": "The receiver is named on the left; the argument supplies request data."
+  },
+  {
+    "id": "10",
+    "p": "When may dictionaries and functions remain clearer than a class?",
+    "c": [
+      "never",
+      "when records are few, passive, and have little related behaviour",
+      "only when using pandas",
+      "only when no strings exist"
+    ],
+    "ok": 1,
+    "why": "The course treats classes as a design choice, not an automatic replacement."
+  }
+]

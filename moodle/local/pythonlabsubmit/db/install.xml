@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/pythonlabsubmit/db" VERSION="2026082400" COMMENT="XMLDB file for local_pythonlabsubmit">
+  <TABLES>
+    <TABLE NAME="local_pythonlabsubmit_nonce" COMMENT="Short-lived nonces used to reject replayed submission requests">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="nonce" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="expiresat" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="nonce_uix" UNIQUE="true" FIELDS="nonce"/>
+        <INDEX NAME="expiresat_ix" UNIQUE="false" FIELDS="expiresat"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

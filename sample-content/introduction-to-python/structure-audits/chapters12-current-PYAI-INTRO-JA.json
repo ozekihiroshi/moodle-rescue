@@ -1,0 +1,656 @@
+{
+  "course": "PYAI-INTRO-JA",
+  "activities": [
+    {
+      "cmid": 181,
+      "modname": "page",
+      "name": "レッスン1.1：プログラム・値・式・出力",
+      "section_number": 6,
+      "section_name": "1.1 プログラム・値・式・出力",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "最初のプログラムを読む"
+        },
+        {
+          "level": "h3",
+          "text": "式は値を作り、 print() がそれを外へ示す"
+        },
+        {
+          "level": "h3",
+          "text": "同じ記号でも、値が違えば意味が変わる"
+        },
+        {
+          "level": "h3",
+          "text": "計算の順序をコードに表す"
+        },
+        {
+          "level": "h3",
+          "text": "値を変えると、プログラムの弱点が見える"
+        },
+        {
+          "level": "h3",
+          "text": "自分で作る"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 1,
+      "marker": [
+        "PYAI-V12-LESSON1-FLOW"
+      ]
+    },
+    {
+      "cmid": 227,
+      "modname": "lti",
+      "name": "Python Lab 1.1：プログラム・値・式・出力",
+      "section_number": 6,
+      "section_name": "1.1 プログラム・値・式・出力"
+    },
+    {
+      "cmid": 182,
+      "modname": "quiz",
+      "name": "[v1受験履歴・非表示] 理解度チェック：レッスン1 初めてのPythonプログラム",
+      "section_number": 6,
+      "section_name": "1.1 プログラム・値・式・出力",
+      "slots": 10
+    },
+    {
+      "cmid": 265,
+      "modname": "quiz",
+      "name": "理解度チェック：1.1 プログラム・値・式・出力",
+      "section_number": 6,
+      "section_name": "1.1 プログラム・値・式・出力",
+      "slots": 10
+    },
+    {
+      "cmid": 183,
+      "modname": "page",
+      "name": "レッスン1.2：変数・代入・プログラムの状態",
+      "section_number": 7,
+      "section_name": "1.2 変数・代入・プログラムの状態",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "同じ意味の値を一か所で管理する"
+        },
+        {
+          "level": "h3",
+          "text": "代入は、数学の等号とは違う"
+        },
+        {
+          "level": "h3",
+          "text": "右辺を読んでから、左辺を更新する"
+        },
+        {
+          "level": "h3",
+          "text": "計算済みの値は、自動では変わらない"
+        },
+        {
+          "level": "h3",
+          "text": "名前は規則を守り、意味を伝える"
+        },
+        {
+          "level": "h3",
+          "text": "NameError から実行順序を調べる"
+        },
+        {
+          "level": "h3",
+          "text": "Notebookの状態を再現する"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 5,
+      "tables": 1,
+      "marker": [
+        "PYAI-V13-LESSON2-FLOW"
+      ]
+    },
+    {
+      "cmid": 228,
+      "modname": "lti",
+      "name": "Python Lab 1.2：変数・代入・状態",
+      "section_number": 7,
+      "section_name": "1.2 変数・代入・プログラムの状態"
+    },
+    {
+      "cmid": 184,
+      "modname": "quiz",
+      "name": "理解度チェック：1.2 変数・代入・プログラムの状態",
+      "section_number": 7,
+      "section_name": "1.2 変数・代入・プログラムの状態",
+      "slots": 10
+    },
+    {
+      "cmid": 185,
+      "modname": "page",
+      "name": "レッスン1.5：条件による判断",
+      "section_number": 8,
+      "section_name": "1.5 条件による判断",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "値を計算したら、次はその値に応じて処理を選ぶ"
+        },
+        {
+          "level": "h3",
+          "text": "条件式はTrueまたはFalseという値を作る"
+        },
+        {
+          "level": "h3",
+          "text": "if文は条件がTrueのときだけ字下げされた処理を実行する"
+        },
+        {
+          "level": "h3",
+          "text": "elseを加えると、二つの処理から必ず一つを選べる"
+        },
+        {
+          "level": "h3",
+          "text": "elifは複数の候補を上から調べ、最初の一つだけを選ぶ"
+        },
+        {
+          "level": "h3",
+          "text": "独立したif文は、条件がTrueならそれぞれ実行する"
+        },
+        {
+          "level": "h3",
+          "text": "and・or・notで複数の判定を組み合わせる"
+        },
+        {
+          "level": "h3",
+          "text": "境界値は、直前・一致・直後を実行する"
+        },
+        {
+          "level": "h3",
+          "text": "通常の分類より先に、入力値が妥当か確認する"
+        },
+        {
+          "level": "h3",
+          "text": "短絡評価は、結果が決まった後の式を評価しない"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 9,
+      "tables": 1,
+      "marker": [
+        "PYAI-V16-CONDITIONS-FLOW"
+      ]
+    },
+    {
+      "cmid": 229,
+      "modname": "lti",
+      "name": "Python Lab 1.5：条件と境界値",
+      "section_number": 8,
+      "section_name": "1.5 条件による判断"
+    },
+    {
+      "cmid": 186,
+      "modname": "quiz",
+      "name": "理解度チェック：1.5 条件による判断",
+      "section_number": 8,
+      "section_name": "1.5 条件による判断",
+      "slots": 10
+    },
+    {
+      "cmid": 187,
+      "modname": "page",
+      "name": "レッスン1.6：ループによる繰り返し",
+      "section_number": 9,
+      "section_name": "1.6 ループによる繰り返し",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "同じ形の処理を、値の数だけ正確に繰り返す"
+        },
+        {
+          "level": "h3",
+          "text": "for文は、値の並びから一つずつ取り出す"
+        },
+        {
+          "level": "h3",
+          "text": "range()は開始を含み、終了を含まない"
+        },
+        {
+          "level": "h3",
+          "text": "アキュムレータはループの外で初期化し、内側で更新する"
+        },
+        {
+          "level": "h3",
+          "text": "カウンタは、条件に一致したときだけ1増やす"
+        },
+        {
+          "level": "h3",
+          "text": "最大値は実データから初期化する"
+        },
+        {
+          "level": "h3",
+          "text": "enumerate()は番号と値を同時に取り出す"
+        },
+        {
+          "level": "h3",
+          "text": "continueは今回の残りを飛ばし、breakはループ全体を止める"
+        },
+        {
+          "level": "h3",
+          "text": "while文は、条件がTrueである間繰り返す"
+        },
+        {
+          "level": "h3",
+          "text": "処理対象が分かっているならfor、終了条件で続けるならwhile"
+        },
+        {
+          "level": "h3",
+          "text": "空データでは、ループは一度も実行されない"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 9,
+      "tables": 0,
+      "marker": [
+        "PYAI-V17-LOOPS-FLOW"
+      ]
+    },
+    {
+      "cmid": 230,
+      "modname": "lti",
+      "name": "Python Lab 1.6：ループと累積処理",
+      "section_number": 9,
+      "section_name": "1.6 ループによる繰り返し"
+    },
+    {
+      "cmid": 188,
+      "modname": "quiz",
+      "name": "理解度チェック：1.6 ループによる繰り返し",
+      "section_number": 9,
+      "section_name": "1.6 ループによる繰り返し",
+      "slots": 10
+    },
+    {
+      "cmid": 231,
+      "modname": "lti",
+      "name": "Python Labプロジェクト1.7：週間サポート報告",
+      "section_number": 10,
+      "section_name": "1.7 小プロジェクト：週間サポート報告"
+    },
+    {
+      "cmid": 209,
+      "modname": "assign",
+      "name": "プロジェクト1.7：学習センター週間サポート報告",
+      "section_number": 10,
+      "section_name": "1.7 小プロジェクト：週間サポート報告"
+    },
+    {
+      "cmid": 189,
+      "modname": "page",
+      "name": "レッスン2.1：リスト・辞書・レコード",
+      "section_number": 11,
+      "section_name": "2.1 リスト・辞書・レコード",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "関連する値を一つの構造へまとめる"
+        },
+        {
+          "level": "h3",
+          "text": "リストは順序を持ち、内容を変更できる"
+        },
+        {
+          "level": "h3",
+          "text": "リストの変更には、位置の代入と変更メソッドを使う"
+        },
+        {
+          "level": "h3",
+          "text": "代入はリストを複製せず、同じオブジェクトを共有する"
+        },
+        {
+          "level": "h3",
+          "text": "タプルは順序を持つが、作成後に要素を置き換えられない"
+        },
+        {
+          "level": "h3",
+          "text": "辞書はキーによって各値の意味を表す"
+        },
+        {
+          "level": "h3",
+          "text": "存在しないキーをどう扱うかは、項目の意味で決める"
+        },
+        {
+          "level": "h3",
+          "text": "辞書を反復するときは、必要な部分を選ぶ"
+        },
+        {
+          "level": "h3",
+          "text": "リストの中に辞書を置くと、複数のレコードになる"
+        },
+        {
+          "level": "h3",
+          "text": "集合は重複のない所属と集合演算を表す"
+        },
+        {
+          "level": "h3",
+          "text": "IDで一件を探し、該当なしを区別する"
+        },
+        {
+          "level": "h3",
+          "text": "一つの集合で追加・参照・更新・削除する"
+        },
+        {
+          "level": "h3",
+          "text": "応用練習：備品台帳"
+        },
+        {
+          "level": "h3",
+          "text": "追加練習：センターレコードへ応用する"
+        }
+      ],
+      "code_blocks": 10,
+      "tables": 1,
+      "marker": [
+        "PYAI-V19-LESSON21-FLOW",
+        "PYAI-V23-2"
+      ]
+    },
+    {
+      "cmid": 232,
+      "modname": "lti",
+      "name": "Python Lab 2.1：リスト・辞書・レコード",
+      "section_number": 11,
+      "section_name": "2.1 リスト・辞書・レコード"
+    },
+    {
+      "cmid": 190,
+      "modname": "quiz",
+      "name": "理解度チェック：2.1 リスト・辞書・レコード",
+      "section_number": 11,
+      "section_name": "2.1 リスト・辞書・レコード",
+      "slots": 10
+    },
+    {
+      "cmid": 191,
+      "modname": "page",
+      "name": "レッスン2.2：関数・エラー・テスト",
+      "section_number": 12,
+      "section_name": "2.2 関数・エラー・テスト",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "長い処理を、役割の明確な関数へ分ける"
+        },
+        {
+          "level": "h3",
+          "text": "defで定義し、名前と丸括弧で呼び出す"
+        },
+        {
+          "level": "h3",
+          "text": "仮引数は入口、returnは出口になる"
+        },
+        {
+          "level": "h3",
+          "text": "ローカル変数によって処理を閉じ込める"
+        },
+        {
+          "level": "h3",
+          "text": "既定値とキーワード引数で呼び出しを読みやすくする"
+        },
+        {
+          "level": "h3",
+          "text": "docstringと型ヒントで関数の契約を伝える"
+        },
+        {
+          "level": "h3",
+          "text": "検証、計算、表示を別の責務に分ける"
+        },
+        {
+          "level": "h3",
+          "text": "エラーは発生段階を分け、トレースバックは最後から読む"
+        },
+        {
+          "level": "h3",
+          "text": "tryには失敗し得る最小範囲を置く"
+        },
+        {
+          "level": "h3",
+          "text": "正常値、境界値、異常値を別々にテストする"
+        },
+        {
+          "level": "h3",
+          "text": "検索・変更関数の契約を決める"
+        },
+        {
+          "level": "h3",
+          "text": "状態の前後をテストする"
+        },
+        {
+          "level": "h3",
+          "text": "応用練習：備品台帳の関数"
+        },
+        {
+          "level": "h3",
+          "text": "追加練習：センター処理を関数へ分ける"
+        }
+      ],
+      "code_blocks": 8,
+      "tables": 0,
+      "marker": [
+        "PYAI-V20-LESSON22-FLOW",
+        "PYAI-V23-2"
+      ]
+    },
+    {
+      "cmid": 233,
+      "modname": "lti",
+      "name": "Python Lab 2.2：関数・エラー・テスト",
+      "section_number": 12,
+      "section_name": "2.2 関数・エラー・テスト"
+    },
+    {
+      "cmid": 293,
+      "modname": "quiz",
+      "name": "理解度チェック：2.2 関数・エラー・テスト",
+      "section_number": 12,
+      "section_name": "2.2 関数・エラー・テスト",
+      "slots": 10
+    },
+    {
+      "cmid": 234,
+      "modname": "lti",
+      "name": "Python Lab 2.4：CSV図書記録管理",
+      "section_number": 13,
+      "section_name": "2.4 実践プロジェクト：学習センター月次実績報告"
+    },
+    {
+      "cmid": 202,
+      "modname": "assign",
+      "name": "プロジェクト2.4：CSV図書記録管理",
+      "section_number": 13,
+      "section_name": "2.4 実践プロジェクト：学習センター月次実績報告"
+    },
+    {
+      "cmid": 271,
+      "modname": "page",
+      "name": "レッスン1.3：基本データ型・型変換・算術",
+      "section_number": 23,
+      "section_name": "1.3 基本データ型・型変換・算術",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "同じ見た目でも、値の種類が違う"
+        },
+        {
+          "level": "h3",
+          "text": "数値を処理する七つの算術演算子"
+        },
+        {
+          "level": "h3",
+          "text": "優先順位と括弧で、計算の意味を示す"
+        },
+        {
+          "level": "h3",
+          "text": "型を暗黙に期待せず、明示的に変換する"
+        },
+        {
+          "level": "h3",
+          "text": "正しく実行できても、数値として妥当か確認する"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 2,
+      "marker": [
+        "PYAI-V14-LESSON13-FLOW"
+      ]
+    },
+    {
+      "cmid": 273,
+      "modname": "lti",
+      "name": "Python Lab 1.3：基本データ型・型変換・算術",
+      "section_number": 23,
+      "section_name": "1.3 基本データ型・型変換・算術"
+    },
+    {
+      "cmid": 272,
+      "modname": "quiz",
+      "name": "理解度チェック：1.3 基本データ型・型変換・算術",
+      "section_number": 23,
+      "section_name": "1.3 基本データ型・型変換・算術",
+      "slots": 10
+    },
+    {
+      "cmid": 279,
+      "modname": "page",
+      "name": "レッスン1.4：文字列・入力・書式付き出力",
+      "section_number": 24,
+      "section_name": "1.4 文字列・入力・書式付き出力",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "数値だけでは、仕事の意味を伝えられない"
+        },
+        {
+          "level": "h3",
+          "text": "引用符で文字列の範囲を示す"
+        },
+        {
+          "level": "h3",
+          "text": "文字列は、0から位置を数える文字の並び"
+        },
+        {
+          "level": "h3",
+          "text": "文字列は変更不能なので、処理結果は新しい値になる"
+        },
+        {
+          "level": "h3",
+          "text": "連結するときは、型を揃える"
+        },
+        {
+          "level": "h3",
+          "text": "input() は必ず文字列を返す"
+        },
+        {
+          "level": "h3",
+          "text": "f文字列で、説明と値を書式付きで組み合わせる"
+        },
+        {
+          "level": "h3",
+          "text": "区切られた文字列を分ける"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 7,
+      "tables": 0,
+      "marker": [
+        "PYAI-V15-LESSON14-FLOW"
+      ]
+    },
+    {
+      "cmid": 281,
+      "modname": "lti",
+      "name": "Python Lab 1.4：文字列・入力・書式付き出力",
+      "section_number": 24,
+      "section_name": "1.4 文字列・入力・書式付き出力"
+    },
+    {
+      "cmid": 280,
+      "modname": "quiz",
+      "name": "理解度チェック：1.4 文字列・入力・書式付き出力",
+      "section_number": 24,
+      "section_name": "1.4 文字列・入力・書式付き出力",
+      "slots": 10
+    },
+    {
+      "cmid": 289,
+      "modname": "page",
+      "name": "レッスン2.3：ファイル・CSVの読み書き",
+      "section_number": 25,
+      "section_name": "2.3 ファイル・CSVの読み書き",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "プログラムの外にある記録を、安全に受け渡す"
+        },
+        {
+          "level": "h3",
+          "text": "読む前に、ファイルの場所を確定する"
+        },
+        {
+          "level": "h3",
+          "text": "with、モード、文字コード"
+        },
+        {
+          "level": "h3",
+          "text": "CSVはコンマでsplitしない"
+        },
+        {
+          "level": "h3",
+          "text": "DictReaderの値は最初は文字列"
+        },
+        {
+          "level": "h3",
+          "text": "使う前にヘッダーと各行を検証する"
+        },
+        {
+          "level": "h3",
+          "text": "別のCSVへ書き、もう一度読む"
+        },
+        {
+          "level": "h3",
+          "text": "例題から応用へ"
+        }
+      ],
+      "code_blocks": 4,
+      "tables": 0,
+      "marker": [
+        "PYAI-V22-LESSON23-FLOW"
+      ]
+    },
+    {
+      "cmid": 290,
+      "modname": "lti",
+      "name": "Python Lab 2.3：ファイル・CSVの読み書き",
+      "section_number": 25,
+      "section_name": "2.3 ファイル・CSVの読み書き"
+    },
+    {
+      "cmid": 291,
+      "modname": "quiz",
+      "name": "理解度チェック：2.3 ファイル・CSVの読み書き",
+      "section_number": 25,
+      "section_name": "2.3 ファイル・CSVの読み書き",
+      "slots": 10
+    }
+  ]
+}
