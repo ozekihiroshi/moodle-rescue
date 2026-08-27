@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "release": "1.0.0",
-  "release_date": "2026-08-21",
+  "release": "0.1.0-alpha.1",
+  "release_date": "2026-08-27",
+  "status": "alpha",
   "license": {
     "educational_content": "CC-BY-4.0",
     "copyright": "Copyright © 2026 Hiroshi Ozeki",
@@ -11,12 +12,12 @@
     "fullname": "Python for Data: Foundations in the AI Era",
     "shortname": "PYAI-INTRO",
     "language": "en",
-    "estimated_hours": 38
+    "relationship": "canonical"
   },
   "artifact": {
-    "filename": "python-for-data-foundations-ai-era-1.0.0.mbz",
-    "bytes": 150735,
-    "sha256": "23898d1c887dea94355c18dd8179305905b79665161dee56be2225e2882f99ec",
+    "filename": "python-for-data-foundations-ai-era-0.1.0-alpha.1.mbz",
+    "bytes": 317514,
+    "sha256": "f602e2b05c32dcdcccfe443e02ed538060d3b42a3a1a03b4c12800dbe8703e00",
     "includes_user_data": false
   },
   "created_with": {
@@ -25,14 +26,25 @@
     "backup_version": 2026042000
   },
   "inventory": {
-    "chapters": 5,
-    "subsections": 17,
-    "learning_checks": 12,
-    "questions": 120,
-    "notebook_deep_links": 17
+    "sections": 38,
+    "subsections": 31,
+    "pages": 42,
+    "quizzes": 23,
+    "assignments": 10,
+    "lti_activities": 33,
+    "forums": 1
   },
   "external_requirements": {
     "python_lab_required_for_notebook_links": true,
     "lti_1_3_registration_is_site_specific": true
+  },
+  "verification": {
+    "archive_structure": "passed",
+    "fresh_moodle_restore": "passed",
+    "restored_question_references": 230,
+    "wrong_question_contexts": 0,
+    "restored_enrolments": 0,
+    "restored_quiz_attempts": 0,
+    "restored_submissions": 0
   }
 }

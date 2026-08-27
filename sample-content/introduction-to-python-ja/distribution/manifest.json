@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "release": "1.0.0",
-  "release_date": "2026-08-22",
+  "release": "0.1.0-alpha.1",
+  "release_date": "2026-08-27",
+  "status": "alpha",
   "license": {
     "educational_content": "CC-BY-4.0",
     "copyright": "Copyright © 2026 Hiroshi Ozeki",
@@ -10,19 +11,18 @@
   "course": {
     "fullname": "Pythonによるデータ活用：AI時代の基礎",
     "shortname": "PYAI-INTRO-JA",
-    "language": "ja",
-    "estimated_hours": 38
+    "language": "ja"
   },
   "adaptation": {
     "relationship": "official_adaptation",
     "canonical_course": "PYAI-INTRO",
-    "based_on_canonical_version": "1.0.0",
+    "based_on_canonical_version": "0.1.0-alpha.1",
     "normative_source_language": "en"
   },
   "artifact": {
-    "filename": "python-for-data-foundations-ai-era-ja-1.0.0.mbz",
-    "bytes": 152291,
-    "sha256": "a04b3800a47c0256eae99cdc48aaa52a4968e8754b45c454912f16cded482953",
+    "filename": "python-for-data-foundations-ai-era-ja-0.1.0-alpha.1.mbz",
+    "bytes": 342731,
+    "sha256": "cd7b1eb4cd96c135a134f329480c699639dd3eb38d2f5b853208f61ee171a051",
     "includes_user_data": false
   },
   "created_with": {
@@ -31,14 +31,25 @@
     "backup_version": 2026042000
   },
   "inventory": {
-    "chapters": 5,
-    "subsections": 17,
-    "learning_checks": 12,
-    "questions": 120,
-    "notebook_deep_links": 17
+    "sections": 38,
+    "subsections": 31,
+    "pages": 42,
+    "quizzes": 23,
+    "assignments": 10,
+    "lti_activities": 32,
+    "forums": 1
   },
   "external_requirements": {
     "python_lab_required_for_notebook_links": true,
     "lti_1_3_registration_is_site_specific": true
+  },
+  "verification": {
+    "archive_structure": "passed",
+    "fresh_moodle_restore": "passed",
+    "restored_question_references": 230,
+    "wrong_question_contexts": 0,
+    "restored_enrolments": 0,
+    "restored_quiz_attempts": 0,
+    "restored_submissions": 0
   }
 }

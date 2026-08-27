@@ -13,8 +13,8 @@ together three complementary parts:
 1. a reproducible Moodle Docker foundation with local and production-shaped
    deployment modes;
 2. security, backup, restore, and immutable-plugin validation workflows; and
-3. ready-to-import sample teaching content, beginning with
-   [Python for Data: Foundations in the AI Era](sample-content/introduction-to-python/README.md).
+3. ready-to-import [sample teaching content](sample-content/README.md),
+   including canonical English and adapted Japanese Python courses.
 
 The local Compose environment remains the development and course-authoring
 environment. The production-shaped configuration supplies safer deployment
