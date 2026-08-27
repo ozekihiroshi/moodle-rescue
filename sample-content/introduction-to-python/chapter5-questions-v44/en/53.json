@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "Which sentence is a bounded observation?",
+    "c": [
+      "Riverside Evening averaged 48.1 minutes in the six-week data",
+      "Staff shortage caused every delay",
+      "Riverside is bad",
+      "The chart proves the policy failed"
+    ],
+    "ok": 0,
+    "why": "It names an observed value and scope without inventing a cause."
+  },
+  {
+    "id": "02",
+    "p": "What should follow a numerical observation in a short evidence note?",
+    "c": [
+      "Population or period and a material limitation",
+      "A decorative adjective",
+      "A hidden denominator",
+      "An unsupported diagnosis"
+    ],
+    "ok": 0,
+    "why": "Scope and limitation keep the claim interpretable."
+  },
+  {
+    "id": "03",
+    "p": "Which is a valid limitation of the clinic records?",
+    "c": [
+      "They do not identify the cause of waiting",
+      "They contain no numbers",
+      "They automatically represent every future week",
+      "They prove staffing levels"
+    ],
+    "ok": 0,
+    "why": "Operational records describe observed waits but lack causal variables."
+  },
+  {
+    "id": "04",
+    "p": "What is a restrained way to identify the support target in a chart?",
+    "c": [
+      "One contrast colour plus a direct label",
+      "3D area distortion",
+      "Remove all other clinics",
+      "Use colour without a legend or label"
+    ],
+    "ok": 0,
+    "why": "Direct, limited emphasis preserves context."
+  },
+  {
+    "id": "05",
+    "p": "Why reopen the saved PNG?",
+    "c": [
+      "To verify the delivered file retains title, axes, units, and target",
+      "To change the source CSV",
+      "To prove causation",
+      "To avoid saving code"
+    ],
+    "ok": 0,
+    "why": "The actual deliverable must be checked outside the live plotting state."
+  },
+  {
+    "id": "06",
+    "p": "Which sentence improperly turns association into cause?",
+    "c": [
+      "Staff shortage caused the longer waits",
+      "The recorded average was 48.1 minutes",
+      "The comparison covers six weeks",
+      "Investigate staffing next"
+    ],
+    "ok": 0,
+    "why": "The dataset does not measure or isolate the cause."
+  },
+  {
+    "id": "07",
+    "p": "What makes a figure reproducible?",
+    "c": [
+      "Source, aggregation, plotting code, and saved output remain connected",
+      "Only a screenshot remains",
+      "Axes are removed",
+      "Values are entered by hand"
+    ],
+    "ok": 0,
+    "why": "Another person should be able to regenerate the figure from the same evidence path."
+  },
+  {
+    "id": "08",
+    "p": "What does 'investigate staffing next' represent?",
+    "c": [
+      "A bounded next question",
+      "A proven cause",
+      "A source-data value",
+      "A chart type"
+    ],
+    "ok": 0,
+    "why": "It suggests further inquiry without claiming the answer is already known."
+  },
+  {
+    "id": "09",
+    "p": "Why state that 36 clinic-time-week records were analysed?",
+    "c": [
+      "It defines the scope supporting the claim",
+      "It guarantees a causal result",
+      "It removes the need for units",
+      "It changes the average"
+    ],
+    "ok": 0,
+    "why": "Readers need to know the population and period represented."
+  },
+  {
+    "id": "10",
+    "p": "Which three-sentence order is strongest?",
+    "c": [
+      "Numerical observation; scope/denominator; limitation",
+      "Cause; praise; decoration",
+      "Title; colour; filename",
+      "Limitation only; no result; no scope"
+    ],
+    "ok": 0,
+    "why": "Each sentence performs one evidence-communication job."
+  }
+]

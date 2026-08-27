@@ -1,0 +1,32 @@
+date,facility_id,facility_name,district,rated_litres_per_hour,operating_hours,water_delivered_litres,households_served,sensor_status
+2026-07-01,W001,Riverside Water Point,South,1000,8,7800,220,ok
+2026-07-02,W001,Riverside Water Point, south ,1000,8,7600,220,OK
+2026-07-03,W001,Riverside Water Point,South,1000,8,5000,220,ok
+2026-07-04,W001,Riverside Water Point,South,1000,8,7700,,ok
+2026-07-05,W001,Riverside Water Point,SOUTH,1000,8,7900,220,ok
+2026-07-06,W001,Riverside Water Point,South,1000,8,7800,220,ok
+2026-07-01,W002,Clinic Borehole,Central,900,8,7000,180,ok
+2026-07-02,W002,Clinic Borehole,Central,900,8,6900,180,ok
+2026-07-03,W002,Clinic Borehole, central ,900,8,0,180,fault
+2026-07-04,W002,Clinic Borehole,Central,900,8,7100,180,ok
+2026-07-05,W002,Clinic Borehole,CENTRAL,900,8,7000,180,ok
+2026-07-06,W002,Clinic Borehole,Central,900,8,7050,180,ok
+2026-07-01,W003,Hillside Pump,North,800,8,6200,140,ok
+2026-07-02,W003,Hillside Pump,North,800,8,7000,140,ok
+2026-07-03,W003,Hillside Pump,North,800,8,4300,140,ok
+2026-07-04,W003,Hillside Pump,North,800,8,4200,140,ok
+2026-07-05,W003,Hillside Pump,north,800,8,6100,140,ok
+2026-07-06,W003,Hillside Pump,North,800,8,6000,140,ok
+2026-07-01,W004,East Market Water Point,East,1000,8,8000,300,ok
+2026-07-02,W004,East Market Water Point,East,1000,0,0,300,ok
+2026-07-03,W004,East Market Water Point,East,1000,8,5000,300,ok
+2026-07-04,W004,East Market Water Point,East,1000,0,0,300,ok
+2026-07-05,W004,East Market Water Point,East,1000,8,5200,300,ok
+2026-07-06,W004,East Market Water Point,East,1000,8,7800,300,ok
+2026-07-01,W005,Industrial Standpipe,West,1100,8,8500,260,ok
+2026-07-02,W005,Industrial Standpipe,West,1100,8,8400,260,ok
+2026-07-03,W005,Industrial Standpipe,West,1100,8,6000,260,ok
+2026-07-04,W005,Industrial Standpipe,West,1100,0,0,260,ok
+2026-07-05,W005,Industrial Standpipe,West,1100,8,8300,260,ok
+2026-07-06,W005,Industrial Standpipe,West,1100,8,8500,260,ok
+2026-07-05,W005,Industrial Standpipe,West,1100,8,8300,260,ok

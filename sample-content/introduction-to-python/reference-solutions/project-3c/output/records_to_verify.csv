@@ -1,0 +1,6 @@
+source_row,date,facility_id,facility_name,issue
+5,2026-07-04,W001,Riverside Water Point,missing required number
+10,2026-07-03,W002,Clinic Borehole,sensor status is not ok
+15,2026-07-02,W003,Hillside Pump,delivery exceeds rated capacity
+30,2026-07-05,W005,Industrial Standpipe,duplicate facility/date
+32,2026-07-05,W005,Industrial Standpipe,duplicate facility/date

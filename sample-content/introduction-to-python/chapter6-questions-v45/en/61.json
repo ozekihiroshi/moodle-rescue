@@ -1,0 +1,122 @@
+[
+  {
+    "id": "sample",
+    "p": "What does `pd.read_csv(path, nrows=5)` establish?",
+    "c": [
+      "The final whole-file ranking",
+      "The first five rows for planning the read",
+      "That the file has exactly five rows",
+      "That no later row is invalid"
+    ],
+    "ok": 1,
+    "why": "A sample helps inspect structure; it cannot prove whole-file results."
+  },
+  {
+    "id": "usecols",
+    "p": "The decision uses only district, medicine, stockout_hours, and patients_turned_away. Which read best records that boundary?",
+    "c": [
+      "Read every column",
+      "Use `usecols` for those four columns",
+      "Convert the CSV to an image",
+      "Read the file twice"
+    ],
+    "ok": 1,
+    "why": "usecols limits memory and makes the data requirement explicit."
+  },
+  {
+    "id": "types",
+    "p": "Why can a numeric CSV column be inferred as object?",
+    "c": [
+      "A later text value can prevent one numeric type",
+      "CSV always stores Python objects",
+      "The file is too short",
+      "groupby changes the source"
+    ],
+    "ok": 0,
+    "why": "CSV has no stored types; values drive inference."
+  },
+  {
+    "id": "coerce",
+    "p": "What does `pd.to_numeric(values, errors='coerce')` do to an invalid number?",
+    "c": [
+      "Deletes the whole file",
+      "Turns it into missing data",
+      "Makes it zero",
+      "Raises every time"
+    ],
+    "ok": 1,
+    "why": "Coercion exposes failed conversions as missing for review."
+  },
+  {
+    "id": "memory",
+    "p": "Which call includes memory used by referenced strings?",
+    "c": [
+      "df.memory_usage(deep=True).sum()",
+      "len(df.columns)",
+      "df.head()",
+      "df.index"
+    ],
+    "ok": 0,
+    "why": "deep=True gives a more realistic estimate for object/string data."
+  },
+  {
+    "id": "chunksize",
+    "p": "With `chunksize=10000`, what does read_csv return?",
+    "c": [
+      "One ten-thousand-column table",
+      "Successive DataFrames",
+      "Only row 10000",
+      "A chart"
+    ],
+    "ok": 1,
+    "why": "The iterator yields manageable DataFrame chunks."
+  },
+  {
+    "id": "count",
+    "p": "Chunk lengths are 10, 10, 10, 10, and 8. What should the processed count be?",
+    "c": [
+      "10",
+      "40",
+      "48",
+      "50"
+    ],
+    "ok": 2,
+    "why": "Processed rows are the sum of all chunk lengths."
+  },
+  {
+    "id": "privacy",
+    "p": "A question does not require patient identifiers. What is the best reading plan?",
+    "c": [
+      "Read them in case they become interesting",
+      "Exclude them from usecols",
+      "Publish them separately",
+      "Convert them to integers"
+    ],
+    "ok": 1,
+    "why": "Do not collect or load fields the stated purpose does not require."
+  },
+  {
+    "id": "samplelimit",
+    "p": "Why must missingness not be concluded from `head(5)`?",
+    "c": [
+      "head changes values",
+      "Problems may occur after those rows",
+      "Five rows use more memory",
+      "Missingness applies only to charts"
+    ],
+    "ok": 1,
+    "why": "A leading sample is not evidence about every later record."
+  },
+  {
+    "id": "plan",
+    "p": "What should be known before a full large-file read?",
+    "c": [
+      "Only chart colour",
+      "File size, required columns, record meaning, and types",
+      "The final recommendation",
+      "Every learner's computer model"
+    ],
+    "ok": 1,
+    "why": "These checks define a proportional and reproducible reading plan."
+  }
+]

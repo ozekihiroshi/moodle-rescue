@@ -1,0 +1,49 @@
+date,clinic_id,clinic_name,district,medicine,opening_units,received_units,dispensed_units,closing_units,stockout_hours,patients_turned_away
+2026-01-01,C001,Clinic 01,North,Antibiotics,25,4,18,11,0,0
+2026-01-01,C002,Clinic 02,East,Antibiotics,28,7,21,14,1,3
+2026-01-01,C003,Clinic 03,South,Antibiotics,31,10,24,17,2,6
+2026-01-01,C004,Clinic 04,West,Antibiotics,34,4,27,11,3,6
+2026-01-01,C005,Clinic 05,North,Antibiotics,37,7,30,14,0,1
+2026-01-01,C006,Clinic 06,East,Antibiotics,35,10,33,12,1,4
+2026-01-01,C007,Clinic 07,South,Antibiotics,26,4,24,6,2,4
+2026-01-01,C008,Clinic 08,West,Antibiotics,29,7,20,16,3,7
+2026-01-01,C009,Clinic 09,North,Antibiotics,32,10,23,19,0,2
+2026-01-01,C010,Clinic 10,East,Antibiotics,35,4,26,13,1,2
+2026-01-01,C011,Clinic 11,South,Antibiotics,33,7,29,11,2,5
+2026-01-01,C012,Clinic 12,West,Antibiotics,36,10,32,14,3,8
+2026-01-01,C013,Clinic 13,North,Antibiotics,27,4,23,8,0,0
+2026-01-01,C014,Clinic 14,East,Antibiotics,30,7,26,11,1,3
+2026-01-01,C015,Clinic 15,South,Antibiotics,33,10,22,21,2,6
+2026-01-01,C016,Clinic 16,West,Antibiotics,31,4,25,10,3,6
+2026-01-01,C017,Clinic 17,North,Antibiotics,34,7,28,13,0,1
+2026-01-01,C018,Clinic 18,East,Antibiotics,37,10,31,16,1,4
+2026-01-01,C019,Clinic 19,South,Antibiotics,28,4,22,10,2,4
+2026-01-01,C020,Clinic 20,West,Antibiotics,31,7,25,13,3,7
+2026-01-01,C021,Clinic 21,North,Antibiotics,29,10,28,11,0,2
+2026-01-01,C022,Clinic 22,East,Antibiotics,32,4,24,12,1,2
+2026-01-01,C023,Clinic 23,South,Antibiotics,35,7,27,15,2,5
+2026-01-01,C024,Clinic 24,West,Antibiotics,38,10,30,18,3,8
+2026-01-01,C001,Clinic 01,North,Malaria treatment,32,4,24,12,0,0
+2026-01-01,C002,Clinic 02,East,Malaria treatment,30,7,27,10,1,4
+2026-01-01,C003,Clinic 03,South,Malaria treatment,33,10,30,13,6,20
+2026-01-01,C004,Clinic 04,West,Malaria treatment,36,4,33,7,3,9
+2026-01-01,C005,Clinic 05,North,Malaria treatment,39,7,29,17,0,1
+2026-01-01,C006,Clinic 06,East,Malaria treatment,42,10,32,20,1,5
+2026-01-01,C007,Clinic 07,South,Malaria treatment,28,4,23,9,5,15
+2026-01-01,C008,Clinic 08,West,Malaria treatment,31,7,26,12,3,10
+2026-01-01,C009,Clinic 09,North,Malaria treatment,34,10,29,15,0,2
+2026-01-01,C010,Clinic 10,East,Malaria treatment,37,4,32,9,1,3
+2026-01-01,C011,Clinic 11,South,Malaria treatment,40,7,35,12,9,28
+2026-01-01,C012,Clinic 12,West,Malaria treatment,38,10,31,17,3,11
+2026-01-01,C013,Clinic 13,North,Malaria treatment,29,4,22,11,0,0
+2026-01-01,C014,Clinic 14,East,Malaria treatment,32,7,25,14,1,4
+2026-01-01,C015,Clinic 15,South,Malaria treatment,35,10,28,17,8,26
+2026-01-01,C016,Clinic 16,West,Malaria treatment,38,4,31,11,3,9
+2026-01-01,C017,Clinic 17,North,Malaria treatment,36,7,34,9,0,1
+2026-01-01,C018,Clinic 18,East,Malaria treatment,39,10,37,12,1,5
+2026-01-01,C019,Clinic 19,South,Malaria treatment,30,4,21,13,7,21
+2026-01-01,C020,Clinic 20,West,Malaria treatment,33,7,24,16,3,10
+2026-01-01,C021,Clinic 21,North,Malaria treatment,36,10,27,19,0,2
+2026-01-01,C022,Clinic 22,East,Malaria treatment,34,4,30,8,1,3
+2026-01-01,C023,Clinic 23,South,Malaria treatment,37,7,33,11,6,19
+2026-01-01,C024,Clinic 24,West,Malaria treatment,40,10,36,14,3,11

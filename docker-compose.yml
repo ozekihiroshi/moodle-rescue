@@ -32,6 +32,7 @@ services:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
+      - "traefik.rescue.gateway=true"
       - "traefik.docker.network=${TRAEFIK_NETWORK}"
       - "traefik.http.routers.moodle-rescue.rule=Host(`${MOODLE_HOST}`)"
       - "traefik.http.routers.moodle-rescue.entrypoints=websecure"

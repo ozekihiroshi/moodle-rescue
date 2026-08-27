@@ -1,0 +1,122 @@
+[
+  {
+    "id": "state",
+    "p": "What should survive after a processed chunk is released?",
+    "c": [
+      "Every source row",
+      "Only totals and counts needed by final metrics",
+      "A screenshot",
+      "The pandas documentation"
+    ],
+    "ok": 1,
+    "why": "Small aggregation state replaces retention of all detail."
+  },
+  {
+    "id": "key",
+    "p": "Which key preserves district-medicine grain?",
+    "c": [
+      "district only",
+      "medicine only",
+      "(district, medicine)",
+      "chunk number"
+    ],
+    "ok": 2,
+    "why": "Both grouping fields must be present in the state key."
+  },
+  {
+    "id": "add",
+    "p": "A group appears in two chunks. What should update_totals do?",
+    "c": [
+      "Keep only the later chunk",
+      "Add compatible totals",
+      "Average the row labels",
+      "Reject the group"
+    ],
+    "ok": 1,
+    "why": "Chunk boundaries must not split the final group result."
+  },
+  {
+    "id": "average",
+    "p": "Chunk A has rate 100% for 1 row; B has 0% for 9 rows. What is the whole rate?",
+    "c": [
+      "50%",
+      "10%",
+      "90%",
+      "0%"
+    ],
+    "ok": 1,
+    "why": "Merge one event over ten rows, not the two chunk percentages."
+  },
+  {
+    "id": "stockday",
+    "p": "Which expression creates a 1 for a positive stockout and 0 otherwise?",
+    "c": [
+      "df.stockout_hours.gt(0).astype(int)",
+      "df.stockout_hours.mean()",
+      "len(df)",
+      "df.sort_values()"
+    ],
+    "ok": 0,
+    "why": "The Boolean condition becomes an additive event count."
+  },
+  {
+    "id": "review",
+    "p": "Why count review rows in every chunk?",
+    "c": [
+      "To make the chart colourful",
+      "To account for rows excluded from analysis",
+      "To increase the priority",
+      "To replace validation"
+    ],
+    "ok": 1,
+    "why": "Rejected rows remain part of source reconciliation."
+  },
+  {
+    "id": "boundary",
+    "p": "What should happen when chunksize changes from 997 to 2048?",
+    "c": [
+      "The final summary stays the same",
+      "Every total doubles",
+      "Groups disappear",
+      "The source is rewritten"
+    ],
+    "ok": 0,
+    "why": "Chunk size changes boundaries, not the mathematical result."
+  },
+  {
+    "id": "replace",
+    "p": "What bug occurs if repeated group state is assigned rather than incremented?",
+    "c": [
+      "Only the last partial total remains",
+      "The file gets more columns",
+      "pandas changes language",
+      "Nothing"
+    ],
+    "ok": 0,
+    "why": "Assignment discards earlier chunks for that key."
+  },
+  {
+    "id": "ratewhen",
+    "p": "When should stockout_rate be calculated?",
+    "c": [
+      "Before reading any row",
+      "After merged stockout_days and clinic_days are known",
+      "Separately then unweighted averaged",
+      "From filenames"
+    ],
+    "ok": 1,
+    "why": "The whole numerator and denominator must be available."
+  },
+  {
+    "id": "grain",
+    "p": "The final table has one row per district and medicine. What controls its maximum size?",
+    "c": [
+      "Source row count only",
+      "Number of distinct district-medicine pairs",
+      "Chunk size",
+      "PNG resolution"
+    ],
+    "ok": 1,
+    "why": "Decision state scales with group cardinality."
+  }
+]

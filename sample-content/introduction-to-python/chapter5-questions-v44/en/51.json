@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "Which chart best compares total waiting minutes across three clinics?",
+    "c": [
+      "A bar chart",
+      "A line joining clinic names",
+      "A histogram of clinic names",
+      "An unlabelled pie"
+    ],
+    "ok": 0,
+    "why": "Bars compare a small number of separate categories."
+  },
+  {
+    "id": "02",
+    "p": "Which preparation is essential before plotting weekly change?",
+    "c": [
+      "Sort the week values in their real order",
+      "Randomise the rows",
+      "Replace every missing week with zero",
+      "Remove the time axis"
+    ],
+    "ok": 0,
+    "why": "A line chart requires meaningful order and visible gaps."
+  },
+  {
+    "id": "03",
+    "p": "What does one point represent in a scatter of patients_seen against average_wait_minutes from the source table?",
+    "c": [
+      "One clinic-time-week record",
+      "One axis label",
+      "All clinics combined",
+      "A causal mechanism"
+    ],
+    "ok": 0,
+    "why": "Scatter pairs two quantities from the same observational unit."
+  },
+  {
+    "id": "04",
+    "p": "Which chart examines the distribution of one numeric variable?",
+    "c": [
+      "Histogram",
+      "Unordered line chart",
+      "One decorative icon",
+      "A table header"
+    ],
+    "ok": 0,
+    "why": "A histogram counts values in adjacent numeric intervals."
+  },
+  {
+    "id": "05",
+    "p": "Why display the plot table before drawing?",
+    "c": [
+      "To inspect the exact values and grain encoded by the chart",
+      "To make labels unnecessary",
+      "To prove causation",
+      "To alter the source silently"
+    ],
+    "ok": 0,
+    "why": "The chart remains traceable to inspected values."
+  },
+  {
+    "id": "06",
+    "p": "What should normally be true of the length axis in a category bar chart?",
+    "c": [
+      "It begins at zero",
+      "It begins just below the smallest value",
+      "It has no units",
+      "It changes for each bar"
+    ],
+    "ok": 0,
+    "why": "Bar length encodes magnitude, so a zero baseline prevents exaggeration."
+  },
+  {
+    "id": "07",
+    "p": "Which label is complete for total waiting burden?",
+    "c": [
+      "Total waiting time (minutes)",
+      "Rate",
+      "Value",
+      "Better clinic"
+    ],
+    "ok": 0,
+    "why": "The label names both the measure and unit."
+  },
+  {
+    "id": "08",
+    "p": "A monthly series has no March record. What should the analyst do first?",
+    "c": [
+      "Expose the gap and investigate it",
+      "Convert March to zero without explanation",
+      "Join February and April and claim continuity",
+      "Delete the month column"
+    ],
+    "ok": 0,
+    "why": "Missing observation is not the same as observed zero."
+  },
+  {
+    "id": "09",
+    "p": "Which statement about a scatter plot is correct?",
+    "c": [
+      "It can show association but does not establish cause",
+      "It proves the x value caused y",
+      "It must use category names on both axes",
+      "It automatically validates the source"
+    ],
+    "ok": 0,
+    "why": "Observed relationships need further evidence before a causal claim."
+  },
+  {
+    "id": "10",
+    "p": "Which check directly validates a clinic-level plot table?",
+    "c": [
+      "Its totals reconcile with the analysis records",
+      "Its colours look attractive",
+      "Its title is removed",
+      "Its rows are randomly ordered"
+    ],
+    "ok": 0,
+    "why": "Numerical reconciliation checks that aggregation did not lose or duplicate records."
+  }
+]

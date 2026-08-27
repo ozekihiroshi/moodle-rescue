@@ -1,0 +1,17 @@
+district,medicine,clinic_days,stockout_days,stockout_hours,patients_turned_away,stockout_rate
+East,Insulin,7500,7500,89998.0,367492,100.0
+South,Malaria treatment,7500,7500,52500.0,165000,100.0
+West,Pain relief,7498,7498,22494.0,119969,100.0
+West,Insulin,7499,7499,22497.0,97487,100.0
+South,Pain relief,7500,7500,15000.0,82500,100.0
+West,Malaria treatment,7499,7499,22497.0,74990,100.0
+South,Insulin,7498,7498,14996.0,67482,100.0
+West,Antibiotics,7500,7500,22500.0,52500,100.0
+East,Pain relief,7500,7500,7500.0,45000,100.0
+South,Antibiotics,7495,7495,14990.0,37475,100.0
+East,Malaria treatment,7496,7496,7496.0,29985,100.0
+East,Antibiotics,7498,7498,7498.0,22494,100.0
+North,Antibiotics,7500,0,0.0,7500,0.0
+North,Malaria treatment,7499,0,0.0,7500,0.0
+North,Pain relief,7499,0,0.0,7498,0.0
+North,Insulin,7496,0,0.0,7496,0.0

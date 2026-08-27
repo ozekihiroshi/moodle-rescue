@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "p": "Central has the greatest total wait, while Riverside Evening has the longest average wait. What follows?",
+    "c": [
+      "The metrics answer different questions",
+      "One result must be an error",
+      "Average and total are interchangeable",
+      "Clinic size never matters"
+    ],
+    "ok": 0,
+    "why": "Total burden and individual experience are distinct questions."
+  },
+  {
+    "id": "02",
+    "p": "How should six weeks' combined average wait be calculated?",
+    "c": [
+      "Sum waiting minutes and divide by summed patients",
+      "Take an unweighted mean of any displayed percentages",
+      "Divide patients by minutes",
+      "Use only the largest week"
+    ],
+    "ok": 0,
+    "why": "Compatible numerators and denominators are combined before division."
+  },
+  {
+    "id": "03",
+    "p": "Why show patient count beside an average wait?",
+    "c": [
+      "The amount of supporting data affects interpretation",
+      "Count makes every average equal",
+      "Count proves the cause",
+      "Count changes minutes to percent"
+    ],
+    "ok": 0,
+    "why": "An average based on two observations has different context from one based on hundreds."
+  },
+  {
+    "id": "04",
+    "p": "What is the denominator of over_60_rate?",
+    "c": [
+      "patients_seen",
+      "total_wait_minutes",
+      "number of clinics",
+      "week label"
+    ],
+    "ok": 0,
+    "why": "The percentage describes the share of observed patients who waited over 60 minutes."
+  },
+  {
+    "id": "05",
+    "p": "Why rank using unrounded values?",
+    "c": [
+      "Early rounding can create or change ties",
+      "Rounded values cannot be displayed",
+      "It removes the need for an ID",
+      "It makes missing values zero"
+    ],
+    "ok": 0,
+    "why": "Use full precision for decisions and round only for communication."
+  },
+  {
+    "id": "06",
+    "p": "What is the role of clinic_id as a final sort key?",
+    "c": [
+      "It makes ties reproducible",
+      "It changes the main metric",
+      "It proves one clinic is better",
+      "It replaces validation"
+    ],
+    "ok": 0,
+    "why": "A stable identifier gives deterministic order after substantive criteria tie."
+  },
+  {
+    "id": "07",
+    "p": "Why is a bar axis from 45 to 50 misleading for 46 and 48 minutes?",
+    "c": [
+      "It exaggerates a two-minute difference in bar length",
+      "Minutes cannot be plotted",
+      "The values become missing",
+      "It averages the bars"
+    ],
+    "ok": 0,
+    "why": "A truncated length scale removes the magnitude baseline."
+  },
+  {
+    "id": "08",
+    "p": "Can clinic-level and clinic-time-slot rows be placed in one ranking?",
+    "c": [
+      "No, they have different grain",
+      "Yes, grain never matters",
+      "Only after removing labels",
+      "Only if colours match"
+    ],
+    "ok": 0,
+    "why": "Every ranked row must represent the same kind of unit."
+  },
+  {
+    "id": "09",
+    "p": "What should a missing weekly record be treated as?",
+    "c": [
+      "Missing until investigated",
+      "Observed zero",
+      "The weekly mean",
+      "Proof of closure"
+    ],
+    "ok": 0,
+    "why": "Absence of a record does not establish a zero value."
+  },
+  {
+    "id": "10",
+    "p": "Which code calculates a combined service over-60 percentage after aggregation?",
+    "c": [
+      "over_60_minutes / patients_seen * 100",
+      "patients_seen / over_60_minutes",
+      "mean(total_wait_minutes)",
+      "len(clinic_name)"
+    ],
+    "ok": 0,
+    "why": "The aggregated affected count is divided by the aggregated population count."
+  }
+]

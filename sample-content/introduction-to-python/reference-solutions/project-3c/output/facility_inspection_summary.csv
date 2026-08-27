@@ -1,0 +1,6 @@
+priority,facility_id,facility_name,valid_days,stopped_days,low_output_days,operating_hours,rated_capacity_litres,water_delivered_litres,households_served,output_rate
+1,W004,East Market Water Point,6,2,2,32,32000,26000,300.0,81.2
+2,W005,Industrial Standpipe,5,1,1,32,35200,31400,260.0,89.2
+3,W003,Hillside Pump,5,0,2,40,32000,26800,140.0,83.8
+4,W001,Riverside Water Point,5,0,1,40,40000,36100,220.0,90.2
+5,W002,Clinic Borehole,5,0,0,40,36000,35050,180.0,97.4

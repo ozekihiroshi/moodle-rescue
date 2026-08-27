@@ -1,0 +1,122 @@
+[
+  {
+    "id": "fixture",
+    "p": "Why use a 48-row fixture before 120,000 rows?",
+    "c": [
+      "To hard-code its answer",
+      "To inspect and manually verify the same rules",
+      "To avoid testing",
+      "To replace the full run"
+    ],
+    "ok": 1,
+    "why": "A known small case makes logic checkable before scaling."
+  },
+  {
+    "id": "reconcile",
+    "p": "Source=120000, analysis=119977, review=23. Is the run reconciled?",
+    "c": [
+      "Yes",
+      "No",
+      "Only if chunksize is 23",
+      "Only after plotting"
+    ],
+    "ok": 0,
+    "why": "119977 + 23 equals 120000."
+  },
+  {
+    "id": "missing",
+    "p": "Source=100, analysis=96, review=3. What does reconciliation reveal?",
+    "c": [
+      "One row is unexplained",
+      "All rows are explained",
+      "The chart is wrong",
+      "There are 96 columns"
+    ],
+    "ok": 0,
+    "why": "The accounted counts total only 99."
+  },
+  {
+    "id": "provenance",
+    "p": "Which set is most useful for reproduction?",
+    "c": [
+      "Filename, generation method, rows, columns, chunk size, quality rules",
+      "Only chart colour",
+      "Only final rank",
+      "Only Python version"
+    ],
+    "ok": 0,
+    "why": "A result must remain connected to its source and processing conditions."
+  },
+  {
+    "id": "reopen",
+    "p": "Why reopen a saved summary CSV?",
+    "c": [
+      "To check the actual shared file's columns and rows",
+      "To make the source larger",
+      "To remove validation",
+      "To change chunk boundaries"
+    ],
+    "ok": 0,
+    "why": "Serialization can change index, types, names, and rounding."
+  },
+  {
+    "id": "source",
+    "p": "What should happen to the generated source during analysis?",
+    "c": [
+      "It is overwritten with the summary",
+      "It remains unchanged",
+      "It is sorted in place",
+      "It becomes the PNG"
+    ],
+    "ok": 1,
+    "why": "Outputs belong in a separate location."
+  },
+  {
+    "id": "independent",
+    "p": "Two chunk sizes give equal summaries. What does this support?",
+    "c": [
+      "Boundary-independent merge logic",
+      "Causal explanation",
+      "Perfect source accuracy",
+      "No need for row reconciliation"
+    ],
+    "ok": 0,
+    "why": "It tests one important property, not every possible error."
+  },
+  {
+    "id": "limits",
+    "p": "A run reconciles. What does that NOT prove by itself?",
+    "c": [
+      "Every row was accounted for",
+      "Every quality rule and calculation is correct",
+      "Analysis plus review equals source",
+      "No rows silently disappeared"
+    ],
+    "ok": 1,
+    "why": "Reconciliation is necessary control evidence, not complete proof."
+  },
+  {
+    "id": "contract",
+    "p": "Why validate required columns before processing?",
+    "c": [
+      "To fail clearly when the input contract is broken",
+      "To pick a chart colour",
+      "To increase row count",
+      "To average chunk rates"
+    ],
+    "ok": 0,
+    "why": "A missing field should produce an explicit, early failure."
+  },
+  {
+    "id": "workflow",
+    "p": "Which order is strongest?",
+    "c": [
+      "Full run, guess, then fixture",
+      "Fixture, full run, reconcile, reopen outputs, checker",
+      "Chart, delete source, run",
+      "Checker only"
+    ],
+    "ok": 1,
+    "why": "The order moves from understandable evidence to scale and independent verification."
+  }
+]

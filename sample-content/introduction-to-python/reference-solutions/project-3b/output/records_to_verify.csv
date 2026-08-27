@@ -1,0 +1,5 @@
+source_row,date,route_id,route_name,issue
+5,2026-06-04,R001,Riverside Line,missing required number
+21,2026-06-02,R004,Clinic Express,completed trips exceeds scheduled trips
+28,2026-06-03,R005,Industrial Shuttle,duplicate route/date
+32,2026-06-03,R005,Industrial Shuttle,duplicate route/date

@@ -1,0 +1,899 @@
+[
+  {
+    "key": "1.1",
+    "en_page": "Lesson 1.1: Programs, values, expressions, and output",
+    "ja_page": "レッスン1.1：プログラム・値・式・出力",
+    "en": {
+      "connection": "A small rehearsal for producing a labelled report, using book packing rather than the chapter project.",
+      "task": "A box holds 12 books and 4 full boxes are ready. Display a heading, books per box, boxes, and calculated total on four lines.",
+      "completion": [
+        "Use only values, `*`, parentheses, and `print()`.",
+        "Show four clear labels and calculate the total.",
+        "Predict the output before running."
+      ],
+      "hints": [
+        "Put text labels in quotes.",
+        "Let Python calculate `12 * 4`; do not type 48 as the answer.",
+        "Use one `print()` for each line."
+      ],
+      "explanation": "The expression calculates the value; `print()` makes it visible. The repeated box count prepares the next lesson.",
+      "transfer": "Change 4 boxes to 5. Which two places must change? Lesson 1.2 removes that duplication."
+    },
+    "ja": {
+      "connection": "ラベル付きの短い報告を作る予行演習です。章末課題とは別の、本の箱詰めを題材にします。",
+      "task": "1箱に12冊の本が入り、満杯の箱が4箱あります。見出し、1箱の冊数、箱数、計算した合計を4行で表示してください。",
+      "completion": [
+        "値、`*`、括弧、`print()`だけを使います。",
+        "4つのラベルを明示し、合計を計算します。",
+        "実行前に出力を予想します。"
+      ],
+      "hints": [
+        "文字のラベルは引用符で囲みます。",
+        "答えの48を直接書かず、`12 * 4`をPythonに計算させます。",
+        "出力1行につき`print()`を1回使います。"
+      ],
+      "explanation": "式が値を計算し、`print()`が画面に出します。箱数を繰り返すのは次のレッスンへの準備です。",
+      "transfer": "箱数を5へ変えてください。何か所を直す必要がありますか。1.2では、この重複をなくします。"
+    },
+    "code": "print(\"BOOK PACKING\")\nprint(\"BOOKS PER BOX:\", 12)\nprint(\"BOXES:\", 4)\nprint(\"TOTAL BOOKS:\", 12 * 4)",
+    "expected": "BOOK PACKING\nBOOKS PER BOX: 12\nBOXES: 4\nTOTAL BOOKS: 48"
+  },
+  {
+    "key": "1.2",
+    "en_page": "Lesson 1.2: Variables, assignment, and program state",
+    "ja_page": "レッスン1.2：変数・代入・プログラムの状態",
+    "en": {
+      "connection": "Use event tickets to practise keeping one source for each value and updating derived state.",
+      "task": "An event planned 80 tickets and cancelled 7. Store the values, calculate active tickets, and display all three quantities.",
+      "completion": [
+        "Use meaningful names.",
+        "Calculate active tickets from the two source values.",
+        "After changing a source, rerun the derived assignment."
+      ],
+      "hints": [
+        "Assign the two source values first.",
+        "The right side is evaluated before the left name changes.",
+        "Print labels with all three variables."
+      ],
+      "explanation": "A derived variable stores the result produced when its assignment runs; it does not update like a spreadsheet formula.",
+      "transfer": "Change cancellations to 12. Inspect the old active value, then rerun the calculation and confirm 68."
+    },
+    "ja": {
+      "connection": "行事の入場券を題材に、一つの意味を一つの変数へ置き、導出した状態を更新します。",
+      "task": "80枚を発行予定でしたが7枚を取り消しました。予定数と取消数を保存し、有効数を計算して3つの値を表示してください。",
+      "completion": [
+        "意味の分かる変数名を使います。",
+        "有効数は二つの元の値から計算します。",
+        "元の値を変えた後は導出する代入も再実行します。"
+      ],
+      "hints": [
+        "最初に二つの元の値を代入します。",
+        "右辺を計算してから左辺の名前を更新します。",
+        "3変数をラベル付きで表示します。"
+      ],
+      "explanation": "導出した変数は代入文を実行した時点の結果であり、自動更新されません。",
+      "transfer": "取消数を12へ変えて古い有効数を確認し、計算を再実行して68になることを確かめます。"
+    },
+    "code": "planned = 80\ncancelled = 7\nactive = planned - cancelled\nprint(\"PLANNED:\", planned)\nprint(\"CANCELLED:\", cancelled)\nprint(\"ACTIVE:\", active)",
+    "expected": "PLANNED: 80\nCANCELLED: 7\nACTIVE: 73"
+  },
+  {
+    "key": "1.3",
+    "en_page": "Lesson 1.3: Basic scalar types, conversion, and arithmetic",
+    "ja_page": "レッスン1.3：基本データ型・型変換・算術",
+    "en": {
+      "connection": "Calculate a battery charge rate while keeping integer, float, text, and Boolean meanings distinct.",
+      "task": "A battery stores 37 units out of 48. Display the percentage to one decimal place and whether it is at least 75% charged.",
+      "completion": [
+        "Keep quantities as integers and the rate as a float.",
+        "Use stored ÷ capacity × 100.",
+        "Compare the unrounded rate with 75."
+      ],
+      "hints": [
+        "Do not reverse numerator and denominator.",
+        "Use `:.1f` only for display.",
+        "The comparison produces a Boolean."
+      ],
+      "explanation": "Counts, a calculated rate, and a threshold decision have different types and meanings.",
+      "transfer": "Try stored values 36 and 35. Predict the percentage and Boolean before each run."
+    },
+    "ja": {
+      "connection": "蓄電池の充電率を題材に、整数、浮動小数点数、文字列、真偽値を区別します。",
+      "task": "容量48単位に37単位が蓄えられています。割合を小数第1位まで表示し、75%以上かも表示してください。",
+      "completion": [
+        "二つの量は整数、割合は浮動小数点数にします。",
+        "蓄電量÷容量×100で計算します。",
+        "丸め前の割合を75と比較します。"
+      ],
+      "hints": [
+        "分子と分母を逆にしません。",
+        "表示時だけ`:.1f`を使います。",
+        "比較結果は真偽値です。"
+      ],
+      "explanation": "件数、計算した割合、しきい値判定は、それぞれ異なる型と意味を持ちます。",
+      "transfer": "蓄電量を36、35へ変え、各実行前に割合と真偽値を予想してください。"
+    },
+    "code": "capacity = 48\nstored = 37\nrate = stored / capacity * 100\nprint(f\"CHARGE: {rate:.1f}%\")\nprint(\"READY:\", rate >= 75)",
+    "expected": "CHARGE: 77.1%\nREADY: True"
+  },
+  {
+    "key": "1.4",
+    "en_page": "Lesson 1.4: Strings, input, and formatted output",
+    "ja_page": "レッスン1.4：文字列・入力・書式付き出力",
+    "en": {
+      "connection": "Accept a parcel record and turn input text into a calculated, formatted line.",
+      "task": "Read destination, parcel count, and price per parcel. Display a line such as `Kumasi: 6 parcels, total 4500`.",
+      "completion": [
+        "Use three `input()` calls.",
+        "Strip the destination and convert both numeric inputs.",
+        "Keep input, calculation, and presentation separate."
+      ],
+      "hints": [
+        "`input()` returns text.",
+        "Use `int()` for whole numbers.",
+        "Use one f-string for the result."
+      ],
+      "explanation": "Conversion happens at the program boundary; calculation then uses numbers and the f-string controls presentation.",
+      "transfer": "Run the unchanged program with another destination and numbers. Do not fix sample answers in the code."
+    },
+    "ja": {
+      "connection": "小包の記録を題材に、入力文字列を計算済みの書式付き出力へ変えます。",
+      "task": "配送先、小包数、1個当たり料金を読み、`Kumasi: 6 parcels, total 4500`のように表示してください。",
+      "completion": [
+        "`input()`を3回使います。",
+        "配送先の空白を除き、二つの数値入力を変換します。",
+        "入力、計算、表示を分けます。"
+      ],
+      "hints": [
+        "`input()`は文字列を返します。",
+        "整数には`int()`を使います。",
+        "結果は一つのf文字列で表示します。"
+      ],
+      "explanation": "入口で型変換し、その後は数値として計算し、f文字列で表示を整えます。",
+      "transfer": "プログラムを変えず、別の配送先と数値でも実行します。例の答えをコードへ固定しません。"
+    },
+    "code": "destination = input(\"Destination: \").strip()\nparcels = int(input(\"Parcels: \"))\nprice = int(input(\"Price per parcel: \"))\ntotal = parcels * price\nprint(f\"{destination}: {parcels} parcels, total {total}\")",
+    "expected": "Kumasi: 6 parcels, total 4500"
+  },
+  {
+    "key": "1.5",
+    "en_page": "Lesson 1.5: Decisions with conditions",
+    "ja_page": "レッスン1.5：条件による判断",
+    "en": {
+      "connection": "Turn parcel-weight rules into ordered, mutually exclusive branches.",
+      "task": "Classify a parcel: negative is `DATA REVIEW`; under 2 kg `SMALL`; under 10 kg `STANDARD`; otherwise `HEAVY`.",
+      "completion": [
+        "Check invalid data first.",
+        "Use one `if/elif/else` chain.",
+        "Test just below, at, and above 2 and 10."
+      ],
+      "hints": [
+        "Order tests from exceptional to narrower to broader.",
+        "`weight < 2` excludes 2.",
+        "Only the first true branch runs."
+      ],
+      "explanation": "The order is part of the rule. Boundary tests show whether the comparison matches the written requirement.",
+      "transfer": "Try -0.1, 1.9, 2.0, 9.9, and 10.0; predict every category before running."
+    },
+    "ja": {
+      "connection": "小包の重量規則を、順序のある排他的な分岐へ変換します。",
+      "task": "負なら`DATA REVIEW`、2kg未満なら`SMALL`、10kg未満なら`STANDARD`、それ以外は`HEAVY`とします。",
+      "completion": [
+        "最初に不正値を確認します。",
+        "一つの`if/elif/else`連鎖を使います。",
+        "2と10の直前、境界上、直後を試します。"
+      ],
+      "hints": [
+        "例外、狭い範囲、広い範囲の順に判定します。",
+        "`weight < 2`は2を含みません。",
+        "最初に真となった一つだけが動きます。"
+      ],
+      "explanation": "判定順も規則の一部です。境界値テストで、比較が文章の条件に合うか確認できます。",
+      "transfer": "-0.1、1.9、2.0、9.9、10.0を試し、実行前に各分類を予想します。"
+    },
+    "code": "weight = 2.0\nif weight < 0:\n    category = \"DATA REVIEW\"\nelif weight < 2:\n    category = \"SMALL\"\nelif weight < 10:\n    category = \"STANDARD\"\nelse:\n    category = \"HEAVY\"\nprint(category)",
+    "expected": "STANDARD"
+  },
+  {
+    "key": "1.6",
+    "en_page": "Lesson 1.6: Repetition with loops",
+    "ja_page": "レッスン1.6：ループによる繰り返し",
+    "en": {
+      "connection": "Use workshop material costs to rehearse the repeated-processing pattern needed by the chapter project.",
+      "task": "Process `[82.5, 74.0, 91.5, 80.0]` with one loop. Display each week, total, mean, maximum, and count above 80; display `NO DATA` for an empty list.",
+      "completion": [
+        "Use accumulators and a conditional counter.",
+        "Do not use `sum()`, `max()`, or `statistics`.",
+        "Avoid division for empty data."
+      ],
+      "hints": [
+        "Handle empty data first.",
+        "Initialise state before the loop.",
+        "Calculate the mean after the loop."
+      ],
+      "explanation": "One loop can update several pieces of state; the empty branch prevents an invalid maximum and division by zero.",
+      "transfer": "Add 65.0. Predict which outputs change and which remain unchanged."
+    },
+    "ja": {
+      "connection": "章末課題で必要な反復処理を、研修材料費という別題材で練習します。",
+      "task": "`[82.5, 74.0, 91.5, 80.0]`を一つのループで処理し、各週、合計、平均、最大、80超件数を表示します。空なら`NO DATA`とします。",
+      "completion": [
+        "累積変数と条件付きカウンターを使います。",
+        "`sum()`、`max()`、`statistics`は使いません。",
+        "空データでは割り算しません。"
+      ],
+      "hints": [
+        "空の場合を先に分岐します。",
+        "ループ前に状態を初期化します。",
+        "平均はループ後に計算します。"
+      ],
+      "explanation": "一つのループで複数の状態を更新でき、空分岐が不正な最大値とゼロ除算を防ぎます。",
+      "transfer": "65.0を追加し、実行前に変わる出力と変わらない出力を予想します。"
+    },
+    "code": "costs = [82.5, 74.0, 91.5, 80.0]\nif not costs:\n    print(\"NO DATA\")\nelse:\n    total = 0\n    maximum = costs[0]\n    above_80 = 0\n    for week, cost in enumerate(costs, start=1):\n        print(week, cost)\n        total += cost\n        if cost > maximum:\n            maximum = cost\n        if cost > 80:\n            above_80 += 1\n    print(\"TOTAL:\", total)\n    print(\"MEAN:\", total / len(costs))\n    print(\"MAXIMUM:\", maximum)\n    print(\"ABOVE 80:\", above_80)",
+    "expected": "TOTAL: 328.0\nMEAN: 82.0\nMAXIMUM: 91.5\nABOVE 80: 2"
+  },
+  {
+    "key": "2.1",
+    "en_page": "Lesson 2.1: Lists, dictionaries, and records",
+    "ja_page": "レッスン2.1：リスト・辞書・レコード",
+    "en": {
+      "connection": "Before the library project, practise modelling a different collection: a small equipment register.",
+      "task": "Create records for projector E01, camera E02, and speaker E03. Store them in one list, find E02, mark it unavailable, and count available items.",
+      "completion": [
+        "Each record is a dictionary with `id`, `name`, and Boolean `available`.",
+        "The register is a list of records.",
+        "Search by ID rather than assuming a fixed position."
+      ],
+      "hints": [
+        "Start with three dictionary literals.",
+        "Loop through the list and compare `item['id']`.",
+        "Count records whose `available` value is true."
+      ],
+      "explanation": "The list represents the collection; each dictionary represents one record. Searching by stable ID survives reordering.",
+      "transfer": "Move E02 to the first position and run again. The same item must still be updated and the count must remain correct."
+    },
+    "ja": {
+      "connection": "図書管理プロジェクトの前に、別の集合である小型備品台帳をモデル化します。",
+      "task": "プロジェクターE01、カメラE02、スピーカーE03のレコードを作り、一つのリストへ保存します。E02を探して貸出不可へ変え、利用可能数を数えてください。",
+      "completion": [
+        "各レコードは`id`、`name`、真偽値`available`を持つ辞書です。",
+        "台帳はレコードのリストです。",
+        "固定位置ではなくIDで探します。"
+      ],
+      "hints": [
+        "3つの辞書リテラルから始めます。",
+        "リストを回り、`item['id']`を比較します。",
+        "`available`が真のレコードを数えます。"
+      ],
+      "explanation": "リストが集合を、各辞書が一件のレコードを表します。安定したIDで探せば並び替えに耐えます。",
+      "transfer": "E02を先頭へ移動して再実行します。同じ備品が更新され、件数も変わらないことを確認します。"
+    },
+    "code": "equipment = [\n    {\"id\": \"E01\", \"name\": \"Projector\", \"available\": True},\n    {\"id\": \"E02\", \"name\": \"Camera\", \"available\": True},\n    {\"id\": \"E03\", \"name\": \"Speaker\", \"available\": False},\n]\nfor item in equipment:\n    if item[\"id\"] == \"E02\":\n        item[\"available\"] = False\navailable_count = 0\nfor item in equipment:\n    if item[\"available\"]:\n        available_count += 1\nprint(\"AVAILABLE:\", available_count)",
+    "expected": "AVAILABLE: 1"
+  },
+  {
+    "key": "2.2",
+    "en_page": "Lesson 2.2: Functions, errors, and testing",
+    "ja_page": "レッスン2.2：関数・エラー・テスト",
+    "en": {
+      "connection": "Turn the equipment search into a small, testable function before building the larger project.",
+      "task": "Write `find_equipment(items, item_id)`. Return the matching dictionary or `None`; do not modify the list. Check one found and one missing ID with assertions.",
+      "completion": [
+        "Use the exact function name and two parameters.",
+        "Return as soon as a matching ID is found.",
+        "Use `assert` for both expected outcomes."
+      ],
+      "hints": [
+        "The missing return belongs after the loop, not inside it.",
+        "Compare the record ID with the parameter.",
+        "Take a shallow copy before and compare it after the calls."
+      ],
+      "explanation": "A clear contract separates input, return value, and side effects. Assertions make examples executable.",
+      "transfer": "Add a duplicate-free fourth record and test it. Then reorder the list; all assertions must still pass."
+    },
+    "ja": {
+      "connection": "大きなプロジェクトの前に、備品検索を小さくテスト可能な関数へします。",
+      "task": "`find_equipment(items, item_id)`を書きます。一致する辞書または`None`を返し、リストは変更しません。見つかるIDと存在しないIDを`assert`で確認してください。",
+      "completion": [
+        "関数名と二つの引数を指定どおりにします。",
+        "一致したら直ちに返します。",
+        "成功と不在の両方を`assert`で確認します。"
+      ],
+      "hints": [
+        "見つからない場合の`return`はループの後です。",
+        "レコードのIDと引数を比較します。",
+        "呼出前に浅いコピーを作り、後で比較します。"
+      ],
+      "explanation": "明確な契約が入力、戻り値、副作用を分けます。`assert`により例が実行可能な確認になります。",
+      "transfer": "重複しない4件目を追加してテストし、次に並び替えます。すべての`assert`が通ることを確認します。"
+    },
+    "code": "def find_equipment(items, item_id):\n    for item in items:\n        if item[\"id\"] == item_id:\n            return item\n    return None\n\nequipment = [{\"id\": \"E01\", \"name\": \"Projector\"}, {\"id\": \"E02\", \"name\": \"Camera\"}]\nbefore = equipment.copy()\nassert find_equipment(equipment, \"E02\")[\"name\"] == \"Camera\"\nassert find_equipment(equipment, \"E99\") is None\nassert equipment == before\nprint(\"ALL CHECKS PASSED\")",
+    "expected": "ALL CHECKS PASSED"
+  },
+  {
+    "key": "2.3",
+    "en_page": "Lesson 2.3: File and CSV input/output",
+    "ja_page": "レッスン2.3：ファイル・CSVの読み書き",
+    "en": {
+      "connection": "Rehearse the project’s read-transform-save cycle with room bookings rather than books.",
+      "task": "Create a tiny `bookings.csv`, read it with `csv.DictReader`, convert `people` to `int`, add 2 to booking R02, and save a new `bookings_updated.csv` with `csv.DictWriter`.",
+      "completion": [
+        "Keep the input file unchanged.",
+        "Use the exact header `id,room,people`.",
+        "Reopen the output and assert that R02 contains 14."
+      ],
+      "hints": [
+        "Create the small input in the rehearsal code.",
+        "Convert CSV text before arithmetic.",
+        "Pass `newline=''` and write the header once."
+      ],
+      "explanation": "Reading, typed transformation, separate output, and reopening form one reliable file-processing cycle.",
+      "transfer": "Add a room name containing a comma. Confirm that the `csv` module preserves it without manual splitting."
+    },
+    "ja": {
+      "connection": "本ではなく部屋予約を使い、プロジェクトの読込・変換・保存を予行演習します。",
+      "task": "小さな`bookings.csv`を作り、`csv.DictReader`で読み、`people`を`int`へ変換します。R02へ2人追加し、別の`bookings_updated.csv`へ`csv.DictWriter`で保存してください。",
+      "completion": [
+        "入力ファイルは変更しません。",
+        "見出しは`id,room,people`です。",
+        "出力を再読込し、R02が14人であることを`assert`します。"
+      ],
+      "hints": [
+        "練習コード内で小さな入力を作ります。",
+        "CSVの文字列を算術前に変換します。",
+        "`newline=''`を指定し、見出しは一度だけ書きます。"
+      ],
+      "explanation": "読込、型付き変換、別名保存、再読込が、信頼できるファイル処理の一巡です。",
+      "transfer": "カンマを含む部屋名を追加し、手作業の分割なしで`csv`モジュールが保持することを確認します。"
+    },
+    "code": "import csv\nfrom pathlib import Path\n\nsource = Path(\"bookings.csv\")\noutput = Path(\"bookings_updated.csv\")\nsource.write_text(\"id,room,people\\nR01,Hall A,8\\nR02,Room B,12\\n\", encoding=\"utf-8\")\nwith source.open(encoding=\"utf-8\", newline=\"\") as file:\n    rows = list(csv.DictReader(file))\nfor row in rows:\n    row[\"people\"] = int(row[\"people\"])\n    if row[\"id\"] == \"R02\":\n        row[\"people\"] += 2\nwith output.open(\"w\", encoding=\"utf-8\", newline=\"\") as file:\n    writer = csv.DictWriter(file, fieldnames=[\"id\", \"room\", \"people\"])\n    writer.writeheader()\n    writer.writerows(rows)\nwith output.open(encoding=\"utf-8\", newline=\"\") as file:\n    saved = list(csv.DictReader(file))\nassert saved[1][\"people\"] == \"14\"\nprint(\"ROUND TRIP OK\")",
+    "expected": "ROUND TRIP OK"
+  },
+  {
+    "key": "3.1",
+    "en_page": "Lesson 3.1: Tabular data, CSV, and pandas",
+    "ja_page": "レッスン3.1：表形式データ・CSV・pandas",
+    "en": {
+      "connection": "Use a four-row community-workshop table to rehearse the first stage of the intermediate project: inspect before transforming.",
+      "task": "Read the CSV text into a DataFrame. Display shape, columns, dtypes, every row, and a view sorted by `workshop_id,date` without changing the original order.",
+      "completion": [
+        "One row represents one workshop on one date.",
+        "The original and sorted view both contain four rows.",
+        "The original index order remains `[0, 1, 2, 3]`."
+      ],
+      "hints": [
+        "Use `io.StringIO` so no external file is needed.",
+        "Call `sort_values` and `reset_index(drop=True)` for the view.",
+        "Do not assign the sorted result back to `records`."
+      ],
+      "explanation": "Inspection establishes row meaning, columns, types, and ordering before analysis. A derived view need not mutate the source DataFrame.",
+      "transfer": "Reverse the CSV row order. The source display changes, but the sorted view must remain in workshop/date order."
+    },
+    "ja": {
+      "connection": "4行の地域講習会表を使い、中間課題の最初の段階である『加工前の確認』を練習します。",
+      "task": "CSV文字列をDataFrameへ読み、形、列名、型、全行、`workshop_id,date`順の表示用表を出します。元の順序は変えません。",
+      "completion": [
+        "一行は一つの講習会の一日分です。",
+        "原表と並べ替え表はどちらも4行です。",
+        "元のindex順は`[0, 1, 2, 3]`のままです。"
+      ],
+      "hints": [
+        "外部ファイルを不要にするため`io.StringIO`を使います。",
+        "表示用表は`sort_values`と`reset_index(drop=True)`で作ります。",
+        "並べ替え結果を`records`へ代入しません。"
+      ],
+      "explanation": "確認により、分析前に一行の意味、列、型、順序を把握します。派生表示のために原表を変更する必要はありません。",
+      "transfer": "CSVの行順を逆にします。原表の表示は変わりますが、並べ替え表は同じ講習会・日付順になることを確認します。"
+    },
+    "code": "from io import StringIO\nimport pandas as pd\n\ncsv_text = \"\"\"workshop_id,date,district,registered,attended\nW02,2026-09-02,east,18,15\nW01,2026-09-02,North,20,18\nW02,2026-09-01, east ,16,14\nW01,2026-09-01,North,19,17\n\"\"\"\nrecords = pd.read_csv(StringIO(csv_text))\nprint(\"SHAPE:\", records.shape)\nprint(\"COLUMNS:\", records.columns.tolist())\nprint(records.dtypes)\nprint(records.to_string(index=False))\nview = records.sort_values([\"workshop_id\", \"date\"]).reset_index(drop=True)\nprint(view.to_string(index=False))\nassert records.index.tolist() == [0, 1, 2, 3]",
+    "expected": "SHAPE: (4, 5)"
+  },
+  {
+    "key": "3.2",
+    "en_page": "Lesson 3.2: Data selection, filtering, and Boolean logic",
+    "ja_page": "レッスン3.2：データの選択・抽出とブール論理",
+    "en": {
+      "connection": "Use market-stall inspections to practise selecting evidence with explicit Boolean conditions.",
+      "task": "From five records, select stalls where `temperature > 8` and `food_type == 'cold'`. Show only ID, temperature, and food type; keep the original unchanged.",
+      "completion": [
+        "Build each condition separately, then combine them with `&`.",
+        "Use parentheses around both comparisons.",
+        "The result contains S02 and S05 only."
+      ],
+      "hints": [
+        "Inspect the two Boolean Series before combining them.",
+        "Use `.loc[mask, columns]`.",
+        "Do not use Python `and` between Series."
+      ],
+      "explanation": "A filter is a documented inclusion rule. Separate masks make the logic inspectable and reduce precedence mistakes.",
+      "transfer": "Change the rule to temperature at least 8. Predict whether S03 enters before running."
+    },
+    "ja": {
+      "connection": "市場の食品売場点検を題材に、明示的なブール条件で根拠を抽出します。",
+      "task": "5件から、`temperature > 8`かつ`food_type == 'cold'`の売場を選び、ID、温度、食品種だけ表示します。元表は変更しません。",
+      "completion": [
+        "各条件を別々に作り、`&`で結合します。",
+        "二つの比較を括弧で囲みます。",
+        "結果はS02とS05だけです。"
+      ],
+      "hints": [
+        "結合前に二つのBoolean Seriesを確認します。",
+        "`.loc[mask, columns]`を使います。",
+        "Series同士にPythonの`and`は使いません。"
+      ],
+      "explanation": "フィルターは採用規則をコード化したものです。マスクを分けると論理を確認でき、優先順位の誤りを減らせます。",
+      "transfer": "条件を8度以上へ変えます。実行前にS03が入るか予想します。"
+    },
+    "code": "import pandas as pd\nrecords = pd.DataFrame({\n    \"stall_id\": [\"S01\", \"S02\", \"S03\", \"S04\", \"S05\"],\n    \"temperature\": [5, 11, 8, 12, 9],\n    \"food_type\": [\"cold\", \"cold\", \"cold\", \"hot\", \"cold\"],\n})\ntoo_warm = records[\"temperature\"] > 8\ncold_food = records[\"food_type\"] == \"cold\"\nreview = records.loc[too_warm & cold_food, [\"stall_id\", \"temperature\", \"food_type\"]]\nprint(review.to_string(index=False))\nassert review[\"stall_id\"].tolist() == [\"S02\", \"S05\"]",
+    "expected": "S02 and S05"
+  },
+  {
+    "key": "3.3",
+    "en_page": "Lesson 3.3: Data cleaning and audit records",
+    "ja_page": "レッスン3.3：データのクリーニングと監査記録",
+    "en": {
+      "connection": "Use a tiny water-container log to rehearse explicit quality flags and an audit trail without repairing the source silently.",
+      "task": "Convert `litres` with `errors='coerce'`. Flag missing numbers, negative numbers, and duplicate `container_id,date` groups with `keep=False`; create separate valid and review tables.",
+      "completion": [
+        "Preserve a deep copy of the original.",
+        "One row may carry more than one flag.",
+        "Every source row appears in exactly one output table."
+      ],
+      "hints": [
+        "Use `isna()`, `< 0`, and `duplicated(..., keep=False)`.",
+        "Combine flags with `|` for the review mask.",
+        "Reconcile lengths after splitting."
+      ],
+      "explanation": "Cleaning is a rule-driven classification, not a silent rewrite. Separate flags explain why each row needs review.",
+      "transfer": "Add a row that is both negative and duplicated. Confirm both flags are true and reconciliation still holds."
+    },
+    "ja": {
+      "connection": "小さな給水容器記録を使い、原本を黙って直さず、品質フラグと監査経路を作ります。",
+      "task": "`litres`を`errors='coerce'`で変換します。数値欠損、負数、`container_id,date`重複全行をフラグ化し、有効表と要確認表へ分けてください。",
+      "completion": [
+        "原表のdeep copyを保持します。",
+        "一行が複数フラグを持って構いません。",
+        "全原本行が必ず一方の出力へ入ります。"
+      ],
+      "hints": [
+        "`isna()`、`< 0`、`duplicated(..., keep=False)`を使います。",
+        "要確認マスクは`|`で結合します。",
+        "分割後に行数を照合します。"
+      ],
+      "explanation": "クリーニングは規則に基づく分類であり、黙った書換えではありません。別々のフラグが理由を残します。",
+      "transfer": "負数かつ重複となる一行を追加し、両フラグと件数照合を確認します。"
+    },
+    "code": "import pandas as pd\nrecords = pd.DataFrame({\n    \"container_id\": [\"C01\", \"C02\", \"C02\", \"C03\"],\n    \"date\": [\"2026-09-01\", \"2026-09-01\", \"2026-09-01\", \"2026-09-02\"],\n    \"litres\": [20, \"\", 18, -2],\n})\noriginal = records.copy(deep=True)\nworking = records.copy(deep=True)\nworking[\"litres\"] = pd.to_numeric(working[\"litres\"], errors=\"coerce\")\nworking[\"missing_number\"] = working[\"litres\"].isna()\nworking[\"negative_number\"] = working[\"litres\"].lt(0).fillna(False)\nworking[\"duplicate_record\"] = working.duplicated([\"container_id\", \"date\"], keep=False)\nreview_mask = working[[\"missing_number\", \"negative_number\", \"duplicate_record\"]].any(axis=1)\nvalid = working.loc[~review_mask].copy()\nreview = working.loc[review_mask].copy()\nassert len(records) == len(valid) + len(review)\nassert records.equals(original)\nprint(\"VALID:\", len(valid), \"REVIEW:\", len(review))",
+    "expected": "VALID: 1 REVIEW: 3"
+  },
+  {
+    "key": "3.4",
+    "en_page": "Lesson 3.4: Grouping and summary statistics",
+    "ja_page": "レッスン3.4：グループ化と要約統計",
+    "en": {
+      "connection": "Use bicycle-repair jobs to rehearse grouping, derived indicators, deterministic ranking, and reconciliation.",
+      "task": "Group six valid jobs by mechanic. Calculate job count, total minutes, and mean minutes; rank highest mean first and break ties by mechanic ID.",
+      "completion": [
+        "Use named aggregation.",
+        "Rank with the unrounded mean and round only for display.",
+        "Job counts and total minutes must reconcile with the source."
+      ],
+      "hints": [
+        "Use `groupby('mechanic_id', as_index=False).agg(...)`.",
+        "Sort by mean descending and ID ascending.",
+        "Compare grouped sums with source sums."
+      ],
+      "explanation": "Grouping changes row meaning from one job to one mechanic. Reconciliation proves the summary still accounts for its source.",
+      "transfer": "Add one 60-minute job for M02. Predict the new first mechanic before running."
+    },
+    "ja": {
+      "connection": "自転車修理を題材に、グループ化、導出指標、決定的な順位、照合を練習します。",
+      "task": "有効な6件を整備担当者別にまとめ、件数、合計分、平均分を求めます。平均の降順、同率は担当者ID昇順で並べてください。",
+      "completion": [
+        "名前付き集計を使います。",
+        "順位は丸め前の平均で決め、表示時だけ丸めます。",
+        "件数と合計分を原明細と照合します。"
+      ],
+      "hints": [
+        "`groupby('mechanic_id', as_index=False).agg(...)`を使います。",
+        "平均降順、ID昇順で並べます。",
+        "集計表の合計と原表の合計を比較します。"
+      ],
+      "explanation": "一行の意味が一修理から一担当者へ変わります。照合により、集計が原明細を説明できることを確かめます。",
+      "transfer": "M02へ60分の修理を一件追加します。実行前に新しい1位を予想します。"
+    },
+    "code": "import pandas as pd\njobs = pd.DataFrame({\n    \"job_id\": [\"J1\", \"J2\", \"J3\", \"J4\", \"J5\", \"J6\"],\n    \"mechanic_id\": [\"M01\", \"M02\", \"M01\", \"M03\", \"M02\", \"M03\"],\n    \"minutes\": [30, 45, 50, 20, 35, 40],\n})\nsummary = jobs.groupby(\"mechanic_id\", as_index=False).agg(\n    job_count=(\"job_id\", \"size\"),\n    total_minutes=(\"minutes\", \"sum\"),\n    mean_minutes=(\"minutes\", \"mean\"),\n)\nsummary = summary.sort_values([\"mean_minutes\", \"mechanic_id\"], ascending=[False, True])\nassert summary[\"job_count\"].sum() == len(jobs)\nassert summary[\"total_minutes\"].sum() == jobs[\"minutes\"].sum()\nprint(summary.round({\"mean_minutes\": 1}).to_string(index=False))",
+    "expected": "FIRST: M01"
+  },
+  {
+    "key": "4.1",
+    "en_page": "Lesson 4.1: From records and functions to objects",
+    "ja_page": "レッスン4.1：レコードと関数からオブジェクトへ",
+    "en": {
+      "connection": "The chapter project manages equipment loans. This lighter rehearsal instead models a meeting room and compares a dictionary with an object.",
+      "task": "Create `Room('R01', 'Blue Room', 12)`. It must expose those three attributes and provide `label()` returning `R01 — Blue Room (12 seats)`.",
+      "completion": [
+        "Define one class with `__init__` and `label`.",
+        "Construct two independent rooms.",
+        "Changing one room name must not change the other."
+      ],
+      "hints": [
+        "Store constructor arguments on `self`.",
+        "A method receives the current object as `self`.",
+        "Return the label rather than printing inside the method."
+      ],
+      "explanation": "The object bundles one room’s state with behaviour that belongs to that state. Two instances share the class but keep separate data.",
+      "transfer": "Create R02 with 20 seats and print both labels. Then rename only R01 and confirm R02 is unchanged."
+    },
+    "ja": {
+      "connection": "章末では備品貸出を扱います。この軽い練習では会議室をモデル化し、辞書とオブジェクトの違いを確認します。",
+      "task": "`Room('R01', 'Blue Room', 12)`を作ります。3属性を持ち、`R01 — Blue Room (12 seats)`を返す`label()`を用意してください。",
+      "completion": [
+        "`__init__`と`label`を持つ一つのクラスを定義します。",
+        "独立した部屋を二つ作ります。",
+        "一方の名前変更が他方へ影響しないことを確認します。"
+      ],
+      "hints": [
+        "コンストラクタ引数を`self`へ保存します。",
+        "メソッドは現在のオブジェクトを`self`で受け取ります。",
+        "メソッド内で表示せず、ラベルを返します。"
+      ],
+      "explanation": "オブジェクトは一つの部屋の状態と、その状態に属する振る舞いをまとめます。インスタンスはクラスを共有してもデータは独立します。",
+      "transfer": "20席のR02を作って両方を表示し、R01だけ改名してR02が変わらないことを確認します。"
+    },
+    "code": "class Room:\n    def __init__(self, room_id, name, seats):\n        self.room_id = room_id\n        self.name = name\n        self.seats = seats\n\n    def label(self):\n        return f\"{self.room_id} — {self.name} ({self.seats} seats)\"\n\nroom = Room(\"R01\", \"Blue Room\", 12)\nprint(room.label())",
+    "expected": "R01 — Blue Room (12 seats)"
+  },
+  {
+    "key": "4.2",
+    "en_page": "Lesson 4.2: State, methods, and valid objects",
+    "ja_page": "レッスン4.2：状態・メソッド・正しいオブジェクト",
+    "en": {
+      "connection": "Use a room reservation to practise valid construction and controlled state transitions.",
+      "task": "Define `Reservation` with states `PENDING`, `CONFIRMED`, and `CANCELLED`. Confirmation is allowed only from pending; cancellation is allowed unless already cancelled.",
+      "completion": [
+        "Reject an empty booking ID or a non-positive party size in `__init__`.",
+        "Methods enforce transitions and raise `ValueError` for invalid moves.",
+        "Test the normal path and one invalid repeated confirmation."
+      ],
+      "hints": [
+        "Start every valid object in `PENDING`.",
+        "Check current state before changing it.",
+        "A failed method must leave state unchanged."
+      ],
+      "explanation": "The class protects its invariant instead of relying on every caller to remember the rules.",
+      "transfer": "Cancel a fresh reservation, then try to confirm it. Confirm that an exception occurs and state remains `CANCELLED`."
+    },
+    "ja": {
+      "connection": "部屋予約を使い、正しい生成と制御された状態遷移を練習します。",
+      "task": "`PENDING`、`CONFIRMED`、`CANCELLED`を持つ`Reservation`を定義します。確認は待機中のみ、取消は未取消の場合のみ許可します。",
+      "completion": [
+        "空の予約IDと0以下の人数を`__init__`で拒否します。",
+        "メソッドが遷移を守り、不正時は`ValueError`を出します。",
+        "正常経路と確認の二重実行をテストします。"
+      ],
+      "hints": [
+        "有効なオブジェクトは必ず`PENDING`で始めます。",
+        "変更前に現在状態を確認します。",
+        "失敗したメソッドは状態を変えません。"
+      ],
+      "explanation": "クラスが不変条件を守るため、すべての呼出側が規則を暗記する必要がなくなります。",
+      "transfer": "新規予約を取消してから確認し、例外後も`CANCELLED`のままであることを確かめます。"
+    },
+    "code": "class Reservation:\n    def __init__(self, booking_id, people):\n        if not booking_id.strip() or people <= 0:\n            raise ValueError(\"invalid reservation\")\n        self.booking_id = booking_id.strip()\n        self.people = people\n        self.status = \"PENDING\"\n\n    def confirm(self):\n        if self.status != \"PENDING\":\n            raise ValueError(\"cannot confirm\")\n        self.status = \"CONFIRMED\"\n\n    def cancel(self):\n        if self.status == \"CANCELLED\":\n            raise ValueError(\"already cancelled\")\n        self.status = \"CANCELLED\"\n\nr = Reservation(\"B01\", 4)\nr.confirm()\nassert r.status == \"CONFIRMED\"\nprint(\"STATE OK\")",
+    "expected": "STATE OK"
+  },
+  {
+    "key": "4.3",
+    "en_page": "Lesson 4.3: Collections, composition, and responsibility",
+    "ja_page": "レッスン4.3：複数オブジェクト・合成・責任分担",
+    "en": {
+      "connection": "Build a small timetable that owns room reservations, keeping collection rules out of each reservation.",
+      "task": "Define `Schedule.add(reservation)`, `find(booking_id)`, and `count_by_status()`. Reject duplicate IDs. `Reservation` remains responsible only for one booking.",
+      "completion": [
+        "`Schedule` contains a list of `Reservation` objects.",
+        "Search by booking ID and return `None` when absent.",
+        "The status count is a dictionary derived from current objects."
+      ],
+      "hints": [
+        "Initialise the collection in `Schedule.__init__`.",
+        "Call `find` before appending.",
+        "Loop over reservations to build counts."
+      ],
+      "explanation": "Composition assigns one-record rules to `Reservation` and collection-wide rules to `Schedule`.",
+      "transfer": "Add a third status to one reservation and confirm `count_by_status()` reflects current state without stored duplicate totals."
+    },
+    "ja": {
+      "connection": "部屋予約を所有する小さな予定表を作り、集合の規則を一件の予約から分離します。",
+      "task": "`Schedule.add(reservation)`、`find(booking_id)`、`count_by_status()`を定義し、ID重複を拒否します。`Reservation`は一件だけを担当します。",
+      "completion": [
+        "`Schedule`は`Reservation`オブジェクトのリストを持ちます。",
+        "IDで検索し、不在なら`None`を返します。",
+        "状態件数は現在のオブジェクトから作る辞書です。"
+      ],
+      "hints": [
+        "`Schedule.__init__`で集合を初期化します。",
+        "追加前に`find`を呼びます。",
+        "予約をループして件数を作ります。"
+      ],
+      "explanation": "合成により、一件の規則を`Reservation`へ、集合全体の規則を`Schedule`へ割り当てます。",
+      "transfer": "一件の状態を変更し、重複した合計を保存せずに`count_by_status()`へ反映されることを確認します。"
+    },
+    "code": "class Reservation:\n    def __init__(self, booking_id, status=\"PENDING\"):\n        self.booking_id = booking_id\n        self.status = status\n\n\nclass Schedule:\n    def __init__(self):\n        self.reservations = []\n\n    def find(self, booking_id):\n        for reservation in self.reservations:\n            if reservation.booking_id == booking_id:\n                return reservation\n        return None\n\n    def add(self, reservation):\n        if self.find(reservation.booking_id) is not None:\n            raise ValueError(\"duplicate booking\")\n        self.reservations.append(reservation)\n\n    def count_by_status(self):\n        counts = {}\n        for reservation in self.reservations:\n            counts[reservation.status] = counts.get(reservation.status, 0) + 1\n        return counts",
+    "expected": "A duplicate booking raises ValueError"
+  },
+  {
+    "key": "4.4",
+    "en_page": "Lesson 4.4: Persistence and testing class-based programs",
+    "ja_page": "レッスン4.4：オブジェクトの保存とテスト",
+    "en": {
+      "connection": "Rehearse the class-to-CSV boundary with bicycle rentals rather than equipment loans.",
+      "task": "Give `Rental` a `to_record()` method and `from_record()` class method. Save two rentals to CSV, reload them, and assert that ID, bicycle ID, and active state survive the round trip.",
+      "completion": [
+        "CSV rows contain strings; the object uses Boolean state.",
+        "Serialisation belongs at the boundary, not scattered through business methods.",
+        "The input and output headers remain stable."
+      ],
+      "hints": [
+        "Write Boolean values as `true` or `false`.",
+        "Parse them explicitly when loading.",
+        "Compare attribute tuples after reopening."
+      ],
+      "explanation": "Objects provide behaviour in memory; records provide portable persistence. Explicit conversion keeps both representations understandable.",
+      "transfer": "Change one saved row to an invalid Boolean and confirm `from_record()` raises a clear `ValueError`."
+    },
+    "ja": {
+      "connection": "備品貸出ではなく自転車レンタルを使い、クラスとCSVの境界を練習します。",
+      "task": "`Rental`へ`to_record()`と`from_record()`クラスメソッドを作ります。2件をCSVへ保存して再読込し、ID、自転車ID、利用中状態が往復後も保たれることを確認します。",
+      "completion": [
+        "CSV行は文字列、オブジェクトの状態は真偽値です。",
+        "直列化は業務メソッドへ散らさず境界へ置きます。",
+        "入出力の見出しを安定させます。"
+      ],
+      "hints": [
+        "真偽値は`true`または`false`で保存します。",
+        "読込時に明示的に解釈します。",
+        "再読込後に属性のタプルを比較します。"
+      ],
+      "explanation": "オブジェクトはメモリ上の振る舞いを、レコードは持ち運べる保存形式を提供します。明示的な変換が両方を理解可能にします。",
+      "transfer": "保存行の真偽値を不正値へ変え、`from_record()`が明確な`ValueError`を出すことを確認します。"
+    },
+    "code": "class Rental:\n    def __init__(self, rental_id, bicycle_id, active):\n        self.rental_id = rental_id\n        self.bicycle_id = bicycle_id\n        self.active = active\n\n    def to_record(self):\n        return {\"rental_id\": self.rental_id, \"bicycle_id\": self.bicycle_id,\n                \"active\": \"true\" if self.active else \"false\"}\n\n    @classmethod\n    def from_record(cls, row):\n        value = row[\"active\"].strip().lower()\n        if value not in {\"true\", \"false\"}:\n            raise ValueError(\"invalid active value\")\n        return cls(row[\"rental_id\"], row[\"bicycle_id\"], value == \"true\")\n\nrental = Rental.from_record(Rental(\"R01\", \"B07\", True).to_record())\nassert (rental.rental_id, rental.bicycle_id, rental.active) == (\"R01\", \"B07\", True)\nprint(\"ROUND TRIP OK\")",
+    "expected": "ROUND TRIP OK"
+  },
+  {
+    "key": "5.1",
+    "en_page": "Lesson 5.1: From a question to a chart",
+    "ja_page": "レッスン5.1：問いから図へ",
+    "en": {
+      "connection": "The chapter project concerns clinic waits. This lighter rehearsal asks which community bus route has the highest average delay.",
+      "task": "Aggregate six trip records by route, create a horizontal bar chart of mean delay minutes, label axes and title, and highlight only the highest route.",
+      "completion": [
+        "State the question before choosing the chart.",
+        "The plotted table has one row per route.",
+        "Use a zero-based minute axis and direct value labels."
+      ],
+      "hints": [
+        "Group with named aggregation for mean delay and trip count.",
+        "Sort before plotting.",
+        "Use one contrast colour for the maximum and a neutral colour for others."
+      ],
+      "explanation": "The chart is the last step of a chain: question, metric, grain, summary table, then visual encoding.",
+      "transfer": "Replace mean delay with total delay. Explain why the highlighted route may change even when both calculations are correct."
+    },
+    "ja": {
+      "connection": "章末では診療所待ち時間を扱います。この軽い練習では、平均遅延が最大の地域バス路線を調べます。",
+      "task": "6便を路線別に集計し、平均遅延分の横棒グラフを作ります。軸と表題を付け、最大の路線だけを強調してください。",
+      "completion": [
+        "図を選ぶ前に問いを定めます。",
+        "描画表は一行一路線です。",
+        "分単位の軸は0から始め、値ラベルを付けます。"
+      ],
+      "hints": [
+        "平均遅延と便数を名前付き集計で作ります。",
+        "描画前に並べ替えます。",
+        "最大だけ対比色、他は中立色にします。"
+      ],
+      "explanation": "図は、問い、指標、粒度、集計表、視覚表現という処理の最後にあります。",
+      "transfer": "平均遅延を総遅延へ変えます。どちらも正しくても強調路線が変わり得る理由を説明します。"
+    },
+    "code": "import pandas as pd\nimport matplotlib.pyplot as plt\ntrips = pd.DataFrame({\"route\": [\"A\", \"B\", \"C\", \"A\", \"B\", \"C\"],\n                      \"delay_minutes\": [4, 12, 7, 8, 6, 9]})\nsummary = trips.groupby(\"route\", as_index=False).agg(\n    average_delay=(\"delay_minutes\", \"mean\"), trips=(\"delay_minutes\", \"size\"))\nsummary = summary.sort_values(\"average_delay\")\ntop = summary[\"average_delay\"].idxmax()\ncolors = [\"#d0d7de\"] * len(summary)\ncolors[list(summary.index).index(top)] = \"#d9485f\"\nax = summary.plot.barh(x=\"route\", y=\"average_delay\", color=colors, legend=False)\nax.set(xlabel=\"Average delay (minutes)\", ylabel=\"Route\", title=\"Average bus delay by route\")\nax.set_xlim(left=0)\nfor container in ax.containers:\n    ax.bar_label(container, fmt=\"%.1f\")\nplt.tight_layout()",
+    "expected": "Route B has the highest average delay: 9.0 minutes"
+  },
+  {
+    "key": "5.2",
+    "en_page": "Lesson 5.2: Honest comparisons",
+    "ja_page": "レッスン5.2：誤解を生まない比較",
+    "en": {
+      "connection": "Use food deliveries to compare total burden with the experience per delivery.",
+      "task": "For three zones, calculate total late minutes and average late minutes per delivery. Keep delivery count beside both metrics and rank each metric separately.",
+      "completion": [
+        "Totals and averages answer different questions.",
+        "Compute averages from compatible totals and counts.",
+        "Use an honest zero-based bar axis."
+      ],
+      "hints": [
+        "Aggregate `late_minutes` sum and delivery count first.",
+        "Calculate the mean after aggregation.",
+        "Sort each copy without losing the common summary table."
+      ],
+      "explanation": "A large service can lead in total burden while another has the worse per-delivery experience. Sample size gives both values context.",
+      "transfer": "Add ten on-time deliveries to one zone. Predict which metric changes and why."
+    },
+    "ja": {
+      "connection": "食品配送を題材に、総負担と一配送当たりの経験を比較します。",
+      "task": "3地区について遅延分の合計と一配送当たり平均を求めます。両指標に配送件数を添え、それぞれ別に順位付けしてください。",
+      "completion": [
+        "合計と平均は別の問いへ答えます。",
+        "互換性のある合計と件数から平均を求めます。",
+        "棒の軸は正直に0から始めます。"
+      ],
+      "hints": [
+        "まず遅延分合計と配送件数を集計します。",
+        "平均は集計後に計算します。",
+        "共通集計表を失わず、コピーを別々に並べます。"
+      ],
+      "explanation": "規模の大きい地区が総負担で1位でも、別地区の一配送当たり経験が悪い場合があります。件数が両指標の文脈になります。",
+      "transfer": "一地区へ定刻配送を10件追加します。どの指標が変わるか、理由とともに予想します。"
+    },
+    "code": "import pandas as pd\ndeliveries = pd.DataFrame({\n    \"zone\": [\"North\", \"North\", \"North\", \"East\", \"East\", \"South\"],\n    \"late_minutes\": [10, 20, 0, 25, 5, 18],\n})\nsummary = deliveries.groupby(\"zone\", as_index=False).agg(\n    total_late_minutes=(\"late_minutes\", \"sum\"),\n    deliveries=(\"late_minutes\", \"size\"),\n)\nsummary[\"average_late_minutes\"] = summary[\"total_late_minutes\"] / summary[\"deliveries\"]\nprint(summary.sort_values(\"total_late_minutes\", ascending=False).to_string(index=False))\nprint(summary.sort_values(\"average_late_minutes\", ascending=False).to_string(index=False))",
+    "expected": "Total burden: North 30; highest average: South 18.0"
+  },
+  {
+    "key": "5.3",
+    "en_page": "Lesson 5.3: From chart to evidence statement",
+    "ja_page": "レッスン5.3：図から根拠文へ",
+    "en": {
+      "connection": "Turn a small solar-maintenance chart into bounded evidence rather than an unsupported story.",
+      "task": "Given site completion rates A=92%, B=76%, C=84% for April–June, write exactly three sentences: an observation with values, scope and denominator, and a limitation with the next question.",
+      "completion": [
+        "Use only facts available in the data.",
+        "Name the period and explain that completed jobs ÷ scheduled jobs is the denominator.",
+        "Do not claim a cause."
+      ],
+      "hints": [
+        "Sentence 1 answers what differs.",
+        "Sentence 2 answers what records and denominator were compared.",
+        "Sentence 3 says what the data cannot establish and what to inspect next."
+      ],
+      "explanation": "A concise evidence statement separates observed comparison, analytical scope, and untested explanation.",
+      "transfer": "Change site B to 88%. Rewrite only the sentence whose factual comparison changes; keep the limitation bounded."
+    },
+    "ja": {
+      "connection": "小さな太陽光設備保守の図を、根拠のない物語ではなく範囲を限定した根拠文へ変えます。",
+      "task": "4～6月の完了率A=92%、B=76%、C=84%から、ちょうど3文を書きます。数値付き観察、範囲と分母、限界と次の問いです。",
+      "completion": [
+        "データにある事実だけを使います。",
+        "期間と、完了作業÷予定作業という分母を示します。",
+        "原因を断定しません。"
+      ],
+      "hints": [
+        "第1文は何が違うかを書きます。",
+        "第2文は対象記録と分母を書きます。",
+        "第3文は分からないことと次に調べることを書きます。"
+      ],
+      "explanation": "短い根拠文は、観察した比較、分析範囲、未検証の説明を分離します。",
+      "transfer": "Bを88%へ変え、事実比較が変わる文だけを書き換えます。限界の範囲は保ちます。"
+    },
+    "code": "rates = {\"Site A\": 92, \"Site B\": 76, \"Site C\": 84}\nlowest = min(rates, key=rates.get)\nprint(f\"From April to June, {lowest} had the lowest completion rate at {rates[lowest]}%, compared with 92% at Site A and 84% at Site C.\")\nprint(\"The rates compare completed jobs with scheduled jobs recorded for each site during the three-month period.\")\nprint(\"These records do not establish why Site B was lower; the next check should compare job type, cancellations, and staffing by site.\")",
+    "expected": "Three sentences: observation, scope/denominator, and bounded limitation"
+  },
+  {
+    "key": "6.1",
+    "en_page": "Lesson 6.1: Inspect before loading",
+    "ja_page": "レッスン6.1：読み込む前に調べる",
+    "en": {
+      "connection": "The chapter project scales clinic-stock data. This lighter rehearsal plans a selective read of solar-maintenance logs.",
+      "task": "Create a 12-row CSV with six columns. Inspect bytes and two rows, then read only `site_id,date,downtime_hours` and compare deep memory use with the full DataFrame.",
+      "completion": [
+        "The conclusion is based on all 12 rows, not the two-row sample.",
+        "Use `nrows`, `usecols`, and `memory_usage(deep=True)`.",
+        "Confirm selected columns are exactly the three requested."
+      ],
+      "hints": [
+        "Generate the tiny CSV in the code.",
+        "Use the sample only to inspect names and values.",
+        "Measure both DataFrames with the same method."
+      ],
+      "explanation": "Sampling plans the load; selective reading expresses the data boundary. Neither substitutes for processing every required row.",
+      "transfer": "Add a long free-text note column. Predict which load’s memory grows most, then measure it."
+    },
+    "ja": {
+      "connection": "章末では診療所在庫データを拡大処理します。この軽い練習では太陽光設備保守ログの選択読込を計画します。",
+      "task": "6列12行のCSVを作り、バイト数と2行を確認します。次に`site_id,date,downtime_hours`だけ読み、全列DataFrameとのdeep memoryを比較してください。",
+      "completion": [
+        "結論は2行標本ではなく12行全件に基づきます。",
+        "`nrows`、`usecols`、`memory_usage(deep=True)`を使います。",
+        "選択列が指定の3列だけか確認します。"
+      ],
+      "hints": [
+        "小さなCSVはコード内で生成します。",
+        "標本は列名と値の形の確認だけに使います。",
+        "二つのDataFrameを同じ方法で測ります。"
+      ],
+      "explanation": "標本は読込計画を立て、選択読込はデータ境界を表します。どちらも必要全行の処理の代わりではありません。",
+      "transfer": "長い自由記述列を追加し、どちらの読込のメモリが大きく増えるか予想して測ります。"
+    },
+    "code": "from pathlib import Path\nimport pandas as pd\nsource = Path(\"solar_maintenance.csv\")\npd.DataFrame({\n    \"site_id\": [f\"S{i % 3 + 1}\" for i in range(12)],\n    \"date\": [f\"2026-09-{i + 1:02d}\" for i in range(12)],\n    \"downtime_hours\": [i % 5 for i in range(12)],\n    \"technician\": [\"T1\", \"T2\"] * 6,\n    \"weather\": [\"clear\", \"rain\", \"cloud\"] * 4,\n    \"note\": [\"routine check\"] * 12,\n}).to_csv(source, index=False)\nprint(\"BYTES:\", source.stat().st_size)\nprint(pd.read_csv(source, nrows=2))\nfull = pd.read_csv(source)\nselected = pd.read_csv(source, usecols=[\"site_id\", \"date\", \"downtime_hours\"])\nprint(\"FULL MEMORY:\", full.memory_usage(deep=True).sum())\nprint(\"SELECTED MEMORY:\", selected.memory_usage(deep=True).sum())\nassert selected.columns.tolist() == [\"site_id\", \"date\", \"downtime_hours\"]",
+    "expected": "Selected memory is lower than full memory"
+  },
+  {
+    "key": "6.2",
+    "en_page": "Lesson 6.2: Aggregate correctly across chunks",
+    "ja_page": "レッスン6.2：チャンクを越えて正しく集計する",
+    "en": {
+      "connection": "Use warehouse dispatches to rehearse preserving additive state across chunk boundaries.",
+      "task": "Process a 12-row CSV in chunks of 4. For each destination, accumulate dispatch count and package total, then calculate packages per dispatch after all chunks.",
+      "completion": [
+        "Keep only grouped totals between chunks.",
+        "Do not average chunk averages.",
+        "Reconcile source rows with accumulated dispatch counts."
+      ],
+      "hints": [
+        "Group each chunk by destination.",
+        "Add partial counts and package sums into a dictionary.",
+        "Divide total packages by total dispatches at the end."
+      ],
+      "explanation": "Counts and sums are additive; averages are derived only after their numerator and denominator have been combined.",
+      "transfer": "Run with chunk sizes 3 and 5. The final table and reconciled row count must be identical."
+    },
+    "ja": {
+      "connection": "倉庫からの発送を題材に、チャンク境界を越えて加算可能な状態を保持します。",
+      "task": "12行CSVを4行ずつ処理し、配送先別の発送件数と荷物合計を累積します。全チャンク後に一発送当たり荷物数を求めてください。",
+      "completion": [
+        "チャンク間ではグループ別合計だけを保持します。",
+        "チャンク平均を平均しません。",
+        "原本行数と累積発送件数を照合します。"
+      ],
+      "hints": [
+        "各チャンクを配送先別に集計します。",
+        "部分件数と荷物合計を辞書へ加算します。",
+        "最後に荷物合計÷発送件数を計算します。"
+      ],
+      "explanation": "件数と合計は加算可能です。平均は分子と分母を統合してから導出します。",
+      "transfer": "チャンクサイズ3と5でも実行し、最終表と照合行数が同一になることを確認します。"
+    },
+    "code": "import pandas as pd\npd.DataFrame({\n    \"dispatch_id\": [f\"D{i:02d}\" for i in range(1, 13)],\n    \"destination\": [\"North\", \"East\", \"South\"] * 4,\n    \"packages\": [8, 5, 7, 9, 6, 4, 10, 8, 5, 7, 9, 6],\n}).to_csv(\"warehouse_dispatches.csv\", index=False)\n\ntotals = {}\nsource_rows = 0\nfor chunk in pd.read_csv(\"warehouse_dispatches.csv\", chunksize=4):\n    source_rows += len(chunk)\n    part = chunk.groupby(\"destination\", as_index=False).agg(\n        dispatches=(\"dispatch_id\", \"size\"), packages=(\"packages\", \"sum\"))\n    for row in part.itertuples(index=False):\n        state = totals.setdefault(row.destination, {\"dispatches\": 0, \"packages\": 0})\n        state[\"dispatches\"] += row.dispatches\n        state[\"packages\"] += row.packages\nsummary = pd.DataFrame([{\"destination\": key, **value} for key, value in totals.items()])\nsummary[\"packages_per_dispatch\"] = summary[\"packages\"] / summary[\"dispatches\"]\nassert source_rows == summary[\"dispatches\"].sum()\nprint(summary.sort_values(\"destination\").to_string(index=False))",
+    "expected": "Chunk size does not change the final summary"
+  },
+  {
+    "key": "6.3",
+    "en_page": "Lesson 6.3: Reconcile and reproduce",
+    "ja_page": "レッスン6.3：照合して再現可能にする",
+    "en": {
+      "connection": "Use a food-warehouse fixture to rehearse the controls that make a large run explainable.",
+      "task": "Split eight rows into valid and review records using a non-negative quantity rule. Save a product summary, reopen it, and verify row reconciliation, columns, and repeated-run equality.",
+      "completion": [
+        "Every source row belongs to exactly one side.",
+        "The summary is derived only from valid rows.",
+        "Two chunk sizes produce the same sorted summary."
+      ],
+      "hints": [
+        "Record source, valid, and review counts.",
+        "Sort and reset index before comparison.",
+        "Reopen the actual CSV rather than trusting only memory."
+      ],
+      "explanation": "Fixture checks, reconciliation, deterministic ordering, and output reopening test different failure points; no single check replaces the others.",
+      "transfer": "Corrupt one quantity with text. Confirm it moves to review, reconciliation remains true, and the valid summary changes predictably."
+    },
+    "ja": {
+      "connection": "食品倉庫のfixtureを使い、大規模実行を説明可能にする統制を練習します。",
+      "task": "8行を、数量が0以上という規則で有効と要確認へ分けます。商品別要約を保存して再読込し、件数照合、列、再実行一致を確認してください。",
+      "completion": [
+        "全原本行が必ずどちらか一方へ入ります。",
+        "要約は有効行だけから作ります。",
+        "二つのチャンクサイズで同じ並べ替え済み要約になります。"
+      ],
+      "hints": [
+        "原本、有効、要確認件数を記録します。",
+        "比較前に並べ替え、indexを振り直します。",
+        "メモリだけでなく実際のCSVを再読込します。"
+      ],
+      "explanation": "fixture確認、件数照合、決定的順序、出力再読込は異なる失敗点を検査し、一つで他を代替できません。",
+      "transfer": "数量一つを文字列で壊し、要確認へ移ること、照合が保たれること、要約が予想どおり変わることを確認します。"
+    },
+    "code": "import pandas as pd\nrecords = pd.DataFrame({\"product\": [\"Rice\", \"Beans\", \"Rice\", \"Oil\"],\n                        \"quantity\": [20, 15, -2, 8]})\nworking = records.copy()\nworking[\"quantity\"] = pd.to_numeric(working[\"quantity\"], errors=\"coerce\")\nreview_mask = working[\"quantity\"].isna() | working[\"quantity\"].lt(0)\nvalid = working.loc[~review_mask].copy()\nreview = working.loc[review_mask].copy()\nassert len(records) == len(valid) + len(review)\nsummary = valid.groupby(\"product\", as_index=False).agg(total_quantity=(\"quantity\", \"sum\"))\nsummary = summary.sort_values(\"product\").reset_index(drop=True)\nsummary.to_csv(\"food_summary.csv\", index=False)\nsaved = pd.read_csv(\"food_summary.csv\")\nassert saved.columns.tolist() == summary.columns.tolist()\nassert len(saved) == len(summary)\nprint(\"RECONCILED:\", len(records), len(valid), len(review))",
+    "expected": "RECONCILED: 4 3 1"
+  }
+]
