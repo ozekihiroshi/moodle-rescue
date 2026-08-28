@@ -77,7 +77,9 @@ COPY moodle/ui-test-install.sh /usr/local/bin/moodle-ui-test-install
 
 RUN set -eux; \
     chown www-data:www-data /var/www/html/public/admin/tool; \
+    chown www-data:www-data /var/www/html/public/mod; \
     chmod 0755 /var/www/html/public/admin/tool; \
+    chmod 0755 /var/www/html/public/mod; \
     chmod 0755 /usr/local/bin/moodle-ui-test-install
 
 FROM moodle-runtime AS moodle-production
