@@ -38,6 +38,7 @@ s3password="$(openssl rand -hex 24)"
 releasedbpassword="$(openssl rand -hex 24)"
 releasedbrootpassword="$(openssl rand -hex 24)"
 adminpassword="$(openssl rand -hex 24)Aa1!"
+pythonlabsubmitsecret="$(openssl rand -hex 32)"
 
 cat > "$envfile" <<EOF
 LOCAL_COMPOSE_PROJECT_NAME=$sourceproject
@@ -56,6 +57,8 @@ MINIO_ROOT_PASSWORD=$miniopassword
 MINIO_BUCKET=moodle-backups
 S3_ACCESS_KEY_ID=moodle-ci-writer
 S3_SECRET_ACCESS_KEY=$s3password
+PYTHON_LAB_SUBMIT_SECRET=$pythonlabsubmitsecret
+PYTHON_LAB_SUBMIT_COURSES=PYAI-INTRO,PYAI-INTRO-JA
 RELEASE_COMPOSE_PROJECT_NAME=$releaseproject
 RELEASE_CONTAINER_PREFIX=$releaseprefix
 RELEASE_MOODLE_PORT=$releaseport
