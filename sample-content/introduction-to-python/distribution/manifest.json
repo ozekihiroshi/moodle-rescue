@@ -46,5 +46,8 @@
     "restored_enrolments": 0,
     "restored_quiz_attempts": 0,
     "restored_submissions": 0
+  },
+  "known_limitations": {
+    "duplicate_restore_same_edition": "Not supported in 0.1.0-alpha.1; verified only for the first restore into a fresh Moodle site."
   }
 }

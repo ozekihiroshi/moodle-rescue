@@ -16,13 +16,13 @@ services:
     restart: unless-stopped
     environment: &moodle-environment
       MOODLE_DB_HOST: moodle-db
-      MOODLE_DB_NAME: ${MOODLE_DB_NAME}
-      MOODLE_DB_USER: ${MOODLE_DB_USER}
-      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
-      MOODLE_WWWROOT: https://${MOODLE_HOST}
+      MOODLE_DB_NAME: ${MOODLE_DB_NAME:?Set MOODLE_DB_NAME in .env}
+      MOODLE_DB_USER: ${MOODLE_DB_USER:?Set MOODLE_DB_USER in .env}
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD:?Set MOODLE_DB_PASSWORD in .env}
+      MOODLE_WWWROOT: https://${MOODLE_HOST:?Set MOODLE_HOST in .env}
       MOODLE_REVERSE_PROXY: "false"
       MOODLE_SSL_PROXY: "true"
-      AWS_REGION: ap-northeast-1
+      AWS_REGION: ${AWS_REGION:-ap-northeast-1}
       AWS_EC2_METADATA_DISABLED: "false"
     volumes:
       - moodle_data:/var/moodledata
@@ -33,15 +33,12 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.rescue.gateway=true"
-      - "traefik.docker.network=${TRAEFIK_NETWORK}"
-      - "traefik.http.routers.moodle-rescue.rule=Host(`${MOODLE_HOST}`)"
+      - "traefik.docker.network=${TRAEFIK_NETWORK:-rescue_proxy}"
+      - "traefik.http.routers.moodle-rescue.rule=Host(`${MOODLE_HOST:?Set MOODLE_HOST in .env}`)"
       - "traefik.http.routers.moodle-rescue.entrypoints=websecure"
-      - "traefik.http.routers.moodle-rescue.tls.certresolver=myresolver"
+      - "traefik.http.routers.moodle-rescue.tls=true"
+      - "traefik.http.routers.moodle-rescue.tls.certresolver=${TRAEFIK_CERT_RESOLVER:-myresolver}"
       - "traefik.http.services.moodle-rescue.loadbalancer.server.port=80"
-      - "traefik.http.middlewares.moodle-rescue-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.moodle-rescue-http.rule=Host(`${MOODLE_HOST}`)"
-      - "traefik.http.routers.moodle-rescue-http.entrypoints=web"
-      - "traefik.http.routers.moodle-rescue-http.middlewares=moodle-rescue-https-redirect"
     networks:
       - internal
       - proxy
@@ -77,9 +74,9 @@ services:
     environment:
       MOODLE_DB_HOST: moodle-db
       MOODLE_DB_PORT: "3306"
-      MOODLE_DB_NAME: ${MOODLE_DB_NAME}
-      MOODLE_DB_USER: ${MOODLE_DB_USER}
-      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      MOODLE_DB_NAME: ${MOODLE_DB_NAME:?Set MOODLE_DB_NAME in .env}
+      MOODLE_DB_USER: ${MOODLE_DB_USER:?Set MOODLE_DB_USER in .env}
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD:?Set MOODLE_DB_PASSWORD in .env}
       DATABASE_BACKUP_OUTPUT_DIRECTORY: /database-artifacts
       DATABASE_BACKUP_READER_GID: "33"
     volumes:
@@ -104,10 +101,10 @@ services:
     container_name: moodle-rescue-db
     restart: unless-stopped
     environment:
-      MARIADB_DATABASE: ${MOODLE_DB_NAME}
-      MARIADB_USER: ${MOODLE_DB_USER}
-      MARIADB_PASSWORD: ${MOODLE_DB_PASSWORD}
-      MARIADB_ROOT_PASSWORD: ${MOODLE_DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MOODLE_DB_NAME:?Set MOODLE_DB_NAME in .env}
+      MARIADB_USER: ${MOODLE_DB_USER:?Set MOODLE_DB_USER in .env}
+      MARIADB_PASSWORD: ${MOODLE_DB_PASSWORD:?Set MOODLE_DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${MOODLE_DB_ROOT_PASSWORD:?Set MOODLE_DB_ROOT_PASSWORD in .env}
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
@@ -135,4 +132,4 @@ networks:
   aws_access:
   proxy:
     external: true
-    name: ${TRAEFIK_NETWORK}
+    name: ${TRAEFIK_NETWORK:-rescue_proxy}

@@ -45,3 +45,9 @@ The full Chapters 0–6 learning path is present, but editorial review, learner
 trials, accessibility review, and final assessment calibration are ongoing.
 Use this release for evaluation or a controlled pilot, not as an unattended
 production curriculum.
+
+This artifact is verified for the first restore into a fresh Moodle 5.2.2
+site. Do not restore another copy of the same English edition into a site that
+already contains it during alpha. A later duplicate restore may reuse Moodle
+question-category stamps and produce question-context mismatches. Use a fresh
+disposable site when repeating restore evaluation.

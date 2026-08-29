@@ -26,6 +26,12 @@ Python Lab activities require a separately deployed
 and a site-specific LTI 1.3 registration. No credentials, learner accounts,
 attempt history, or learner workspace data are distributed in the backups.
 
+Each alpha artifact is verified for its first restore into a fresh Moodle
+site. Restoring another copy of the same edition into a site that already
+contains it is not supported in `0.1.0-alpha.1`: Moodle may reuse question
+category stamps and create question-context mismatches. Use a fresh disposable
+site for repeated evaluation until this limitation is resolved.
+
 ## Licensing
 
 Original educational content is CC BY 4.0. Supporting software and repository

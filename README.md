@@ -4,6 +4,12 @@ Moodle Rescue is a security-focused, reproducible Docker foundation for
 validating Moodle plugins, rehearsing backup and recovery, and starting useful
 education sites quickly.
 
+> **Alpha:** the platform and bundled courses are suitable for evaluation and
+> controlled pilots. They are not a claim of unattended production readiness.
+> Review the [security policy](SECURITY.md), [known limitations](CHANGELOG.md),
+> and [production boundary](docs/project-purpose-and-production-use.md) before
+> accepting real learner data.
+
 The project began as a dependable test environment for Secure S3 Storage for
 Moodle. It is being developed beyond that origin into a production-shaped
 resource for schools, learning centres, NGOs, and technical supporters who
@@ -39,6 +45,13 @@ International (`CC BY 4.0`). See
 [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md) for the exact scope and recommended
 attribution. Third-party components and future external datasets retain their
 own terms; see [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
+
+## Development status
+
+The verified checkpoint and remaining work are maintained in
+[`TODO.md`](TODO.md). This includes the known duplicate-course restore
+limitation, Python Lab release pinning, the production-shaped pilot, and
+learner validation required before beta.
 
 ## Production plugin policy
 
