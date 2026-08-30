@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release": "0.1.0-alpha.1",
+  "release_date": "2026-08-30",
+  "status": "alpha",
+  "purpose": "guest-accessible LessonMark and Markdown course showcase",
+  "license": {
+    "original_educational_content": "CC-BY-4.0",
+    "third_party_exam_material": "IPA terms apply",
+    "copyright": "Copyright © 2026 Hiroshi Ozeki",
+    "notice_file": "LICENSE.txt"
+  },
+  "course": {
+    "fullname": "応用情報技術者試験 過去問題学習 — 令和7年度春期 午後・公開体験版（問1・問2）",
+    "shortname": "IPA-AP-WRITTEN-JA-PREVIEW",
+    "language": "ja",
+    "edition": "public-preview"
+  },
+  "artifact": {
+    "filename": "ipa-ap-written-practice-ja-preview-2025-spring-0.1.0-alpha.1.mbz",
+    "bytes": 5118453,
+    "sha256": "b0848ad9cb3eca23ab1cce35cdd47110ca91225bccab1ceab3bd85140c7f4237",
+    "includes_user_data": false
+  },
+  "created_with": {
+    "moodle_release": "5.2.2 (Build: 20260810)",
+    "moodle_version": 2026042002,
+    "backup_version": 2026042000
+  },
+  "inventory": {
+    "sections": 3,
+    "lessonmark_activities": 3,
+    "exam_questions": 2,
+    "official_source_page_images": 10,
+    "quiz_activities": 0
+  },
+  "access": {
+    "guest_enrolment": "enabled",
+    "guest_password_required": false,
+    "site_guest_login_must_be_enabled": true,
+    "post_restore_guest_activation_required": true
+  },
+  "requirements": {
+    "moodle": "5.2",
+    "lessonmark": "0.2 series with RESPONSE, CHOICE, and ANSWER blocks"
+  },
+  "verification": {
+    "archive_structure": "passed",
+    "source_course_validation": "passed",
+    "same_site_restore": "passed",
+    "restored_lessonmark_activities": 3,
+    "restored_source_page_images": 10,
+    "restored_guest_access_after_explicit_activation": "passed"
+  }
+}

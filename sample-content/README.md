@@ -14,6 +14,20 @@ or a literal translation. The English edition is normative. Both editions
 share the curriculum, mastery approach, project progression, and Python Lab
 workflow, while explanations are adapted for their learners.
 
+## Public showcase packages
+
+Two packages have different outreach roles:
+
+| Package | Intended public use | Distribution |
+|---|---|---|
+| English Python course | A ready-to-restore foundation for JICA volunteers and other international education support, with a separate Python Lab service for practical work | [English Python distribution](introduction-to-python/distribution/README.md) |
+| IPA AP Question 1–2 preview | A guest-accessible demonstration of LessonMark, Markdown authoring, inline working answers, official-source images, and answer disclosures | [IPA AP public preview distribution](ap-written-practice-ja-preview/distribution/README.md) |
+
+The Python course is a complete learning path and needs site-specific Python
+Lab LTI configuration. The IPA AP preview is deliberately small, labels itself
+as a public preview, and contains only Question 1 and Question 2. The complete
+IPA AP course remains a separate login-controlled course with all 11 questions.
+
 ## IPA AP written-practice pilot
 
 [`ap-written-practice-ja/`](ap-written-practice-ja/README.md) is a separate
@@ -22,6 +36,10 @@ the cited official question pages, places an ungraded working-answer control
 under each question, and keeps the official answer and commentary in a closed
 disclosure immediately below it. Working answers stay only in the learner's
 current browser; this pilot does not use Moodle Quiz or Assignment.
+
+[ap-written-practice-ja-preview/](ap-written-practice-ja-preview/README.md)
+is the guest-ready derivative containing only the guide, Question 1, and
+Question 2. It reuses the complete course sources rather than forking them.
 
 ## Alpha scope
 
