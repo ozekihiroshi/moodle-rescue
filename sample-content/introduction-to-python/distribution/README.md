@@ -38,6 +38,10 @@ f602e2b05c32dcdcccfe443e02ed538060d3b42a3a1a03b4c12800dbe8703e00
 Python Lab launch activities require a separately deployed Python Lab and a
 site-specific LTI 1.3 registration. The backup deliberately contains no
 signing key, client secret, deployment credential, or learner workspace.
+After restoring the course, follow
+[`docs/python-lab-production-reconnect.md`](../../../docs/python-lab-production-reconnect.md)
+to reconnect every existing Lab activity without rebuilding the course
+structure.
 
 ## Alpha limitations
 
