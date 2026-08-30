@@ -1,0 +1,12 @@
+応用情報技術者試験 過去問題学習 — 令和7年度春期 午後・原文解答解説版
+Copyright © 2026 Hiroshi Ozeki
+
+教材独自の学習案内、解説、答案作成上の助言、考察例は、特記がない限り
+Creative Commons Attribution 4.0 International License (CC BY 4.0) で
+提供します。
+
+https://creativecommons.org/licenses/by/4.0/
+
+IPA公式問題、公式解答例、採点講評の著作権は独立行政法人情報処理推進機構
+（IPA）に帰属し、上記CC BY 4.0の対象ではありません。利用時は同梱の
+README.mdおよび上位ディレクトリのTHIRD-PARTY-NOTICES.mdを確認してください。

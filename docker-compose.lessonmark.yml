@@ -1,0 +1,11 @@
+services:
+  moodle:
+    build:
+      target: moodle-production
+    volumes:
+      - ../LessonMark/plugin/lessonmark:/var/www/html/public/mod/lessonmark:ro
+  moodle-cron:
+    build:
+      target: moodle-production
+    volumes:
+      - ../LessonMark/plugin/lessonmark:/var/www/html/public/mod/lessonmark:ro

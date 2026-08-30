@@ -32,3 +32,12 @@ Future third-party datasets or media must be listed here with their title,
 source URL, author or publisher, exact license, access date, and any changes
 made. Material without adequate redistribution permission must not be bundled
 in a course release.
+
+## IPA examination material
+
+The course under `sample-content/ap-written-practice-ja/` links to past
+questions, official answer examples, and grading commentary published by the
+Information-technology Promotion Agency, Japan (IPA). Copyright in those
+materials remains with IPA; they are not covered by this repository's CC BY
+license. Exact source URLs and editorial notices are recorded in the course's
+`THIRD-PARTY-NOTICES.md`.

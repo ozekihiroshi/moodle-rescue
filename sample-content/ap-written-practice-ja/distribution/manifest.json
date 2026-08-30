@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release": "0.1.0-alpha.1",
+  "release_date": "2026-08-30",
+  "status": "alpha",
+  "license": {
+    "original_educational_content": "CC-BY-4.0",
+    "third_party_exam_material": "IPA terms apply",
+    "copyright": "Copyright © 2026 Hiroshi Ozeki",
+    "notice_file": "LICENSE.txt"
+  },
+  "course": {
+    "fullname": "応用情報技術者試験 過去問題学習 — 令和7年度春期 午後・原文解答解説版",
+    "shortname": "IPA-AP-WRITTEN-JA-V3",
+    "language": "ja"
+  },
+  "artifact": {
+    "filename": "ipa-ap-written-practice-ja-2025-spring-0.1.0-alpha.1.mbz",
+    "bytes": 25464901,
+    "sha256": "53aae1867e421fb92f24431a8805704231c6d96857789bf9da710f3e7d4523b9",
+    "includes_user_data": false
+  },
+  "created_with": {
+    "moodle_release": "5.2.2 (Build: 20260810)",
+    "moodle_version": 2026042002,
+    "backup_version": 2026042000
+  },
+  "inventory": {
+    "sections": 12,
+    "lessonmark_activities": 12,
+    "exam_questions": 11,
+    "official_source_page_images": 55,
+    "answer_disclosures": 93,
+    "quiz_activities": 0
+  },
+  "requirements": {
+    "moodle": "5.2",
+    "lessonmark": "0.2 series with RESPONSE, CHOICE, and ANSWER blocks"
+  },
+  "verification": {
+    "archive_structure": "passed",
+    "same_site_restore": "passed",
+    "restored_lessonmark_activities": 12,
+    "restored_source_page_images": 55,
+    "restored_user_enrolments": 0
+  }
+}

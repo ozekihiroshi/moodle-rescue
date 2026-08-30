@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "course": {
+    "shortname": "IPA-AP-WRITTEN-JA-V3",
+    "fullname": "応用情報技術者試験 過去問題学習 — 令和7年度春期 午後・原文解答解説版",
+    "language": "ja",
+    "status": "pilot"
+  },
+  "learning_mode": "inline_self_check_study",
+  "source_of_truth": "official_page_images",
+  "activities": [
+    "lessonmark_guide",
+    "lessonmark_question_01",
+    "lessonmark_question_02",
+    "lessonmark_question_03",
+    "lessonmark_question_04",
+    "lessonmark_question_05",
+    "lessonmark_question_06",
+    "lessonmark_question_07",
+    "lessonmark_question_08",
+    "lessonmark_question_09",
+    "lessonmark_question_10",
+    "lessonmark_question_11"
+  ],
+  "source": {
+    "publisher": "独立行政法人情報処理推進機構（IPA）",
+    "examination": "令和7年度 春期 応用情報技術者試験 午後",
+    "official_pdf": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07h_ap_pm_qs.pdf",
+    "official_answers": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07h_ap_pm_ans.pdf",
+    "official_commentary": "https://www.ipa.go.jp/shiken/mondai-kaiotu/nl10bi0000009lh8-att/2025r07h_ap_pm_cmnt.pdf",
+    "question_domains": {
+      "1": "情報セキュリティ",
+      "2": "経営戦略",
+      "3": "アルゴリズム・プログラミング",
+      "4": "システムアーキテクチャ・クラウド",
+      "5": "ネットワーク",
+      "6": "データベース",
+      "7": "組込み・ソフトウェア設計",
+      "8": "システム開発・エラーハンドリング",
+      "9": "プロジェクトマネジメント",
+      "10": "サービスマネジメント",
+      "11": "システム監査"
+    },
+    "question_pages": {
+      "1": [6, 7, 8, 9, 10],
+      "2": [12, 13, 14, 15, 16],
+      "3": [18, 19, 20, 21, 22, 23],
+      "4": [24, 25, 26, 27, 28],
+      "5": [30, 31, 32, 33, 34],
+      "6": [36, 37, 38, 39],
+      "7": [40, 41, 42, 43, 44, 45],
+      "8": [46, 47, 48, 49, 50],
+      "9": [52, 53, 54, 55, 56],
+      "10": [58, 59, 60, 61, 62],
+      "11": [64, 65, 66, 67]
+    }
+  },
+  "question_catalog": "question-catalog-v3.json"
+}

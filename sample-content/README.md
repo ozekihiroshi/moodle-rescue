@@ -14,6 +14,15 @@ or a literal translation. The English edition is normative. Both editions
 share the curriculum, mastery approach, project progression, and Python Lab
 workflow, while explanations are adapted for their learners.
 
+## IPA AP written-practice pilot
+
+[`ap-written-practice-ja/`](ap-written-practice-ja/README.md) is a separate
+Japanese pilot course built as a same-page LessonMark study activity. It shows
+the cited official question pages, places an ungraded working-answer control
+under each question, and keeps the official answer and commentary in a closed
+disclosure immediately below it. Working answers stay only in the learner's
+current browser; this pilot does not use Moodle Quiz or Assignment.
+
 ## Alpha scope
 
 The courses contain Chapters 0 through 6, lesson pages, learning checks,

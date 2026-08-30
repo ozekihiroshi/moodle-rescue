@@ -5,3 +5,4 @@
 # unless intentionally updating or removing that plugin. The sync script accepts
 # only reviewed Moodle plugin destinations and rejects duplicate components.
 tool_secure_s3_storage|0.6.1|admin/tool|https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v0.6.1/tool_secure_s3_storage.zip|e0f02a532ca55039335f95f770ae980a4d072a3fc7d8da98521d6a65b58f3b0f
+mod_lessonmark|0.1.0|mod|https://github.com/ozekihiroshi/LessonMark/releases/download/v0.1.0/mod_lessonmark.zip|c7612c325c5b29d2333c85927f4eaa0ba0202f48c98b874131e0e519e77ec0b5

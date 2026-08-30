@@ -3,7 +3,8 @@
 Copyright © 2026 Hiroshi Ozeki
 
 Except where otherwise noted, the original educational content in
-`sample-content/introduction-to-python/` is licensed under the Creative
+`sample-content/introduction-to-python/` and the original editorial material
+in `sample-content/ap-written-practice-ja/` are licensed under the Creative
 Commons Attribution 4.0 International License (CC BY 4.0):
 
 https://creativecommons.org/licenses/by/4.0/
@@ -23,6 +24,11 @@ at your option, any later version, as described in [`LICENSE`](LICENSE).
 The CC BY 4.0 grant does not relicense Moodle software, third-party software,
 third-party datasets, trademarks, or material separately identified in
 [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
+
+IPA past questions, official answer examples, and grading commentary remain
+copyright IPA and are not relicensed. Exact sources and usage notes are in
+[`sample-content/ap-written-practice-ja/THIRD-PARTY-NOTICES.md`](sample-content/ap-written-practice-ja/THIRD-PARTY-NOTICES.md).
+
 
 ## Recommended attribution
 
