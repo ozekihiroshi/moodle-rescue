@@ -30,7 +30,7 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-compose exec -T moodle php admin/cli/restore_backup.php \
+compose exec -T moodle runuser -u www-data -- php admin/cli/restore_backup.php \
     --file="$container_file" --categoryid="$category_id"
 
 echo 'Restore completed. Review visibility, enrolment, and access settings before admitting learners.'
