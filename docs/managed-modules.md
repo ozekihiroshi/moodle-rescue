@@ -153,6 +153,31 @@ just before the update and resume it promptly after the DB/code checks pass.
 
 ### Operator commands
 
+### AWS RC2 administrator upgrade completed — 2026-09-09
+
+After the administrator logged in, only `moodle-rescue-cron` was temporarily
+stopped. The administrator performed the ZIP upgrade and reported normal page
+display. Independent CLI checks confirmed `2026090802` in both the database
+and actual LessonMark code. The complete LessonMark inventory after RC2
+(`backups/pre-managed-20260909T031712Z/after-rc2.json`) matched the pre-migration
+inventory, including record/source hashes, IDs and image bytes. Both have
+SHA-256 `7d290d28fa967197b5db41767a3a6474d3236c8075d9937f2ecfd2e4e5153563`.
+
+Cron was restarted and independently checked against RC2. Web and Cron are
+running, sharing `moodle-rescue_managed_modules` (Web writable, Cron read-only),
+and `maintenance_enabled` is `0`. No plugin uninstall occurred. Container
+recreation persistence and full recovery were validated locally; this final
+AWS UI upgrade did not repeat a destructive recovery or container recreation.
+
+The release candidate used is LessonMark `0.2.0-rc2 / 2026090802`, ZIP SHA-256
+`d9d09b9ae35c07fcdccbf35dc2169cbfdfbda3a67a34389b78fae49175294a5f`.
+This does not declare RC2 a stable/public release. The image still contains the
+alpha2 seed; the existing managed volume is authoritative and must be included
+in future backups and retained during deployment. Do not remove it or revert
+to the immutable deployment command.
+
+### Operator workflow reference
+
 For the reviewed production project `moodle-rescue`, the one-time operator
 command is `sh scripts/migrate-managed-modules.sh`. It requires a clean tracked
 checkout, running Web/Cron/DB, alpha2, no existing application mounts and no
