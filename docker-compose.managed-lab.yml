@@ -1,0 +1,78 @@
+# Local-only base for testing the SAME managed-modules overlay as production.
+name: lessonmark-managed-ui
+
+x-env: &lab-env
+  MOODLE_DB_HOST: moodle-db
+  MOODLE_DB_NAME: managed_ui
+  MOODLE_DB_USER: managed_ui
+  MOODLE_DB_PASSWORD: ${MANAGED_LAB_DB_PASSWORD:?Required}
+  MOODLE_WWWROOT: http://localhost:8096
+  MOODLE_REVERSE_PROXY: "false"
+  MOODLE_SSL_PROXY: "false"
+
+services:
+  moodle:
+    image: ${MANAGED_MOODLE_IMAGE:?Required}
+    container_name: lessonmark-managed-ui
+    environment:
+      <<: *lab-env
+      UI_TEST_ADMIN_PASSWORD: ${MANAGED_LAB_ADMIN_PASSWORD:?Required}
+    ports:
+      - "127.0.0.1:8096:80"
+    volumes:
+      - moodle_data:/var/moodledata
+      - moodle_backups:/var/moodlebackups
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+    networks: [internal, access]
+
+  moodle-cron:
+    image: ${MANAGED_MOODLE_IMAGE:?Required}
+    container_name: lessonmark-managed-ui-cron
+    environment: *lab-env
+    # Keep real scheduled work stopped throughout the administrator upgrade.
+    command: ["sleep", "infinity"]
+    volumes:
+      - moodle_data:/var/moodledata
+      - moodle_backups:/var/moodlebackups
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+    networks: [internal]
+
+  moodle-db:
+    image: mariadb:11.8
+    container_name: lessonmark-managed-ui-db
+    environment:
+      MARIADB_DATABASE: managed_ui
+      MARIADB_USER: managed_ui
+      MARIADB_PASSWORD: ${MANAGED_LAB_DB_PASSWORD:?Required}
+      MARIADB_ROOT_PASSWORD: ${MANAGED_LAB_ROOT_PASSWORD:?Required}
+    volumes:
+      - moodle_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh --connect --innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [internal]
+
+volumes:
+  moodle_data:
+  moodle_backups:
+  moodle_db:
+
+networks:
+  # Web needs a non-internal bridge for published localhost ports.
+  # DB and idle Cron stay exclusively on the internal network.
+  access:
+    ipam:
+      config:
+        - subnet: ${MANAGED_LAB_ACCESS_SUBNET:-10.203.97.0/24}
+  internal:
+    internal: true
+    # Local lab only; avoid the exhausted automatic pools without pruning networks.
+    ipam:
+      config:
+        - subnet: ${MANAGED_LAB_SUBNET:-10.203.96.0/24}

@@ -20,6 +20,17 @@ if ! docker compose version >/dev/null 2>&1; then
     exit 1
 fi
 
+# Do not silently replace UI-managed code with the immutable image seed.
+# The volume check also protects a stopped managed deployment (base project name).
+managedvolumes=$(docker volume ls -q \
+    --filter label=com.docker.compose.project=moodle-rescue \
+    --filter label=com.docker.compose.volume=managed_modules)
+if [ -n "$managedvolumes" ] || docker compose --env-file .env exec -T moodle \
+        test -f /var/www/html/public/mod/.moodle-core-version.sha256 2>/dev/null; then
+    echo "UI-managed modules detected. Follow docs/managed-modules.md; immutable deploy refused." >&2
+    exit 1
+fi
+
 sh scripts/sync-plugins.sh
 
 docker compose --env-file .env config --quiet

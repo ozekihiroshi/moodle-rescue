@@ -1,0 +1,48 @@
+# Opt in with BOTH this file and docker-compose.yml. Never use down -v.
+# Pin MANAGED_MOODLE_IMAGE to the current tested image (not a mutable latest tag).
+services:
+  moodle-modules-init:
+    image: ${MANAGED_MOODLE_IMAGE:?Pin the tested Moodle image}
+    restart: "no"
+    network_mode: none
+    entrypoint: ["sh", "/opt/managed-modules.sh", "init"]
+    volumes:
+      - ./moodle/managed-modules.sh:/opt/managed-modules.sh:ro
+      - type: volume
+        source: managed_modules
+        target: /managed-modules
+        volume:
+          nocopy: true
+
+  moodle:
+    image: ${MANAGED_MOODLE_IMAGE:?Pin the tested Moodle image}
+    entrypoint: ["sh", "/opt/managed-modules.sh", "start"]
+    command: ["apache2-foreground"]
+    volumes:
+      - ./moodle/managed-modules.sh:/opt/managed-modules.sh:ro
+      - type: volume
+        source: managed_modules
+        target: /var/www/html/public/mod
+        volume:
+          nocopy: true
+    depends_on:
+      moodle-modules-init:
+        condition: service_completed_successfully
+
+  moodle-cron:
+    image: ${MANAGED_MOODLE_IMAGE:?Pin the tested Moodle image}
+    entrypoint: ["sh", "/opt/managed-modules.sh", "start"]
+    volumes:
+      - ./moodle/managed-modules.sh:/opt/managed-modules.sh:ro
+      - type: volume
+        source: managed_modules
+        target: /var/www/html/public/mod
+        read_only: true
+        volume:
+          nocopy: true
+    depends_on:
+      moodle-modules-init:
+        condition: service_completed_successfully
+
+volumes:
+  managed_modules:
