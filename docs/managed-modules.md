@@ -2,8 +2,9 @@
 
 Local storage, administrator-upgrade, recreation and full recovery gates have
 passed. The original immutable image mode remains the default. AWS migration
-still requires a production snapshot and a reviewed deployment change; no AWS
-migration has been performed.
+requires a production snapshot and a reviewed deployment change. The first AWS
+migration completed on 2026-09-09 as recorded below; plugin ZIP upgrade is a
+separate step.
 
 ## Boundary
 
@@ -118,6 +119,39 @@ recovery copy has no published ports, Web server, scheduled Cron or external
 network. The original 8096 remains running. AWS remains unchanged.
 
 ### Backup and migration procedure
+
+### AWS deployment evidence — 2026-09-09
+
+The operator-authorized migration ran on the existing `moodle-rescue` project
+using the same local/AWS source commit `4cc0d1798aa2d238bda854f3c0102b7a76e64ab4`
+on `codex/ui-managed-modules`. It completed with PASS. No unrelated service was
+changed and no plugin was uninstalled or upgraded by this migration.
+
+Private rollback bundle on the host:
+`/home/ubuntu/docker/moodle-rescue/backups/pre-managed-20260909T031712Z`.
+It contains exact Web/DB images, database SQL, full live application/config,
+teaching files/backups, old deployment settings, inventory and SHA256SUMS.
+Archive integrity and manifest checksums passed; this AWS snapshot has not been
+restored on AWS or copied off-host by this operation. Full recovery of the same
+snapshot design was previously tested locally.
+
+The two services share `moodle-rescue_managed_modules`: Web read-write, Cron
+read-only. Both are running; maintenance is disabled. The ordinary
+`docker compose config --services` includes `moodle-modules-init`, confirming
+the `.env` overlay selection survives standard Compose invocations.
+LessonMark remains alpha2 / `2026083001`, ready for an administrator UI upgrade.
+
+- Before/after all-LessonMark inventory SHA-256:
+  `7d290d28fa967197b5db41767a3a6474d3236c8075d9937f2ecfd2e4e5153563`.
+- Image/managed module file-list SHA-256:
+  `f6f5d94e84cfa922cb02973ef25d03f0a1886634eeac348fbdd4e5cc9da8b200`.
+
+The in-app browser reported `ERR_BLOCKED_BY_CLIENT` for the AWS site; do not
+bypass that browser restriction or infer an application failure from it. The
+administrator will use their normal browser for the ZIP update. Pause Cron
+just before the update and resume it promptly after the DB/code checks pass.
+
+### Operator commands
 
 For the reviewed production project `moodle-rescue`, the one-time operator
 command is `sh scripts/migrate-managed-modules.sh`. It requires a clean tracked
