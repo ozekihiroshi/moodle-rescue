@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release": "0.1.0-alpha2-preview",
+  "status": "single-unit-pilot",
+  "course": {
+    "shortname": "DUAL-PY-11-PATH-JA",
+    "language": "ja",
+    "canonical_curriculum": "PYAI-INTRO",
+    "adapted_from": "PYAI-INTRO-JA lesson 1.1"
+  },
+  "requirements": {
+    "moodle": "5.2",
+    "format_duallearning": "0.1.0-alpha2",
+    "mod_lessonmark": "required",
+    "python_lab_lti_1_3": "configure on target site before learner access"
+  },
+  "artifact": {
+    "filename": "python-duallearning-unit11-ja-0.1.0-alpha2-preview.mbz",
+    "bytes": 9522,
+    "sha256": "ee527a36e091ef81eb11f6954e3a6361276db3e581f21678a940208c8c78a790",
+    "lessonmark_activities": 3,
+    "lti_activities": 0,
+    "includes_user_data": false
+  },
+  "license": "CC-BY-4.0",
+  "verification": {
+    "archive_audit": "passed",
+    "fresh_hidden_course_restore": "passed",
+    "learner_lab_launch_after_restore": "requires site-specific LTI setup"
+  }
+}

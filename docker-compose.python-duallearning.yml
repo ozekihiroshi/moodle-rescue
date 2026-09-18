@@ -1,0 +1,11 @@
+# Local evaluation overlay. Apply after docker-compose.lessonmark.yml.
+# Keep the published alpha2 plugin as a sibling checkout, never copy its code here.
+services:
+  moodle:
+    volumes:
+      - ../moodle-format_duallearning:/var/www/html/public/course/format/duallearning:ro
+      - ./sample-content/introduction-to-python-ja/duallearning-1-1:/srv/python-duallearning-1-1:ro
+      - ./scripts/backup-course-for-distribution.php:/var/www/html/admin/cli/backup-course-for-distribution.php:ro
+  moodle-cron:
+    volumes:
+      - ../moodle-format_duallearning:/var/www/html/public/course/format/duallearning:ro

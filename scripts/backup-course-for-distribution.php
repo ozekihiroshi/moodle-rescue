@@ -30,6 +30,7 @@ require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
 [$options, $unrecognized] = cli_get_params([
     'courseid' => false,
     'destination' => '',
+    'excludelticmid' => 0,
     'help' => false,
 ], [
     'h' => 'help',
@@ -44,6 +45,7 @@ if ($options['help'] || !$options['courseid']) {
     echo "Options:\n";
     echo "--courseid=INTEGER       Course ID to back up.\n";
     echo "--destination=PATH       Writable destination directory.\n";
+    echo "--excludelticmid=INTEGER Exclude one site-specific LTI activity by course-module ID.\n";
     echo "-h, --help               Show this help.\n";
     exit($options['help'] ? 0 : 1);
 }
@@ -71,6 +73,18 @@ $controller = new backup_controller(
 
 $plan = $controller->get_plan();
 $plan->get_setting('users')->set_value(0);
+
+if ((int)$options['excludelticmid'] > 0) {
+    $cmid = (int)$options['excludelticmid'];
+    $cm = get_coursemodule_from_id('lti', $cmid, $course->id, false, MUST_EXIST);
+    $settingname = 'lti_' . $cm->id . '_included';
+    if (!$plan->setting_exists($settingname)) {
+        $controller->destroy();
+        cli_error('LTI activity inclusion setting not found.');
+    }
+    $plan->get_setting($settingname)->set_value(0);
+    mtrace('Excluded site-specific LTI activity ' . $cmid . '.');
+}
 
 // These settings are user-dependent. Moodle normally disables them when
 // users is false; setting each available item explicitly documents and
@@ -107,4 +121,3 @@ $file->delete();
 $controller->destroy();
 mtrace('Wrote ' . $destination . '/' . $filename);
 mtrace('Backup completed with users excluded.');
-
