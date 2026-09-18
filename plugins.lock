@@ -5,4 +5,6 @@
 # unless intentionally updating or removing that plugin. The sync script accepts
 # only reviewed Moodle plugin destinations and rejects duplicate components.
 tool_secure_s3_storage|0.6.1|admin/tool|https://github.com/ozekihiroshi/secure-s3-storage-for-moodle/releases/download/v0.6.1/tool_secure_s3_storage.zip|e0f02a532ca55039335f95f770ae980a4d072a3fc7d8da98521d6a65b58f3b0f
-mod_lessonmark|0.2.0-alpha2|mod|https://github.com/ozekihiroshi/LessonMark/releases/download/v0.2.0-alpha2/mod_lessonmark.zip|bdd895abe131499338bb3013c80763ff33e5812514899ad29dc91bcc26336141
+mod_lessonmark|0.3.0-alpha2|mod|https://github.com/ozekihiroshi/moodle-mod_lessonmark/releases/download/v0.3.0-alpha2/mod_lessonmark-0.3.0-alpha2.zip|9d6d73a07676ae2b1182be8be8e05a8cf44600e15b97091c6578fc1ae0a4c38f
+format_duallearning|0.1.0-alpha1|course/format|https://github.com/ozekihiroshi/moodle-format_duallearning/releases/download/v0.1.0-alpha1/moodle-format_duallearning-0.1.0-alpha1.zip|a2bdd04c8e5f10728d7d242c9f04ad78028ad7f1bb859f9eeea37acb1d3fb1a4
+theme_duallearning|0.1.0-alpha5|theme|https://github.com/ozekihiroshi/moodle-theme_duallearning/releases/download/v0.1.0-alpha5/moodle-theme_duallearning-0.1.0-alpha5.zip|14d5ef44feaa1dd9d1ce3c9cf33a8f14d3a2426150d40d61c0385392b739eac7
