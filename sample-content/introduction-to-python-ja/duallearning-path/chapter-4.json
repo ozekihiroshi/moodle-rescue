@@ -1,0 +1,41 @@
+{
+  "courseid": 42,
+  "chapter": 4,
+  "pages": [
+    {
+      "pagecmid": 664,
+      "name": "レッスン4.1：レコードと関数からオブジェクトへ",
+      "section": 19,
+      "file": "page-664.md",
+      "source_sha256": "bb8bd074d43604bc127c482bb542255a5011907d11f63eeb0fc6a9a70959a590"
+    },
+    {
+      "pagecmid": 668,
+      "name": "レッスン4.2：状態・メソッド・正しいオブジェクト",
+      "section": 18,
+      "file": "page-668.md",
+      "source_sha256": "a84b405fed4b1a235ff5846ee1c8708a845e4e93f16135227bfd8bb488f49a90"
+    },
+    {
+      "pagecmid": 672,
+      "name": "レッスン4.3：複数オブジェクト・合成・責任分担",
+      "section": 17,
+      "file": "page-672.md",
+      "source_sha256": "d5a06d252594ece2c23477db1fc2e5c3e3cc5b4ccf414657c4df748a191685b8"
+    },
+    {
+      "pagecmid": 676,
+      "name": "レッスン4.4：オブジェクトの保存とテスト",
+      "section": 16,
+      "file": "page-676.md",
+      "source_sha256": "95d246a9698e8bdc165741578fe20551457cb7038ea8f0468af9d4cdf37bd169"
+    },
+    {
+      "pagecmid": 680,
+      "name": "4.5 課題仕様と完成条件",
+      "section": 15,
+      "file": "page-680.md",
+      "source_sha256": "d54fc3af76d3cd0cada22cc1acc3ac5df1b5cb4d79f97fbb08bf91f668f8a891"
+    }
+  ]
+}

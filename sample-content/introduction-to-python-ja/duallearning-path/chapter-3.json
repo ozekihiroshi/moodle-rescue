@@ -1,0 +1,76 @@
+{
+  "courseid": 42,
+  "chapter": 3,
+  "pages": [
+    {
+      "pagecmid": 633,
+      "name": "レッスン3.1：表形式データ・CSV・pandas",
+      "section": 26,
+      "file": "page-633.md",
+      "source_sha256": "78edaeb1c7ef38c97b5c764bebc6209c1d33dc5e5761268e307c40faf2791cf0"
+    },
+    {
+      "pagecmid": 636,
+      "name": "データセットの発展：24行から25万件の架空レコードへ",
+      "section": 26,
+      "file": "page-636.md",
+      "source_sha256": "9b8d8f93eddd17a29bb27990ca29f1f1a334fc4c4d8120cacf907c5657f81661"
+    },
+    {
+      "pagecmid": 638,
+      "name": "レッスン3.2：データの選択・抽出とブール論理",
+      "section": 25,
+      "file": "page-638.md",
+      "source_sha256": "5492013f0a4ef3627b0c998c08a8f67aa07843baf6eb7dd38e4bc89791d40341"
+    },
+    {
+      "pagecmid": 642,
+      "name": "レッスン3.3：データのクリーニングと監査記録",
+      "section": 24,
+      "file": "page-642.md",
+      "source_sha256": "ad68728086d0c8518e6e823ff51e4ebec2eb54a74fb773f2bc3ffa310a95c1b0"
+    },
+    {
+      "pagecmid": 645,
+      "name": "分析ツールキット：ブール論理・集合・基礎統計",
+      "section": 24,
+      "file": "page-645.md",
+      "source_sha256": "2e46e048f089bd7d7dc19ab84a524752a8c29d473c147f40cf4c888ee9fb667f"
+    },
+    {
+      "pagecmid": 647,
+      "name": "レッスン3.4：グループ化と要約統計",
+      "section": 23,
+      "file": "page-647.md",
+      "source_sha256": "c53bbe3832e3608086dfafd36c9ab0636071c53a7bc503553673a6fcd8860199"
+    },
+    {
+      "pagecmid": 650,
+      "name": "第3章中間実践：三つから一つを選ぶ",
+      "section": 3,
+      "file": "page-650.md",
+      "source_sha256": "1e9880573eeffc2097a1935a0d52a85fed448c62a68c8a51f2f998a2f8a567a6"
+    },
+    {
+      "pagecmid": 652,
+      "name": "3.5A 課題仕様と完成条件",
+      "section": 22,
+      "file": "page-652.md",
+      "source_sha256": "057db88bf0e98dcaf768ee990bfd948aaf8d58088e9e848695c1d5fa9f1f08bd"
+    },
+    {
+      "pagecmid": 656,
+      "name": "3.5B 課題仕様と完成条件",
+      "section": 21,
+      "file": "page-656.md",
+      "source_sha256": "c062565768d57722e8ef13a64dfd054eff80863c115f97a0fb4205b8b899415b"
+    },
+    {
+      "pagecmid": 660,
+      "name": "3.5C 課題仕様と完成条件",
+      "section": 20,
+      "file": "page-660.md",
+      "source_sha256": "56e58f6ff9842d91263845e18ef99de6ea411958373fa33d5851fabb444c6574"
+    }
+  ]
+}

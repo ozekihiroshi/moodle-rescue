@@ -1,0 +1,18 @@
+{
+    "variant": "en-path",
+    "restored_courseid": "49",
+    "status": "PASS",
+    "hidden": true,
+    "mode": "path",
+    "activities": {
+        "forum": 1,
+        "lessonmark": 37,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+    },
+    "questions": 230,
+    "internal_links": 60,
+    "users": 0
+}

@@ -1,0 +1,117 @@
+{
+  "1.1": {
+    "prepare": "Predict whether printing 3 + 4 and \"3 + 4\" gives the same output.",
+    "classroom": "Distinguish values, expressions and output; compare predictions with both results.",
+    "review": "Run the short integrated-practice program and explain what each line displays."
+  },
+  "1.2": {
+    "prepare": "Predict what happens to the old value when a variable is assigned twice.",
+    "classroom": "Trace assignments one line at a time, noting the current value before running.",
+    "review": "Change one initial value and compare the final state with your prediction."
+  },
+  "1.3": {
+    "prepare": "Predict the differences between 7 / 2, 7 // 2 and 7 % 2.",
+    "classroom": "Compare numbers, strings, conversions and arithmetic; choose suitable types and operators.",
+    "review": "Check types as well as values and explain when to use division or remainder."
+  },
+  "1.4": {
+    "prepare": "Can a number entered through input() be added immediately?",
+    "classroom": "Run the sequence from text input through conversion and calculation to formatted output.",
+    "review": "Change the practice input and check both the calculated value and its format."
+  },
+  "1.5": {
+    "prepare": "Predict which branch runs when both an if condition and an elif condition are true.",
+    "classroom": "Trace values below, at and above a boundary, including and/or/not conditions.",
+    "review": "Try inputs for each branch and explain why that branch is selected."
+  },
+  "1.6": {
+    "prepare": "What changes if a total is reset to zero inside rather than before the loop?",
+    "classroom": "Separate repeated work from one-time initialisation and inspect the accumulated value.",
+    "review": "Change the repetition count or inputs and check the final iteration as well."
+  },
+  "2.1": {
+    "prepare": "When recording several books, where do you need order and where do you need field names?",
+    "classroom": "Trace a list of dictionary records before and after searching and changing one record.",
+    "review": "Change one practice record and verify that other records remain unchanged."
+  },
+  "2.2": {
+    "prepare": "How does displaying a value differ from returning it from a function?",
+    "classroom": "Read inputs, return values and exceptions as a contract; try valid and invalid inputs.",
+    "review": "Call the practice functions and check return values and exceptions separately."
+  },
+  "2.3": {
+    "prepare": "How should CSV preserve a book title containing a comma?",
+    "classroom": "Inspect the source, read with DictReader, save to a different file and read it back.",
+    "review": "Check saved column names, record counts and values without modifying the original."
+  },
+  "3.1": {
+    "prepare": "What does one row represent, and what does each column mean?",
+    "classroom": "Display CSV as a DataFrame and inspect shape, column names and inferred types.",
+    "review": "Use the practice table to explain the meaning of a row and identify numeric columns."
+  },
+  "3.2": {
+    "prepare": "How do rows meeting both conditions differ from rows meeting either condition?",
+    "classroom": "Display masks separately, then combine them with parentheses and Boolean operators.",
+    "review": "Reconcile selected rows and counts and explain the filtering condition."
+  },
+  "3.3": {
+    "prepare": "Does a blank mean zero? Should a suspected duplicate be deleted immediately?",
+    "classroom": "Avoid guessed corrections; compare numeric conversion, quality flags and audit records with the source.",
+    "review": "Distinguish the number of problematic rows from the number of problems when one row has several flags."
+  },
+  "3.4": {
+    "prepare": "How does the meaning of a row change after aggregation?",
+    "classroom": "Choose grouping keys first, calculate rates from totals, then check ranking and overall totals.",
+    "review": "Reconcile the practice summary with its source and explain each numerator and denominator."
+  },
+  "4.1": {
+    "prepare": "How could you bring dictionary data and the functions acting on it together?",
+    "classroom": "Compare function-based and class-based versions and trace the state of two instances.",
+    "review": "Create another instance and check that its state is independent."
+  },
+  "4.2": {
+    "prepare": "Name a state that should be rejected when an object is created.",
+    "classroom": "Separate initialisation checks from operation checks; verify state after an invalid operation.",
+    "review": "Try successful and failing operations and explain when state changes."
+  },
+  "4.3": {
+    "prepare": "Should an individual item or the lending desk search the entire inventory?",
+    "classroom": "Separate an item\u2019s responsibility from the manager\u2019s and trace calls between objects.",
+    "review": "Use several objects in the practice and explain which object handles each operation."
+  },
+  "4.4": {
+    "prepare": "Does reading saved text alone restore the original object?",
+    "classroom": "Distinguish storage format from live state, rebuild objects and test their operations.",
+    "review": "Compare values and behaviour before and after saving, including invalid data handling."
+  },
+  "5.1": {
+    "prepare": "Would you choose the same chart for category comparisons and changes over time?",
+    "classroom": "Check the question and plotting table before choosing chart type, axes and units.",
+    "review": "Reconcile plotted values with the table and explain the chart choice."
+  },
+  "5.2": {
+    "prepare": "Must the group with the greatest total also have the greatest mean?",
+    "classroom": "Compare totals, means and rates from the same data; examine denominators and axes.",
+    "review": "Change the practice indicator and use the original values to explain a changed ranking."
+  },
+  "5.3": {
+    "prepare": "Name a fact a chart can show and a possible cause it cannot establish.",
+    "classroom": "Check numbers, scope and limitations; write only claims supported by the chart.",
+    "review": "Compare the practice evidence statement with the chart and revise unsupported certainty."
+  },
+  "6.1": {
+    "prepare": "What should you know before loading a large CSV into memory?",
+    "classroom": "Inspect scale, required columns, types and a small trial before choosing a processing method.",
+    "review": "Check the small practice input and identify what to verify before scaling up."
+  },
+  "6.2": {
+    "prepare": "Does averaging chunk means always give the overall mean?",
+    "classroom": "Track totals, counts and state carried across chunks, including boundary-spanning records.",
+    "review": "Change chunk size and verify that the aggregate result stays the same."
+  },
+  "6.3": {
+    "prepare": "If a program finishes without an error, is its result necessarily correct?",
+    "classroom": "Reconcile counts, totals and reloaded output independently and record execution conditions.",
+    "review": "Rerun the integrated practice and reproduce its result before starting the chapter project."
+  }
+}

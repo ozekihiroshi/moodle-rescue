@@ -31,6 +31,10 @@ configure mail, and meet applicable privacy and education requirements. See
 [Project purpose and production use](docs/project-purpose-and-production-use.md)
 for the intended audience, guarantees, and operating boundary.
 
+The new [Python Dual Learning edition](sample-content/python-duallearning/README.md)
+provides four complete course backups: English/Japanese × self-paced/teacher-guided.
+See its requirements and restore instructions before importing.
+
 ## Licensing
 
 Copyright © 2026 Hiroshi Ozeki.

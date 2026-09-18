@@ -1,0 +1,48 @@
+{
+  "courseid": 42,
+  "chapter": 6,
+  "pages": [
+    {
+      "pagecmid": 703,
+      "name": "レッスン6.1：読み込む前に調べる",
+      "section": 10,
+      "file": "page-703.md",
+      "source_sha256": "afbb71fa3918175091ed17238786c5fbf3b962ae3ddaa473826f9f394552039b"
+    },
+    {
+      "pagecmid": 707,
+      "name": "レッスン6.2：チャンクを越えて正しく集計する",
+      "section": 9,
+      "file": "page-707.md",
+      "source_sha256": "20c0a41a3989b2fbd1ce99e3a9977f0efc5db529092fcfa01b4404e6797248ae"
+    },
+    {
+      "pagecmid": 711,
+      "name": "教師用資料：スケールアップ総合プロジェクト（非表示）",
+      "section": 9,
+      "file": "page-711.md",
+      "source_sha256": "ad236122719a661f876237bdfa711e1ccadabc45410a74308e321d2d09e8b424"
+    },
+    {
+      "pagecmid": 712,
+      "name": "オープンデータ発展編：ライセンス・来歴・プライバシー・検証",
+      "section": 9,
+      "file": "page-712.md",
+      "source_sha256": "d82bca65ce9f01219b18854b238278e2b511c6a8c5ed00b562e3cfb8da8871a9"
+    },
+    {
+      "pagecmid": 714,
+      "name": "レッスン6.3：照合して再現可能にする",
+      "section": 8,
+      "file": "page-714.md",
+      "source_sha256": "43c3d892dcfcae3f7f5696953ff62863e5f72b7f560d91e8f1659ab43fe43f66"
+    },
+    {
+      "pagecmid": 718,
+      "name": "6.4 課題仕様と完成条件",
+      "section": 7,
+      "file": "page-718.md",
+      "source_sha256": "c11baf31e027205a6a29a40d1f9f95bd4389d05e838b0ba35e4cf9339906fa9e"
+    }
+  ]
+}

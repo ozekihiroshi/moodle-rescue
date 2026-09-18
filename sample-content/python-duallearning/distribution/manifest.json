@@ -1,0 +1,70 @@
+{
+  "release": "0.1.0-alpha.1",
+  "status": "alpha",
+  "canonical_language": "en",
+  "moodle": "5.2.2",
+  "required_plugins": {
+    "mod_lessonmark": "0.3.0-alpha4 (2026091800)",
+    "format_duallearning": "0.1.0-alpha5 (2026091803)"
+  },
+  "requires_python_lab": true,
+  "includes_users": false,
+  "artifacts": [
+    {
+      "variant": "en-path",
+      "file": "python-foundations-dual-en-path-0.1.0-alpha.1.mbz",
+      "sha256": "21a05f70905dd0060a9aedb8eefa1b181f26a61468137d4da9155b6267e62cce",
+      "bytes": 261255,
+      "activities": {
+        "forum": 1,
+        "lessonmark": 37,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+      }
+    },
+    {
+      "variant": "en-guided",
+      "file": "python-foundations-dual-en-guided-0.1.0-alpha.1.mbz",
+      "sha256": "43928fa4daa6f6aa0ac43561e21845e674f3734e9e6819a57da214c3b8836ee7",
+      "bytes": 304865,
+      "activities": {
+        "forum": 8,
+        "lessonmark": 83,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+      }
+    },
+    {
+      "variant": "ja-path",
+      "file": "python-foundations-dual-ja-path-0.1.0-alpha.1.mbz",
+      "sha256": "a76b5357c9791f8a2ab72e1d16473870ca641539fd6da9f325ff28dcaefe984f",
+      "bytes": 281487,
+      "activities": {
+        "forum": 1,
+        "lessonmark": 37,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+      }
+    },
+    {
+      "variant": "ja-guided",
+      "file": "python-foundations-dual-ja-guided-0.1.0-alpha.1.mbz",
+      "sha256": "5b5c1a60f8a7c75acb8299bd60970191d94aca3ddd59a9297e169c131202a9c5",
+      "bytes": 327585,
+      "activities": {
+        "forum": 8,
+        "lessonmark": 83,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "courseid": 44,
+  "chapter": 2,
+  "pages": [
+    {
+      "pagecmid": "1024",
+      "name": "Lesson 2.1: Lists, dictionaries, and records",
+      "section": "30",
+      "visible": true,
+      "file": "page-1024.md",
+      "source_sha256": "8b4b59a147690042b0cbed945d367af49ce80d1cbfc2ba4e62528269ad4fe6fd"
+    },
+    {
+      "pagecmid": "1028",
+      "name": "Lesson 2.2: Functions, errors, and testing",
+      "section": "29",
+      "visible": true,
+      "file": "page-1028.md",
+      "source_sha256": "07e1db91a91077cdaf4c50e04791b080efa23f608c0d15f7631056ba493df935"
+    },
+    {
+      "pagecmid": "1032",
+      "name": "Lesson 2.3: File and CSV input/output",
+      "section": "28",
+      "visible": true,
+      "file": "page-1032.md",
+      "source_sha256": "dbb8964ee9d43de802c5e16e35feb67b7e9607c3c42db79060012d8504f7b746"
+    },
+    {
+      "pagecmid": "1036",
+      "name": "2.4 Project brief and completion criteria",
+      "section": "27",
+      "visible": true,
+      "file": "page-1036.md",
+      "source_sha256": "a25671ba306a9cf783262783b2f7da7097045da75329c9ce774d0c8e1f6dc1fd"
+    }
+  ]
+}

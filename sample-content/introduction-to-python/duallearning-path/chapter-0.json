@@ -1,0 +1,30 @@
+{
+  "courseid": 44,
+  "chapter": 0,
+  "pages": [
+    {
+      "pagecmid": "989",
+      "name": "Start here: the Python learning map",
+      "section": "0",
+      "visible": true,
+      "file": "page-989.md",
+      "source_sha256": "c094d7a2793c901a13a30bdecc4ac72bdafb9646f66221640c3f88dc9c8e84f7"
+    },
+    {
+      "pagecmid": "990",
+      "name": "Using Python Lab: Notebook, Console, and scripts",
+      "section": "0",
+      "visible": true,
+      "file": "page-990.md",
+      "source_sha256": "5bd8b38d30ebeb9349e793d51e0a338f15fd797c265f66d9ca886f7fccd2c8a1"
+    },
+    {
+      "pagecmid": "991",
+      "name": "How learning checks work: Retry, learn, and aim for 100%",
+      "section": "0",
+      "visible": true,
+      "file": "page-991.md",
+      "source_sha256": "fdd97d51910b6a368beb356a9fc48d9fbb561e34b8ddf326c8f69e9b7bccd840"
+    }
+  ]
+}

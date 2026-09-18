@@ -1,0 +1,48 @@
+{
+  "courseid": 42,
+  "chapter": 5,
+  "pages": [
+    {
+      "pagecmid": 684,
+      "name": "レッスン5.1：問いから図へ",
+      "section": 14,
+      "file": "page-684.md",
+      "source_sha256": "5080cc80155a88d65c0806711a49f74c746510da7ae7d2dc7a62e819132685c8"
+    },
+    {
+      "pagecmid": 688,
+      "name": "レッスン5.2：誤解を生まない比較",
+      "section": 13,
+      "file": "page-688.md",
+      "source_sha256": "641428fe46449c052783e480a9a765dc4faf1506e46f5cbbf2fd50cede94fa5d"
+    },
+    {
+      "pagecmid": 693,
+      "name": "レッスン5.3：図から根拠文へ",
+      "section": 12,
+      "file": "page-693.md",
+      "source_sha256": "3615da7e56904685616e69cd704caba12f93f54def2483f0ae99b8f670206cb7"
+    },
+    {
+      "pagecmid": 697,
+      "name": "5.4 課題仕様と完成条件",
+      "section": 11,
+      "file": "page-697.md",
+      "source_sha256": "8582da6a8590b778a826f1fe0d9465d07bbcc90faea0542739da18f5eeb11b03"
+    },
+    {
+      "pagecmid": 700,
+      "name": "模範解答と採点メモ（学習者には非表示）",
+      "section": 11,
+      "file": "page-700.md",
+      "source_sha256": "6d8e9596eaa1dda60dd33b4565695e10ff3cfea12547b271fe56c13a8c699ee2"
+    },
+    {
+      "pagecmid": 701,
+      "name": "教師用解答：つながりのある応用課題（非表示）",
+      "section": 11,
+      "file": "page-701.md",
+      "source_sha256": "7ae09ffec3c7ac689542c6309d2e6822ebae39be0ae8c3c9affd768a3d517705"
+    }
+  ]
+}

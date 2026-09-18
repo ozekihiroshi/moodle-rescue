@@ -1,0 +1,27 @@
+{
+  "courseid": 42,
+  "chapter": 0,
+  "pages": [
+    {
+      "pagecmid": 582,
+      "name": "はじめに：Python学習の全体地図",
+      "section": 0,
+      "file": "page-582.md",
+      "source_sha256": "2882cce71548a2e8ae122e75cfda174557e6ae46dd39e54737804487c52a6cff"
+    },
+    {
+      "pagecmid": 583,
+      "name": "Python Labの使い方：Notebook・Console・スクリプト",
+      "section": 0,
+      "file": "page-583.md",
+      "source_sha256": "c78407d6a78a66ed685b23f4a8d8cc803ae1d09fe688fbe6fd76bc642fef794a"
+    },
+    {
+      "pagecmid": 584,
+      "name": "理解度チェックの進め方：再挑戦し、学び、100点を目指す",
+      "section": 0,
+      "file": "page-584.md",
+      "source_sha256": "24fce257fb0c5901f15eb549907dba72ed6238710dee2970a6da9da0b41305c3"
+    }
+  ]
+}

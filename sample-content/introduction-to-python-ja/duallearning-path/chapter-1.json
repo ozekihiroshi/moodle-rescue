@@ -1,0 +1,62 @@
+{
+  "courseid": 42,
+  "chapter": 1,
+  "pages": [
+    {
+      "pagecmid": 588,
+      "name": "レッスン1.1：プログラム・値・式・出力",
+      "section": 37,
+      "file": "page-588.md",
+      "source_sha256": "f79e577a245943db832631d432056bb1d242cffa1e4feb738c9f162fd6fd09e1"
+    },
+    {
+      "pagecmid": 592,
+      "name": "レッスン1.2：変数・代入・プログラムの状態",
+      "section": 36,
+      "file": "page-592.md",
+      "source_sha256": "9792b011d8fe59ebb6856c11564a0382e977d9399eb6dda01338df861916f12a"
+    },
+    {
+      "pagecmid": 596,
+      "name": "レッスン1.3：基本データ型・型変換・算術",
+      "section": 35,
+      "file": "page-596.md",
+      "source_sha256": "16b5d4351bca55acfeb5c0d0fb5bbba1602da4d2579f2abbebf312f214514060"
+    },
+    {
+      "pagecmid": 600,
+      "name": "レッスン1.4：文字列・入力・書式付き出力",
+      "section": 34,
+      "file": "page-600.md",
+      "source_sha256": "2e9a9e5a8c7759430e0bccbdd424e9de0f19b02efc0c3f0ea8349e9f6cb0a867"
+    },
+    {
+      "pagecmid": 604,
+      "name": "レッスン1.5：条件による判断",
+      "section": 33,
+      "file": "page-604.md",
+      "source_sha256": "272342ce93a9e3eaacafe46ef4508119e5e86307207f0be1bfe64669d7998ded"
+    },
+    {
+      "pagecmid": 608,
+      "name": "レッスン1.6：ループによる繰り返し",
+      "section": 32,
+      "file": "page-608.md",
+      "source_sha256": "b2be2a1f86c3a97ad63e8442abab8b87dd630c2ee8e04a764677cf563827ce56"
+    },
+    {
+      "pagecmid": 612,
+      "name": "1.7 課題仕様と完成条件",
+      "section": 31,
+      "file": "page-612.md",
+      "source_sha256": "a6e37a336dbfbef0e4caa6628ef522fa39f8608ea3897c492212344c92d834bf"
+    },
+    {
+      "pagecmid": 615,
+      "name": "教師用模範解答：学習センター週間サポート報告（非表示）",
+      "section": 31,
+      "file": "page-615.md",
+      "source_sha256": "cfb16b6af7b6a01c18bfd2cd3be94ff89f7ed108d7ce6da47083a9f09e5e0605"
+    }
+  ]
+}

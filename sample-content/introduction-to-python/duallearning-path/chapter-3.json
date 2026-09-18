@@ -1,0 +1,86 @@
+{
+  "courseid": 44,
+  "chapter": 3,
+  "pages": [
+    {
+      "pagecmid": "1040",
+      "name": "Lesson 3.1: Tabular data, CSV, and pandas",
+      "section": "26",
+      "visible": true,
+      "file": "page-1040.md",
+      "source_sha256": "b5b6bbdcab995ada68b8d6fbc1129bfae00376cc9af7a3ef3c7c8430225741cf"
+    },
+    {
+      "pagecmid": "1043",
+      "name": "Dataset progression: 24 to 250,000 fictional records",
+      "section": "26",
+      "visible": true,
+      "file": "page-1043.md",
+      "source_sha256": "e4bda057ab57c65102f85cb3945739230e79e94de96c7afd1e448ab1dd47a187"
+    },
+    {
+      "pagecmid": "1045",
+      "name": "Lesson 3.2: Data selection, filtering, and Boolean logic",
+      "section": "25",
+      "visible": true,
+      "file": "page-1045.md",
+      "source_sha256": "5878c27f3709b243dff1d6060a6567275e3c10ea0aff34dabdecf244b1487753"
+    },
+    {
+      "pagecmid": "1049",
+      "name": "Lesson 3.3: Data cleaning and audit records",
+      "section": "24",
+      "visible": true,
+      "file": "page-1049.md",
+      "source_sha256": "1954a61422de2b768101f2b477af68b3bf863c4faa7fda9224f17ab0e4e0fc0b"
+    },
+    {
+      "pagecmid": "1052",
+      "name": "Analysis toolkit: Boolean logic, sets, and basic statistics",
+      "section": "24",
+      "visible": true,
+      "file": "page-1052.md",
+      "source_sha256": "f39d457205fffa33c18b2f715500cae8ee18283e7648ca75c53fd29197e6fde7"
+    },
+    {
+      "pagecmid": "1054",
+      "name": "Lesson 3.4: Grouping and summary statistics",
+      "section": "23",
+      "visible": true,
+      "file": "page-1054.md",
+      "source_sha256": "ddd9411177733559dcb93718244b43a8a7a7471290edc6daeb2428bcc399ba80"
+    },
+    {
+      "pagecmid": "1057",
+      "name": "Chapter 3 midterm: Choose one practical project",
+      "section": "3",
+      "visible": true,
+      "file": "page-1057.md",
+      "source_sha256": "6748d3ba0ad0c9e823b273e8924b24445a85e30ffa3cfadd3c169cd8827a4bd3"
+    },
+    {
+      "pagecmid": "1059",
+      "name": "3.5A Project brief and completion criteria",
+      "section": "22",
+      "visible": true,
+      "file": "page-1059.md",
+      "source_sha256": "df2f15a78860b14ce3dab9f9ce199fa8d20a3d5b7091c737cd566721257fbdf7"
+    },
+    {
+      "pagecmid": "1063",
+      "name": "3.5B Project brief and completion criteria",
+      "section": "21",
+      "visible": true,
+      "file": "page-1063.md",
+      "source_sha256": "696411361e5baac35688567b2ed2320e784ff5f0cd503c0e10b68d1bab0ba953"
+    },
+    {
+      "pagecmid": "1067",
+      "name": "3.5C Project brief and completion criteria",
+      "section": "20",
+      "visible": true,
+      "file": "page-1067.md",
+      "source_sha256": "90ee64de020786626896642c88abfefe5430bd73f834b6f38b7a1e06f621aef5"
+    }
+  ]
+}

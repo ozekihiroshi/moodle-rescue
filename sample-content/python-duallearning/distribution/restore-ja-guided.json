@@ -1,0 +1,18 @@
+{
+    "variant": "ja-guided",
+    "restored_courseid": "52",
+    "status": "PASS",
+    "hidden": true,
+    "mode": "guided",
+    "activities": {
+        "forum": 8,
+        "lessonmark": 83,
+        "lti": 32,
+        "subsection": 31,
+        "quiz": 23,
+        "assign": 8
+    },
+    "questions": 230,
+    "internal_links": 290,
+    "users": 0
+}

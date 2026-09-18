@@ -1,0 +1,34 @@
+{
+  "courseid": 42,
+  "chapter": 2,
+  "pages": [
+    {
+      "pagecmid": 617,
+      "name": "レッスン2.1：リスト・辞書・レコード",
+      "section": 30,
+      "file": "page-617.md",
+      "source_sha256": "94ab739126ff6ce9449002be384a2e576e3c2db24d7b823da637499144b66c8c"
+    },
+    {
+      "pagecmid": 621,
+      "name": "レッスン2.2：関数・エラー・テスト",
+      "section": 29,
+      "file": "page-621.md",
+      "source_sha256": "049218515311b5cacc28ce6d9e0e5455a52ecadab012280d736086eae367bf70"
+    },
+    {
+      "pagecmid": 625,
+      "name": "レッスン2.3：ファイル・CSVの読み書き",
+      "section": 28,
+      "file": "page-625.md",
+      "source_sha256": "8b555b13cdc0622ef7a59dbe8d9ea5022a71e90ab45c90c3a45fb152daca8f66"
+    },
+    {
+      "pagecmid": 629,
+      "name": "2.4 課題仕様と完成条件",
+      "section": 27,
+      "file": "page-629.md",
+      "source_sha256": "3d1b4751b2bbea38e10684f84ea4d549b918409b743182f9edb06c47ee02cdc5"
+    }
+  ]
+}

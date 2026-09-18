@@ -1,5 +1,14 @@
 # Moodle Rescue sample content
 
+## New: Python Dual Learning edition
+
+Four complete Markdown-based courses are now provided as a separate distribution:
+English and Japanese, each with self-paced and teacher-guided modes.
+See [downloads, requirements and restoration instructions](python-duallearning/README.md).
+The original editions below remain available and are not replaced.
+
+## Original Python editions
+
 Moodle Rescue publishes ready-to-restore teaching content separately from the
 Docker platform. Release `0.1.0-alpha.1` contains two editions of the same
 Python learning path:

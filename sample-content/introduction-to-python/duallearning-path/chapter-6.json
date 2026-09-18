@@ -1,0 +1,54 @@
+{
+  "courseid": 44,
+  "chapter": 6,
+  "pages": [
+    {
+      "pagecmid": "1110",
+      "name": "Lesson 6.1: Inspect before loading",
+      "section": "10",
+      "visible": true,
+      "file": "page-1110.md",
+      "source_sha256": "de6a67eb675d30f350312b20c99cfa5f2a9407b92da232f62edfeb63626bf0b4"
+    },
+    {
+      "pagecmid": "1115",
+      "name": "Lesson 6.2: Aggregate correctly across chunks",
+      "section": "9",
+      "visible": true,
+      "file": "page-1115.md",
+      "source_sha256": "53e805f71eb77cc33f6d4073e9cf716fdbf7072820b5950f6becae154594bb58"
+    },
+    {
+      "pagecmid": "1119",
+      "name": "Teacher reference: Scale-up capstone (hidden)",
+      "section": "9",
+      "visible": false,
+      "file": "page-1119.md",
+      "source_sha256": "75b0f6510ba34ca71187ba4e2e2cb432437e334189473728548c8b824f978811"
+    },
+    {
+      "pagecmid": "1120",
+      "name": "Open-data extension: Licence, provenance, privacy, and validation",
+      "section": "9",
+      "visible": false,
+      "file": "page-1120.md",
+      "source_sha256": "d8e0166ba7abff21f2f11399b7525144c5dab7ce159f638b92f0122742f3553a"
+    },
+    {
+      "pagecmid": "1122",
+      "name": "Lesson 6.3: Reconcile and reproduce",
+      "section": "8",
+      "visible": true,
+      "file": "page-1122.md",
+      "source_sha256": "a52dde909c908b10b53831412c19235f7eb1e0f7d953898935e3d9f7c278713b"
+    },
+    {
+      "pagecmid": "1126",
+      "name": "6.4 Project brief and completion criteria",
+      "section": "7",
+      "visible": true,
+      "file": "page-1126.md",
+      "source_sha256": "0aefba91718e85886a3a1631b2ab13d5da0d099ec09cb013af49b9936e080b0a"
+    }
+  ]
+}

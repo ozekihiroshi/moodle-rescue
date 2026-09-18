@@ -1,0 +1,54 @@
+{
+  "courseid": 44,
+  "chapter": 5,
+  "pages": [
+    {
+      "pagecmid": "1091",
+      "name": "Lesson 5.1: From a question to a chart",
+      "section": "14",
+      "visible": true,
+      "file": "page-1091.md",
+      "source_sha256": "bb6d1272f5434a5ac8de22113595d0b8f87f6e2282a4149bc1675c842e7c2325"
+    },
+    {
+      "pagecmid": "1095",
+      "name": "Lesson 5.2: Honest comparisons",
+      "section": "13",
+      "visible": true,
+      "file": "page-1095.md",
+      "source_sha256": "ef59aeeb16209e6ae2e3abebf0a28b609d723ab2e2b7462824afb688de797f49"
+    },
+    {
+      "pagecmid": "1100",
+      "name": "Lesson 5.3: From chart to evidence statement",
+      "section": "12",
+      "visible": true,
+      "file": "page-1100.md",
+      "source_sha256": "979bb0150225d90a14abecafdc55336c78912aca073eeab5a40bbfd2d3f1122b"
+    },
+    {
+      "pagecmid": "1104",
+      "name": "5.4 Project brief and completion criteria",
+      "section": "11",
+      "visible": true,
+      "file": "page-1104.md",
+      "source_sha256": "fe1a7f0a47794f25fccb16ff1c653547ef7ba5d9e7b2cd69c35d1e3ee439e2f5"
+    },
+    {
+      "pagecmid": "1107",
+      "name": "Model answers and grading notes (hidden from students)",
+      "section": "11",
+      "visible": false,
+      "file": "page-1107.md",
+      "source_sha256": "8576996d9a1dd3651bc050e867fc77398eec8fc972870e9fe4e38feb2d923d5e"
+    },
+    {
+      "pagecmid": "1108",
+      "name": "Teacher answers: Connected transfer challenges (hidden)",
+      "section": "11",
+      "visible": false,
+      "file": "page-1108.md",
+      "source_sha256": "af3bfedb33aa95e8ad516af7b34798977452252c24e2d4c235cd0da9a914dca6"
+    }
+  ]
+}

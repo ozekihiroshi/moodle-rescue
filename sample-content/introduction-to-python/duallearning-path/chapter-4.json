@@ -1,0 +1,46 @@
+{
+  "courseid": 44,
+  "chapter": 4,
+  "pages": [
+    {
+      "pagecmid": "1071",
+      "name": "Lesson 4.1: From records and functions to objects",
+      "section": "19",
+      "visible": true,
+      "file": "page-1071.md",
+      "source_sha256": "6c2eab07f34df073962dbf6edd5dfd2251e09a1eadf39ee84bbe26f7ec5f8c90"
+    },
+    {
+      "pagecmid": "1075",
+      "name": "Lesson 4.2: State, methods, and valid objects",
+      "section": "18",
+      "visible": true,
+      "file": "page-1075.md",
+      "source_sha256": "b4a4d63a76d65701b3633d306f070df9f1e0cad4e668b384c0e69b029aadc39f"
+    },
+    {
+      "pagecmid": "1079",
+      "name": "Lesson 4.3: Collections, composition, and responsibility",
+      "section": "17",
+      "visible": true,
+      "file": "page-1079.md",
+      "source_sha256": "d0f5f959ee3e0df89839addf12773a1d9c1b0e491a921196746d12698259d37d"
+    },
+    {
+      "pagecmid": "1083",
+      "name": "Lesson 4.4: Persistence and testing class-based programs",
+      "section": "16",
+      "visible": true,
+      "file": "page-1083.md",
+      "source_sha256": "f625474351165211be47767802aeb941d6500746d10d58a353006330276def22"
+    },
+    {
+      "pagecmid": "1087",
+      "name": "4.5 Project brief and completion contract",
+      "section": "15",
+      "visible": true,
+      "file": "page-1087.md",
+      "source_sha256": "3a0061f0b02cba58d9c85532c71e8ce808a7f4924de25bca173e7614264d8382"
+    }
+  ]
+}
