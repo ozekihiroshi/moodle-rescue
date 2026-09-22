@@ -298,3 +298,5 @@ database or Moodle data volumes. See
 and empty-environment restore path. It creates random ephemeral credentials and
 unique Compose projects, then removes only its CI-specific containers and
 volumes. Existing 8083 and 8084 development environments are not reused.
+
+For independent Lab verification and repeatable Moodle LTI registration, see [Lab connection setup](docs/lab-connection-setup.md).
