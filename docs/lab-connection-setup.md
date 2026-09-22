@@ -51,10 +51,21 @@ Labイメージにその初期ファイルが含まれることを確認しま�
 
 ## Python Labとの共通化と残る差
 
-`register-lab.py --lab python --url http://localhost:8086 --name "Python Lab" ...`も同じ形式で登録情報を出力できます。ただしPython側の取り込みコマンドはまだ未実装で、既存の`.env`へ`LTI13_*`を設定する手順を使います。稼働中Python Labの設定は変更していません。
+両LabともMoodleで登録情報を出力し、Labで同じ形のコマンドで取り込みます。
 
-次のPython改善は、同じ接続情報形式の取り込み、初回導入案内の一本化、再接続時の本人/保存領域の照合です。単独検証の共有パスワード・既定adminの扱いも見直す対象です。Javaの直接提出は追加せず、標準課題へのファイル提出を維持します。
+| 項目 | Python Lab | Java Lab |
+|---|---|---|
+| 登録オプション | `--lab python --url http://localhost:8086 --name "Python Lab"` | `--lab java --url http://localhost:8087 --name "Java Lab"` |
+| 出力ファイル | `python.json` | `java.json` |
+| 各Labで取り込み | `python3 scripts/setup.py connect <python.json>` | `python3 scripts/setup.py connect <java.json>` |
+| 基本起動 | `sh scripts/start-local.sh` | `python3 scripts/lab.py up` |
+
+Pythonの初回LTI導入では`.env`をコピーする前に取り込みます。既存の単独ログイン環境の認証方式変更は拒否します。直接提出を使用する既存Python環境は、従来の`start-lti-submit-local.sh`で起動してください。保存領域や提出設定は取り込みで変更しません。Pythonの[導入案内](https://github.com/ozekihiroshi/python-lab-rescue/blob/codex/lab-connection-import/docs/connection.md)は専用ブランチで提供しています（main統合前）。Javaは標準課題へのファイル提出を維持します。
 
 JSONはschema_version=1、kind、platform（issuer/authorize_url/jwks_url/client_id/deployment_id）、tool（base_url/login_url/callback_url/target_url）を持ちます。パスワードや署名秘密鍵を含みませんが、実環境設定としてGit管理外に保管します。
 
 検証（2026-09-22）: ローカルMoodleで新規登録・同条件の再実行（同じID）・異なるURLへの上書き拒否を確認。検証専用登録は活動から未使用であることを確認して削除しました。既存Java/Python登録は読み取り出力のみ。Java側で既存接続の取り込み、単独ログイン・IDE・Java実行・停止再開後の保持、既存Moodle受講者のLTI起動を確認しました。
+
+Python取り込み検証（2026-09-22）: 6件の自動テストが成功。既存設定への2回の取り込みが同じ結果となり、直接提出を含むCompose全体の解決済み構成が取り込み前後で一致しました。
+
+Pythonの署名付きLTI起動・教材ファイル・ライブラリの利用も確認しました。既存試験コースは学生非公開のため、この起動試験は管理者アカウントで実施しています。
