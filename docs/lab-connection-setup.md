@@ -60,7 +60,7 @@ Labイメージにその初期ファイルが含まれることを確認しま�
 | 各Labで取り込み | `python3 scripts/setup.py connect <python.json>` | `python3 scripts/setup.py connect <java.json>` |
 | 基本起動 | `sh scripts/start-local.sh` | `python3 scripts/lab.py up` |
 
-Pythonの初回LTI導入では`.env`をコピーする前に取り込みます。既存の単独ログイン環境の認証方式変更は拒否します。直接提出を使用する既存Python環境は、従来の`start-lti-submit-local.sh`で起動してください。保存領域や提出設定は取り込みで変更しません。Pythonの[導入案内](https://github.com/ozekihiroshi/python-lab-rescue/blob/codex/lab-connection-import/docs/connection.md)は専用ブランチで提供しています（main統合前）。Javaは標準課題へのファイル提出を維持します。
+Pythonの初回LTI導入では`.env`をコピーする前に取り込みます。既存の単独ログイン環境の認証方式変更は拒否します。直接提出を使用する既存Python環境は、従来の`start-lti-submit-local.sh`で起動してください。保存領域や提出設定は取り込みで変更しません。Pythonの[導入案内](https://github.com/ozekihiroshi/python-lab-rescue/blob/main/docs/connection.md)はmainで提供しています。Javaは標準課題へのファイル提出を維持します。
 
 JSONはschema_version=1、kind、platform（issuer/authorize_url/jwks_url/client_id/deployment_id）、tool（base_url/login_url/callback_url/target_url）を持ちます。パスワードや署名秘密鍵を含みませんが、実環境設定としてGit管理外に保管します。
 
