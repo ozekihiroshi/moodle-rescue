@@ -130,7 +130,8 @@ services:
       - release_internal
 
   release-fetch:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     profiles: ["tools"]
     entrypoint: []
     command:
@@ -153,7 +154,8 @@ services:
       - source_minio
 
   release-db-fetch:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     profiles: ["tools"]
     entrypoint: ["/bin/sh", "/usr/local/bin/database-artifact-fetch"]
     environment:
@@ -170,7 +172,8 @@ services:
       - source_minio
 
   release-v2-db-fetch:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     profiles: ["tools"]
     entrypoint: ["/bin/sh", "/usr/local/bin/database-artifact-v2-fetch"]
     environment:
@@ -188,7 +191,8 @@ services:
       - source_minio
 
   release-content-fetch:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     profiles: ["tools"]
     entrypoint: ["/bin/sh", "/usr/local/bin/content-recovery-fetch"]
     environment:

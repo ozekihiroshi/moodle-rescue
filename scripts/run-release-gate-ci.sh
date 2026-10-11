@@ -64,6 +64,7 @@ RELEASE_CONTAINER_PREFIX=$releaseprefix
 RELEASE_MOODLE_PORT=$releaseport
 RELEASE_MOODLE_IMAGE=$releaseimage
 MOODLE_BASE_IMAGE=$sourceimage
+LOCAL_MINIO_IMAGE=$sourceproject-minio
 SOURCE_MINIO_NETWORK=${sourceproject}_internal
 RELEASE_TEST_DATABASE_ARTIFACT_VOLUME=${sourceproject}_moodle_database_artifacts
 RELEASE_TEST_DB_NAME=moodle_release_ci
@@ -150,6 +151,7 @@ wait_for_release_moodle() {
 
 echo "Building and installing the source-bound integration environment."
 source_compose config --quiet
+source_compose build minio
 source_compose up -d --build
 echo "Waiting for the source Moodle entrypoint."
 wait_for_source_moodle

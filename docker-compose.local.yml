@@ -123,7 +123,10 @@ services:
       - internal
 
   minio:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    build:
+      context: ./moodle/minio
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     container_name: ${LOCAL_CONTAINER_PREFIX:-moodle-rescue}-minio-local
     restart: unless-stopped
     command: server /data --console-address ":9001"
@@ -145,7 +148,8 @@ services:
       - local_access
 
   minio-init:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: ${LOCAL_MINIO_IMAGE:-moodle-rescue-minio-source}
+    pull_policy: never
     container_name: ${LOCAL_CONTAINER_PREFIX:-moodle-rescue}-minio-init-local
     restart: "no"
     entrypoint: []
