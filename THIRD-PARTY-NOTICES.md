@@ -3,6 +3,17 @@
 Moodle Rescue does not change the licenses of software, images, datasets, or
 other material supplied by third parties.
 
+## MinIO local test fixture
+
+The source-built S3 test image includes [MinIO](https://github.com/minio/minio)
+at commit `9e49d5e7a648f00e26f2246f4dc28e6b07f8c84a` and the
+[MinIO Client](https://github.com/minio/mc) at commit
+`7394ce0dd2a80935aded936b09fa12cbb3cb8096`. Both are licensed under
+GNU AGPL v3. The Dockerfile compiles unmodified upstream sources and retains
+their license files under `/usr/share/doc/minio/` and `/usr/share/doc/mc/`.
+This fixture supports local and CI testing; it is not part of the Moodle
+plugin ZIP or production Compose services.
+
 ## Moodle
 
 Moodle LMS is distributed under the GNU General Public License. See the

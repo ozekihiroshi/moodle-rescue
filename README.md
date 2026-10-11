@@ -138,6 +138,13 @@ Open Moodle at <http://localhost:8083> and MinIO at
 <http://localhost:9003>. Moodle uses its standard installation flow against
 the preconfigured MariaDB connection.
 
+MinIO is built from source. The local fixture includes both server and `mc`
+client, using fixed upstream commits and checked archive hashes in
+[`moodle/minio/Dockerfile`](moodle/minio/Dockerfile). The first build takes
+longer because it compiles Go dependencies; it does not require access to the
+removed upstream container images. Release-test tools reuse this built image.
+`LOCAL_MINIO_IMAGE` can give the fixture a separate local image name.
+
 Moodle 5.2 stores web-exposed plugin code below `public/`. The local source is
 therefore mounted at:
 
